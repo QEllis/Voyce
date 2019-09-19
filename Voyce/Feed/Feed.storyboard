@@ -25,14 +25,40 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="37x-G8-tAm">
+                                <rect key="frame" x="0.0" y="116.5" width="414" height="779.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHA-2y-kfc">
+                                <rect key="frame" x="349" y="64" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="xir-yz-2S7"/>
+                                    <constraint firstAttribute="height" constant="45" id="yYQ-OW-V3I"/>
+                                </constraints>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="postPressed:" destination="cGs-MB-HJR" eventType="touchUpInside" id="uDX-J7-BJN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                         <constraints>
+                            <constraint firstItem="37x-G8-tAm" firstAttribute="top" secondItem="euX-Dw-dP7" secondAttribute="bottom" constant="20" id="7Mv-0e-2bg"/>
+                            <constraint firstAttribute="bottom" secondItem="37x-G8-tAm" secondAttribute="bottom" id="AUF-8b-WgO"/>
+                            <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="ZHA-2y-kfc" secondAttribute="trailing" constant="20" id="CZl-NJ-Zlw"/>
+                            <constraint firstItem="ZHA-2y-kfc" firstAttribute="top" secondItem="41m-Dp-SnV" secondAttribute="top" constant="20" id="CcB-Mr-ezS"/>
                             <constraint firstItem="euX-Dw-dP7" firstAttribute="top" secondItem="41m-Dp-SnV" secondAttribute="top" constant="20" id="Fxc-gd-han"/>
+                            <constraint firstAttribute="trailing" secondItem="37x-G8-tAm" secondAttribute="trailing" id="WaD-UA-gyQ"/>
+                            <constraint firstItem="37x-G8-tAm" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="Ysu-v7-uki"/>
                             <constraint firstItem="euX-Dw-dP7" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="a43-7Y-G4W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="41m-Dp-SnV"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="37x-G8-tAm" id="51s-Z0-wdY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CZ-4Q-gJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
