@@ -18,10 +18,16 @@ class FeedViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
+    NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
+  }
+
+  @objc private func newPosts() {
+    tableView.reloadData()
   }
 
   @IBAction func postPressed(_ sender: Any) {
-    // TODO
+    let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
+    navigationController?.pushViewController(vc, animated: true)
   }
 
 }
