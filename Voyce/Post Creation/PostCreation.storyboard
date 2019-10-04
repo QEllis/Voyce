@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Post Creation View Controller-->
+        <scene sceneID="a2c-SK-VJW">
+            <objects>
+                <viewController storyboardIdentifier="PostCreationVC" id="CA0-EX-7NZ" customClass="PostCreationViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QC9-37-xdX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVw-fw-PA7">
+                                <rect key="frame" x="135.5" y="64" width="143" height="33"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-nP-WIx">
+                                <rect key="frame" x="338" y="282" width="36" height="32"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                <state key="normal" title="Post!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="postPressed:" destination="CA0-EX-7NZ" eventType="touchUpInside" id="aZH-nC-koi"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSh-lY-hmb">
+                                <rect key="frame" x="20" y="117" width="374" height="150"/>
+                                <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="pNx-e4-lMH"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-ht-BKl">
+                                <rect key="frame" x="20" y="60.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="lIQ-ry-Qi2"/>
+                                    <constraint firstAttribute="height" constant="40" id="nTW-Ct-vfL"/>
+                                </constraints>
+                                <state key="normal" image="backArrow"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="CA0-EX-7NZ" eventType="touchUpInside" id="t6R-0S-Mb3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <constraints>
+                            <constraint firstItem="Mb8-zs-1zU" firstAttribute="trailing" secondItem="xSh-lY-hmb" secondAttribute="trailing" constant="20" id="072-MJ-cwV"/>
+                            <constraint firstItem="UVw-fw-PA7" firstAttribute="top" secondItem="Mb8-zs-1zU" secondAttribute="top" constant="20" id="0qn-QP-O15"/>
+                            <constraint firstItem="9VQ-nP-WIx" firstAttribute="top" secondItem="xSh-lY-hmb" secondAttribute="bottom" constant="15" id="4c0-CL-3MU"/>
+                            <constraint firstItem="gUS-ht-BKl" firstAttribute="centerY" secondItem="UVw-fw-PA7" secondAttribute="centerY" id="B1s-FT-J1M"/>
+                            <constraint firstItem="gUS-ht-BKl" firstAttribute="leading" secondItem="Mb8-zs-1zU" secondAttribute="leading" constant="20" id="M2U-yr-iPs"/>
+                            <constraint firstItem="UVw-fw-PA7" firstAttribute="centerX" secondItem="QC9-37-xdX" secondAttribute="centerX" id="Mg3-bl-djB"/>
+                            <constraint firstItem="xSh-lY-hmb" firstAttribute="leading" secondItem="Mb8-zs-1zU" secondAttribute="leading" constant="20" id="Qwl-xy-dYW"/>
+                            <constraint firstItem="xSh-lY-hmb" firstAttribute="top" secondItem="UVw-fw-PA7" secondAttribute="bottom" constant="20" id="irB-Yz-dZx"/>
+                            <constraint firstItem="Mb8-zs-1zU" firstAttribute="trailing" secondItem="9VQ-nP-WIx" secondAttribute="trailing" constant="40" id="jvs-MO-a1J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mb8-zs-1zU"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="xSh-lY-hmb" id="css-Nr-yXL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BOO-c5-NSk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="60.869565217391312" y="18.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backArrow" width="12" height="19"/>
+        <namedColor name="BackgroundDarkBlue">
+            <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
