@@ -20,10 +20,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         usernameLabel.text = "@" + userManager.username
     }
+
     @IBAction func transferToBankPressed(_ sender: Any) {
 //        add functionality for transferring Good Vibes to bank
     }
-  
+
   @IBAction func backPressed(_ sender: Any) {
     navigationController?.popViewController(animated: true)
   }
