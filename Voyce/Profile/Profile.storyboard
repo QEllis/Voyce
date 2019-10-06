@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nfy-co-alY">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="2SA-ul-GgT">
             <objects>
-                <viewController id="nfy-co-alY" customClass="ProfileViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ProfileVC" id="nfy-co-alY" customClass="ProfileViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u6Q-GR-Rh5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,11 +51,22 @@
                                     <constraint firstAttribute="width" secondItem="I89-KD-Xag" secondAttribute="height" multiplier="1:1" id="uY7-WK-wxb"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tun-bX-YAi">
+                                <rect key="frame" x="97.5" y="460" width="219" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Transfer Good Vibes to Bank"/>
+                                <connections>
+                                    <action selector="transferToBankPressed:" destination="nfy-co-alY" eventType="touchUpInside" id="xuf-s1-UGW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                         <constraints>
+                            <constraint firstItem="tun-bX-YAi" firstAttribute="top" secondItem="i3G-PA-Euf" secondAttribute="bottom" constant="40" id="0PK-xu-5pz"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="top" secondItem="9uC-oR-1Ss" secondAttribute="bottom" constant="16" id="2BC-qt-2Bp"/>
                             <constraint firstItem="ZaE-Bc-kYb" firstAttribute="top" secondItem="oh9-bp-Yxy" secondAttribute="bottom" constant="16" id="61b-a5-Ze3"/>
+                            <constraint firstItem="GZI-gz-PTb" firstAttribute="bottom" secondItem="tun-bX-YAi" secondAttribute="bottom" constant="369" id="7Zt-fq-gj8"/>
                             <constraint firstItem="9uC-oR-1Ss" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="Bem-1l-rXN"/>
                             <constraint firstItem="9uC-oR-1Ss" firstAttribute="top" secondItem="ZaE-Bc-kYb" secondAttribute="bottom" constant="8" id="Cwr-XO-HBm"/>
                             <constraint firstItem="ZaE-Bc-kYb" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="DP0-qB-Rtl"/>
@@ -64,11 +75,17 @@
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="leading" secondItem="I89-KD-Xag" secondAttribute="trailing" constant="8" id="S7R-Fp-iEd"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="50" id="ZQd-zB-pgg"/>
                             <constraint firstItem="GZI-gz-PTb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oh9-bp-Yxy" secondAttribute="trailing" constant="100" id="fVo-Jo-Eqf"/>
+                            <constraint firstItem="tun-bX-YAi" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="hBY-2X-JJJ"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="100" id="jV8-x8-biu"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="centerX" secondItem="GZI-gz-PTb" secondAttribute="centerX" id="oHg-gS-R8H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GZI-gz-PTb"/>
                     </view>
+                    <connections>
+                        <outlet property="goodVibesLabel" destination="i3G-PA-Euf" id="KSe-5F-CVb"/>
+                        <outlet property="nameLabel" destination="ZaE-Bc-kYb" id="8u4-mj-aRg"/>
+                        <outlet property="usernameLabel" destination="9uC-oR-1Ss" id="duo-6T-cOa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9x-KA-ET9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
