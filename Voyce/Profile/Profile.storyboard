@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nfy-co-alY">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nfy-co-alY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -60,6 +58,15 @@
                                     <action selector="transferToBankPressed:" destination="nfy-co-alY" eventType="touchUpInside" id="xuf-s1-UGW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-lp-XPB">
+                                <rect key="frame" x="20" y="54" width="34" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="nfy-co-alY" eventType="touchUpInside" id="2o9-Y1-L66"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                         <constraints>
@@ -73,11 +80,13 @@
                             <constraint firstItem="I89-KD-Xag" firstAttribute="centerY" secondItem="i3G-PA-Euf" secondAttribute="centerY" id="F9b-eW-bE8"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="NrD-5M-Km2"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="leading" secondItem="I89-KD-Xag" secondAttribute="trailing" constant="8" id="S7R-Fp-iEd"/>
+                            <constraint firstItem="y6O-lp-XPB" firstAttribute="leading" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="20" id="UDS-Ej-un9"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="50" id="ZQd-zB-pgg"/>
                             <constraint firstItem="GZI-gz-PTb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oh9-bp-Yxy" secondAttribute="trailing" constant="100" id="fVo-Jo-Eqf"/>
                             <constraint firstItem="tun-bX-YAi" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="hBY-2X-JJJ"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="100" id="jV8-x8-biu"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="centerX" secondItem="GZI-gz-PTb" secondAttribute="centerX" id="oHg-gS-R8H"/>
+                            <constraint firstItem="y6O-lp-XPB" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="10" id="veH-0P-b9M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GZI-gz-PTb"/>
                     </view>

@@ -30,6 +30,11 @@ class FeedViewController: UIViewController {
     navigationController?.pushViewController(vc, animated: true)
   }
 
+  @IBAction func profilePressed(_ sender: Any) {
+    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+    navigationController?.pushViewController(vc, animated: true)
+  }
+
 }
 
 // MARK: - UITableViewDelegate
@@ -39,6 +44,10 @@ extension FeedViewController: UITableViewDelegate {}
 // MARK: - UITableViewDataSource
 
 extension FeedViewController: UITableViewDataSource {
+
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return tableView.frame.height
+  }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return UserManager.shared.posts.count
