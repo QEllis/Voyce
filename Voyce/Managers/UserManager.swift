@@ -27,5 +27,10 @@ class UserManager {
   public func addPost(with text: String) {
     posts.insert(Post(text: text, username: "quinn", likeCount: 0), at: 0)
   }
+    
+    //temp username and password storage
+    var username = "q"
+    var email = "q"
+    var password = "q"
 
 }

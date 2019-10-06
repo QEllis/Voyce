@@ -23,6 +23,11 @@
 		3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */; };
 		3CF41A572344E01C0082B6F7 /* PostCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */; };
 		3CF41A5A2344E26E0082B6F7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A592344E26E0082B6F7 /* Notifications.swift */; };
+		3F0E8E332346CDF6007705C2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E8E312346CDF5007705C2 /* Profile.storyboard */; };
+		3F0E8E342346CDF6007705C2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E322346CDF5007705C2 /* ProfileViewController.swift */; };
+		3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E8E362346CF55007705C2 /* Login.storyboard */; };
+		3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3823494CE3007705C2 /* LoginViewController.swift */; };
+		3F0E8E3B23495208007705C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3A23495208007705C2 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationViewController.swift; sourceTree = "<group>"; };
 		3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreation.storyboard; sourceTree = "<group>"; };
 		3CF41A592344E26E0082B6F7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		3F0E8E312346CDF5007705C2 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		3F0E8E322346CDF5007705C2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3F0E8E362346CF55007705C2 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3F0E8E3823494CE3007705C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3F0E8E3A23495208007705C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,8 @@
 		3C2EEE8023327702009098D5 /* Voyce */ = {
 			isa = PBXGroup;
 			children = (
+				3F0E8E352346CF3D007705C2 /* Login */,
+				3F0E8E302346CDF5007705C2 /* Profile */,
 				3C62D8D92333CF1500627FFB /* Managers */,
 				3CF41A552344E00A0082B6F7 /* Post Creation */,
 				3C2EEEA023327BD6009098D5 /* Feed */,
@@ -153,6 +165,25 @@
 			path = "Post Creation";
 			sourceTree = "<group>";
 		};
+		3F0E8E302346CDF5007705C2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3F0E8E312346CDF5007705C2 /* Profile.storyboard */,
+				3F0E8E322346CDF5007705C2 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3F0E8E352346CF3D007705C2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3F0E8E362346CF55007705C2 /* Login.storyboard */,
+				3F0E8E3823494CE3007705C2 /* LoginViewController.swift */,
+				3F0E8E3A23495208007705C2 /* SignUpViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,11 +244,13 @@
 			files = (
 				3C2EEEA223327BDE009098D5 /* Feed.storyboard in Resources */,
 				3CF41A572344E01C0082B6F7 /* PostCreation.storyboard in Resources */,
+				3F0E8E332346CDF6007705C2 /* Profile.storyboard in Resources */,
 				3C2EEE942332772D009098D5 /* Root.storyboard in Resources */,
 				3C2EEE9A233279CD009098D5 /* Colors.xcassets in Resources */,
 				3C62D8E12333D00700627FFB /* PostTableViewCell.xib in Resources */,
 				3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */,
 				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
+				3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,13 +263,16 @@
 			files = (
 				3C62D8E32333D01100627FFB /* PostTableViewCell.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
+				3F0E8E342346CDF6007705C2 /* ProfileViewController.swift in Sources */,
 				3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */,
 				3CF41A5A2344E26E0082B6F7 /* Notifications.swift in Sources */,
 				3C2EEE972332796B009098D5 /* Color.swift in Sources */,
+				3F0E8E3B23495208007705C2 /* SignUpViewController.swift in Sources */,
 				3C2EEEA423327C1A009098D5 /* FeedViewController.swift in Sources */,
 				3C62D8DE2333CFA300627FFB /* Post.swift in Sources */,
 				3C62D8DB2333CF2200627FFB /* UserManager.swift in Sources */,
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
+				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +419,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.QEDev.Voyce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -401,7 +437,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.QEDev.Voyce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
