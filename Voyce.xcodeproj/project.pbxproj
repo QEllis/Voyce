@@ -28,6 +28,10 @@
 		3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E8E362346CF55007705C2 /* Login.storyboard */; };
 		3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3823494CE3007705C2 /* LoginViewController.swift */; };
 		3F0E8E3B23495208007705C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3A23495208007705C2 /* SignUpViewController.swift */; };
+		3F4AE8BB2359637000DD0DC6 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */; };
+		3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BC235965DD00DD0DC6 /* User.swift */; };
+		3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */; };
+		3F4AE8C1235C555000DD0DC6 /* NewPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4AE8C0235C555000DD0DC6 /* NewPostTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		3F0E8E362346CF55007705C2 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3F0E8E3823494CE3007705C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F0E8E3A23495208007705C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
+		3F4AE8BC235965DD00DD0DC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		3F4AE8C0235C555000DD0DC6 /* NewPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPostTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3C62D8DD2333CFA300627FFB /* Post.swift */,
+				3F4AE8BC235965DD00DD0DC6 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				3C62D8E02333D00700627FFB /* PostTableViewCell.xib */,
+				3F4AE8C0235C555000DD0DC6 /* NewPostTableViewCell.xib */,
 				3C62D8E22333D01100627FFB /* PostTableViewCell.swift */,
 			);
 			path = Cells;
@@ -170,6 +180,8 @@
 			children = (
 				3F0E8E312346CDF5007705C2 /* Profile.storyboard */,
 				3F0E8E322346CDF5007705C2 /* ProfileViewController.swift */,
+				3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */,
+				3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -250,6 +262,8 @@
 				3C62D8E12333D00700627FFB /* PostTableViewCell.xib in Resources */,
 				3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */,
 				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
+				3F4AE8C1235C555000DD0DC6 /* NewPostTableViewCell.xib in Resources */,
+				3F4AE8BB2359637000DD0DC6 /* MyProfile.storyboard in Resources */,
 				3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +275,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */,
 				3C62D8E32333D01100627FFB /* PostTableViewCell.swift in Sources */,
+				3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
 				3F0E8E342346CDF6007705C2 /* ProfileViewController.swift in Sources */,
 				3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */,

@@ -13,6 +13,8 @@ public class Post {
   let text: String
   let username: String
   let likeCount: Int
+  //TODO: need to designate a user object for each post
+//  let user:User
 
   init(text: String, username: String, likeCount: Int) {
     self.text = text
