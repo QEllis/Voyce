@@ -13,13 +13,17 @@ public class Post {
   let text: String
   let username: String
   let likeCount: Int
-  //TODO: need to designate a user object for each post
-//  let user:User
+  var comments: [Post]
 
   init(text: String, username: String, likeCount: Int) {
     self.text = text
     self.username = username
     self.likeCount = likeCount
+    self.comments = []
+  }
+
+  public func addComment(_ comment: Post) {
+    comments.append(comment)
   }
 
 }
