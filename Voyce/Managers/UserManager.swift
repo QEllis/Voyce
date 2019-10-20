@@ -27,6 +27,16 @@ class UserManager {
   public func addPost(with text: String) {
     posts.insert(Post(text: text, username: "quinn", likeCount: 0), at: 0)
   }
+
+  public func addComment(with text: String, post: Post) {
+    for currPost in posts where currPost.text == post.text {
+      print("addComment")
+      let comment = Post(text: text, username: "quinn", likeCount: 0)
+      currPost.addComment(comment)
+      NotificationCenter.default.post(name: .NewPosts, object: nil)
+      return
+    }
+  }
     
     //temp username and password storage
     var username = "q"

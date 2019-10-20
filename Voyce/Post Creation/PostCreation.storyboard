@@ -77,6 +77,71 @@
             </objects>
             <point key="canvasLocation" x="60.869565217391312" y="18.75"/>
         </scene>
+        <!--Comment Creation View Controller-->
+        <scene sceneID="oPj-C7-DAa">
+            <objects>
+                <viewController storyboardIdentifier="CommentCreationVC" id="t7n-JD-Qnq" customClass="CommentCreationViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K5S-X6-fdY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNx-Ec-EJ2">
+                                <rect key="frame" x="120.5" y="64" width="173" height="33"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbZ-zN-Kqf">
+                                <rect key="frame" x="338" y="282" width="36" height="32"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                <state key="normal" title="Post!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="postPressed:" destination="t7n-JD-Qnq" eventType="touchUpInside" id="R6T-Zb-GnB"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-jm-HRA">
+                                <rect key="frame" x="20" y="117" width="374" height="150"/>
+                                <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="or5-uJ-LYm"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztV-FL-x1C">
+                                <rect key="frame" x="20" y="60.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="n6b-zg-133"/>
+                                    <constraint firstAttribute="width" constant="40" id="sFh-JB-fkm"/>
+                                </constraints>
+                                <state key="normal" image="backArrow"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <constraints>
+                            <constraint firstItem="GbZ-zN-Kqf" firstAttribute="top" secondItem="aTi-jm-HRA" secondAttribute="bottom" constant="15" id="7Hx-Nf-6GS"/>
+                            <constraint firstItem="RNx-Ec-EJ2" firstAttribute="centerX" secondItem="K5S-X6-fdY" secondAttribute="centerX" id="FNR-WV-y8K"/>
+                            <constraint firstItem="FYr-4d-sva" firstAttribute="trailing" secondItem="aTi-jm-HRA" secondAttribute="trailing" constant="20" id="Fgt-wQ-dhn"/>
+                            <constraint firstItem="RNx-Ec-EJ2" firstAttribute="top" secondItem="FYr-4d-sva" secondAttribute="top" constant="20" id="GDG-iy-29r"/>
+                            <constraint firstItem="FYr-4d-sva" firstAttribute="trailing" secondItem="GbZ-zN-Kqf" secondAttribute="trailing" constant="40" id="GaB-64-QMH"/>
+                            <constraint firstItem="aTi-jm-HRA" firstAttribute="leading" secondItem="FYr-4d-sva" secondAttribute="leading" constant="20" id="Hib-tP-aFE"/>
+                            <constraint firstItem="ztV-FL-x1C" firstAttribute="centerY" secondItem="RNx-Ec-EJ2" secondAttribute="centerY" id="gsX-uT-reN"/>
+                            <constraint firstItem="aTi-jm-HRA" firstAttribute="top" secondItem="RNx-Ec-EJ2" secondAttribute="bottom" constant="20" id="hxo-eK-daZ"/>
+                            <constraint firstItem="ztV-FL-x1C" firstAttribute="leading" secondItem="FYr-4d-sva" secondAttribute="leading" constant="20" id="rit-U2-vQH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FYr-4d-sva"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="aTi-jm-HRA" id="V6j-Ye-qKx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MXW-yI-3E8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="19"/>
+        </scene>
     </scenes>
     <resources>
         <image name="backArrow" width="12" height="19"/>

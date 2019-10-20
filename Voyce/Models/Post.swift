@@ -13,11 +13,17 @@ public class Post {
   let text: String
   let username: String
   let likeCount: Int
+  var comments: [Post]
 
   init(text: String, username: String, likeCount: Int) {
     self.text = text
     self.username = username
     self.likeCount = likeCount
+    self.comments = []
+  }
+
+  public func addComment(_ comment: Post) {
+    comments.append(comment)
   }
 
 }
