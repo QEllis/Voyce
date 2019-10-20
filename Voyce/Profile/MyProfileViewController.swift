@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  MyProfileViewController.swift
 //  Voyce
 //
 //  Created by Student on 9/19/19.
@@ -11,7 +11,7 @@ import UIKit
 
 private let user = UserManager.sharedUser
 
-class ProfileViewController: UIViewController {
+class MyProfileViewController: UIViewController {
   
   @IBOutlet weak var nameLabel: UILabel!
   
@@ -25,16 +25,17 @@ class ProfileViewController: UIViewController {
     //TODO: take user information from token passed through segue
     usernameLabel.text = "@" + user.username
     
+    //    print("Checking if User followed")
     //check if user is already followed
     if(user.checkIfFollowed(username: usernameLabel.text!)){
       //if already followed, turn button text to followed
       followButtonLabel.setTitle("Unfollow", for: .normal)
       followed = true
-//      print("User followed")
+      //      print("User followed")
     }else{
       //else set to follow
       followButtonLabel.setTitle("Follow", for: .normal)
-//      print("User not followed")
+      //      print("User not followed")
     }
   }
   @IBAction func FollowPressed(_ sender: Any) {
@@ -62,3 +63,4 @@ class ProfileViewController: UIViewController {
     }
   }
 }
+

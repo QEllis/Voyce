@@ -27,10 +27,25 @@ class UserManager {
   public func addPost(with text: String) {
     posts.insert(Post(text: text, username: "quinn", likeCount: 0), at: 0)
   }
-    
-    //temp username and password storage
-    var username = "q"
-    var email = "q"
-    var password = "q"
+  
+  //need to load in user from database
+  static let sharedUser = User.init(userID: 0, name: "Test Johnson", username: "Testing")
+  
+  public func addFollowed(username:String){
+    UserManager.sharedUser.addFollowed(username: username)
+  }
+  public func removeFollowed(username:String){
+    UserManager.sharedUser.removeFollowed(username: username)
+  }
+  
+  public func checkIfFollowed(username:String)->Bool{
+    return UserManager.sharedUser.checkIfFollowed(username: username)
+  }
+  
+
+  //temp username and password storage
+  var username = "q"
+  var email = "q"
+  var password = "q"
 
 }
