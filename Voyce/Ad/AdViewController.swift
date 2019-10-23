@@ -32,7 +32,7 @@ class AdViewController: UIViewController {
     }
     
     func initTimer(){
-        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        // Scheduling timer to Call the function "updateViewTime" with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateViewTime), userInfo: nil, repeats: true)
     }
     

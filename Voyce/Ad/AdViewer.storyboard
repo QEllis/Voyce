@@ -14,7 +14,7 @@
         <!--Ad View Controller-->
         <scene sceneID="DDJ-dK-MaN">
             <objects>
-                <viewController id="OWg-zO-vfA" userLabel="Ad View Controller" customClass="AdViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Ad Viewer" id="OWg-zO-vfA" userLabel="Ad View Controller" customClass="AdViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L4H-Qc-EZj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
