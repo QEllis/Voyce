@@ -26,7 +26,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ad Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-U1-Aim">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text Ad Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-U1-Aim">
                                 <rect key="frame" x="53" y="49" width="269" height="468"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,6 +38,10 @@
                                     <outletCollection property="gestureRecognizers" destination="p09-N0-qlV" appends="YES" id="OO0-vv-Xs7"/>
                                 </connections>
                             </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kue-mP-2fi" userLabel="Image Ad View">
+                                <rect key="frame" x="53" y="49" width="269" height="468"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                         <gestureRecognizers/>
@@ -45,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="adLabel" destination="cRR-U1-Aim" id="wIz-95-35V"/>
+                        <outlet property="imageAdView" destination="kue-mP-2fi" id="JBG-JI-akA"/>
                         <outlet property="vibezLabel" destination="V0D-Dw-SEF" id="6dT-YQ-c4C"/>
                     </connections>
                 </viewController>

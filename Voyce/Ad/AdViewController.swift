@@ -9,17 +9,27 @@
 import UIKit
 
 class AdViewController: UIViewController {
+    
+    var vibez = 0 //FRANK load server side amount of vibez
+    var adNumber = 0
+    var timer = Timer()
+    var ads = NSMutableArray()
+    var showingTextAd : Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         initTimer()
+        ads.addObjects(from: ["this is our fist test ad", "this is our second test ad", "this is our third test ad"]) //FRANK assuming this will come in as an array of Strings or UIImages
+        if ads[0] is String {
+            showingTextAd = true
+        } else {
+            showingTextAd = false
+        }
     }
-    
-    var vibez = 0 //init to user data
-    var adNumber = 0
-    var timer = Timer()
     
     @IBOutlet var vibezLabel: UILabel!
     @IBOutlet var adLabel: UILabel!
+    @IBOutlet var imageAdView: UIImageView!
     
     @IBAction func handleAdSwipe(recognizer:UISwipeGestureRecognizer) {
         let translation = recognizer.location(in: self.view)
@@ -28,7 +38,18 @@ class AdViewController: UIViewController {
                                   y:view.center.y + translation.y)
         }
         adNumber += 1
-        adLabel.text = "ad number \(adNumber)"
+        if adNumber >= ads.count {
+            adNumber = 0
+        }
+        if ads[adNumber] is String {
+            showingTextAd = true
+            adLabel.text = ads[adNumber] as? String
+        } else {
+            showingTextAd = false
+            imageAdView.image = ads[adNumber] as? UIImage
+        }
+        adLabel.isHidden = !showingTextAd
+        imageAdView.isHidden = showingTextAd
     }
     
     func initTimer(){
@@ -37,7 +58,7 @@ class AdViewController: UIViewController {
     }
     
     @objc func updateViewTime(){
-        vibez += 1
+        vibez += 1 //FRANK update server side amount of vibez
         vibezLabel.text = "Good Vibez: \(vibez)"
     }
 

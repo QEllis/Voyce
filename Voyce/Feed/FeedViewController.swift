@@ -34,6 +34,11 @@ class FeedViewController: UIViewController {
     let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
     navigationController?.pushViewController(vc, animated: true)
   }
+    
+    @IBAction func adsPressed(_ sender: Any) {
+        let vc = UIStoryboard(name: "AdViewer", bundle: nil).instantiateInitialViewController() as! AdViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
