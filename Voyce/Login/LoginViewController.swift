@@ -32,7 +32,10 @@ class LoginViewController: UIViewController {
         
         let authViewController = authUI?.authViewController()
         
-        self.present(authViewController!, animated: true, completion: nil)
+        self.present(authViewController!, animated: true, completion: {
+            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
+            self.navigationController?.pushViewController(vc, animated: true)
+        })
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
