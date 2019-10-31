@@ -8,5 +8,7 @@ target 'Voyce' do
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Auth'
 	pod 'FirebaseUI/Google'
+	#pod 'Firebase/Analytics'
+	pod 'Firebase/Database'
 
 end

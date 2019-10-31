@@ -11,6 +11,9 @@ import Foundation
 class UserManager {
 
   static let shared = UserManager()
+    
+  //need to load in user from database
+  static let sharedUser = User.init(userID: "0", name: "null", username: "null")
 
   var posts: [Post] = [] {
     didSet {
@@ -38,8 +41,6 @@ class UserManager {
     }
   }
   
-  //need to load in user from database
-  static let sharedUser = User.init(userID: 0, name: "Test Johnson", username: "Testing")
   
   public func addFollowed(username:String){
     UserManager.sharedUser.addFollowed(username: username)
@@ -51,10 +52,4 @@ class UserManager {
   public func checkIfFollowed(username:String)->Bool{
     return UserManager.sharedUser.checkIfFollowed(username: username)
   }
-  
-
-  //temp username and password storage
-  var username = "q"
-  var email = "q"
-  var password = "q"
 }

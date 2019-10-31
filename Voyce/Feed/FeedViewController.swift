@@ -43,6 +43,7 @@ extension FeedViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else { return }
+    //FRANK: Load firestore posts 
     vc.post = UserManager.shared.posts[indexPath.row]
     navigationController?.pushViewController(vc, animated: true)
   }

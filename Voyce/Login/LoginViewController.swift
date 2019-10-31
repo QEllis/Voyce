@@ -35,7 +35,16 @@ class LoginViewController: UIViewController {
         self.present(authViewController!, animated: true, completion: {
             let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
             self.navigationController?.pushViewController(vc, animated: true)
+            
+            if Auth.auth().currentUser != nil {
+                let user = Auth.auth().currentUser
+                print("User Logged in: "+user!.uid);
+            } else {
+                print("No current user");
+            }
         })
+        
+        
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
@@ -65,19 +74,19 @@ class LoginViewController: UIViewController {
     }
     
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBAction func LoginButtonDidPressed(_ sender: Any) {
-        if(userManager.username == usernameTextField.text && userManager.password == passwordTextField.text){
-            print("Logged in")
-            
-            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        else{
-            print("Login Failed")
-        }
-        
-    }
+//    
+//    @IBAction func LoginButtonDidPressed(_ sender: Any) {
+//        if(userManager.username == usernameTextField.text && userManager.password == passwordTextField.text){
+//            print("Logged in")
+//            
+//            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
+//        else{
+//            print("Login Failed")
+//        }
+//        
+//    }
 
     func CheckFields(){
         if(!usernameTextField.text!.isEmpty

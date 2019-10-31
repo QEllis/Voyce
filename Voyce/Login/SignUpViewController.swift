@@ -37,9 +37,9 @@ class SignUpViewController: UIViewController {
     
     @IBAction func SignUpPressed(_ sender: Any) {
 //      Add username and password to the user manager and then segue to feed
-        userManager.username = usernameTextField.text!
-        userManager.email = emailTextField.text!
-        userManager.password = passwordTextField.text!
+        //userManager.username = usernameTextField.text!
+        //userManager.email = emailTextField.text!
+        //userManager.password = passwordTextField.text!
 //        print("Sing Up Pressed")
         
         guard let feedVC = UIStoryboard(name: "Feed", bundle: nil)
