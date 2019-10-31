@@ -14,12 +14,14 @@ public class Post {
   let username: String
   let likeCount: Int
   var comments: [Post]
+  var user: User
 
   init(text: String, username: String, likeCount: Int) {
     self.text = text
     self.username = username
     self.likeCount = likeCount
     self.comments = []
+    self.user = User(userID: 0, "testig", "Frank")
   }
 
   public func addComment(_ comment: Post) {
