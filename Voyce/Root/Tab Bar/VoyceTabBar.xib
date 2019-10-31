@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins.ttc">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VoyceTabBar" customModule="Voyce" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="ELU-hf-N6N" id="aic-UU-U99"/>
+                <outlet property="homeButton" destination="mpw-mP-fsy" id="n84-Nc-1NK"/>
+                <outlet property="homeIcon" destination="DiP-Ni-oaR" id="kdl-Mu-zwc"/>
+                <outlet property="menuButton" destination="yzh-un-ouW" id="kXQ-aZ-Lp9"/>
+                <outlet property="menuIcon" destination="Es0-vd-Ce2" id="M5l-bi-pwa"/>
+                <outlet property="profileButton" destination="uHh-Ei-8PU" id="iNc-xp-O2g"/>
+                <outlet property="profileIcon" destination="cyJ-YF-OuG" id="Xql-Bh-AWx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ELU-hf-N6N">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KmP-ic-YIB">
+                    <rect key="frame" x="0.0" y="0.5" width="414" height="103.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tux-YP-W9P">
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="103.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cwc-YK-awb">
+                                    <rect key="frame" x="56.5" y="39.5" width="25" height="25"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good Vibes" translatesAutoresizingMaskIntoConstraints="NO" id="DiP-Ni-oaR">
+                                            <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="I8H-lS-Ew0"/>
+                                                <constraint firstAttribute="height" constant="25" id="Pjn-Yz-wMg"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpw-mP-fsy">
+                                    <rect key="frame" x="0.0" y="0.0" width="138" height="103.5"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="9"/>
+                                    <state key="normal">
+                                        <color key="titleColor" name="TextMediumGray"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="mpw-mP-fsy" secondAttribute="trailing" id="0PK-B4-xum"/>
+                                <constraint firstAttribute="bottom" secondItem="mpw-mP-fsy" secondAttribute="bottom" id="1gG-L0-iH6"/>
+                                <constraint firstItem="mpw-mP-fsy" firstAttribute="leading" secondItem="Tux-YP-W9P" secondAttribute="leading" id="Khm-xT-aCR"/>
+                                <constraint firstItem="Cwc-YK-awb" firstAttribute="centerY" secondItem="Tux-YP-W9P" secondAttribute="centerY" id="YpT-Mg-a9J"/>
+                                <constraint firstItem="Cwc-YK-awb" firstAttribute="centerX" secondItem="Tux-YP-W9P" secondAttribute="centerX" id="i0O-YE-pz0"/>
+                                <constraint firstItem="mpw-mP-fsy" firstAttribute="top" secondItem="Tux-YP-W9P" secondAttribute="top" id="oa5-6F-scM"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4r-CR-sJI">
+                            <rect key="frame" x="138" y="0.0" width="138" height="103.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Pyo-yZ-7bY">
+                                    <rect key="frame" x="56.5" y="39.5" width="25" height="25"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good Vibes" translatesAutoresizingMaskIntoConstraints="NO" id="cyJ-YF-OuG">
+                                            <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="g2B-1v-5qU"/>
+                                                <constraint firstAttribute="width" constant="25" id="v61-7r-Eo0"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-Ei-8PU">
+                                    <rect key="frame" x="0.0" y="0.0" width="138" height="103.5"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="9"/>
+                                    <state key="normal">
+                                        <color key="titleColor" name="TextMediumGray"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="uHh-Ei-8PU" firstAttribute="top" secondItem="U4r-CR-sJI" secondAttribute="top" id="T0X-ZW-e73"/>
+                                <constraint firstAttribute="bottom" secondItem="uHh-Ei-8PU" secondAttribute="bottom" id="cTh-Sc-9pN"/>
+                                <constraint firstItem="uHh-Ei-8PU" firstAttribute="leading" secondItem="U4r-CR-sJI" secondAttribute="leading" id="ks3-pm-byD"/>
+                                <constraint firstAttribute="trailing" secondItem="uHh-Ei-8PU" secondAttribute="trailing" id="tfT-Ta-Hpl"/>
+                                <constraint firstItem="Pyo-yZ-7bY" firstAttribute="centerY" secondItem="U4r-CR-sJI" secondAttribute="centerY" id="tmq-g0-lMq"/>
+                                <constraint firstItem="Pyo-yZ-7bY" firstAttribute="centerX" secondItem="U4r-CR-sJI" secondAttribute="centerX" id="txC-z3-FnO"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Av-Bc-wlr">
+                            <rect key="frame" x="276" y="0.0" width="138" height="103.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UbW-qM-9Ci">
+                                    <rect key="frame" x="56.5" y="39.5" width="25" height="25"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good Vibes" translatesAutoresizingMaskIntoConstraints="NO" id="Es0-vd-Ce2">
+                                            <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="JJf-VY-NHL"/>
+                                                <constraint firstAttribute="height" constant="25" id="oRD-PX-gVB"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-un-ouW">
+                                    <rect key="frame" x="0.0" y="0.0" width="138" height="103.5"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="9"/>
+                                    <state key="normal">
+                                        <color key="titleColor" name="TextMediumGray"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="yzh-un-ouW" firstAttribute="leading" secondItem="1Av-Bc-wlr" secondAttribute="leading" id="4EQ-4E-7ce"/>
+                                <constraint firstItem="yzh-un-ouW" firstAttribute="top" secondItem="1Av-Bc-wlr" secondAttribute="top" id="Fy3-zO-ZqW"/>
+                                <constraint firstAttribute="trailing" secondItem="yzh-un-ouW" secondAttribute="trailing" id="UvL-LB-cUG"/>
+                                <constraint firstAttribute="bottom" secondItem="yzh-un-ouW" secondAttribute="bottom" id="dfX-Ci-TRQ"/>
+                                <constraint firstItem="UbW-qM-9Ci" firstAttribute="centerX" secondItem="1Av-Bc-wlr" secondAttribute="centerX" id="dfZ-uU-qaj"/>
+                                <constraint firstItem="UbW-qM-9Ci" firstAttribute="centerY" secondItem="1Av-Bc-wlr" secondAttribute="centerY" id="vGX-b0-Cod"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="jGK-kT-bOu" firstAttribute="trailing" secondItem="KmP-ic-YIB" secondAttribute="trailing" id="GyM-J5-jHc"/>
+                <constraint firstItem="KmP-ic-YIB" firstAttribute="leading" secondItem="jGK-kT-bOu" secondAttribute="leading" id="N9M-zx-KK3"/>
+                <constraint firstItem="jGK-kT-bOu" firstAttribute="bottom" secondItem="KmP-ic-YIB" secondAttribute="bottom" id="rZ6-ps-FCI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="jGK-kT-bOu"/>
+            <point key="canvasLocation" x="-157" y="218"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Good Vibes" width="298" height="300"/>
+        <namedColor name="TextMediumGray">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
