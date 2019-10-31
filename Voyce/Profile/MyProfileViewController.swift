@@ -22,45 +22,17 @@ class MyProfileViewController: UIViewController {
   var followed:Bool = false
   
   override func viewDidLoad() {
+    print("Inside view did load")
     //TODO: take user information from token passed through segue
     usernameLabel.text = "@" + user.username
-    
-    //    print("Checking if User followed")
-    //check if user is already followed
-    if(user.checkIfFollowed(username: usernameLabel.text!)){
-      //if already followed, turn button text to followed
-      followButtonLabel.setTitle("Unfollow", for: .normal)
-      followed = true
-      //      print("User followed")
-    }else{
-      //else set to follow
-      followButtonLabel.setTitle("Follow", for: .normal)
-      //      print("User not followed")
-    }
   }
-  @IBAction func FollowPressed(_ sender: Any) {
-    if(followed){
-      //Unfollow user
-      user.removeFollowed(username: usernameLabel.text!)
-    }else{
-      //follow user
-      user.addFollowed(username: usernameLabel.text!)
-    }
-    switchFollowButton()
-    
-  }
+  
   @IBAction func backPressed(_ sender: Any) {
     navigationController?.popViewController(animated: true)
   }
   
-  func switchFollowButton(){
-    followed.toggle()
-    if(followed){
-      followButtonLabel.setTitle("Unfollow", for: .normal)
-    }else{
-      //else set to follow
-      followButtonLabel.setTitle("Follow", for: .normal)
-    }
+  @IBAction func transferButtonPressed(_ sender: Any) {
+    //put bank account function here
   }
 }
 

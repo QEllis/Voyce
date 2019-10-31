@@ -8,7 +8,27 @@
 
 import UIKit
 
-final class PostTableViewCell: UITableViewCell, UIViewController {
+
+protocol PostTableViewCellDelegate{
+  func profileButtonDidPressed()
+}
+
+
+//  protocol HistoricoClienteServidorTableViewCellDelegate {
+//    func didButtonPressed()
+//  }
+//
+//  class HistoricoClienteServidorTableViewCell: UITableViewCell {
+//    var delegate: HistoricoClienteServidorTableViewCellDelegate?
+//
+//    @IBAction func actionButton(_ sender: Any) {
+//      delegate?.didButtonPressed()
+//    }
+//  }
+
+final class PostTableViewCell: UITableViewCell {
+  
+  var delegate: PostTableViewCellDelegate?
 
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var createdAtLabel: UILabel!
@@ -32,17 +52,7 @@ final class PostTableViewCell: UITableViewCell, UIViewController {
   }
 
   @IBAction func profileButtonPressed(_ sender: Any) {
-    let user = UserManager.sharedUser
-    
-    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-    vc.user = user
-    navigationController?.pushViewController(vc,animated:true)
-    
-//    navigationController?.pushViewController(vc, animated: true)
-//
-//    if let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC") as? FeedViewController {
-//          vc.user = user
-//          navigationController?.pushViewController(vc,animated:true)
-//      }
+    delegate?.profileButtonDidPressed()
+
   }
 }

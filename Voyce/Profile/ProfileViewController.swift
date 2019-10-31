@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var followButtonLabel: UIButton!
   
   var followed:Bool = false
-  var user = User()
+  var user = User(userID: 0, name: "test", username: "testing")
   
   
   override func viewDidLoad() {

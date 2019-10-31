@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ProfileVC-->
+        <!--MyProfileVC-->
         <scene sceneID="2SA-ul-GgT">
             <objects>
-                <viewController title="ProfileVC" id="nfy-co-alY" customClass="MyProfileViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyProfileVC" title="ProfileVC" id="nfy-co-alY" userLabel="MyProfileVC" customClass="MyProfileViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u6Q-GR-Rh5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,14 +60,17 @@
                                     <action selector="backPressed:" destination="nfy-co-alY" eventType="touchUpInside" id="2o9-Y1-L66"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9n-Yc-avD">
-                                <rect key="frame" x="87" y="455" width="241" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9n-Yc-avD">
+                                <rect key="frame" x="86.5" y="455" width="241" height="33"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Transfer Good Vibes to Bank">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="transferButtonPressed:" destination="nfy-co-alY" eventType="touchUpInside" id="4lU-uu-FSe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
@@ -81,9 +84,11 @@
                             <constraint firstItem="I89-KD-Xag" firstAttribute="centerY" secondItem="i3G-PA-Euf" secondAttribute="centerY" id="F9b-eW-bE8"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="NrD-5M-Km2"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="leading" secondItem="I89-KD-Xag" secondAttribute="trailing" constant="8" id="S7R-Fp-iEd"/>
+                            <constraint firstItem="GZI-gz-PTb" firstAttribute="bottom" secondItem="U9n-Yc-avD" secondAttribute="bottom" constant="374" id="TZd-g7-RJN"/>
                             <constraint firstItem="y6O-lp-XPB" firstAttribute="leading" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="20" id="UDS-Ej-un9"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="50" id="ZQd-zB-pgg"/>
                             <constraint firstItem="GZI-gz-PTb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oh9-bp-Yxy" secondAttribute="trailing" constant="100" id="fVo-Jo-Eqf"/>
+                            <constraint firstItem="U9n-Yc-avD" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="jGy-V8-Agp"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="100" id="jV8-x8-biu"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="centerX" secondItem="GZI-gz-PTb" secondAttribute="centerX" id="oHg-gS-R8H"/>
                             <constraint firstItem="y6O-lp-XPB" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="10" id="veH-0P-b9M"/>

@@ -21,7 +21,7 @@ public class Post {
     self.username = username
     self.likeCount = likeCount
     self.comments = []
-    self.user = User(userID: 0, "testig", "Frank")
+    self.user = User(userID: 0, name:"testing", username: "Frank")
   }
 
   public func addComment(_ comment: Post) {
