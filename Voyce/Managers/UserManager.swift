@@ -41,6 +41,10 @@ class UserManager {
   //need to load in user from database
   static let sharedUser = User.init(userID: 0, name: "Test Johnson", username: "Testing")
   
+  //This array holds only posts made by the user, to present them in the profile
+  //whenever the user makes a post also add it to this array
+  var myPosts: [Post] = []
+  
   public func addFollowed(username:String){
     UserManager.sharedUser.addFollowed(username: username)
   }
