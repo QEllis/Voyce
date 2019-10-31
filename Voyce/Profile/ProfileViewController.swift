@@ -22,11 +22,11 @@ class ProfileViewController: UIViewController {
   var followed:Bool = false
   var user = User(userID: 0, name: "test", username: "testing")
   
-  
   override func viewDidLoad() {
     //TODO: take user information from token passed through segue
-    print(user)
+    nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
+    goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
     
     //check if user is already followed
     if(user.checkIfFollowed(username: usernameLabel.text!)){

@@ -17,14 +17,13 @@ class MyProfileViewController: UIViewController {
   
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var goodVibesLabel: UILabel!
-  @IBOutlet weak var followButtonLabel: UIButton!
   
   var followed:Bool = false
   
   override func viewDidLoad() {
-    print("Inside view did load")
-    //TODO: take user information from token passed through segue
+    nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
+    goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
   }
   
   @IBAction func backPressed(_ sender: Any) {

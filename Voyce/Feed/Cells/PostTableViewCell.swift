@@ -10,25 +10,13 @@ import UIKit
 
 
 protocol PostTableViewCellDelegate{
-  func profileButtonDidPressed()
+  func profileButtonDidPressed(postUser: User)
 }
-
-
-//  protocol HistoricoClienteServidorTableViewCellDelegate {
-//    func didButtonPressed()
-//  }
-//
-//  class HistoricoClienteServidorTableViewCell: UITableViewCell {
-//    var delegate: HistoricoClienteServidorTableViewCellDelegate?
-//
-//    @IBAction func actionButton(_ sender: Any) {
-//      delegate?.didButtonPressed()
-//    }
-//  }
 
 final class PostTableViewCell: UITableViewCell {
   
   var delegate: PostTableViewCellDelegate?
+  var postUser = User(userID: 0, name: "nil", username: "nil")
 
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var createdAtLabel: UILabel!
@@ -37,8 +25,9 @@ final class PostTableViewCell: UITableViewCell {
   @IBOutlet weak var commentLabel: UILabel!
 
   public func fillOut(with post: Post) {
+    postUser = post.user
     layoutIfNeeded()
-    usernameLabel.text = post.username
+    usernameLabel.text = postUser.username
     textView.text = post.text
     createdAtLabel.text = "today"
     commentLabel.isHidden = post.comments.count == 0
@@ -49,10 +38,11 @@ final class PostTableViewCell: UITableViewCell {
       //commentStackView.insertArrangedSubview(label, at: 0)
       commentLabel.text = comment.text
     }
+    
   }
 
   @IBAction func profileButtonPressed(_ sender: Any) {
-    delegate?.profileButtonDidPressed()
+    delegate?.profileButtonDidPressed(postUser: postUser)
 
   }
 }
