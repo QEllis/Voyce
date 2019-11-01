@@ -51,7 +51,6 @@ class VoyceTabBarViewController: UITabBarController {
 
   private func updateTab() {
     guard let to = toIndex else { return }
-    print("updatetab")
     selectedIndex = to
     guard let toVC = viewControllers?[to] else { return }
     delegate?.tabBarController?(self, didSelect: toVC)
@@ -68,7 +67,6 @@ class VoyceTabBarViewController: UITabBarController {
 extension VoyceTabBarViewController: VoyceTabBarDelegate {
 
   func tabBar(from: Int, to: Int) {
-    print("Tab bar: \(from), \(to)")
     fromIndex = from
     toIndex = to
     updateTab()

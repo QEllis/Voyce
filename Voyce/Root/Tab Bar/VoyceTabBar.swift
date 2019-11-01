@@ -32,12 +32,12 @@ class VoyceTabBar: UIView {
 
   weak var delegate: VoyceTabBarDelegate?
 
-  let home = UIImage(named: "defaultUserImage")
-  let homeSelected = UIImage(named: "defaultUserImage")
+  let home = UIImage(named: "wand")
+  let homeSelected = UIImage(named: "wand")
   let profile = UIImage(named: "defaultUserImage")
   let profileSelected = UIImage(named: "defaultUserImage")
-  let menu = UIImage(named: "defaultUserImage")
-  let menuSelected = UIImage(named: "defaultUserImage")
+  let menu = UIImage(named: "menuDots")
+  let menuSelected = UIImage(named: "menuDots")
 
   public func showTab(_ tab: Tab) {
     delegate?.tabBar(from: selectedTab.rawValue, to: tab.rawValue)
