@@ -24,13 +24,13 @@ class VoyceTabBarViewController: UITabBarController {
 
   private func fillOutTabBar() {
     view.layoutIfNeeded()
-    let homeVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
+    let adViewer = UIStoryboard(name: "AdViewer", bundle: nil).instantiateViewController(withIdentifier: "AdViewerVC")
 
     let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
     
-    let homeVC2 = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
+    let homeVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
     
-    viewControllers = [homeVC, profileVC, homeVC2]
+    viewControllers = [adViewer, profileVC, homeVC]
     tabBar.shadowImage = UIImage()
     tabBar.backgroundImage = UIImage()
     tabBar.clipsToBounds = true
