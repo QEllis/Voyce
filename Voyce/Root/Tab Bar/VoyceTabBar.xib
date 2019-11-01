@@ -39,7 +39,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cwc-YK-awb">
                                     <rect key="frame" x="56.5" y="39.5" width="25" height="25"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good Vibes" translatesAutoresizingMaskIntoConstraints="NO" id="DiP-Ni-oaR">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wand" translatesAutoresizingMaskIntoConstraints="NO" id="DiP-Ni-oaR">
                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="25" id="I8H-lS-Ew0"/>
@@ -72,6 +72,10 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4r-CR-sJI">
                             <rect key="frame" x="138" y="0.0" width="138" height="103.5"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYB-NG-m2D">
+                                    <rect key="frame" x="0.0" y="0.0" width="138" height="103.5"/>
+                                    <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                                </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Pyo-yZ-7bY">
                                     <rect key="frame" x="56.5" y="39.5" width="25" height="25"/>
                                     <subviews>
@@ -88,7 +92,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="138" height="103.5"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="9"/>
                                     <state key="normal">
-                                        <color key="titleColor" name="TextMediumGray"/>
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>
                                         <action selector="tabPressed:" destination="-1" eventType="touchUpInside" id="Dfi-jY-MSd"/>
@@ -98,11 +102,15 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="uHh-Ei-8PU" firstAttribute="top" secondItem="U4r-CR-sJI" secondAttribute="top" id="T0X-ZW-e73"/>
+                                <constraint firstItem="HYB-NG-m2D" firstAttribute="leading" secondItem="U4r-CR-sJI" secondAttribute="leading" id="bBr-do-VQa"/>
                                 <constraint firstAttribute="bottom" secondItem="uHh-Ei-8PU" secondAttribute="bottom" id="cTh-Sc-9pN"/>
+                                <constraint firstAttribute="bottom" secondItem="HYB-NG-m2D" secondAttribute="bottom" id="edN-7J-Uug"/>
+                                <constraint firstItem="HYB-NG-m2D" firstAttribute="top" secondItem="U4r-CR-sJI" secondAttribute="top" id="jAh-sE-eyc"/>
                                 <constraint firstItem="uHh-Ei-8PU" firstAttribute="leading" secondItem="U4r-CR-sJI" secondAttribute="leading" id="ks3-pm-byD"/>
                                 <constraint firstAttribute="trailing" secondItem="uHh-Ei-8PU" secondAttribute="trailing" id="tfT-Ta-Hpl"/>
                                 <constraint firstItem="Pyo-yZ-7bY" firstAttribute="centerY" secondItem="U4r-CR-sJI" secondAttribute="centerY" id="tmq-g0-lMq"/>
                                 <constraint firstItem="Pyo-yZ-7bY" firstAttribute="centerX" secondItem="U4r-CR-sJI" secondAttribute="centerX" id="txC-z3-FnO"/>
+                                <constraint firstAttribute="trailing" secondItem="HYB-NG-m2D" secondAttribute="trailing" id="y8u-eP-jkf"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Av-Bc-wlr">
@@ -111,7 +119,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UbW-qM-9Ci">
                                     <rect key="frame" x="56.5" y="39.5" width="25" height="25"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good Vibes" translatesAutoresizingMaskIntoConstraints="NO" id="Es0-vd-Ce2">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuDots" translatesAutoresizingMaskIntoConstraints="NO" id="Es0-vd-Ce2">
                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="25" id="JJf-VY-NHL"/>
@@ -157,8 +165,12 @@
         </view>
     </objects>
     <resources>
-        <image name="Good Vibes" width="298" height="300"/>
         <image name="defaultUserImage" width="40" height="40"/>
+        <image name="menuDots" width="21" height="81"/>
+        <image name="wand" width="38" height="38"/>
+        <namedColor name="BackgroundDarkBlue">
+            <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="TextMediumGray">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
