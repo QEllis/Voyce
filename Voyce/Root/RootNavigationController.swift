@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class RootNavigationController: UINavigationController {
 
   override func viewDidLoad() {
@@ -25,9 +26,18 @@ class RootNavigationController: UINavigationController {
     
 //    Changed this to Login to test Login functionality
   private func routeUser() {
-    guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
-        .instantiateInitialViewController() as? LoginViewController else { return }
-    viewControllers = [loginVC]
+//    if UserManager.sharedUser != nil {=
+//      //main nav
+//      return
+//    }
+
+    //else login
+//    guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
+//        .instantiateInitialViewController() as? LoginViewController else { return }
+//    viewControllers = [loginVC]
+    
+    let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(identifier: "VoyceTabBarVC")
+    viewControllers = [tabBarVC]
   }
 
 }
