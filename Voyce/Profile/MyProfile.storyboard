@@ -113,6 +113,7 @@
                     <connections>
                         <outlet property="goodVibesLabel" destination="i3G-PA-Euf" id="KSe-5F-CVb"/>
                         <outlet property="nameLabel" destination="ZaE-Bc-kYb" id="8u4-mj-aRg"/>
+                        <outlet property="tableView" destination="q91-hW-FHX" id="Jsu-9w-5aT"/>
                         <outlet property="usernameLabel" destination="9uC-oR-1Ss" id="duo-6T-cOa"/>
                     </connections>
                 </viewController>

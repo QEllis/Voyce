@@ -24,9 +24,9 @@ class MyProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     UserManager.shared.initWithPlaceholderPosts()
-    tableView.delegate = self
+//    tableView.delegate = self
     tableView.dataSource = self
-    tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostCell")
+    tableView.register(UINib(nibName: "MyPostTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostCell")
     NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
     
     nameLabel.text = user.name
@@ -47,16 +47,18 @@ class MyProfileViewController: UIViewController {
   }
 }
 
-extension MyProfileViewController: UITableViewDelegate {
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //replace this with post viewer
-    guard let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else { return }
+//this lets you create a comment, we don't need this
+
+//extension MyProfileViewController: UITableViewDelegate {
+//
+//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    //replace this with post viewer
+//    guard let vc = UIStoryboard(name: "MyPostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else { return }
 //    vc.post = UserManager.shared.posts[indexPath.row]
 //    navigationController?.pushViewController(vc, animated: true)
-  }
-  
-}
+//  }
+//
+//}
 
 extension MyProfileViewController: UITableViewDataSource {
   
@@ -66,22 +68,24 @@ extension MyProfileViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //return count of my posts
-    return UserManager.shared.posts.count
+    return UserManager.shared.myPosts.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
-    cell.fillOut(with: UserManager.shared.posts[indexPath.row])
-    cell.delegate = self
+    let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostCell") as! MyPostTableViewCell
+    cell.fillOut(with: UserManager.shared.myPosts[indexPath.row])
+//    cell.delegate = self
     return cell
   }
   
 }
 
-extension MyProfileViewController: PostTableViewCellDelegate {
-  func profileButtonDidPressed(postUser: User) {
-    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-    vc.user = postUser
-    navigationController?.pushViewController(vc,animated:true)
-  }
-}
+//this sends you to the profile page of post creator, also don't need this
+//
+//extension MyProfileViewController: PostTableViewCellDelegate {
+//  func profileButtonDidPressed(postUser: User) {
+//    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+//    vc.user = postUser
+//    navigationController?.pushViewController(vc,animated:true)
+//  }
+//}

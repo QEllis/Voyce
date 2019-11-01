@@ -26,6 +26,7 @@ class UserManager {
 
   public func addPost(with text: String) {
     posts.insert(Post(text: text, username: "quinn", likeCount: 0), at: 0)
+    myPosts.insert(Post(text: text, username: "quinn", likeCount: 0), at: 0)
   }
 
   public func addComment(with text: String, post: Post) {
