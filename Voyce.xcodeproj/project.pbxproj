@@ -34,6 +34,7 @@
 		3F81E8F2236B97D5008B3673 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E8F0236B97D5008B3673 /* MyPostTableViewCell.xib */; };
 		3F81E8F3236B97D5008B3673 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E8F1236B97D5008B3673 /* MyPostTableViewCell.swift */; };
 		3F81E8F8236BAADE008B3673 /* PostPromotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E8F7236BAADE008B3673 /* PostPromotion.storyboard */; };
+		3F81E8FA236BBE40008B3673 /* PostPromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E8F9236BBE40008B3673 /* PostPromotion.swift */; };
 		E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4785A46235BB30F002AB769 /* PostCommentView.xib */; };
 		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
 		E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */; };
@@ -69,6 +70,7 @@
 		3F81E8F0236B97D5008B3673 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
 		3F81E8F1236B97D5008B3673 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
 		3F81E8F7236BAADE008B3673 /* PostPromotion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostPromotion.storyboard; sourceTree = "<group>"; };
+		3F81E8F9236BBE40008B3673 /* PostPromotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPromotion.swift; sourceTree = "<group>"; };
 		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
 		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreationViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				3F81E8F7236BAADE008B3673 /* PostPromotion.storyboard */,
+				3F81E8F9236BBE40008B3673 /* PostPromotion.swift */,
 			);
 			path = Promotion;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */,
+				3F81E8FA236BBE40008B3673 /* PostPromotion.swift in Sources */,
 				3F81E8F3236B97D5008B3673 /* MyPostTableViewCell.swift in Sources */,
 				3C62D8E32333D01100627FFB /* PostTableViewCell.swift in Sources */,
 				3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */,

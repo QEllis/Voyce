@@ -54,6 +54,17 @@
                         </constraints>
                         <state key="normal" image="defaultUserImage"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7w-90-VtT">
+                        <rect key="frame" x="363" y="185.5" width="69" height="23"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="ssb-0i-H8v"/>
+                        </constraints>
+                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                        <state key="normal" title="Promote">
+                            <color key="titleColor" name="BackgroundDarkBlue"/>
+                        </state>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" name="BackgroundDarkBlue"/>
                 <constraints>
@@ -61,11 +72,14 @@
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="height" secondItem="hm4-5T-YcA" secondAttribute="height" id="37b-G6-Vii"/>
                     <constraint firstItem="V6Y-zI-zMO" firstAttribute="top" secondItem="hm4-5T-YcA" secondAttribute="bottom" constant="8" id="8hl-sQ-9cD"/>
                     <constraint firstAttribute="trailing" secondItem="V6Y-zI-zMO" secondAttribute="trailing" constant="8" id="96C-th-mHF"/>
+                    <constraint firstItem="Y7w-90-VtT" firstAttribute="top" secondItem="V6Y-zI-zMO" secondAttribute="bottom" constant="5" id="Lwh-cw-esJ"/>
                     <constraint firstAttribute="trailing" secondItem="Sxv-d1-f0r" secondAttribute="trailing" constant="8" id="Vkk-Wy-Wdv"/>
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="leading" secondItem="hm4-5T-YcA" secondAttribute="trailing" constant="8" id="cMI-I2-BIV"/>
                     <constraint firstItem="hm4-5T-YcA" firstAttribute="top" secondItem="V7k-C9-fLu" secondAttribute="top" constant="10" id="fR3-em-OVA"/>
                     <constraint firstItem="hm4-5T-YcA" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" constant="8" id="gs7-ju-J38"/>
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="top" secondItem="V7k-C9-fLu" secondAttribute="top" constant="10" id="gxP-UY-GOq"/>
+                    <constraint firstAttribute="bottom" secondItem="Y7w-90-VtT" secondAttribute="bottom" constant="2" id="ily-Tj-UZW"/>
+                    <constraint firstAttribute="trailing" secondItem="Y7w-90-VtT" secondAttribute="trailing" constant="2" id="oPX-3W-61M"/>
                 </constraints>
             </tableViewCellContentView>
             <accessibility key="accessibilityConfiguration">

@@ -11,7 +11,7 @@ import UIKit
 
 private let user = UserManager.sharedUser
 
-class MyProfileViewController: UIViewController {
+class MyProfileViewController: UIViewController, UITableViewDelegate {
   
   @IBOutlet var tableView: UITableView!
   
@@ -24,7 +24,7 @@ class MyProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     UserManager.shared.initWithPlaceholderPosts()
-//    tableView.delegate = self
+    tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "MyPostTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostCell")
     NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)

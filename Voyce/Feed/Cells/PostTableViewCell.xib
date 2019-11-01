@@ -12,15 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PostCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="211" id="isK-Ng-fvz" customClass="PostTableViewCell" customModule="Voyce" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="434" height="211"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PostCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="261" id="isK-Ng-fvz" customClass="PostTableViewCell" customModule="Voyce" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="261"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="isK-Ng-fvz" id="V7k-C9-fLu">
-                <rect key="frame" x="0.0" y="0.0" width="434" height="210.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="434" height="260.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Sxv-d1-f0r">
-                        <rect key="frame" x="54" y="10.5" width="372" height="38"/>
+                        <rect key="frame" x="54" y="10" width="372" height="38"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D19-lZ-56D">
                                 <rect key="frame" x="0.0" y="0.0" width="372" height="18"/>
@@ -37,7 +37,7 @@
                         </subviews>
                     </stackView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Post Text" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Y-zI-zMO">
-                        <rect key="frame" x="8" y="56.5" width="418" height="124.5"/>
+                        <rect key="frame" x="8" y="56" width="418" height="124.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="124.5" id="fSK-M2-ryJ"/>
@@ -47,7 +47,7 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lYM-Yh-3au">
-                        <rect key="frame" x="0.0" y="191" width="434" height="20.5"/>
+                        <rect key="frame" x="0.0" y="190.5" width="434" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-Co-OKO">
                                 <rect key="frame" x="0.0" y="0.0" width="434" height="20.5"/>
@@ -99,7 +99,7 @@
                 <outlet property="textView" destination="V6Y-zI-zMO" id="IJD-PM-DfG"/>
                 <outlet property="usernameLabel" destination="D19-lZ-56D" id="gDl-YM-Tpe"/>
             </connections>
-            <point key="canvasLocation" x="153.62318840579712" y="102.79017857142857"/>
+            <point key="canvasLocation" x="153.62318840579712" y="119.53125"/>
         </tableViewCell>
     </objects>
     <resources>

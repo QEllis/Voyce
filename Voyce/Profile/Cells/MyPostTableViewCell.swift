@@ -18,11 +18,12 @@ final class MyPostTableViewCell: UITableViewCell {
   @IBOutlet var textView: UITextView!
   
   
-    public func fillOut(with post: Post) {
-    postUser = post.user
+  public func fillOut(with post: Post) {
     layoutIfNeeded()
+    postUser = post.user
     usernameLabel.text = postUser.username
     textView.text = post.text
     createdAtLabel.text = "today"
   }
+  
 }
