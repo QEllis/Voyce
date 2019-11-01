@@ -10,7 +10,7 @@ import UIKit
 
 class VoyceTabBarViewController: UITabBarController {
 
-  var voyceTabBar: VoyceTabBar!
+  var voyceTabBar: VoyceTabBar = VoyceTabBar()
 
   fileprivate var debouncedUpdateTab: (() -> Void)!
 
@@ -24,13 +24,13 @@ class VoyceTabBarViewController: UITabBarController {
 
   private func fillOutTabBar() {
     view.layoutIfNeeded()
-    let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "FeedNavigationVC")
+    let homeVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
 
-    let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "DiscoverNavigationVC")
-
-//    let menuVC = UIStoryboard(name: "Activity", bundle: nil).instantiateViewController(withIdentifier: "ActivityNavigationVC")
-
-    viewControllers = [homeVC, profileVC, profileVC]
+    let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
+    
+    let homeVC2 = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
+    
+    viewControllers = [homeVC, profileVC, homeVC2]
     tabBar.shadowImage = UIImage()
     tabBar.backgroundImage = UIImage()
     tabBar.clipsToBounds = true
@@ -51,6 +51,7 @@ class VoyceTabBarViewController: UITabBarController {
 
   private func updateTab() {
     guard let to = toIndex else { return }
+    print("updatetab")
     selectedIndex = to
     guard let toVC = viewControllers?[to] else { return }
     delegate?.tabBarController?(self, didSelect: toVC)
@@ -67,6 +68,7 @@ class VoyceTabBarViewController: UITabBarController {
 extension VoyceTabBarViewController: VoyceTabBarDelegate {
 
   func tabBar(from: Int, to: Int) {
+    print("Tab bar: \(from), \(to)")
     fromIndex = from
     toIndex = to
     updateTab()

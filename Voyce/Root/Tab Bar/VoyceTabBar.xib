@@ -54,6 +54,9 @@
                                     <state key="normal">
                                         <color key="titleColor" name="TextMediumGray"/>
                                     </state>
+                                    <connections>
+                                        <action selector="tabPressed:" destination="-1" eventType="touchUpInside" id="ggx-KF-Plt"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,7 +75,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Pyo-yZ-7bY">
                                     <rect key="frame" x="56.5" y="39.5" width="25" height="25"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good Vibes" translatesAutoresizingMaskIntoConstraints="NO" id="cyJ-YF-OuG">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUserImage" translatesAutoresizingMaskIntoConstraints="NO" id="cyJ-YF-OuG">
                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="g2B-1v-5qU"/>
@@ -81,12 +84,15 @@
                                         </imageView>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-Ei-8PU">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-Ei-8PU">
                                     <rect key="frame" x="0.0" y="0.0" width="138" height="103.5"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="9"/>
                                     <state key="normal">
                                         <color key="titleColor" name="TextMediumGray"/>
                                     </state>
+                                    <connections>
+                                        <action selector="tabPressed:" destination="-1" eventType="touchUpInside" id="Dfi-jY-MSd"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -114,12 +120,15 @@
                                         </imageView>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-un-ouW">
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-un-ouW">
                                     <rect key="frame" x="0.0" y="0.0" width="138" height="103.5"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="9"/>
                                     <state key="normal">
                                         <color key="titleColor" name="TextMediumGray"/>
                                     </state>
+                                    <connections>
+                                        <action selector="tabPressed:" destination="-1" eventType="touchUpInside" id="U6S-bI-cbG"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,6 +158,7 @@
     </objects>
     <resources>
         <image name="Good Vibes" width="298" height="300"/>
+        <image name="defaultUserImage" width="40" height="40"/>
         <namedColor name="TextMediumGray">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

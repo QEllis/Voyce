@@ -23,7 +23,7 @@
         <!--Voyce Tab Bar View Controller-->
         <scene sceneID="As7-c8-pFE">
             <objects>
-                <viewController storyboardIdentifier=" " id="1ad-sP-vta" customClass="VoyceTabBarViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoyceTabBarVC" id="1ad-sP-vta" customClass="VoyceTabBarViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Md0-1d-lhY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJZ-2h-Vyx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="264"/>
+            <point key="canvasLocation" x="426" y="264"/>
         </scene>
     </scenes>
 </document>
