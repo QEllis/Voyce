@@ -95,6 +95,9 @@
                                     <segment title="Other"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="genderValueChanged:" destination="LoK-Ey-C8a" eventType="valueChanged" id="RfT-Vb-4vE"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
@@ -130,6 +133,7 @@
                         <outlet property="AgeRangeLabel" destination="TRJ-I3-VdK" id="NfU-Ei-qul"/>
                         <outlet property="adDurationLabel" destination="Hks-nn-8UM" id="Af0-cz-Dn6"/>
                         <outlet property="adDurationSlider" destination="MHa-0k-MvF" id="G1w-nJ-vIg"/>
+                        <outlet property="genderSegmentedControl" destination="edL-5Y-at1" id="zOR-wm-yKE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOg-dC-ZgE" userLabel="First Responder" sceneMemberID="firstResponder"/>

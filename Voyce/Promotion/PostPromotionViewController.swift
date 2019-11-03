@@ -12,9 +12,10 @@ import UIKit
 class PostPromotionViewController: UIViewController{
   
   var post:Post = Post(text: "nil", user: User(userID: 0, name: "Pedro", username: "pedro"), likeCount: 0)
+  var gender:String = "All"
   
-  @IBOutlet weak var genderTextField: UITextField!
   @IBOutlet weak var adDurationSlider: UISlider!
+  @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
   
   let rangeSlider = RangeSlider(frame: .zero)
 
@@ -56,8 +57,7 @@ class PostPromotionViewController: UIViewController{
   }
   
   @IBAction func createAdPressed(_ sender: Any) {
-    //need to send information to datdab
-//    let alert = UIAlertAction(title: "Post promoted!", style: <#T##UIAlertActionStyle#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
+    //need to send information to datdabase
     let alert = UIAlertController(title: "Post promoted!", message: "Your post will now be shown as an Ad.", preferredStyle: .alert)
     
     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ action in
@@ -69,8 +69,19 @@ class PostPromotionViewController: UIViewController{
     
   }
   
-  func alertBackHandler(){
-    navigationController?.popViewController(animated: true)
+  @IBAction func genderValueChanged(_ sender: Any) {
+    switch genderSegmentedControl.selectedSegmentIndex {
+    case 0:
+      gender = "All"
+    case 1:
+      gender = "Male"
+    case 2:
+      gender = "Female"
+    case 3:
+      gender = "Other"
+    default:
+      gender = "All"
+    }
   }
   
   @IBAction func adDurationSliderChanged(_ sender: Any) {
