@@ -11,56 +11,82 @@ import UIKit
 
 private let user = UserManager.sharedUser
 
-class MyProfileViewController: UIViewController {
+class MyProfileViewController: UIViewController, UITableViewDelegate {
+  
+  @IBOutlet var tableView: UITableView!
   
   @IBOutlet weak var nameLabel: UILabel!
-  
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var goodVibesLabel: UILabel!
-  @IBOutlet weak var followButtonLabel: UIButton!
   
   var followed:Bool = false
   
   override func viewDidLoad() {
-    //TODO: take user information from token passed through segue
+    super.viewDidLoad()
+    UserManager.shared.initWithPlaceholderPosts()
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.register(UINib(nibName: "MyPostTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostCell")
+    NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
+    
+    nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
-    
-    //    print("Checking if User followed")
-    //check if user is already followed
-    if(user.checkIfFollowed(username: usernameLabel.text!)){
-      //if already followed, turn button text to followed
-      followButtonLabel.setTitle("Unfollow", for: .normal)
-      followed = true
-      //      print("User followed")
-    }else{
-      //else set to follow
-      followButtonLabel.setTitle("Follow", for: .normal)
-      //      print("User not followed")
-    }
+    goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
   }
-  @IBAction func FollowPressed(_ sender: Any) {
-    if(followed){
-      //Unfollow user
-      user.removeFollowed(username: usernameLabel.text!)
-    }else{
-      //follow user
-      user.addFollowed(username: usernameLabel.text!)
-    }
-    switchFollowButton()
-    
+  
+  @objc private func newPosts() {
+    tableView.reloadData()
   }
+  
   @IBAction func backPressed(_ sender: Any) {
     navigationController?.popViewController(animated: true)
   }
   
-  func switchFollowButton(){
-    followed.toggle()
-    if(followed){
-      followButtonLabel.setTitle("Unfollow", for: .normal)
-    }else{
-      //else set to follow
-      followButtonLabel.setTitle("Follow", for: .normal)
-    }
+  @IBAction func transferButtonPressed(_ sender: Any) {
+    //put bank account function here
   }
 }
 
+//this lets you create a comment, we don't need this
+
+//extension MyProfileViewController: UITableViewDelegate {
+//
+//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    //replace this with post viewer
+//    guard let vc = UIStoryboard(name: "MyPostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else { return }
+//    vc.post = UserManager.shared.posts[indexPath.row]
+//    navigationController?.pushViewController(vc, animated: true)
+//  }
+//
+//}
+
+extension MyProfileViewController: UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return tableView.frame.height
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //return count of my posts
+    return UserManager.shared.myPosts.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostCell") as! MyPostTableViewCell
+    cell.fillOut(with: UserManager.shared.myPosts[indexPath.row])
+    cell.delegate = self
+    return cell
+  }
+  
+}
+
+//this sends you to the profile page of post creator, also don't need this
+extension MyProfileViewController: MyPostTableViewCellDelegate {
+  func promoteButtonDidPressed(post: Post) {
+    print("Inside delegate promote")
+    let vc = UIStoryboard(name: "PostPromotion", bundle: nil).instantiateViewController(withIdentifier: "PostPromotionVC") as! PostPromotionViewController
+    print("Built vc")
+    vc.post = post
+    navigationController?.pushViewController(vc,animated:true)
+  }
+}
