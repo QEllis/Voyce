@@ -64,6 +64,9 @@
                         <state key="normal" title="Promote">
                             <color key="titleColor" name="BackgroundDarkBlue"/>
                         </state>
+                        <connections>
+                            <action selector="promoteButtonDidPressed:" destination="isK-Ng-fvz" eventType="touchUpInside" id="sOq-WI-FQo"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" name="BackgroundDarkBlue"/>

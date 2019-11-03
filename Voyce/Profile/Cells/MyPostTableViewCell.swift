@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol MyPostTableViewCellDelegate{
+  func promoteButtonDidPressed(post: Post)
+}
+
 final class MyPostTableViewCell: UITableViewCell {
   
-  var delegate: PostTableViewCellDelegate?
+  var delegate: MyPostTableViewCellDelegate?
   var postUser = User(userID: 0, name: "nil", username: "nil")
-
+  var post:Post = Post(text: "nil", user: User(userID: 0, name: "nil", username: "nil"), likeCount: 0)
+  
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var createdAtLabel: UILabel!
   @IBOutlet var textView: UITextView!
@@ -20,10 +25,17 @@ final class MyPostTableViewCell: UITableViewCell {
   
   public func fillOut(with post: Post) {
     layoutIfNeeded()
-    postUser = post.user
+    self.postUser = post.user
+    self.post = post
     usernameLabel.text = postUser.username
     textView.text = post.text
     createdAtLabel.text = "today"
   }
+  
+  @IBAction func promoteButtonDidPressed(_ sender: Any) {
+    print("promote button pressed")
+    delegate?.promoteButtonDidPressed(post: post)
+  }
+  
   
 }

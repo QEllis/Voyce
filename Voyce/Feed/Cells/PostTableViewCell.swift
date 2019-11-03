@@ -32,7 +32,6 @@ final class PostTableViewCell: UITableViewCell {
     createdAtLabel.text = "today"
     commentLabel.isHidden = post.comments.count == 0
     for comment in post.comments {
-      print("insert comment")
       let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
       label.text = comment.text
       //commentStackView.insertArrangedSubview(label, at: 0)

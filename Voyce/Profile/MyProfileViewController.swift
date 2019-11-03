@@ -74,18 +74,19 @@ extension MyProfileViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostCell") as! MyPostTableViewCell
     cell.fillOut(with: UserManager.shared.myPosts[indexPath.row])
-//    cell.delegate = self
+    cell.delegate = self
     return cell
   }
   
 }
 
 //this sends you to the profile page of post creator, also don't need this
-//
-//extension MyProfileViewController: PostTableViewCellDelegate {
-//  func profileButtonDidPressed(postUser: User) {
-//    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-//    vc.user = postUser
-//    navigationController?.pushViewController(vc,animated:true)
-//  }
-//}
+extension MyProfileViewController: MyPostTableViewCellDelegate {
+  func promoteButtonDidPressed(post: Post) {
+    print("Inside delegate promote")
+    let vc = UIStoryboard(name: "PostPromotion", bundle: nil).instantiateViewController(withIdentifier: "PostPromotionVC") as! PostPromotionViewController
+    print("Built vc")
+    vc.post = post
+    navigationController?.pushViewController(vc,animated:true)
+  }
+}

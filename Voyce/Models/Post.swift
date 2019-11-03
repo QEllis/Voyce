@@ -18,12 +18,12 @@ public class Post {
   var comments: [Post]
 
   //pull from database
-  init(text: String, username: String, likeCount: Int) {
+  init(text: String, user: User, likeCount: Int) {
     self.text = text
-    self.username = username
+    self.user = user
+    self.username = user.username
     self.likeCount = likeCount
     self.comments = []
-    self.user = User(userID: 0, name:"Test Jonhson", username: "Testing")
   }
 
   public func addComment(_ comment: Post) {
