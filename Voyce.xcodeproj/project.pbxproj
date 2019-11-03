@@ -38,6 +38,10 @@
 		3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BC235965DD00DD0DC6 /* User.swift */; };
 		3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */; };
 		3F4AE8C1235C555000DD0DC6 /* NewPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4AE8C0235C555000DD0DC6 /* NewPostTableViewCell.xib */; };
+		3F81E906236F9B09008B3673 /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E902236F9B09008B3673 /* RangeSliderTrackLayer.swift */; };
+		3F81E907236F9B09008B3673 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E903236F9B09008B3673 /* RangeSlider.swift */; };
+		3F81E908236F9B09008B3673 /* PostPromotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E904236F9B09008B3673 /* PostPromotion.storyboard */; };
+		3F81E909236F9B09008B3673 /* PostPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E905236F9B09008B3673 /* PostPromotionViewController.swift */; };
 		DE5907F2119F04E3F6BF2A61 /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA1803F7283CF23A6CF61C2 /* Pods_Voyce.framework */; };
 		E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4785A46235BB30F002AB769 /* PostCommentView.xib */; };
 		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
@@ -78,6 +82,10 @@
 		3F4AE8BC235965DD00DD0DC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		3F4AE8C0235C555000DD0DC6 /* NewPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPostTableViewCell.xib; sourceTree = "<group>"; };
+		3F81E902236F9B09008B3673 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
+		3F81E903236F9B09008B3673 /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		3F81E904236F9B09008B3673 /* PostPromotion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostPromotion.storyboard; sourceTree = "<group>"; };
+		3F81E905236F9B09008B3673 /* PostPromotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPromotionViewController.swift; sourceTree = "<group>"; };
 		5AA1803F7283CF23A6CF61C2 /* Pods_Voyce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voyce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7AC4ACCC90DEF94E7A16F83 /* Pods-Voyce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.release.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.release.xcconfig"; sourceTree = "<group>"; };
 		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
@@ -128,8 +136,9 @@
 		3C2EEE8023327702009098D5 /* Voyce */ = {
 			isa = PBXGroup;
 			children = (
-				016FCC6B236BBC0D00B1F387 /* Ads */,
+				3F81E900236F9B09008B3673 /* Promotion */,
 				01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */,
+				016FCC6B236BBC0D00B1F387 /* Ads */,
 				3F0E8E352346CF3D007705C2 /* Login */,
 				3F0E8E302346CDF5007705C2 /* Profile */,
 				3C62D8D92333CF1500627FFB /* Managers */,
@@ -246,6 +255,25 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		3F81E900236F9B09008B3673 /* Promotion */ = {
+			isa = PBXGroup;
+			children = (
+				3F81E901236F9B09008B3673 /* RangeSlider */,
+				3F81E904236F9B09008B3673 /* PostPromotion.storyboard */,
+				3F81E905236F9B09008B3673 /* PostPromotionViewController.swift */,
+			);
+			path = Promotion;
+			sourceTree = "<group>";
+		};
+		3F81E901236F9B09008B3673 /* RangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				3F81E902236F9B09008B3673 /* RangeSliderTrackLayer.swift */,
+				3F81E903236F9B09008B3673 /* RangeSlider.swift */,
+			);
+			path = RangeSlider;
+			sourceTree = "<group>";
+		};
 		7039537EFCC4CEAA15F92665 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +364,7 @@
 				01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */,
 				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
 				3F4AE8C1235C555000DD0DC6 /* NewPostTableViewCell.xib in Resources */,
+				3F81E908236F9B09008B3673 /* PostPromotion.storyboard in Resources */,
 				3F4AE8BB2359637000DD0DC6 /* MyProfile.storyboard in Resources */,
 				3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */,
 				3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */,
@@ -416,12 +445,15 @@
 				3F0E8E3B23495208007705C2 /* SignUpViewController.swift in Sources */,
 				E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */,
 				3C2EEEA423327C1A009098D5 /* FeedViewController.swift in Sources */,
+				3F81E909236F9B09008B3673 /* PostPromotionViewController.swift in Sources */,
 				E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */,
 				3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */,
 				3C62D8DE2333CFA300627FFB /* Post.swift in Sources */,
 				016FCC6F236BBC1C00B1F387 /* AdViewController.swift in Sources */,
+				3F81E906236F9B09008B3673 /* RangeSliderTrackLayer.swift in Sources */,
 				3C62D8DB2333CF2200627FFB /* UserManager.swift in Sources */,
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
+				3F81E907236F9B09008B3673 /* RangeSlider.swift in Sources */,
 				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

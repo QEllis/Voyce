@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Ad Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-U1-Aim">
-                                <rect key="frame" x="116.5" y="515.5" width="142.5" height="20.5"/>
+                                <rect key="frame" x="116.5" y="323.5" width="142.5" height="20.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,29 +35,27 @@
                                 </connections>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kue-mP-2fi" userLabel="Image Ad View">
-                                <rect key="frame" x="0.0" y="66" width="375" height="441.5"/>
+                                <rect key="frame" x="0.0" y="159.5" width="375" height="348"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="348" id="x4F-WF-dz5"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="p09-N0-qlV" appends="YES" id="E2U-DB-UUK"/>
+                                </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4q-j6-WLX">
-                                <rect key="frame" x="140" y="20" width="95" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Back to Feed">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wand" translatesAutoresizingMaskIntoConstraints="NO" id="ehu-i6-GiD">
-                                <rect key="frame" x="91" y="557.5" width="34" height="38"/>
+                                <rect key="frame" x="91" y="538.5" width="34" height="76"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="34" id="A7m-rK-NL2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Ad Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79e-xe-eKg">
-                                <rect key="frame" x="100" y="269.5" width="175" height="35"/>
+                                <rect key="frame" x="100" y="323.5" width="175" height="20.5"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="175" id="E46-mh-Wfw"/>
-                                    <constraint firstAttribute="height" constant="35" id="vFf-uR-1mg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -69,15 +67,12 @@
                         <constraints>
                             <constraint firstItem="V0D-Dw-SEF" firstAttribute="centerY" secondItem="ehu-i6-GiD" secondAttribute="centerY" id="1W2-jP-U9e"/>
                             <constraint firstItem="V0D-Dw-SEF" firstAttribute="centerX" secondItem="L4H-Qc-EZj" secondAttribute="centerX" id="8mF-e9-Ol6"/>
-                            <constraint firstItem="Z4q-j6-WLX" firstAttribute="centerX" secondItem="L4H-Qc-EZj" secondAttribute="centerX" id="Ddi-vZ-v5i"/>
                             <constraint firstItem="euc-WA-g2O" firstAttribute="bottom" secondItem="V0D-Dw-SEF" secondAttribute="bottom" constant="80" id="Egi-S0-q5c"/>
-                            <constraint firstItem="V0D-Dw-SEF" firstAttribute="top" secondItem="cRR-U1-Aim" secondAttribute="bottom" constant="30" id="H27-zz-hSc"/>
-                            <constraint firstItem="cRR-U1-Aim" firstAttribute="top" secondItem="kue-mP-2fi" secondAttribute="bottom" constant="8" id="LBT-fD-9fK"/>
+                            <constraint firstItem="kue-mP-2fi" firstAttribute="centerY" secondItem="euc-WA-g2O" secondAttribute="centerY" id="G5C-IZ-nyv"/>
+                            <constraint firstItem="79e-xe-eKg" firstAttribute="centerY" secondItem="euc-WA-g2O" secondAttribute="centerY" id="NNl-QC-GAP"/>
                             <constraint firstItem="cRR-U1-Aim" firstAttribute="centerX" secondItem="L4H-Qc-EZj" secondAttribute="centerX" id="Vgv-SG-D98"/>
-                            <constraint firstItem="kue-mP-2fi" firstAttribute="top" secondItem="Z4q-j6-WLX" secondAttribute="bottom" constant="16" id="Viu-7S-18J"/>
                             <constraint firstItem="kue-mP-2fi" firstAttribute="leading" secondItem="euc-WA-g2O" secondAttribute="leading" id="eKs-LG-t1H"/>
-                            <constraint firstItem="Z4q-j6-WLX" firstAttribute="top" secondItem="euc-WA-g2O" secondAttribute="top" constant="20" id="gLb-rE-tB3"/>
-                            <constraint firstItem="79e-xe-eKg" firstAttribute="centerY" secondItem="kue-mP-2fi" secondAttribute="centerY" id="oZG-5e-GJ6"/>
+                            <constraint firstItem="cRR-U1-Aim" firstAttribute="centerY" secondItem="euc-WA-g2O" secondAttribute="centerY" id="fJF-AS-zjt"/>
                             <constraint firstItem="V0D-Dw-SEF" firstAttribute="leading" secondItem="ehu-i6-GiD" secondAttribute="trailing" constant="8" id="vKx-UF-GAx"/>
                             <constraint firstItem="euc-WA-g2O" firstAttribute="trailing" secondItem="kue-mP-2fi" secondAttribute="trailing" id="x8D-oF-hmx"/>
                             <constraint firstItem="79e-xe-eKg" firstAttribute="centerX" secondItem="kue-mP-2fi" secondAttribute="centerX" id="zW9-2x-QUd"/>
@@ -88,16 +83,17 @@
                         <outlet property="adLabel" destination="cRR-U1-Aim" id="wIz-95-35V"/>
                         <outlet property="imageAdView" destination="kue-mP-2fi" id="JBG-JI-akA"/>
                         <outlet property="vibezLabel" destination="V0D-Dw-SEF" id="6dT-YQ-c4C"/>
+                        <outlet property="videoLabel" destination="79e-xe-eKg" id="eWV-XW-wGG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRr-rs-Zxn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="p09-N0-qlV">
                     <connections>
-                        <action selector="handleAdSwipeWithRecognizer:" destination="OWg-zO-vfA" id="Pta-bD-DsO"/>
+                        <action selector="swipeHandler:" destination="OWg-zO-vfA" id="nip-uR-QVl"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="149.59999999999999" y="165.06746626686657"/>
+            <point key="canvasLocation" x="126" y="185"/>
         </scene>
     </scenes>
     <resources>
