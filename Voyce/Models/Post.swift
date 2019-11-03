@@ -11,13 +11,17 @@ import Foundation
 public class Post {
 
   let text: String
+  var user: User
+  //username needs to pull from User
   let username: String
   let likeCount: Int
   var comments: [Post]
 
-  init(text: String, username: String, likeCount: Int) {
+  //pull from database
+  init(text: String, user: User, likeCount: Int) {
     self.text = text
-    self.username = username
+    self.user = user
+    self.username = user.username
     self.likeCount = likeCount
     self.comments = []
   }

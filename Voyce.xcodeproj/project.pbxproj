@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */; };
 		3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8123327702009098D5 /* AppDelegate.swift */; };
 		3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8823327703009098D5 /* Assets.xcassets */; };
 		3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8A23327703009098D5 /* LaunchScreen.storyboard */; };
@@ -29,18 +28,21 @@
 		3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E8E362346CF55007705C2 /* Login.storyboard */; };
 		3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3823494CE3007705C2 /* LoginViewController.swift */; };
 		3F0E8E3B23495208007705C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3A23495208007705C2 /* SignUpViewController.swift */; };
-		DE5907F2119F04E3F6BF2A61 /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA1803F7283CF23A6CF61C2 /* Pods_Voyce.framework */; };
-		E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4785A46235BB30F002AB769 /* PostCommentView.xib */; };
-		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
-		E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */; };
 		3F4AE8BB2359637000DD0DC6 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */; };
 		3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BC235965DD00DD0DC6 /* User.swift */; };
 		3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */; };
-		3F4AE8C1235C555000DD0DC6 /* NewPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4AE8C0235C555000DD0DC6 /* NewPostTableViewCell.xib */; };
+		3F81E8F2236B97D5008B3673 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E8F0236B97D5008B3673 /* MyPostTableViewCell.xib */; };
+		3F81E8F3236B97D5008B3673 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E8F1236B97D5008B3673 /* MyPostTableViewCell.swift */; };
+		3F81E8F8236BAADE008B3673 /* PostPromotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E8F7236BAADE008B3673 /* PostPromotion.storyboard */; };
+		3F81E8FA236BBE40008B3673 /* PostPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E8F9236BBE40008B3673 /* PostPromotionViewController.swift */; };
+		3F81E8FD236D9F95008B3673 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E8FC236D9F95008B3673 /* RangeSlider.swift */; };
+		3F81E8FF236E3D2F008B3673 /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E8FE236E3D2F008B3673 /* RangeSliderTrackLayer.swift */; };
+		E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4785A46235BB30F002AB769 /* PostCommentView.xib */; };
+		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
+		E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C2EEE7E23327702009098D5 /* Voyce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2EEE8123327702009098D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2EEE8823327703009098D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,16 +66,18 @@
 		3F0E8E362346CF55007705C2 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3F0E8E3823494CE3007705C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F0E8E3A23495208007705C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		5AA1803F7283CF23A6CF61C2 /* Pods_Voyce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voyce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7AC4ACCC90DEF94E7A16F83 /* Pods-Voyce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.release.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.release.xcconfig"; sourceTree = "<group>"; };
-		F2D73E2BCCE0C98609C9838C /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
-		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
-		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
-		E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreationViewController.swift; sourceTree = "<group>"; };
 		3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
 		3F4AE8BC235965DD00DD0DC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
-		3F4AE8C0235C555000DD0DC6 /* NewPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPostTableViewCell.xib; sourceTree = "<group>"; };
+		3F81E8F0236B97D5008B3673 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
+		3F81E8F1236B97D5008B3673 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
+		3F81E8F7236BAADE008B3673 /* PostPromotion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostPromotion.storyboard; sourceTree = "<group>"; };
+		3F81E8F9236BBE40008B3673 /* PostPromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPromotionViewController.swift; sourceTree = "<group>"; };
+		3F81E8FC236D9F95008B3673 /* RangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		3F81E8FE236E3D2F008B3673 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
+		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
+		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
+		E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE5907F2119F04E3F6BF2A61 /* Pods_Voyce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +96,6 @@
 			children = (
 				3C2EEE8023327702009098D5 /* Voyce */,
 				3C2EEE7F23327702009098D5 /* Products */,
-				7039537EFCC4CEAA15F92665 /* Pods */,
 				D4A04EB842FAFFD2251E8EF0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -109,7 +111,7 @@
 		3C2EEE8023327702009098D5 /* Voyce */ = {
 			isa = PBXGroup;
 			children = (
-				01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */,
+				3F81E8F6236BAAC7008B3673 /* Promotion */,
 				3F0E8E352346CF3D007705C2 /* Login */,
 				3F0E8E302346CDF5007705C2 /* Profile */,
 				3C62D8D92333CF1500627FFB /* Managers */,
@@ -178,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				3C62D8E02333D00700627FFB /* PostTableViewCell.xib */,
-				3F4AE8C0235C555000DD0DC6 /* NewPostTableViewCell.xib */,
 				3C62D8E22333D01100627FFB /* PostTableViewCell.swift */,
 			);
 			path = Cells;
@@ -197,6 +198,7 @@
 		3F0E8E302346CDF5007705C2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3F81E8EF236B96DB008B3673 /* Cells */,
 				3F0E8E312346CDF5007705C2 /* Profile.storyboard */,
 				3F0E8E322346CDF5007705C2 /* ProfileViewController.swift */,
 				3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */,
@@ -215,19 +217,37 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		7039537EFCC4CEAA15F92665 /* Pods */ = {
+		3F81E8EF236B96DB008B3673 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				F2D73E2BCCE0C98609C9838C /* Pods-Voyce.debug.xcconfig */,
-				A7AC4ACCC90DEF94E7A16F83 /* Pods-Voyce.release.xcconfig */,
+				3F81E8F0236B97D5008B3673 /* MyPostTableViewCell.xib */,
+				3F81E8F1236B97D5008B3673 /* MyPostTableViewCell.swift */,
 			);
-			path = Pods;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3F81E8F6236BAAC7008B3673 /* Promotion */ = {
+			isa = PBXGroup;
+			children = (
+				3F81E8FB236D9F69008B3673 /* RangeSlider */,
+				3F81E8F7236BAADE008B3673 /* PostPromotion.storyboard */,
+				3F81E8F9236BBE40008B3673 /* PostPromotionViewController.swift */,
+			);
+			path = Promotion;
+			sourceTree = "<group>";
+		};
+		3F81E8FB236D9F69008B3673 /* RangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				3F81E8FC236D9F95008B3673 /* RangeSlider.swift */,
+				3F81E8FE236E3D2F008B3673 /* RangeSliderTrackLayer.swift */,
+			);
+			path = RangeSlider;
 			sourceTree = "<group>";
 		};
 		D4A04EB842FAFFD2251E8EF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5AA1803F7283CF23A6CF61C2 /* Pods_Voyce.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -239,12 +259,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2EEE9023327703009098D5 /* Build configuration list for PBXNativeTarget "Voyce" */;
 			buildPhases = (
-				509A61FB351A1BC1D8E35AD9 /* [CP] Check Pods Manifest.lock */,
 				3C2EEE7A23327702009098D5 /* Sources */,
 				3C2EEE7B23327702009098D5 /* Frameworks */,
 				3C2EEE7C23327702009098D5 /* Resources */,
-				73501D8A47611263C3B2E72A /* [CP] Copy Pods Resources */,
-				4A3C9FA68606751746A0A012 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,15 +312,15 @@
 			files = (
 				E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */,
 				3C2EEEA223327BDE009098D5 /* Feed.storyboard in Resources */,
+				3F81E8F8236BAADE008B3673 /* PostPromotion.storyboard in Resources */,
 				3CF41A572344E01C0082B6F7 /* PostCreation.storyboard in Resources */,
+				3F81E8F2236B97D5008B3673 /* MyPostTableViewCell.xib in Resources */,
 				3F0E8E332346CDF6007705C2 /* Profile.storyboard in Resources */,
 				3C2EEE942332772D009098D5 /* Root.storyboard in Resources */,
 				3C2EEE9A233279CD009098D5 /* Colors.xcassets in Resources */,
 				3C62D8E12333D00700627FFB /* PostTableViewCell.xib in Resources */,
 				3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */,
-				01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */,
 				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
-				3F4AE8C1235C555000DD0DC6 /* NewPostTableViewCell.xib in Resources */,
 				3F4AE8BB2359637000DD0DC6 /* MyProfile.storyboard in Resources */,
 				3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */,
 			);
@@ -311,67 +328,14 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		4A3C9FA68606751746A0A012 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		509A61FB351A1BC1D8E35AD9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Voyce-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		73501D8A47611263C3B2E72A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		3C2EEE7A23327702009098D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */,
+				3F81E8FA236BBE40008B3673 /* PostPromotionViewController.swift in Sources */,
+				3F81E8F3236B97D5008B3673 /* MyPostTableViewCell.swift in Sources */,
 				3C62D8E32333D01100627FFB /* PostTableViewCell.swift in Sources */,
 				3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
@@ -385,7 +349,9 @@
 				E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */,
 				3C62D8DE2333CFA300627FFB /* Post.swift in Sources */,
 				3C62D8DB2333CF2200627FFB /* UserManager.swift in Sources */,
+				3F81E8FF236E3D2F008B3673 /* RangeSliderTrackLayer.swift in Sources */,
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
+				3F81E8FD236D9F95008B3673 /* RangeSlider.swift in Sources */,
 				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +425,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -513,6 +480,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -522,11 +490,15 @@
 		};
 		3C2EEE9123327703009098D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2D73E2BCCE0C98609C9838C /* Pods-Voyce.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Firestore",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -581,11 +553,15 @@
 		};
 		3C2EEE9223327703009098D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7AC4ACCC90DEF94E7A16F83 /* Pods-Voyce.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Firestore",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",

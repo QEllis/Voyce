@@ -19,19 +19,22 @@ class UserManager {
   }
 
   public func initWithPlaceholderPosts() {
-    posts.append(Post(text: "First Post", username: "quinn", likeCount: 19))
-    posts.append(Post(text: "Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post ", username: "quinn", likeCount: 119))
-    posts.append(Post(text: "quinn", username: "quinn", likeCount: 1119))
+//    posts.append(Post(text: "First Post", username: "quinn", likeCount: 19))
+    posts.append(Post(text: "First Post", user: UserManager.sharedUser , likeCount: 19))
+    
+    posts.append(Post(text: "Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post ", user: UserManager.sharedUser, likeCount: 119))
+    posts.append(Post(text: "quinn", user: UserManager.sharedUser, likeCount: 1119))
   }
 
   public func addPost(with text: String) {
-    posts.insert(Post(text: text, username: "quinn", likeCount: 0), at: 0)
+    posts.insert(Post(text: text, user: UserManager.sharedUser, likeCount: 0), at: 0)
+    myPosts.insert(Post(text: text, user: UserManager.sharedUser, likeCount: 0), at: 0)
   }
 
   public func addComment(with text: String, post: Post) {
     for currPost in posts where currPost.text == post.text {
       print("addComment")
-      let comment = Post(text: text, username: "quinn", likeCount: 0)
+      let comment = Post(text: text, user: UserManager.sharedUser, likeCount: 0)
       currPost.addComment(comment)
       NotificationCenter.default.post(name: .NewPosts, object: nil)
       return
@@ -40,6 +43,10 @@ class UserManager {
   
   //need to load in user from database
   static let sharedUser = User.init(userID: 0, name: "Test Johnson", username: "Testing")
+  
+  //This array holds only posts made by the user, to present them in the profile
+  //whenever the user makes a post also add it to this array
+  var myPosts: [Post] = []
   
   public func addFollowed(username:String){
     UserManager.sharedUser.addFollowed(username: username)

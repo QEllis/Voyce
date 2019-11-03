@@ -31,7 +31,8 @@ class FeedViewController: UIViewController {
   }
 
   @IBAction func profilePressed(_ sender: Any) {
-    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+    print("Profile Pressed")
+    let vc = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier:"MyProfileVC")
     navigationController?.pushViewController(vc, animated: true)
   }
 
@@ -49,8 +50,6 @@ extension FeedViewController: UITableViewDelegate {
 
 }
 
-// MARK: - UITableViewDataSource
-
 extension FeedViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -64,7 +63,16 @@ extension FeedViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
     cell.fillOut(with: UserManager.shared.posts[indexPath.row])
+    cell.delegate = self
     return cell
   }
 
+}
+
+extension FeedViewController: PostTableViewCellDelegate {
+  func profileButtonDidPressed(postUser: User) {
+    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+    vc.user = postUser
+    navigationController?.pushViewController(vc,animated:true)
+  }
 }
