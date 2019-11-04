@@ -19,7 +19,7 @@ class UserManager {
   }
   
   public func initWithPlaceholderPosts() {
-    //    posts.append(Post(text: "First Post", username: "quinn", likeCount: 19))
+//    posts.append(Post(text: "First Post", username: "quinn", likeCount: 19))
     posts.append(Post(text: "First Post", user: UserManager.sharedUser , likeCount: 19))
     
     posts.append(Post(text: "Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post ", user: UserManager.sharedUser, likeCount: 119))

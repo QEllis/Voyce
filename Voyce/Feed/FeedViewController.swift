@@ -76,3 +76,11 @@ extension FeedViewController: PostTableViewCellDelegate {
     navigationController?.pushViewController(vc,animated:true)
   }
 }
+
+extension FeedViewController: PostTableViewCellDelegate {
+  func profileButtonDidPressed(postUser: User) {
+    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+    vc.user = postUser
+    navigationController?.pushViewController(vc,animated:true)
+  }
+}
