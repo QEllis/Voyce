@@ -9,7 +9,7 @@
 import UIKit
 
 class AdViewController: UIViewController {
-    
+ 
     var vibes = 0
     var adNumber = 0
     var timer = Timer()
@@ -83,5 +83,5 @@ class AdViewController: UIViewController {
         vibes += 1 //FRANK update server side amount of vibez
         vibezLabel.text = "Good Vibes: \(vibes)"
     }
-
+  
 }
