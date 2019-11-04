@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Post Promotion View Controller-->
+        <scene sceneID="Zuv-F6-VHJ">
+            <objects>
+                <viewController storyboardIdentifier="PostPromotionVC" id="LoK-Ey-C8a" customClass="PostPromotionViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VbX-Db-zrO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoC-sZ-1s3">
+                                <rect key="frame" x="30" y="152" width="39" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1A-so-ngN">
+                                <rect key="frame" x="30" y="239" width="68" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBv-kv-Sx7">
+                                <rect key="frame" x="31" y="44" width="34" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="LoK-Ey-C8a" eventType="touchUpInside" id="gox-sI-jl0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Demographics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7A-ro-o0C">
+                                <rect key="frame" x="30" y="116" width="213" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad Duration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2R-HZ-SVG">
+                                <rect key="frame" x="30" y="357" width="106" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMF-7p-AEK">
+                                <rect key="frame" x="270" y="467" width="101" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="jk8-fR-655"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                <state key="normal" title="Create Ad!">
+                                    <color key="titleColor" name="BackgroundDarkBlue"/>
+                                </state>
+                                <connections>
+                                    <action selector="createAdPressed:" destination="LoK-Ey-C8a" eventType="touchUpInside" id="XEl-Df-cIv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRJ-I3-VdK">
+                                <rect key="frame" x="79" y="154" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 seconds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hks-nn-8UM">
+                                <rect key="frame" x="146" y="358" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MHa-0k-MvF">
+                                <rect key="frame" x="28" y="397" width="358" height="31"/>
+                                <connections>
+                                    <action selector="adDurationSliderChanged:" destination="LoK-Ey-C8a" eventType="valueChanged" id="GAG-BZ-zzb"/>
+                                </connections>
+                            </slider>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="edL-5Y-at1">
+                                <rect key="frame" x="30" y="270" width="354" height="29"/>
+                                <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Male"/>
+                                    <segment title="Female"/>
+                                    <segment title="Other"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="genderValueChanged:" destination="LoK-Ey-C8a" eventType="valueChanged" id="RfT-Vb-4vE"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <constraints>
+                            <constraint firstItem="TRJ-I3-VdK" firstAttribute="leading" secondItem="OoC-sZ-1s3" secondAttribute="trailing" constant="10" id="1RT-4W-gmr"/>
+                            <constraint firstItem="h2R-HZ-SVG" firstAttribute="centerY" secondItem="Hks-nn-8UM" secondAttribute="centerY" id="Ajh-Fp-eS8"/>
+                            <constraint firstItem="h2R-HZ-SVG" firstAttribute="top" secondItem="edL-5Y-at1" secondAttribute="bottom" constant="59" id="EQl-KS-jDl"/>
+                            <constraint firstItem="Bgg-uk-emP" firstAttribute="trailing" secondItem="edL-5Y-at1" secondAttribute="trailing" constant="30" id="FNp-N1-UUX"/>
+                            <constraint firstItem="VBv-kv-Sx7" firstAttribute="top" secondItem="Bgg-uk-emP" secondAttribute="top" id="G04-Bf-HxY"/>
+                            <constraint firstItem="h7A-ro-o0C" firstAttribute="top" secondItem="Bgg-uk-emP" secondAttribute="top" constant="72" id="G8S-f0-lxx"/>
+                            <constraint firstItem="edL-5Y-at1" firstAttribute="top" secondItem="N1A-so-ngN" secondAttribute="bottom" constant="8" id="Hhl-WU-xXy"/>
+                            <constraint firstItem="h7A-ro-o0C" firstAttribute="leading" secondItem="N1A-so-ngN" secondAttribute="leading" id="Hjr-cQ-u81"/>
+                            <constraint firstItem="OoC-sZ-1s3" firstAttribute="top" secondItem="h7A-ro-o0C" secondAttribute="bottom" constant="8" id="HlZ-hZ-IYi"/>
+                            <constraint firstItem="N1A-so-ngN" firstAttribute="top" secondItem="h7A-ro-o0C" secondAttribute="bottom" constant="95" id="JOH-Hr-Lnp"/>
+                            <constraint firstItem="Bgg-uk-emP" firstAttribute="trailing" secondItem="KMF-7p-AEK" secondAttribute="trailing" constant="43" id="Lz8-wF-XBg"/>
+                            <constraint firstItem="KMF-7p-AEK" firstAttribute="leading" secondItem="Bgg-uk-emP" secondAttribute="leading" constant="270" id="MPE-Xg-5x9"/>
+                            <constraint firstItem="h7A-ro-o0C" firstAttribute="leading" secondItem="Bgg-uk-emP" secondAttribute="leading" constant="30" id="OqE-lI-FWf"/>
+                            <constraint firstItem="MHa-0k-MvF" firstAttribute="leading" secondItem="h2R-HZ-SVG" secondAttribute="leading" id="PeE-J3-dAH"/>
+                            <constraint firstItem="h7A-ro-o0C" firstAttribute="leading" secondItem="OoC-sZ-1s3" secondAttribute="leading" id="UIj-UC-mpo"/>
+                            <constraint firstItem="TRJ-I3-VdK" firstAttribute="firstBaseline" secondItem="OoC-sZ-1s3" secondAttribute="baseline" id="aMv-Dz-Hiu"/>
+                            <constraint firstItem="h7A-ro-o0C" firstAttribute="leading" secondItem="h2R-HZ-SVG" secondAttribute="leading" id="bWr-pt-Uje"/>
+                            <constraint firstItem="MHa-0k-MvF" firstAttribute="top" secondItem="h2R-HZ-SVG" secondAttribute="bottom" constant="17" id="cV9-3Q-1qD"/>
+                            <constraint firstItem="Hks-nn-8UM" firstAttribute="leading" secondItem="h2R-HZ-SVG" secondAttribute="trailing" constant="10" id="dhP-AL-JaP"/>
+                            <constraint firstItem="Bgg-uk-emP" firstAttribute="trailing" secondItem="MHa-0k-MvF" secondAttribute="trailing" constant="30" id="fAd-li-FSh"/>
+                            <constraint firstItem="KMF-7p-AEK" firstAttribute="top" secondItem="MHa-0k-MvF" secondAttribute="bottom" constant="40" id="nPm-er-PEx"/>
+                            <constraint firstItem="edL-5Y-at1" firstAttribute="leading" secondItem="N1A-so-ngN" secondAttribute="leading" id="oEC-kt-eSn"/>
+                            <constraint firstItem="VBv-kv-Sx7" firstAttribute="leading" secondItem="Bgg-uk-emP" secondAttribute="leading" constant="31" id="tMZ-Ya-TVq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bgg-uk-emP"/>
+                    </view>
+                    <connections>
+                        <outlet property="AdDurationSlider" destination="MHa-0k-MvF" id="0m7-JD-Drc"/>
+                        <outlet property="AgeRangeLabel" destination="TRJ-I3-VdK" id="NfU-Ei-qul"/>
+                        <outlet property="adDurationLabel" destination="Hks-nn-8UM" id="Af0-cz-Dn6"/>
+                        <outlet property="adDurationSlider" destination="MHa-0k-MvF" id="G1w-nJ-vIg"/>
+                        <outlet property="genderSegmentedControl" destination="edL-5Y-at1" id="zOR-wm-yKE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fOg-dC-ZgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57.971014492753625" y="54.910714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BackgroundDarkBlue">
+            <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

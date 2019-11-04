@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import Firebase
-import FirebaseUI
+//import Firebase
+//import FirebaseUI
 
 private let userManager = UserManager.shared
 
@@ -18,40 +18,40 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         loginButton.isEnabled = false
         
-        //FirebaseApp.configure()
-        let authUI = FUIAuth.defaultAuthUI()
-        // You need to adopt a FUIAuthDelegate protocol to receive callback
-        authUI?.delegate = self as? FUIAuthDelegate
-        //authUI?.FacebookAutoLogAppEventsEnabled = false;
-        
-        let providers: [FUIAuthProvider] = [
-            FUIGoogleAuth(),
-//            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()),
-            ]
-        authUI?.providers = providers
-        
-        let authViewController = authUI?.authViewController()
-        
-        self.present(authViewController!, animated: true, completion: {
-            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
-            self.navigationController?.pushViewController(vc, animated: true)
-        })
+//        //FirebaseApp.configure()
+//        let authUI = FUIAuth.defaultAuthUI()
+//        // You need to adopt a FUIAuthDelegate protocol to receive callback
+//        authUI?.delegate = self as? FUIAuthDelegate
+//        //authUI?.FacebookAutoLogAppEventsEnabled = false;
+//
+//        let providers: [FUIAuthProvider] = [
+//            FUIGoogleAuth(),
+////            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()),
+//            ]
+//        authUI?.providers = providers
+//
+//        let authViewController = authUI?.authViewController()
+//
+//        self.present(authViewController!, animated: true, completion: {
+//            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        })
     }
     
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        // handle user and error as necessary
-    }
-    
-    func application(_ app: UIApplication, open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
-        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
-            return true
-        }
-        // other URL handling goes here.
-        return false
-    }
-    
+//    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+//        // handle user and error as necessary
+//    }
+  
+//    func application(_ app: UIApplication, open url: URL,
+//                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+//        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+//        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+//            return true
+//        }
+//        // other URL handling goes here.
+//        return false
+//    }
+  
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var usernameTextField: UITextField!

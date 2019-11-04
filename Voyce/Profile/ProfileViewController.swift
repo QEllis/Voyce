@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-private let user = UserManager.sharedUser
+//private let user = UserManager.sharedUser
 
 class ProfileViewController: UIViewController {
   
@@ -20,10 +20,13 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var followButtonLabel: UIButton!
   
   var followed:Bool = false
+  var user = User(userID: 0, name: "test", username: "testing")
   
   override func viewDidLoad() {
     //TODO: take user information from token passed through segue
+    nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
+    goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
     
     //check if user is already followed
     if(user.checkIfFollowed(username: usernameLabel.text!)){
