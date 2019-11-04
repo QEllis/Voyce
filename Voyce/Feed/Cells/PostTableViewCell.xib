@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PostCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="261" id="isK-Ng-fvz" customClass="PostTableViewCell" customModule="Voyce" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="434" height="261"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PostCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="358" id="isK-Ng-fvz" customClass="PostTableViewCell" customModule="Voyce" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="358"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="isK-Ng-fvz" id="V7k-C9-fLu">
-                <rect key="frame" x="0.0" y="0.0" width="434" height="260.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="434" height="358"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Sxv-d1-f0r">
@@ -46,14 +44,23 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lYM-Yh-3au">
-                        <rect key="frame" x="0.0" y="190.5" width="434" height="20.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lYM-Yh-3au">
+                        <rect key="frame" x="0.0" y="190.5" width="434" height="190"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-Co-OKO">
-                                <rect key="frame" x="0.0" y="0.0" width="434" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20.5" id="Iyf-g1-OFQ"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-Co-OKO">
+                                <rect key="frame" x="0.0" y="0.0" width="434" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpz-ur-Auy">
+                                <rect key="frame" x="0.0" y="70" width="434" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHb-8I-PI0">
+                                <rect key="frame" x="0.0" y="140" width="434" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -82,7 +89,6 @@
                     <constraint firstAttribute="trailing" secondItem="Sxv-d1-f0r" secondAttribute="trailing" constant="8" id="Vkk-Wy-Wdv"/>
                     <constraint firstItem="lYM-Yh-3au" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" id="ahe-7s-VZW"/>
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="leading" secondItem="hm4-5T-YcA" secondAttribute="trailing" constant="8" id="cMI-I2-BIV"/>
-                    <constraint firstAttribute="bottom" secondItem="lYM-Yh-3au" secondAttribute="bottom" id="dAA-sK-Rww"/>
                     <constraint firstItem="hm4-5T-YcA" firstAttribute="top" secondItem="V7k-C9-fLu" secondAttribute="top" constant="10" id="fR3-em-OVA"/>
                     <constraint firstItem="hm4-5T-YcA" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" constant="8" id="gs7-ju-J38"/>
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="top" secondItem="V7k-C9-fLu" secondAttribute="top" constant="10" id="gxP-UY-GOq"/>
@@ -93,13 +99,15 @@
                 <bool key="isElement" value="YES"/>
             </accessibility>
             <connections>
-                <outlet property="commentLabel" destination="EPq-Co-OKO" id="DPC-lJ-LXI"/>
+                <outlet property="commentLabel1" destination="EPq-Co-OKO" id="4w0-i2-UKh"/>
+                <outlet property="commentLabel2" destination="fpz-ur-Auy" id="3Dt-pq-8a5"/>
+                <outlet property="commentLabel3" destination="QHb-8I-PI0" id="8eN-78-Tlm"/>
                 <outlet property="commentStackView" destination="lYM-Yh-3au" id="7Np-LH-NbE"/>
                 <outlet property="createdAtLabel" destination="rNY-r3-8UL" id="R9M-e2-2WO"/>
                 <outlet property="textView" destination="V6Y-zI-zMO" id="IJD-PM-DfG"/>
                 <outlet property="usernameLabel" destination="D19-lZ-56D" id="gDl-YM-Tpe"/>
             </connections>
-            <point key="canvasLocation" x="153.62318840579712" y="119.53125"/>
+            <point key="canvasLocation" x="153.62318840579712" y="152.00892857142856"/>
         </tableViewCell>
     </objects>
     <resources>
