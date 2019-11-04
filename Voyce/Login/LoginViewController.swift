@@ -69,11 +69,10 @@ class LoginViewController: UIViewController {
     @IBAction func LoginButtonDidPressed(_ sender: Any) {
         if(userManager.username == usernameTextField.text && userManager.password == passwordTextField.text){
             print("Logged in")
-            
-            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
-            navigationController?.pushViewController(vc, animated: true)
+          let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
+          navigationController?.pushViewController(tabBarVC, animated: true)
         }
-        else{
+        else {
             print("Login Failed")
         }
         

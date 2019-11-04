@@ -32,12 +32,12 @@ class RootNavigationController: UINavigationController {
 //    }
 
     //else login
-//    guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
-//        .instantiateInitialViewController() as? LoginViewController else { return }
-//    viewControllers = [loginVC]
+    guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
+        .instantiateInitialViewController() as? LoginViewController else { return }
+    viewControllers = [loginVC]
     
-    let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(identifier: "VoyceTabBarVC")
-    viewControllers = [tabBarVC]
+//    let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(identifier: "VoyceTabBarVC")
+//    viewControllers = [tabBarVC]
   }
 
 }
