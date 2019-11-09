@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
         
         let authViewController = authUI?.authViewController()
         
+        //TODO instead of presenting view like this, add sign in buttons to og storyboard
         self.present(authViewController!, animated: true, completion: {
             let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
             self.navigationController?.pushViewController(vc, animated: true)
@@ -39,8 +40,10 @@ class LoginViewController: UIViewController {
             if Auth.auth().currentUser != nil {
                 let user = Auth.auth().currentUser
                 print("User Logged in: "+user!.uid);
+                userManager.userLogin(u: user!)
             } else {
                 print("No current user");
+                
             }
         })
         

@@ -7,19 +7,40 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
 
 class UserManager {
 
   static let shared = UserManager()
     
   //need to load in user from database
-  static let sharedUser = User.init(userID: "0", name: "null", username: "null")
+    var sharedUser = User.init(userID: "0", name: "null", username: "null")
 
+    //TODO: This users feed?
   var posts: [Post] = [] {
     didSet {
       NotificationCenter.default.post(name: .NewPosts, object: nil)
     }
   }
+    
+    public func userLogin(u: FirebaseAuth.User){
+        sharedUser  = User.init(user: u)
+        let collection = Firestore.firestore().collection("users");
+        let userDoc = collection.document(u.uid)
+
+        userDoc.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("User data: \(dataDescription)")
+                self.sharedUser.LoadUserData(dataDict: document.data()!)
+            } else {
+                print("User does not exist yet, create in db")
+                collection.addDocument(data: self.sharedUser.dictionary)
+            }
+        }
+
+    }
 
   public func initWithPlaceholderPosts() {
     posts.append(Post(text: "First Post", username: "quinn", likeCount: 19))
@@ -43,13 +64,13 @@ class UserManager {
   
   
   public func addFollowed(username:String){
-    UserManager.sharedUser.addFollowed(username: username)
+    sharedUser.addFollowed(username: username)
   }
   public func removeFollowed(username:String){
-    UserManager.sharedUser.removeFollowed(username: username)
+    sharedUser.removeFollowed(username: username)
   }
   
   public func checkIfFollowed(username:String)->Bool{
-    return UserManager.sharedUser.checkIfFollowed(username: username)
+    return sharedUser.checkIfFollowed(username: username)
   }
 }

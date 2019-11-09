@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseUI
 
 public class User{
@@ -20,6 +21,16 @@ public class User{
   let imageURL: URL?
   let image:UIImage?
   var followed:Set<String>
+    
+    
+    var dictionary: [String: Any] {
+      return [
+      "username": username,
+      "name": name,
+        "goodvibes": goodVibes,
+        "imageURL": imageURL?.absoluteString
+      ]
+    }
   
   init(userID:String, name:String, username:String, goodVibes:Int){
     self.userID = userID
@@ -39,18 +50,14 @@ public class User{
     self.image = nil
     self.followed = Set<String>.init()
   }
-    init(){
-        let user = Auth.auth().currentUser
-        
-        self.userID = user!.uid
-        self.name = (user?.displayName!)!
-        self.username = (user?.displayName!)!
-        self.imageURL = user?.photoURL
+    init(user: FirebaseAuth.User){
+        self.userID = user.uid
+        self.name = user.displayName!
+        self.username = user.displayName!
+        self.imageURL = user.photoURL
         self.image = nil
         self.followed = Set<String>.init()
         self.goodVibes = 0
-        
-        self.setGoodVibes()
     }
   
   func addFollowed(username:String){
@@ -73,5 +80,8 @@ public class User{
   func setGoodVibes(){
     //goodVibes = 
   }
-  
+    
+    func LoadUserData(dataDict: [String : Any]){
+        print(dataDict)
+    }
 }

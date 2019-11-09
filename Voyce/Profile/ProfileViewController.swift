@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-private let user = UserManager.sharedUser
+private let user = UserManager.shared.sharedUser
 
 class ProfileViewController: UIViewController {
   
