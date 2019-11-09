@@ -13,15 +13,15 @@ import FirebaseUI
 
 private let userManager = UserManager.shared
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, FUIAuthDelegate {
+    
+    let authUI: FUIAuth? = FUIAuth.defaultAuthUI()
     
     override func viewDidLoad() {
-        loginButton.isEnabled = false
+//        loginButton.isEnabled = false
         
-        //FirebaseApp.configure()
-        let authUI = FUIAuth.defaultAuthUI()
         // You need to adopt a FUIAuthDelegate protocol to receive callback
-        authUI?.delegate = self as? FUIAuthDelegate
+        authUI?.delegate = self
         //authUI?.FacebookAutoLogAppEventsEnabled = false;
         
         let providers: [FUIAuthProvider] = [
@@ -29,29 +29,32 @@ class LoginViewController: UIViewController {
 //            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()),
             ]
         authUI?.providers = providers
-        
-        let authViewController = authUI?.authViewController()
-        
-        //TODO instead of presenting view like this, add sign in buttons to og storyboard
-        self.present(authViewController!, animated: true, completion: {
-            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-            if Auth.auth().currentUser != nil {
-                let user = Auth.auth().currentUser
-                print("User Logged in: "+user!.uid);
-                userManager.userLogin(u: user!)
-            } else {
-                print("No current user");
-                
-            }
-        })
-        
-        
     }
     
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        // handle user and error as necessary
+    override func viewDidAppear(_ animated: Bool) {
+          super.viewDidAppear(animated)
+      }
+
+      private func isUserSignedIn() -> Bool {
+        guard Auth.auth().currentUser != nil else { return false }
+        return true
+      }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
+      // handle user and error as necessary
+
+        //User init
+        if Auth.auth().currentUser != nil {
+            let user = Auth.auth().currentUser
+            print("User Logged in: "+user!.uid);
+            userManager.userLogin(u: user!)
+        } else {
+            print("No current user");
+        }
+        
+        let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
+                   self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func application(_ app: UIApplication, open url: URL,
@@ -69,36 +72,26 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     
     @IBAction func UsernameTextFieldEditingChanged(_ sender: Any) {
-        CheckFields()
+//        CheckFields()
     }
     
     @IBAction func PasswordTextFieldEditingChanged(_ sender: Any) {
-        CheckFields()
+//        CheckFields()
     }
     
     @IBOutlet weak var passwordTextField: UITextField!
-//    
-//    @IBAction func LoginButtonDidPressed(_ sender: Any) {
-//        if(userManager.username == usernameTextField.text && userManager.password == passwordTextField.text){
-//            print("Logged in")
-//            
-//            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
-//        else{
-//            print("Login Failed")
-//        }
-//        
-//    }
-
-    func CheckFields(){
-        if(!usernameTextField.text!.isEmpty
-            && !passwordTextField.text!.isEmpty){
-            loginButton.isEnabled = true
-        }
-        else{
-            loginButton.isEnabled = false
-        }
-    }
     
+    @IBAction func ShowLoginView(_ sender: Any) {
+        
+//        let authViewController = authUI?.authViewController()
+//        self.present(authViewController!, animated: true, completion: {
+//            let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        })
+        
+        if let authVC = authUI?.authViewController() {
+          present(authVC, animated: true, completion: nil)
+        }
+        
+    }
 }

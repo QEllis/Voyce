@@ -10,13 +10,17 @@ import Foundation
 
 public class Post {
 
+    let postID: String
   let text: String
+    let media: String
   let username: String
   let likeCount: Int
   var comments: [Post]
 
-  init(text: String, username: String, likeCount: Int) {
+    init(pid:String, text: String, media: String, username: String, likeCount: Int) {
+        self.postID = pid
     self.text = text
+        self.media = media
     self.username = username
     self.likeCount = likeCount
     self.comments = []

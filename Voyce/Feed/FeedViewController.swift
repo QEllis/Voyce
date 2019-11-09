@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
+
+private let userManager = UserManager.shared
 
 class FeedViewController: UIViewController {
 
@@ -14,7 +18,10 @@ class FeedViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    UserManager.shared.initWithPlaceholderPosts()
+//    UserManager.shared.initWithPlaceholderPosts()
+    
+        
+    
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
