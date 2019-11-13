@@ -36,7 +36,7 @@ class RootNavigationController: UINavigationController {
 //        .instantiateInitialViewController() as? LoginViewController else { return }
 //    viewControllers = [loginVC]
     
-    let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(identifier: "VoyceTabBarVC")
+    let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
     viewControllers = [tabBarVC]
   }
 

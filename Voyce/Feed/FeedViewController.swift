@@ -21,6 +21,14 @@ class FeedViewController: UIViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
+      self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
+    }
+  }
+  
   @objc private func newPosts() {
     tableView.reloadData()
   }
@@ -29,12 +37,13 @@ class FeedViewController: UIViewController {
     let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
     navigationController?.pushViewController(vc, animated: true)
   }
-  
-  @IBAction func profilePressed(_ sender: Any) {
-    print("Profile Pressed")
-    let vc = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier:"MyProfileVC")
-    navigationController?.pushViewController(vc, animated: true)
-  }
+
+//  Old profile stuff, add to tab bar
+//  @IBAction func profilePressed(_ sender: Any) {
+//    print("Profile Pressed")
+//    let vc = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier:"MyProfileVC")
+//    navigationController?.pushViewController(vc, animated: true)
+//  }
   
 }
 
@@ -67,14 +76,6 @@ extension FeedViewController: UITableViewDataSource {
     return cell
   }
   
-}
-
-extension FeedViewController: PostTableViewCellDelegate {
-  func profileButtonDidPressed(postUser: User) {
-    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-    vc.user = postUser
-    navigationController?.pushViewController(vc,animated:true)
-  }
 }
 
 extension FeedViewController: PostTableViewCellDelegate {

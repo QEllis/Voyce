@@ -28,5 +28,8 @@ class CommentCreationViewController: UIViewController {
     UserManager.shared.addComment(with: textView.text, post: post)
     navigationController?.popViewController(animated: true)
   }
-
+  @IBAction func backPressed(_ sender: Any) {
+    navigationController?.popViewController(animated: true)
+  }
+  
 }
