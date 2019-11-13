@@ -23,7 +23,7 @@ class AdViewController: UIViewController {
       super.viewDidLoad();
       initTimer()
       ads.addObjects(from: ["this is our first test ad", icon!, "this is our second test ad", "this is our third test ad"]) //FRANK assuming this will come in as an array of Strings or UIImages
-      vibes = UserManager.sharedUser.getVibes()
+      vibes = UserManager.shared.sharedUser.getVibes()
     
       let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
       rightSwipe.direction = .right
@@ -48,14 +48,14 @@ class AdViewController: UIViewController {
     stopTimer()
     guard self.timer == nil else { return }
     initTimer()
-    vibes = UserManager.sharedUser.getVibes()
+    vibes = UserManager.shared.sharedUser.getVibes()
   }
   
   func stopTimer() {
     guard timer != nil else { return }
     timer?.invalidate()
     timer = nil
-    UserManager.sharedUser.setVibes(vibes: self.vibes)
+    UserManager.shared.sharedUser.setVibes(vibes: self.vibes)
   }
   
     @IBOutlet var vibezLabel: UILabel!
@@ -117,7 +117,7 @@ class AdViewController: UIViewController {
     
     @objc func updateViewTime(){
       print("Adding to vibes")
-//      UserManager.sharedUser.goodVibes += 1
+//      UserManager.shared.sharedUser.goodVibes += 1
       vibes += 1 //FRANK update server side amount of vibez
       vibezLabel.text = "Good Vibes: \(vibes)"
     }

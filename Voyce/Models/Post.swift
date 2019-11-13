@@ -10,21 +10,29 @@ import Foundation
 
 public class Post {
   
+  let postID: String
   let text: String
-  var user: User
-  //username needs to pull from User
-  let username: String
+  let media: String
+  let user: User
   let likeCount: Int
   var comments: [Post]
-  
-  //pull from database
-  init(text: String, user: User, likeCount: Int) {
+
+    init(pid:String, text: String, media: String, user: User, likeCount: Int) {
+    self.postID = pid
     self.text = text
+    self.media = media
     self.user = user
-    self.username = user.username
     self.likeCount = likeCount
     self.comments = []
   }
+    init(){
+        self.postID = ""
+        self.text = ""
+        self.media = ""
+        self.user = User()
+        self.likeCount = 0
+        self.comments = []
+    }
   
   public func addComment(_ comment: Post) {
     comments.append(comment)

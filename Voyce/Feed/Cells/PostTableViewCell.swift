@@ -16,7 +16,7 @@ protocol PostTableViewCellDelegate{
 final class PostTableViewCell: UITableViewCell {
   
   var delegate: PostTableViewCellDelegate?
-  var postUser = User(userID: 0, name: "nil", username: "nil")
+  var postUser = User.init(userID: "0", name: "null", username: "null")
 
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var createdAtLabel: UILabel!

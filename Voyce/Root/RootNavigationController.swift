@@ -26,12 +26,7 @@ class RootNavigationController: UINavigationController {
     
 //    Changed this to Login to test Login functionality
   private func routeUser() {
-//    if UserManager.sharedUser != nil {=
-//      //main nav
-//      return
-//    }
 
-    //else login
 //    guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
 //        .instantiateInitialViewController() as? LoginViewController else { return }
 //    viewControllers = [loginVC]

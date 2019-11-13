@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-private let user = UserManager.sharedUser
+private let user = UserManager.shared.sharedUser
 
 class MyProfileViewController: UIViewController, UITableViewDelegate {
   
@@ -23,7 +23,7 @@ class MyProfileViewController: UIViewController, UITableViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    UserManager.shared.initWithPlaceholderPosts()
+//    UserManager.shared.initWithPlaceholderPosts()
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "MyPostTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostCell")
@@ -41,7 +41,7 @@ class MyProfileViewController: UIViewController, UITableViewDelegate {
   
   private func loadTextFields(){
     print("Loaded Text Fields")
-    print("\(UserManager.sharedUser.goodVibes)")
+    print("\(UserManager.shared.sharedUser.goodVibes)")
     nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
     goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
