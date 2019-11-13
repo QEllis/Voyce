@@ -14,7 +14,7 @@ public class User{
   let userID:Int
   let name:String
   let username:String
-  let goodVibes:Int
+  var goodVibes:Int
   let image:UIImage?
   var followed:Set<String>
   
@@ -50,6 +50,18 @@ public class User{
       return true
     }
     return false
+  }
+  
+  func setVibes(vibes: Int){
+    self.goodVibes = vibes
+  }
+  
+  func getVibes()->Int{
+    return self.goodVibes
+  }
+  
+  func addVibes(vibes: Int){
+    self.goodVibes += vibes
   }
   
 }

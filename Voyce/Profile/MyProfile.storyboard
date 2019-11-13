@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nfy-co-alY">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nfy-co-alY">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,15 +51,6 @@
                                     <constraint firstAttribute="width" secondItem="I89-KD-Xag" secondAttribute="height" multiplier="1:1" id="uY7-WK-wxb"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-lp-XPB">
-                                <rect key="frame" x="20" y="54" width="34" height="30"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="backPressed:" destination="nfy-co-alY" eventType="touchUpInside" id="2o9-Y1-L66"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9n-Yc-avD">
                                 <rect key="frame" x="86.5" y="455" width="241" height="32"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,7 +87,6 @@
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="leading" secondItem="I89-KD-Xag" secondAttribute="trailing" constant="8" id="S7R-Fp-iEd"/>
                             <constraint firstItem="q91-hW-FHX" firstAttribute="leading" secondItem="GZI-gz-PTb" secondAttribute="leading" id="SGX-NA-k4h"/>
                             <constraint firstItem="1sr-wu-aor" firstAttribute="top" secondItem="U9n-Yc-avD" secondAttribute="bottom" constant="25" id="TnA-iB-sAm"/>
-                            <constraint firstItem="y6O-lp-XPB" firstAttribute="leading" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="20" id="UDS-Ej-un9"/>
                             <constraint firstItem="q91-hW-FHX" firstAttribute="top" secondItem="1sr-wu-aor" secondAttribute="bottom" constant="8" id="WdB-0p-bu1"/>
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="50" id="ZQd-zB-pgg"/>
                             <constraint firstItem="GZI-gz-PTb" firstAttribute="trailing" secondItem="q91-hW-FHX" secondAttribute="trailing" id="cyt-5u-zig"/>
@@ -104,7 +96,6 @@
                             <constraint firstItem="oh9-bp-Yxy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="100" id="jV8-x8-biu"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="centerX" secondItem="GZI-gz-PTb" secondAttribute="centerX" id="oHg-gS-R8H"/>
                             <constraint firstItem="GZI-gz-PTb" firstAttribute="bottom" secondItem="q91-hW-FHX" secondAttribute="bottom" constant="32" id="uOd-lB-Pr2"/>
-                            <constraint firstItem="y6O-lp-XPB" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="10" id="veH-0P-b9M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GZI-gz-PTb"/>
                     </view>

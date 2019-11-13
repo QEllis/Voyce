@@ -26,7 +26,7 @@ class VoyceTabBarViewController: UITabBarController {
     view.layoutIfNeeded()
     let adViewer = UIStoryboard(name: "AdViewer", bundle: nil).instantiateViewController(withIdentifier: "AdViewerVC")
 
-    let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
+    let profileVC = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileVC")
     
     let homeVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
     

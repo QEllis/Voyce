@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cGs-MB-HJR">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cGs-MB-HJR">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,6 +28,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="37x-G8-tAm">
                                 <rect key="frame" x="0.0" y="116.5" width="414" height="779.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHA-2y-kfc">
                                 <rect key="frame" x="349" y="58" width="45" height="45"/>
@@ -40,24 +43,13 @@
                                     <action selector="postPressed:" destination="cGs-MB-HJR" eventType="touchUpInside" id="uDX-J7-BJN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxS-GQ-iQk">
-                                <rect key="frame" x="10" y="65.5" width="44" height="30"/>
-                                <state key="normal" title="Profile">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="profilePressed:" destination="cGs-MB-HJR" eventType="touchUpInside" id="N8I-Ci-ebn"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                         <constraints>
-                            <constraint firstItem="qxS-GQ-iQk" firstAttribute="centerY" secondItem="euX-Dw-dP7" secondAttribute="centerY" id="3m7-8y-iip"/>
                             <constraint firstItem="37x-G8-tAm" firstAttribute="top" secondItem="euX-Dw-dP7" secondAttribute="bottom" constant="20" id="7Mv-0e-2bg"/>
                             <constraint firstAttribute="bottom" secondItem="37x-G8-tAm" secondAttribute="bottom" id="AUF-8b-WgO"/>
                             <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="ZHA-2y-kfc" secondAttribute="trailing" constant="20" id="CZl-NJ-Zlw"/>
                             <constraint firstItem="euX-Dw-dP7" firstAttribute="top" secondItem="41m-Dp-SnV" secondAttribute="top" constant="20" id="Fxc-gd-han"/>
-                            <constraint firstItem="qxS-GQ-iQk" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" constant="10" id="JZo-Tu-4gt"/>
                             <constraint firstAttribute="trailing" secondItem="37x-G8-tAm" secondAttribute="trailing" id="WaD-UA-gyQ"/>
                             <constraint firstItem="37x-G8-tAm" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="Ysu-v7-uki"/>
                             <constraint firstItem="euX-Dw-dP7" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="a43-7Y-G4W"/>
