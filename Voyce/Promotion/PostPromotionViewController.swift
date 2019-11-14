@@ -11,7 +11,7 @@ import UIKit
 
 class PostPromotionViewController: UIViewController{
   
-  var post:Post = Post(text: "nil", user: User(userID: 0, name: "Pedro", username: "pedro"), likeCount: 0)
+  var post:Post = Post()
   var gender:String = "All"
   
   @IBOutlet weak var adDurationSlider: UISlider!
@@ -38,7 +38,7 @@ class PostPromotionViewController: UIViewController{
     rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged(_:)),
                           for: .valueChanged)
     adDurationSlider.value = 1
-    adDurationLabel.text = "\(Int(adDurationSlider.value)) seconds"
+    adDurationLabel.text = "\(Int(adDurationSlider.value))"
   }
   
   override func viewDidLayoutSubviews() {

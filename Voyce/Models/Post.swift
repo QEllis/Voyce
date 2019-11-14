@@ -9,7 +9,7 @@
 import Foundation
 
 public class Post {
-  
+  var id:String
   let text: String
   var user: User
   //username needs to pull from User
@@ -17,13 +17,32 @@ public class Post {
   let likeCount: Int
   var comments: [Post]
   
+  init() {
+    self.id = "nil"
+    self.text = "nil"
+    self.user = User()
+    self.username = user.username
+    self.likeCount = 0
+    self.comments = []
+  }
+  
   //pull from database
-  init(text: String, user: User, likeCount: Int) {
+  init(id:String, text: String, user: User, likeCount: Int) {
+    self.id = id
     self.text = text
     self.user = user
     self.username = user.username
     self.likeCount = likeCount
     self.comments = []
+  }
+  
+  init(post:Post){
+    self.id = post.id
+    self.text = post.text
+    self.user = post.user
+    self.username = post.username
+    self.likeCount = post.likeCount
+    self.comments = post.comments
   }
   
   public func addComment(_ comment: Post) {

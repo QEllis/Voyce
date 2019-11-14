@@ -16,7 +16,7 @@ final class MyPostTableViewCell: UITableViewCell {
   
   var delegate: MyPostTableViewCellDelegate?
   var postUser = User(userID: 0, name: "nil", username: "nil")
-  var post:Post = Post(text: "nil", user: User(userID: 0, name: "nil", username: "nil"), likeCount: 0)
+  var post:Post = Post()
   
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var createdAtLabel: UILabel!

@@ -80,8 +80,14 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: PostTableViewCellDelegate {
   func profileButtonDidPressed(postUser: User) {
-    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-    vc.user = postUser
-    navigationController?.pushViewController(vc,animated:true)
+    if(postUser.userID == UserManager.sharedUser.userID){
+      self.tabBarController?.selectedIndex = 1
+    }
+    else{
+      let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+      vc.user = postUser
+      navigationController?.pushViewController(vc,animated:true)
+    }
   }
 }
+

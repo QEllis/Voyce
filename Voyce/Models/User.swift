@@ -18,6 +18,15 @@ public class User{
   let image:UIImage?
   var followed:Set<String>
   
+  init(){
+    self.userID = 0
+    self.name = "nil"
+    self.username = "nil"
+    self.goodVibes = 0
+    self.image = nil
+    self.followed = Set<String>.init()
+  }
+  
   init(userID:Int, name:String, username:String, goodVibes:Int){
     self.userID = userID
     self.name = name

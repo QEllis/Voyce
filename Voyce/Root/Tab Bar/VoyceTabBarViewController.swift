@@ -11,6 +11,7 @@ import UIKit
 class VoyceTabBarViewController: UITabBarController {
 
   var voyceTabBar: VoyceTabBar = VoyceTabBar()
+  @IBInspectable var defaultIndex : Int = 2
 
   fileprivate var debouncedUpdateTab: (() -> Void)!
 
@@ -20,6 +21,7 @@ class VoyceTabBarViewController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     fillOutTabBar()
+    selectedIndex = defaultIndex
   }
 
   private func fillOutTabBar() {

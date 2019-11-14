@@ -13,18 +13,24 @@ protocol PostTableViewCellDelegate{
   func profileButtonDidPressed(postUser: User)
 }
 
+
 final class PostTableViewCell: UITableViewCell {
   
   var delegate: PostTableViewCellDelegate?
   var postUser = User(userID: 0, name: "nil", username: "nil")
-
+  var post:Post = Post()
+  
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var createdAtLabel: UILabel!
   @IBOutlet var textView: UITextView!
   @IBOutlet weak var commentStackView: UIStackView!
   @IBOutlet weak var commentLabel: UILabel!
-
+  @IBOutlet weak var acknowledgeButton: UIButton!
+  
+  var acknowledged = false
+  
   public func fillOut(with post: Post) {
+    self.post = post
     postUser = post.user
     layoutIfNeeded()
     usernameLabel.text = postUser.username
@@ -44,4 +50,22 @@ final class PostTableViewCell: UITableViewCell {
     delegate?.profileButtonDidPressed(postUser: postUser)
 
   }
+  
+  @IBAction func acknowledgePressed(_ sender: Any) {
+    print("acknowledge")
+    acknowledged.toggle()
+    switchButton()
+  }
+  
+  func switchButton(){
+    if(!acknowledged){
+      acknowledgeButton.setImage(UIImage(named: "closed_eye"), for: .normal)
+      UserManager.shared.removeAcknowledgedPost(post: post)
+    }else{
+      acknowledgeButton.setImage(UIImage(named: "eye_open"), for: .normal)
+      UserManager.shared.addAcknowledgedPost(post: post)
+    }
+  }
+  
+  
 }
