@@ -21,13 +21,13 @@
                         <rect key="frame" x="54" y="10" width="372" height="38"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D19-lZ-56D">
-                                <rect key="frame" x="0.0" y="0.0" width="372" height="18"/>
+                                <rect key="frame" x="0.0" y="0.0" width="372" height="18.5"/>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNY-r3-8UL">
-                                <rect key="frame" x="0.0" y="18" width="372" height="20"/>
+                                <rect key="frame" x="0.0" y="18.5" width="372" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -78,6 +78,28 @@
                             <action selector="profileButtonPressed:" destination="isK-Ng-fvz" eventType="touchUpInside" id="Nre-JE-vdK"/>
                         </connections>
                     </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" scrollEnabled="NO" editable="NO" text="Post Text" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Y-zI-zMO">
+                        <rect key="frame" x="8" y="56" width="418" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="7Uh-cl-DWf"/>
+                            <constraint firstAttribute="width" constant="418" id="Dpv-B0-REQ"/>
+                        </constraints>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pkw-7T-7Tb">
+                        <rect key="frame" x="383" y="106" width="31" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="31" id="Sh1-AO-IKD"/>
+                            <constraint firstAttribute="height" constant="28" id="xaF-1S-4P0"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="closed_eye"/>
+                        <connections>
+                            <action selector="acknowledgePressed:" destination="isK-Ng-fvz" eventType="touchUpInside" id="jv2-UA-D1Z"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" name="BackgroundDarkBlue"/>
                 <constraints>
@@ -85,7 +107,8 @@
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="height" secondItem="hm4-5T-YcA" secondAttribute="height" id="37b-G6-Vii"/>
                     <constraint firstItem="V6Y-zI-zMO" firstAttribute="top" secondItem="hm4-5T-YcA" secondAttribute="bottom" constant="8" id="8hl-sQ-9cD"/>
                     <constraint firstAttribute="trailing" secondItem="V6Y-zI-zMO" secondAttribute="trailing" constant="8" id="96C-th-mHF"/>
-                    <constraint firstItem="lYM-Yh-3au" firstAttribute="top" secondItem="V6Y-zI-zMO" secondAttribute="bottom" constant="10" id="LaE-2s-LwS"/>
+                    <constraint firstAttribute="trailing" secondItem="Pkw-7T-7Tb" secondAttribute="trailing" constant="20" id="9CU-Nh-U0F"/>
+                    <constraint firstItem="Pkw-7T-7Tb" firstAttribute="top" secondItem="V6Y-zI-zMO" secondAttribute="bottom" id="Efp-pK-XeW"/>
                     <constraint firstAttribute="trailing" secondItem="Sxv-d1-f0r" secondAttribute="trailing" constant="8" id="Vkk-Wy-Wdv"/>
                     <constraint firstItem="lYM-Yh-3au" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" id="ahe-7s-VZW"/>
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="leading" secondItem="hm4-5T-YcA" secondAttribute="trailing" constant="8" id="cMI-I2-BIV"/>
@@ -102,6 +125,7 @@
                 <outlet property="commentLabel1" destination="EPq-Co-OKO" id="4w0-i2-UKh"/>
                 <outlet property="commentLabel2" destination="fpz-ur-Auy" id="3Dt-pq-8a5"/>
                 <outlet property="commentLabel3" destination="QHb-8I-PI0" id="8eN-78-Tlm"/>
+                <outlet property="acknowledgeButton" destination="Pkw-7T-7Tb" id="a9m-D7-h3c"/>
                 <outlet property="commentStackView" destination="lYM-Yh-3au" id="7Np-LH-NbE"/>
                 <outlet property="createdAtLabel" destination="rNY-r3-8UL" id="R9M-e2-2WO"/>
                 <outlet property="textView" destination="V6Y-zI-zMO" id="IJD-PM-DfG"/>
@@ -111,6 +135,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="closed_eye" width="512" height="512"/>
         <image name="defaultUserImage" width="40" height="40"/>
         <namedColor name="BackgroundDarkBlue">
             <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

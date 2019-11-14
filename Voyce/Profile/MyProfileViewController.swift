@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-private let user = UserManager.sharedUser
+private let user = UserManager.shared.sharedUser
 
 class MyProfileViewController: UIViewController, UITableViewDelegate {
   
@@ -23,7 +23,7 @@ class MyProfileViewController: UIViewController, UITableViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    UserManager.shared.initWithPlaceholderPosts()
+//    UserManager.shared.initWithPlaceholderPosts()
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "MyPostTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostCell")
@@ -34,12 +34,21 @@ class MyProfileViewController: UIViewController, UITableViewDelegate {
     goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
   }
   
-  @objc private func newPosts() {
+  override func viewDidAppear(_ animated: Bool) {
+    loadTextFields()
     tableView.reloadData()
   }
   
-  @IBAction func backPressed(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
+  private func loadTextFields(){
+    print("Loaded Text Fields")
+    print("\(UserManager.shared.sharedUser.goodVibes)")
+    nameLabel.text = user.name
+    usernameLabel.text = "@" + user.username
+    goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
+  }
+  
+  @objc private func newPosts() {
+    tableView.reloadData()
   }
   
   @IBAction func transferButtonPressed(_ sender: Any) {
@@ -80,7 +89,6 @@ extension MyProfileViewController: UITableViewDataSource {
   
 }
 
-//this sends you to the profile page of post creator, also don't need this
 extension MyProfileViewController: MyPostTableViewCellDelegate {
   func promoteButtonDidPressed(post: Post) {
     print("Inside delegate promote")

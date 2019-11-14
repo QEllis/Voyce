@@ -1,40 +1,79 @@
-//
-//  User.swift
-//  Voyce
-//
-//  Created by Student on 10/17/19.
-//  Copyright © 2019 QEDev. All rights reserved.
-//
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseUI
 
 public class User{
   
-  let userID:Int
+  let userID:String
   let name:String
   let username:String
-  let goodVibes:Int
+  var goodVibes:Int
+  let imageURL: URL?
   let image:UIImage?
   var followed:Set<String>
+    
+  var dictionary: [String: Any] {
+    return [
+    "username": username,
+    "name": name,
+      "goodvibes": goodVibes,
+      "imageURL": imageURL?.absoluteString
+    ]
+  }
   
-  init(userID:Int, name:String, username:String, goodVibes:Int){
+  init(){
+      self.userID = "0"
+      self.name = "0"
+      self.username = "0"
+      self.goodVibes = 0
+      self.imageURL = nil
+      self.image = nil
+      self.followed = Set<String>.init()
+  }
+  
+  init(userID:String, name:String, username:String, goodVibes:Int){
     self.userID = userID
     self.name = name
     self.username = username
     self.goodVibes = goodVibes
-    self.image = nil
-    self.followed = Set<String>.init()
-  }
-  init(userID:Int, name:String, username:String){
-    self.userID = userID
-    self.name = name
-    self.username = username
-    self.goodVibes = 0
+    self.imageURL = nil
     self.image = nil
     self.followed = Set<String>.init()
   }
   
+  init(userID:String, name:String, username:String, imageURL:String, goodVibes:Int){
+    self.userID = userID
+    self.name = name
+    self.username = username
+    self.goodVibes = goodVibes
+    self.imageURL = URL(string: imageURL)
+    self.image = nil
+    self.followed = Set<String>.init()
+  }
+  
+  init(userID:String, name:String, username:String){
+    self.userID = userID
+    self.name = name
+    self.username = username
+    self.goodVibes = 0
+    self.imageURL = nil
+    self.image = nil
+    self.followed = Set<String>.init()
+  }
+  
+  init(user: FirebaseAuth.User){
+      self.userID = user.uid
+      self.name = user.displayName!
+      self.username = user.displayName!
+      self.imageURL = user.photoURL
+      self.image = nil
+      self.followed = Set<String>.init()
+      self.goodVibes = 0
+  }
+
   func addFollowed(username:String){
     followed.insert(username)
     print(followed)
@@ -51,5 +90,21 @@ public class User{
     }
     return false
   }
-  
+    
+    
+    func setVibes(vibes: Int){
+      self.goodVibes = vibes
+    }
+    
+    func getVibes()->Int{
+      return self.goodVibes
+    }
+    
+    func addVibes(vibes: Int){
+      self.goodVibes += vibes
+    }
+    
+    func LoadUserData(dataDict: [String : Any]){
+        print(dataDict)
+    }
 }

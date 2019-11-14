@@ -16,7 +16,7 @@ class PostCommentView: UIView {
   @IBOutlet weak var textView: UITextView!
 
   public func fillOut(with post: Post) {
-    nameLabel.text = post.username
+    nameLabel.text = post.user.username
     dateLabel.text = DateFormatter().string(from: Date())
     textView.text = post.text
   }

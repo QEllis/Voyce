@@ -11,7 +11,7 @@ import UIKit
 
 class PostPromotionViewController: UIViewController{
   
-  var post:Post = Post(text: "nil", user: User(userID: 0, name: "Pedro", username: "pedro"), likeCount: 0)
+  var post:Post = Post()
   var gender:String = "All"
   
   @IBOutlet weak var adDurationSlider: UISlider!
@@ -38,7 +38,7 @@ class PostPromotionViewController: UIViewController{
     rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged(_:)),
                           for: .valueChanged)
     adDurationSlider.value = 1
-    adDurationLabel.text = "\(Int(adDurationSlider.value * 30)) seconds"
+    adDurationLabel.text = "\(Int(adDurationSlider.value))"
   }
   
   override func viewDidLayoutSubviews() {
@@ -57,6 +57,9 @@ class PostPromotionViewController: UIViewController{
   }
   
   @IBAction func createAdPressed(_ sender: Any) {
+    
+    //add this post to the ads list
+    
     //need to send information to datdabase
     let alert = UIAlertController(title: "Post promoted!", message: "Your post will now be shown as an Ad.", preferredStyle: .alert)
     
@@ -66,7 +69,6 @@ class PostPromotionViewController: UIViewController{
     
     self.present(alert, animated: true)
     print("Should pop")
-    
   }
   
   @IBAction func genderValueChanged(_ sender: Any) {
@@ -86,7 +88,7 @@ class PostPromotionViewController: UIViewController{
   
   @IBAction func adDurationSliderChanged(_ sender: Any) {
     print("Ad Duration: \(adDurationSlider.value)")
-    adDurationLabel.text = "\(Int(adDurationSlider.value * 30)) seconds"
+    adDurationLabel.text = "\(Int(adDurationSlider.value))"
   }
   
   //range slider

@@ -14,11 +14,20 @@ class FeedViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    UserManager.shared.initWithPlaceholderPosts()
+//    UserManager.shared.initWithPlaceholderPosts()
+    UserManager.shared.LoadFeed(); 
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
     NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
+      self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
+    }
   }
   
   @objc private func newPosts() {
@@ -29,13 +38,7 @@ class FeedViewController: UIViewController {
     let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
     navigationController?.pushViewController(vc, animated: true)
   }
-  
-  @IBAction func profilePressed(_ sender: Any) {
-    print("Profile Pressed")
-    let vc = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier:"MyProfileVC")
-    navigationController?.pushViewController(vc, animated: true)
-  }
-  
+
 }
 
 // MARK: - UITableViewDelegate
@@ -71,8 +74,13 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: PostTableViewCellDelegate {
   func profileButtonDidPressed(postUser: User) {
-    let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-    vc.user = postUser
-    navigationController?.pushViewController(vc,animated:true)
+    if(postUser.userID == UserManager.shared.sharedUser.userID){
+      self.tabBarController?.selectedIndex = 1
+    }
+    else{
+      let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+      vc.user = postUser
+      navigationController?.pushViewController(vc,animated:true)
+    }
   }
 }
