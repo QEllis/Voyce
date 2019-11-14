@@ -25,7 +25,7 @@ class AdViewController: UIViewController {
     initTimer()
     stopTimer()
     ads.addObjects(from: ["this is our first test ad", icon!, "this is our second test ad", "this is our third test ad"]) //FRANK assuming this will come in as an array of Strings or UIImages
-    vibes = UserManager.sharedUser.getVibes()
+    vibes = UserManager.shared.sharedUser.getVibes()
   
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
     rightSwipe.direction = .right

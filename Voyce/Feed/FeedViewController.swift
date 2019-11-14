@@ -74,7 +74,7 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: PostTableViewCellDelegate {
   func profileButtonDidPressed(postUser: User) {
-    if(postUser.userID == UserManager.sharedUser.userID){
+    if(postUser.userID == UserManager.shared.sharedUser.userID){
       self.tabBarController?.selectedIndex = 1
     }
     else{

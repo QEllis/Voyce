@@ -33,7 +33,7 @@ class UserManager {
   var acknowledgedPosts:[String:Post] = [:]
   
   public func checkAcknowledgedPost(post:Post)->Bool{
-    if(acknowledgedPosts[post.id] != nil){
+    if(acknowledgedPosts[post.postID] != nil){ 
       return true
     }
     else{
@@ -44,31 +44,17 @@ class UserManager {
   public func addAcknowledgedPost(post:Post){
     if(!checkAcknowledgedPost(post: post)){
       print("Acknowledged Post")
-      acknowledgedPosts[post.id] = post
+      acknowledgedPosts[post.postID] = post
     }
   }
 
   public func removeAcknowledgedPost(post:Post){
     if(checkAcknowledgedPost(post: post)){
       print("Deacknowledged Post")
-      acknowledgedPosts.removeValue(forKey: post.id)
+      acknowledgedPosts.removeValue(forKey: post.postID)
     }
   }
   
-  public func initWithPlaceholderPosts() {
-    var otherUser:User = User(userID: 3, name: "Frank Pol", username: "franky", goodVibes: 9001)
-//    posts.append(Post(text: "First Post", username: "quinn", likeCount: 19))
-    posts.append(Post(id:"1", text: "First Post", user: otherUser , likeCount: 19))
-    
-    posts.append(Post(id: "2", text: "Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post ", user: UserManager.sharedUser, likeCount: 119))
-    posts.append(Post(id:"3", text: "quinn", user: otherUser, likeCount: 1119))
-  }
-  
-//  public func addPost(with text: String) {
-//    posts.insert(Post(id:"4", text: text, user: UserManager.sharedUser, likeCount: 0), at: 0)
-//    myPosts.insert(Post(id:"5", text: text, user: UserManager.sharedUser, likeCount: 0), at: 0)
-//  }
-    
   public func userLogin(u: FirebaseAuth.User){
     sharedUser  = User.init(user: u)
     let collection = db.collection("users");

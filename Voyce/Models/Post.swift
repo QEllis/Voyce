@@ -36,10 +36,10 @@ public class Post {
   }
   
   init(post:Post){
-    self.id = post.id
+    self.postID = post.postID
     self.text = post.text
+    self.media = post.media
     self.user = post.user
-    self.username = post.username
     self.likeCount = post.likeCount
     self.comments = post.comments
   }
