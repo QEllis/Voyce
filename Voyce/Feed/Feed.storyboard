@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cGs-MB-HJR">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cGs-MB-HJR">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voyce" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euX-Dw-dP7">
-                                <rect key="frame" x="175.5" y="64" width="63.5" height="32.5"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                <rect key="frame" x="181.5" y="54" width="51" height="54.5"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="37x-G8-tAm">
-                                <rect key="frame" x="0.0" y="116.5" width="414" height="779.5"/>
+                                <rect key="frame" x="0.0" y="118.5" width="414" height="777.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHA-2y-kfc">
-                                <rect key="frame" x="349" y="58" width="45" height="45"/>
+                                <rect key="frame" x="349" y="59" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="xir-yz-2S7"/>
                                     <constraint firstAttribute="height" constant="45" id="yYQ-OW-V3I"/>
@@ -46,10 +44,10 @@
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                         <constraints>
-                            <constraint firstItem="37x-G8-tAm" firstAttribute="top" secondItem="euX-Dw-dP7" secondAttribute="bottom" constant="20" id="7Mv-0e-2bg"/>
+                            <constraint firstItem="37x-G8-tAm" firstAttribute="top" secondItem="euX-Dw-dP7" secondAttribute="bottom" constant="10" id="7Mv-0e-2bg"/>
                             <constraint firstAttribute="bottom" secondItem="37x-G8-tAm" secondAttribute="bottom" id="AUF-8b-WgO"/>
                             <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="ZHA-2y-kfc" secondAttribute="trailing" constant="20" id="CZl-NJ-Zlw"/>
-                            <constraint firstItem="euX-Dw-dP7" firstAttribute="top" secondItem="41m-Dp-SnV" secondAttribute="top" constant="20" id="Fxc-gd-han"/>
+                            <constraint firstItem="euX-Dw-dP7" firstAttribute="top" secondItem="41m-Dp-SnV" secondAttribute="top" constant="10" id="Fxc-gd-han"/>
                             <constraint firstAttribute="trailing" secondItem="37x-G8-tAm" secondAttribute="trailing" id="WaD-UA-gyQ"/>
                             <constraint firstItem="37x-G8-tAm" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="Ysu-v7-uki"/>
                             <constraint firstItem="euX-Dw-dP7" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="a43-7Y-G4W"/>
