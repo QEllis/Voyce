@@ -14,7 +14,8 @@ class FeedViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    UserManager.shared.initWithPlaceholderPosts()
+//    UserManager.shared.initWithPlaceholderPosts()
+    UserManager.shared.LoadFeed(); 
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
@@ -38,13 +39,6 @@ class FeedViewController: UIViewController {
     navigationController?.pushViewController(vc, animated: true)
   }
 
-//  Old profile stuff, add to tab bar
-//  @IBAction func profilePressed(_ sender: Any) {
-//    print("Profile Pressed")
-//    let vc = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier:"MyProfileVC")
-//    navigationController?.pushViewController(vc, animated: true)
-//  }
-  
 }
 
 // MARK: - UITableViewDelegate

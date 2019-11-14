@@ -25,6 +25,7 @@ class VoyceTabBarViewController: UITabBarController {
   }
 
   private func fillOutTabBar() {
+    UserManager.shared.LoadFeed()
     view.layoutIfNeeded()
     let adViewer = UIStoryboard(name: "AdViewer", bundle: nil).instantiateViewController(withIdentifier: "AdViewerVC")
 

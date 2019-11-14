@@ -9,30 +9,29 @@
 import Foundation
 
 public class Post {
-  var id:String
-  let text: String
-  var user: User
-  //username needs to pull from User
-  let username: String
-  let likeCount: Int
-  var comments: [Post]
   
-  init() {
-    self.id = "nil"
-    self.text = "nil"
-    self.user = User()
-    self.username = user.username
-    self.likeCount = 0
+  let postID: String
+  let text: String
+  let media: String
+  let likeCount: Int
+  var user: User
+  var comments: [Post]
+
+  init(pid:String, text: String, media: String, user: User, likeCount: Int) {
+    self.postID = pid
+    self.text = text
+    self.media = media
+    self.user = user
+    self.likeCount = likeCount
     self.comments = []
   }
   
-  //pull from database
-  init(id:String, text: String, user: User, likeCount: Int) {
-    self.id = id
-    self.text = text
-    self.user = user
-    self.username = user.username
-    self.likeCount = likeCount
+  init(){
+    self.postID = ""
+    self.text = ""
+    self.media = ""
+    self.user = User()
+    self.likeCount = 0
     self.comments = []
   }
   

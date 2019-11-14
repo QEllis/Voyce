@@ -15,23 +15,10 @@ class RootNavigationController: UINavigationController {
     super.viewDidLoad()
     routeUser()
   }
-
-  //In future this will route user based on login state
-  
-//  private func routeUser() {
-//    guard let feedVC = UIStoryboard(name: "Feed", bundle: nil)
-//      .instantiateInitialViewController() as? FeedViewController else { return }
-//    viewControllers = [feedVC]
-//  }
     
 //    Changed this to Login to test Login functionality
   private func routeUser() {
-//    if UserManager.sharedUser != nil {=
-//      //main nav
-//      return
-//    }
-
-    //else login
+    
     guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
         .instantiateInitialViewController() as? LoginViewController else { return }
     viewControllers = [loginVC]

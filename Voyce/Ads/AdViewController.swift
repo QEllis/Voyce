@@ -19,7 +19,7 @@ class AdViewController: UIViewController {
   var ads = NSMutableArray()
   var icon = UIImage(named: "wand")
 
-  override func viewDidLoad() {
+  override func viewDidLoad(){
     print("Ads View Did Load")
     super.viewDidLoad();
     initTimer()
@@ -54,14 +54,14 @@ class AdViewController: UIViewController {
     stopTimer()
     guard self.timer == nil else { return }
     initTimer()
-    vibes = UserManager.sharedUser.getVibes()
+    vibes = UserManager.shared.sharedUser.getVibes()
   }
   
   func stopTimer() {
     guard timer != nil else { return }
     timer?.invalidate()
     timer = nil
-    UserManager.sharedUser.setVibes(vibes: self.vibes)
+    UserManager.shared.sharedUser.setVibes(vibes: self.vibes)
   }
   
   func loadNewAds()->Bool{
@@ -145,7 +145,7 @@ class AdViewController: UIViewController {
     
     @objc func updateViewTime(){
       print("Adding to vibes")
-//      UserManager.sharedUser.goodVibes += 1
+//      UserManager.shared.sharedUser.goodVibes += 1
       vibes += 1 //FRANK update server side amount of vibez
       vibezLabel.text = "Good Vibes: \(vibes)"
     }
