@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghZ-EZ-sqa">
-                                <rect key="frame" x="60" y="428.34757142694343" width="294" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghZ-EZ-sqa">
+                                <rect key="frame" x="60" y="407.5" width="294" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Login With Google">
@@ -40,9 +40,13 @@
                         </subviews>
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                         <constraints>
+                            <constraint firstItem="vKr-Og-8yu" firstAttribute="trailing" secondItem="Bm7-V7-DiQ" secondAttribute="trailing" constant="118" id="4Uu-9R-CSe"/>
+                            <constraint firstItem="vKr-Og-8yu" firstAttribute="bottom" secondItem="ghZ-EZ-sqa" secondAttribute="bottom" constant="412.5" id="BSq-e7-CDw"/>
+                            <constraint firstItem="ghZ-EZ-sqa" firstAttribute="top" secondItem="Bm7-V7-DiQ" secondAttribute="bottom" constant="25.347571426943432" id="EDf-HM-Q9d"/>
                             <constraint firstItem="Bm7-V7-DiQ" firstAttribute="centerX" secondItem="eTw-vH-Shr" secondAttribute="centerX" id="Tgj-Gh-rqq"/>
-                            <constraint firstItem="Bm7-V7-DiQ" firstAttribute="top" secondItem="vKr-Og-8yu" secondAttribute="top" id="axY-pK-crg"/>
+                            <constraint firstItem="Bm7-V7-DiQ" firstAttribute="top" secondItem="vKr-Og-8yu" secondAttribute="top" constant="169" id="axY-pK-crg"/>
                             <constraint firstItem="ghZ-EZ-sqa" firstAttribute="leading" secondItem="vKr-Og-8yu" secondAttribute="leading" constant="60" id="kcW-wX-B9U"/>
+                            <constraint firstItem="Bm7-V7-DiQ" firstAttribute="leading" secondItem="vKr-Og-8yu" secondAttribute="leading" constant="118" id="xGh-IG-rma"/>
                             <constraint firstItem="vKr-Og-8yu" firstAttribute="trailing" secondItem="ghZ-EZ-sqa" secondAttribute="trailing" constant="60" id="zCt-Hd-JVA"/>
                             <constraint firstItem="ghZ-EZ-sqa" firstAttribute="centerX" secondItem="eTw-vH-Shr" secondAttribute="centerX" id="zie-tV-5Rg"/>
                         </constraints>

@@ -47,8 +47,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
             print("No current user");
         }
         
-        let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
-                   self.navigationController?.pushViewController(vc, animated: true)
+        let vc = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
