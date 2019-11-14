@@ -18,7 +18,6 @@ class RootNavigationController: UINavigationController {
     
 //    Changed this to Login to test Login functionality
   private func routeUser() {
-    
     guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
         .instantiateInitialViewController() as? LoginViewController else { return }
     viewControllers = [loginVC]
