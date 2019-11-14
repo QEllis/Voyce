@@ -13,8 +13,8 @@ public class Post {
   let postID: String
   let text: String
   let media: String
-  let user: User
   let likeCount: Int
+  var user: User
   var comments: [Post]
 
     init(pid:String, text: String, media: String, user: User, likeCount: Int) {

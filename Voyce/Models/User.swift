@@ -15,7 +15,6 @@ public class User{
   let image:UIImage?
   var followed:Set<String>
     
-    
     var dictionary: [String: Any] {
       return [
       "username": username,
@@ -24,6 +23,7 @@ public class User{
         "imageURL": imageURL?.absoluteString
       ]
     }
+    
     init(){
         self.userID = "0"
         self.name = "0"
@@ -33,15 +33,26 @@ public class User{
         self.image = nil
         self.followed = Set<String>.init()
     }
-  init(userID:String, name:String, username:String, goodVibes:Int){
-    self.userID = userID
-    self.name = name
-    self.username = username
-    self.goodVibes = goodVibes
-    self.imageURL = nil
-    self.image = nil
-    self.followed = Set<String>.init()
-  }
+      
+    init(userID:String, name:String, username:String, goodVibes:Int){
+      self.userID = userID
+      self.name = name
+      self.username = username
+      self.goodVibes = goodVibes
+      self.imageURL = nil
+      self.image = nil
+      self.followed = Set<String>.init()
+    }
+      
+    init(userID:String, name:String, username:String, imageURL:String, goodVibes:Int){
+      self.userID = userID
+      self.name = name
+      self.username = username
+      self.goodVibes = goodVibes
+      self.imageURL = URL(string: imageURL)
+      self.image = nil
+      self.followed = Set<String>.init()
+    }
   init(userID:String, name:String, username:String){
     self.userID = userID
     self.name = name

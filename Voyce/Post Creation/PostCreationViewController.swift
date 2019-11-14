@@ -17,7 +17,7 @@ class PostCreationViewController: UIViewController {
     textView.layer.cornerRadius = 5
     textView.layer.borderWidth = 1
     textView.layer.borderColor = UIColor.white.cgColor
-    textView.text = "Type here!"
+    textView.text = ""
   }
 
   @IBAction func postPressed(_ sender: Any) {

@@ -36,37 +36,18 @@ class UserManager {
 
         userDoc.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("User data: \(dataDescription)")
                 self.sharedUser.LoadUserData(dataDict: document.data()!)
             } else {
                 print("User does not exist yet, create in db", u.uid)
-    //                collection.addDocument(data: self.sharedUser.dictionary)
                 userDoc.setData(self.sharedUser.dictionary)
             }
         }
 
     }
-    
-  
-//  public func initWithPlaceholderPosts() {
-//    var otherUser:User = User(userID: 3, name: "Frank Pol", username: "franky", goodVibes: 9001)
-////    posts.append(Post(text: "First Post", username: "quinn", likeCount: 19))
-//    posts.append(Post(text: "First Post", user: otherUser , likeCount: 19))
-//    
-//    posts.append(Post(text: "Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post Long post ", user: UserManager.shared.sharedUser, likeCount: 119))
-//    posts.append(Post(text: "quinn", user: otherUser, likeCount: 1119))
-//  }
   
   public func addPost(with text: String) {
-//    posts.insert(Post(text: text, user: UserManager.shared.sharedUser, likeCount: 0), at: 0)
-//    myPosts.insert(Post(text: text, user: UserManager.shared.sharedUser, likeCount: 0), at: 0)
-    
     let id = UUID()
-    let newPost = Post(pid:id.uuidString, text: text, media: "", user: sharedUser, likeCount: 0)
-    
-    //TODO: remove
-    posts.insert(newPost, at: 0)
+//    let newPost = Post(pid:id.uuidString, text: text, media: "", user: sharedUser, likeCount: 0)
     
     db.collection("posts").document(id.uuidString).setData([
         "uid": sharedUser.userID,
@@ -81,7 +62,53 @@ class UserManager {
         }
     }
   }
+    
+    public func SetPostsUser(uid: String, p:Post){
+        
+        let collection = db.collection("users")
+        collection.document(uid)
+            .getDocument() { (document, error) in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    let dataDescription = data.map(String.init(describing:)) ?? "nil"
+                    print("GET USER Doc id: \(document.documentID)")
+                    print("GET USER Document data: \(dataDescription)")
+                    let actualUserFound = User(userID: document.documentID,
+                                        name:  document.get("name") as! String,
+                                        username:  document.get("username") as! String,
+                                        imageURL:  document.get("imageURL") as! String,
+                                        goodVibes:  document.get("goodvibes")  as! Int)
+                    p.user = actualUserFound
+                    print("Post Creator: \(p.user.userID)")
+                } else {
+                    print("User does not exist")
+                }
+            }
+    }
   
+    public func LoadFeed(){
+        print("IN LOAD FEED");
+        let collection = db.collection("posts")
+        collection.order(by: "ts").limit(to: 10)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let p = Post(pid: document.documentID,
+                                     text: data["text"] as! String,
+                                     media: data["media"] as! String,
+                                     user: User(),
+                                     likeCount: data["likeCount"] as! Int)
+                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
+                        self.posts.append(p)
+                        print("POST: \(document.documentID) => \(document.data())")
+                    }
+                }
+        }
+    }
+    
   public func addComment(with text: String, post: Post) {
     for currPost in posts where currPost.text == post.text {
     let id = UUID()
