@@ -28,6 +28,7 @@ final class PostTableViewCell: UITableViewCell {
   @IBOutlet var commentLabel2: UILabel!
   @IBOutlet var commentLabel3: UILabel!
   @IBOutlet weak var acknowledgeButton: UIButton!
+  @IBOutlet weak var postImage: UIImageView!
   
   var acknowledged = false
   

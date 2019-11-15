@@ -74,9 +74,9 @@ class UserManager {
   public func addPost(with text: String) {
     let id = UUID()
 //    let newPost = Post(pid:id.uuidString, text: text, media: "", user: sharedUser, likeCount: 0)
-    
     db.collection("posts").document(id.uuidString).setData([
         "uid": sharedUser.userID,
+        "ts": NSDate().timeIntervalSince1970,
         "text": text,
         "media": "",
         "likeCount": 0
@@ -114,6 +114,7 @@ class UserManager {
   
     public func LoadFeed(){
         print("IN LOAD FEED");
+        posts = []
         let collection = db.collection("posts")
         collection.order(by: "ts").limit(to: 10)
             .getDocuments() { (querySnapshot, err) in
@@ -155,9 +156,4 @@ class UserManager {
   public func checkIfFollowed(username:String)->Bool{
     return UserManager.shared.sharedUser.checkIfFollowed(username: username)
   }
-  
-  //temp username and password storage
-  var username = "q"
-  var email = "q"
-  var password = "q"
 }

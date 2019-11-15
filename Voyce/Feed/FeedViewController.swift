@@ -15,7 +15,7 @@ class FeedViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 //    UserManager.shared.initWithPlaceholderPosts()
-    UserManager.shared.LoadFeed(); 
+    //UserManager.shared.LoadFeed(); 
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
@@ -24,6 +24,8 @@ class FeedViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    //this will reload when you go back to the feed. In the future only reload when user does reload gesture or hits reload button
+    UserManager.shared.LoadFeed()
     
     if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
       self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
