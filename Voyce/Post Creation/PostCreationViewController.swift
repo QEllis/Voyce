@@ -8,20 +8,72 @@
 
 import UIKit
 
-class PostCreationViewController: UIViewController {
+class PostCreationViewController: UIViewController, UITextViewDelegate {
 
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var postImage: UIImageView!
-    
+  @IBOutlet weak var imageCaption: UITextView!
+  @IBOutlet weak var postSegmentedControl: UISegmentedControl!
+  
   override func viewDidLoad() {
+    
     super.viewDidLoad()
     textView.layer.cornerRadius = 5
     textView.layer.borderWidth = 1
     textView.layer.borderColor = UIColor.white.cgColor
-    textView.text = ""
-  }
+    textView.textColor = UIColor.lightGray
     
-    @IBAction func openImageGallery(_ sender: UIButton) {
+    imageCaption.layer.cornerRadius = 5
+    imageCaption.layer.borderWidth = 1
+    imageCaption.layer.borderColor = UIColor.white.cgColor
+    imageCaption.textColor = UIColor.lightGray
+    
+    postImage.isHidden = true
+    imageCaption.isHidden = true
+    textView.isHidden = false
+    
+    textView.delegate = self
+    imageCaption.delegate = self
+    
+  }
+  
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    if textView.textColor == UIColor.lightGray {
+      textView.text = nil
+      textView.textColor = UIColor.white
+    }
+  }
+  
+  func textViewDidEndEditing(_ textView: UITextView) {
+    if textView.text.isEmpty {
+      textView.text = "Tap to add text!"
+      textView.textColor = UIColor.lightGray
+    }
+  }
+  
+  
+  @IBAction func PostTypeValueChanged(_ sender: Any) {
+    switch postSegmentedControl.selectedSegmentIndex {
+    case 0:
+      textView.isHidden = false
+      imageCaption.isHidden = true
+      postImage.isHidden = true
+      postImage.image = nil
+    case 1:
+      openImageGallery()
+      textView.isHidden = true
+      imageCaption.isHidden = false
+      postImage.isHidden = false
+    default:
+      textView.isHidden = false
+      imageCaption.isHidden = true
+      textView.isHidden = false
+    }
+    
+  }
+  
+    
+    func openImageGallery() {
      
             let myPickerController = UIImagePickerController()
             myPickerController.delegate = self;
@@ -31,7 +83,17 @@ class PostCreationViewController: UIViewController {
 
   @IBAction func postPressed(_ sender: Any) {
     guard !textView.text.isEmpty else { return }
-    UserManager.shared.addPost(with: textView.text)
+    guard !imageCaption.text.isEmpty else { return }
+    switch postSegmentedControl.selectedSegmentIndex {
+    case 0:
+      //just text post
+      UserManager.shared.addPost(with: textView.text)
+    case 1:
+      UserManager.shared.addPost(with: imageCaption.text)
+      //add image to the post as well
+    default:
+      UserManager.shared.addPost(with: textView.text)
+    }
     navigationController?.popViewController(animated: true)
   }
 
