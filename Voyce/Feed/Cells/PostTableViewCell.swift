@@ -29,7 +29,8 @@ final class PostTableViewCell: UITableViewCell {
   @IBOutlet var commentLabel3: UILabel!
   @IBOutlet weak var acknowledgeButton: UIButton!
   @IBOutlet weak var postImage: UIImageView!
-  
+    @IBOutlet weak var ackLabel: UILabel!
+    
   var acknowledged = false
   
   public func fillOut(with post: Post) {
@@ -38,6 +39,7 @@ final class PostTableViewCell: UITableViewCell {
     layoutIfNeeded()
     usernameLabel.text = postUser.username
     textView.text = post.text
+    ackLabel.text = String(post.likeCount)
     createdAtLabel.text = "today"
     commentStackView.isHidden = !(post.comments.count > 0)
 
@@ -73,10 +75,12 @@ final class PostTableViewCell: UITableViewCell {
   func switchButton(){
     if(!acknowledged){
       acknowledgeButton.setImage(UIImage(named: "closed_eye"), for: .normal)
-      UserManager.shared.removeAcknowledgedPost(post: post)
+      UserManager.shared.UnacknowledgedPost(post: post)
+        ackLabel.text = String(post.likeCount)
     }else{
       acknowledgeButton.setImage(UIImage(named: "eye_open"), for: .normal)
-      UserManager.shared.addAcknowledgedPost(post: post)
+      UserManager.shared.AcknowledgedPost(post: post)
+      ackLabel.text = String(post.likeCount)
     }
   }
   

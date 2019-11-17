@@ -89,6 +89,12 @@
                             <action selector="acknowledgePressed:" destination="isK-Ng-fvz" eventType="touchUpInside" id="jv2-UA-D1Z"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amd-qL-CnI">
+                        <rect key="frame" x="341" y="131" width="42" height="28"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="42u-dP-Qsy">
                         <rect key="frame" x="20" y="131" width="175" height="175"/>
                         <constraints>
@@ -113,10 +119,13 @@
                     <constraint firstItem="lYM-Yh-3au" firstAttribute="top" secondItem="Pkw-7T-7Tb" secondAttribute="top" id="fUf-Yi-97y"/>
                     <constraint firstItem="hm4-5T-YcA" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" constant="8" id="gs7-ju-J38"/>
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="top" secondItem="V7k-C9-fLu" secondAttribute="top" constant="10" id="gxP-UY-GOq"/>
+                    <constraint firstItem="Amd-qL-CnI" firstAttribute="top" secondItem="V6Y-zI-zMO" secondAttribute="bottom" id="iOp-ML-3Sy"/>
                     <constraint firstItem="42u-dP-Qsy" firstAttribute="top" secondItem="V6Y-zI-zMO" secondAttribute="bottom" id="lSt-34-4B1"/>
                     <constraint firstAttribute="bottom" secondItem="lYM-Yh-3au" secondAttribute="bottom" constant="-0.5" id="uFm-8r-iPt"/>
                     <constraint firstItem="fpz-ur-Auy" firstAttribute="top" secondItem="42u-dP-Qsy" secondAttribute="bottom" id="wpd-dw-yNN"/>
+                    <constraint firstItem="Amd-qL-CnI" firstAttribute="centerY" secondItem="Pkw-7T-7Tb" secondAttribute="centerY" id="x0q-rV-Axi"/>
                     <constraint firstAttribute="trailing" secondItem="lYM-Yh-3au" secondAttribute="trailing" id="z7g-55-dgB"/>
+                    <constraint firstItem="Amd-qL-CnI" firstAttribute="trailing" secondItem="Pkw-7T-7Tb" secondAttribute="leading" id="zbD-pO-vVi"/>
                     <constraint firstItem="Pkw-7T-7Tb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="42u-dP-Qsy" secondAttribute="trailing" constant="123" id="zbT-eK-ami"/>
                 </constraints>
             </tableViewCellContentView>
@@ -124,6 +133,7 @@
                 <bool key="isElement" value="YES"/>
             </accessibility>
             <connections>
+                <outlet property="ackLabel" destination="Amd-qL-CnI" id="UD7-ob-hXD"/>
                 <outlet property="acknowledgeButton" destination="Pkw-7T-7Tb" id="a9m-D7-h3c"/>
                 <outlet property="commentLabel1" destination="EPq-Co-OKO" id="4w0-i2-UKh"/>
                 <outlet property="commentLabel2" destination="fpz-ur-Auy" id="3Dt-pq-8a5"/>

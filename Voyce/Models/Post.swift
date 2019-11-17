@@ -13,9 +13,19 @@ public class Post {
   let postID: String
   let text: String
   let media: String
-  let likeCount: Int
+  var likeCount: Int
   var user: User
   var comments: [Post]
+    
+    var dictionary: [String: Any] {
+      return [
+      "text": text,
+      "media": media,
+      "uid": user.userID,
+      "likeCount": likeCount,
+      "comments": comments
+      ]
+    }
 
   init(pid:String, text: String, media: String, user: User, likeCount: Int) {
     self.postID = pid

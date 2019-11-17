@@ -7,10 +7,9 @@
 //
 
 import Foundation
-
+import Firebase
 import FirebaseAuth
 import FirebaseFirestore
-
 
 class UserManager {
   
@@ -19,8 +18,9 @@ class UserManager {
   //is loaded in from DB on login
   var sharedUser = User.init(userID: "0", name: "null", username: "null")
     
-  var db = Firestore.firestore();
-    
+  var db = Firestore.firestore()
+  let storage = Storage.storage() 
+
   var myPosts: [Post] = []
   
   var posts: [Post] = [] {
@@ -41,17 +41,19 @@ class UserManager {
     }
   }
   
-  public func addAcknowledgedPost(post:Post){
+  public func AcknowledgedPost(post:Post){
     if(!checkAcknowledgedPost(post: post)){
       print("Acknowledged Post")
       acknowledgedPosts[post.postID] = post
+      post.likeCount+=1;
     }
   }
 
-  public func removeAcknowledgedPost(post:Post){
+  public func UnacknowledgedPost(post:Post){
     if(checkAcknowledgedPost(post: post)){
       print("Deacknowledged Post")
       acknowledgedPosts.removeValue(forKey: post.postID)
+      post.likeCount-=1;
     }
   }
   
@@ -114,9 +116,8 @@ class UserManager {
   
     public func LoadFeed(){
         print("IN LOAD FEED");
-        posts = []
         let collection = db.collection("posts")
-        collection.order(by: "ts").limit(to: 10)
+        collection.order(by: "ts", descending: true).limit(to: 10)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -134,6 +135,31 @@ class UserManager {
                     }
                 }
         }
+    }
+    
+    public func UpdatePosts(){
+        let collection = db.collection("posts");
+        for post in posts{
+            
+            db.collection("posts").document(post.postID).setData(post.dictionary) { err in
+                if let err = err {
+                    print("Error updating post to db: \(err)")
+                } else {
+                    print("post successfully updated to db!")
+                }
+            }
+            
+            let postDoc = collection.document(post.postID)
+            postDoc.getDocument { (document, error) in
+              if let document = document, document.exists {
+                
+              } else {
+                print("UPDATE POST: Post does not exist", post.postID)
+               }
+            }
+        }
+        
+        posts = []
     }
     
   public func addComment(with text: String, post: Post) {

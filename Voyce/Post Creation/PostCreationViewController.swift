@@ -110,8 +110,38 @@ extension PostCreationViewController: UIImagePickerControllerDelegate,UINavigati
         let image_data = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         postImage.image = image_data
         
+        let imageURL = info[UIImagePickerControllerReferenceURL] as! URL
+        UploadImageToFB(url: imageURL.absoluteString)
+         
         let imageData:Data = UIImagePNGRepresentation(image_data)!
         let imageStr = imageData.base64EncodedString()
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func UploadImageToFB(url: String){
+        let storageRef = UserManager.shared.storage.reference()
+        // File located on disk
+        let localFile = URL(string: url)!
+
+        // Create a reference to the file you want to upload
+        let riversRef = storageRef.child("images/rivers.jpg")
+
+        // Upload the file to the path "images/rivers.jpg"
+        let uploadTask = riversRef.putFile(from: localFile, metadata: nil) { metadata, error in
+          guard let metadata = metadata else {
+            // Uh-oh, an error occurred!
+            return
+          }
+          // Metadata contains file metadata such as size, content-type.
+          let size = metadata.size
+          // You can also access to download URL after upload.
+          riversRef.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+              // Uh-oh, an error occurred!
+              return
+            }
+          }
+        }
+    }
+
 }
