@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVw-fw-PA7">
-                                <rect key="frame" x="135.5" y="64" width="143" height="33"/>
+                                <rect key="frame" x="135.66666666666666" y="64" width="142.99999999999997" height="33"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-ht-BKl">
-                                <rect key="frame" x="20" y="60.5" width="40" height="40"/>
+                                <rect key="frame" x="20" y="60.666666666666657" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="lIQ-ry-Qi2"/>
                                     <constraint firstAttribute="height" constant="40" id="nTW-Ct-vfL"/>
@@ -35,7 +37,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F7m-19-BTT">
-                                <rect key="frame" x="53" y="122" width="101" height="32"/>
+                                <rect key="frame" x="53" y="122" width="101" height="29"/>
                                 <segments>
                                     <segment title="Text"/>
                                     <segment title="Photo"/>
@@ -46,7 +48,7 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygM-30-qSH">
-                                <rect key="frame" x="47" y="180" width="320" height="277"/>
+                                <rect key="frame" x="47" y="177" width="320" height="280"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to add text!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-9u-AkT">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
@@ -59,10 +61,10 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RF1-cg-ARJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="202"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to add a caption!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gYL-lD-qYy">
-                                        <rect key="frame" x="0.0" y="210" width="320" height="67"/>
+                                        <rect key="frame" x="0.0" y="213" width="320" height="67"/>
                                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="67" id="416-BU-2iz"/>
@@ -80,6 +82,7 @@
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="trailing" secondItem="RF1-cg-ARJ" secondAttribute="trailing" id="JA0-cG-bHX"/>
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="leading" secondItem="RF1-cg-ARJ" secondAttribute="leading" id="O34-ot-IbR"/>
                                     <constraint firstItem="RF1-cg-ARJ" firstAttribute="top" secondItem="ygM-30-qSH" secondAttribute="top" id="VCF-9B-Fe5"/>
+                                    <constraint firstAttribute="height" constant="280" id="ZAC-Kj-X2D"/>
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="top" secondItem="RF1-cg-ARJ" secondAttribute="bottom" constant="8" symbolic="YES" id="c22-xP-bMW"/>
                                     <constraint firstAttribute="trailing" secondItem="gYL-lD-qYy" secondAttribute="trailing" id="gNH-aW-A44"/>
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="leading" secondItem="ygM-30-qSH" secondAttribute="leading" id="uR5-EK-253"/>
@@ -100,11 +103,9 @@
                         <color key="backgroundColor" name="BackgroundDarkBlue"/>
                         <constraints>
                             <constraint firstItem="UVw-fw-PA7" firstAttribute="top" secondItem="Mb8-zs-1zU" secondAttribute="top" constant="20" id="0qn-QP-O15"/>
-                            <constraint firstItem="Mb8-zs-1zU" firstAttribute="bottom" secondItem="ygM-30-qSH" secondAttribute="bottom" constant="405" id="5sV-J1-HCR"/>
                             <constraint firstItem="gUS-ht-BKl" firstAttribute="centerY" secondItem="UVw-fw-PA7" secondAttribute="centerY" id="B1s-FT-J1M"/>
                             <constraint firstItem="ygM-30-qSH" firstAttribute="top" secondItem="F7m-19-BTT" secondAttribute="bottom" constant="27" id="Dw0-Ga-DtJ"/>
                             <constraint firstItem="ygM-30-qSH" firstAttribute="centerX" secondItem="Mb8-zs-1zU" secondAttribute="centerX" id="Erk-rg-Py1"/>
-                            <constraint firstItem="Mb8-zs-1zU" firstAttribute="trailing" secondItem="F7m-19-BTT" secondAttribute="trailing" constant="260" id="I6m-UW-kZi"/>
                             <constraint firstItem="gUS-ht-BKl" firstAttribute="leading" secondItem="Mb8-zs-1zU" secondAttribute="leading" constant="20" id="M2U-yr-iPs"/>
                             <constraint firstItem="UVw-fw-PA7" firstAttribute="centerX" secondItem="QC9-37-xdX" secondAttribute="centerX" id="Mg3-bl-djB"/>
                             <constraint firstItem="9VQ-nP-WIx" firstAttribute="top" secondItem="ygM-30-qSH" secondAttribute="bottom" constant="12" id="Pto-iI-2hz"/>
@@ -135,7 +136,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNx-Ec-EJ2">
-                                <rect key="frame" x="120.5" y="64" width="173" height="33"/>
+                                <rect key="frame" x="120.66666666666669" y="64" width="173" height="33"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -161,7 +162,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztV-FL-x1C">
-                                <rect key="frame" x="20" y="60.5" width="40" height="40"/>
+                                <rect key="frame" x="20" y="60.666666666666657" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="n6b-zg-133"/>
                                     <constraint firstAttribute="width" constant="40" id="sFh-JB-fkm"/>
