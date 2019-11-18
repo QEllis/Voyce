@@ -107,6 +107,7 @@ class UserManager {
                                         imageURL:  document.get("imageURL") as! String,
                                         goodVibes:  document.get("goodvibes")  as! Int)
                     p.user = actualUserFound
+                    self.posts.append(p)
                     print("Post Creator: \(p.user.userID)")
                 } else {
                     print("User does not exist")
@@ -122,6 +123,9 @@ class UserManager {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    self.posts = []
+                    var uids: [String] = []
+                    var newPosts: [Post] = []
                     for document in querySnapshot!.documents {
                         let data = document.data()
                         let p = Post(pid: document.documentID,
@@ -129,9 +133,14 @@ class UserManager {
                                      media: data["media"] as! String,
                                      user: User(),
                                      likeCount: data["likeCount"] as! Int)
-                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
-                        self.posts.append(p)
+//                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
+//                          self.posts.append(p)
+                        uids.append(data["uid"] as! String)
+                        newPosts.append(p)
                         print("POST: \(document.documentID) => \(document.data())")
+                    }
+                    for i in 0..<newPosts.count {
+                        self.SetPostsUser(uid: uids[i], p: newPosts[i])
                     }
                 }
         }
