@@ -107,7 +107,7 @@ class UserManager {
                                         imageURL:  document.get("imageURL") as! String,
                                         goodVibes:  document.get("goodvibes")  as! Int)
                     p.user = actualUserFound
-                    self.posts.append(p)
+                  UserManager.shared.posts.append(p)
                     print("Post Creator: \(p.user.userID)")
                 } else {
                     print("User does not exist")
