@@ -75,6 +75,9 @@ class UserManager {
     let post1 = Post(pid: "1", text: "Just had a great time at the getty", media: "",
                      user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3, image: UIImage(named: "Getty"))
     post1.addComment(Post(pid: "5", text: "Pedro: Nice!", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1))
+    let myPost = Post(pid: "1", text: "Promotion!", media: "",
+                      user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3)
+    myPosts = [myPost]
     let post2 = Post(pid: "2", text: "What's your favorite type of food?", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1)
     post2.addComment(Post(pid: "5", text: "Quinn: Pizza for sure", media: "", user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 5), likeCount: 0))
     let post3 = Post(pid: "3", text: "Concert time!", media: "", user: User(userID: "2", name: "Frank", username: "frank", goodVibes: 10), likeCount: 0, image: UIImage(named: "Concert"))

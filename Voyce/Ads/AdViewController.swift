@@ -30,7 +30,10 @@ class AdViewController: UIViewController {
     super.viewDidLoad();
     initTimer()
     stopTimer()
-    ads.addObjects(from: ["this is our first test ad", icon!, icon!, icon!, "this is our second test ad", "this is our third test ad"])
+    ads.addObjects(from: [UIImage(named: "Beach"),
+                          UIImage(named: "Getty"),
+                          UIImage(named: "Concert"),
+                          "Text Advertisement"])
 
     //FRANK assuming this will come in as an array of Strings or UIImages
     vibes = UserManager.shared.sharedUser.getVibes()
@@ -42,20 +45,15 @@ class AdViewController: UIViewController {
     leftSwipe.direction = .left
     view.addGestureRecognizer(rightSwipe)
     view.addGestureRecognizer(leftSwipe)
+    print("View did appear")
+    if (loadNewAds()) {
+      startTimer()
+    }
   }
   
   override func viewDidDisappear(_ animated: Bool) {
     print("Triggered view did disappear")
     stopTimer()
-  }
-
-  override func viewDidAppear(_ animated: Bool) {
-    print("View did appear")
-    if(loadNewAds()){
-      startTimer()
-    }else{
-      
-    }
   }
   
   func startTimer() {
