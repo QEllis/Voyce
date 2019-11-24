@@ -25,9 +25,11 @@ class CommentCreationViewController: UIViewController {
 
   @IBAction func postPressed(_ sender: Any) {
     guard !textView.text.isEmpty, let post = post else { return }
+    print("Add comment to: \(post.postID)")
     UserManager.shared.addComment(with: textView.text, post: post)
     navigationController?.popViewController(animated: true)
   }
+
   @IBAction func backPressed(_ sender: Any) {
     navigationController?.popViewController(animated: true)
   }

@@ -20,13 +20,14 @@ class FeedViewController: UIViewController {
     tableView.dataSource = self
     tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
     NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
+    UserManager.shared.createHardcodedPosts()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     //this will reload when you go back to the feed. In the future only reload when user does reload gesture or hits reload button
     //UserManager.shared.LoadFeed()
-    UserManager.shared.createHardcodedPosts()
+
     
     if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
       self.tableView.deselectRow(at: selectionIndexPath, animated: animated)

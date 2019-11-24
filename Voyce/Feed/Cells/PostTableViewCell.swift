@@ -50,7 +50,9 @@ final class PostTableViewCell: UITableViewCell {
       postImage.image = post.image
     }
 
+    print("Comments count: \(post.comments.count)")
     for (index, comment) in post.comments.enumerated() {
+
       switch index {
       case 0:
         commentLabel1.isHidden = false

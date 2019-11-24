@@ -48,15 +48,15 @@ class UserManager {
     }
   }
 
-  public func UnacknowledgedPost(post:Post){
-    if(checkAcknowledgedPost(post: post)){
+  public func UnacknowledgedPost(post:Post) {
+    if(checkAcknowledgedPost(post: post)) {
       print("Deacknowledged Post")
       acknowledgedPosts.removeValue(forKey: post.postID)
       post.likeCount-=1;
     }
   }
   
-  public func userLogin(u: FirebaseAuth.User){
+  public func userLogin(u: FirebaseAuth.User) {
     sharedUser  = User.init(user: u)
     let collection = db.collection("users");
     let userDoc = collection.document(u.uid)
@@ -69,7 +69,6 @@ class UserManager {
           userDoc.setData(self.sharedUser.dictionary)
       }
     }
-
   }
 
   public func createHardcodedPosts() {
@@ -183,13 +182,14 @@ class UserManager {
     
   public func addComment(with text: String, post: Post) {
     for currPost in posts where currPost.postID == post.postID {
-    //let id = UUID()
       print("addComment")
       let comment = Post(pid: "comment", text: text,media: "", user: UserManager.shared.sharedUser, likeCount: 0)
+      //UserManager.shared.addComment(with: text, post: currPost)
       currPost.addComment(comment)
-      NotificationCenter.default.post(name: .NewPosts, object: nil)
     }
+    NotificationCenter.default.post(name: .NewPosts, object: nil)
   }
+
   public func addFollowed(username:String){
     UserManager.shared.sharedUser.addFollowed(username: username)
   }

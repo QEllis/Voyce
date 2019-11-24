@@ -59,7 +59,9 @@ public class Post {
   }
   
   public func addComment(_ comment: Post) {
+    print("comments count before: \(comments.count)")
     comments.append(comment)
+    print("Comments count: \(comments.count)")
   }
   
 }
