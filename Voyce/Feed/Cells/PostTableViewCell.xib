@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,7 +90,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amd-qL-CnI">
-                        <rect key="frame" x="341" y="131" width="42" height="28"/>
+                        <rect key="frame" x="331" y="131" width="42" height="28"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <nil key="highlightedColor"/>
@@ -125,7 +125,7 @@
                     <constraint firstItem="fpz-ur-Auy" firstAttribute="top" secondItem="42u-dP-Qsy" secondAttribute="bottom" id="wpd-dw-yNN"/>
                     <constraint firstItem="Amd-qL-CnI" firstAttribute="centerY" secondItem="Pkw-7T-7Tb" secondAttribute="centerY" id="x0q-rV-Axi"/>
                     <constraint firstAttribute="trailing" secondItem="lYM-Yh-3au" secondAttribute="trailing" id="z7g-55-dgB"/>
-                    <constraint firstItem="Amd-qL-CnI" firstAttribute="trailing" secondItem="Pkw-7T-7Tb" secondAttribute="leading" id="zbD-pO-vVi"/>
+                    <constraint firstItem="Amd-qL-CnI" firstAttribute="trailing" secondItem="Pkw-7T-7Tb" secondAttribute="leading" constant="-10" id="zbD-pO-vVi"/>
                     <constraint firstItem="Pkw-7T-7Tb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="42u-dP-Qsy" secondAttribute="trailing" constant="123" id="zbT-eK-ami"/>
                 </constraints>
             </tableViewCellContentView>
