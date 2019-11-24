@@ -85,22 +85,30 @@ class UserManager {
     posts = [post1, post2, post3, post4]
   }
   
+  public func addPost(with text:String, image:UImage){
+    let newPost = Post(pid:id.uuidString, text: text, media: "", user: sharedUser, likeCount: 0, image: image)
+    myPosts.insert(newPost, at: 0)
+    posts.insert(newPost, at: 0)
+  }
+  
   public func addPost(with text: String) {
-    let id = UUID()
-//    let newPost = Post(pid:id.uuidString, text: text, media: "", user: sharedUser, likeCount: 0)
-    db.collection("posts").document(id.uuidString).setData([
-        "uid": sharedUser.userID,
-        "ts": NSDate().timeIntervalSince1970,
-        "text": text,
-        "media": "",
-        "likeCount": 0
-    ]) { err in
-        if let err = err {
-            print("Error writing post to db: \(err)")
-        } else {
-            print("post successfully written to db!")
-        }
-    }
+//    let id = UUID()
+    let newPost = Post(pid:id.uuidString, text: text, media: "", user: sharedUser, likeCount: 0)
+    myPosts.insert(newPost, at: 0)
+    posts.insert(newPost, at: 0)
+//    db.collection("posts").document(id.uuidString).setData([
+//        "uid": sharedUser.userID,
+//        "ts": NSDate().timeIntervalSince1970,
+//        "text": text,
+//        "media": "",
+//        "likeCount": 0
+//    ]) { err in
+//        if let err = err {
+//            print("Error writing post to db: \(err)")
+//        } else {
+//            print("post successfully written to db!")
+//        }
+//    }
   }
     
     public func SetPostsUser(uid: String, p:Post){
