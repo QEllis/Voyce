@@ -89,7 +89,7 @@ class PostCreationViewController: UIViewController, UITextViewDelegate {
       //just text post
       UserManager.shared.addPost(with: textView.text)
     case 1:
-      UserManager.shared.addPost(with: imageCaption.text)
+      UserManager.shared.addPost(with: imageCaption.text, image: postImage.image!)
       //add image to the post as well
     default:
       UserManager.shared.addPost(with: textView.text)
