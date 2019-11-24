@@ -48,6 +48,7 @@ class MyProfileViewController: UIViewController, UITableViewDelegate {
   }
   
   @objc private func newPosts() {
+    print("New opsts reload")
     tableView.reloadData()
   }
   

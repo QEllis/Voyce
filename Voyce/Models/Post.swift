@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class Post {
   
@@ -16,6 +17,7 @@ public class Post {
   var likeCount: Int
   var user: User
   var comments: [Post]
+  var image: UIImage?
     
     var dictionary: [String: Any] {
       return [
@@ -27,13 +29,14 @@ public class Post {
       ]
     }
 
-  init(pid:String, text: String, media: String, user: User, likeCount: Int) {
+  init(pid:String, text: String, media: String, user: User, likeCount: Int, image: UIImage? = nil) {
     self.postID = pid
     self.text = text
     self.media = media
     self.user = user
     self.likeCount = likeCount
     self.comments = []
+    self.image = image
   }
   
   init(){
@@ -45,13 +48,14 @@ public class Post {
     self.comments = []
   }
   
-  init(post:Post){
+  init(post: Post){
     self.postID = post.postID
     self.text = post.text
     self.media = post.media
     self.user = post.user
     self.likeCount = post.likeCount
     self.comments = post.comments
+    self.image = post.image
   }
   
   public func addComment(_ comment: Post) {

@@ -29,8 +29,9 @@ final class PostTableViewCell: UITableViewCell {
   @IBOutlet var commentLabel3: UILabel!
   @IBOutlet weak var acknowledgeButton: UIButton!
   @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet weak var ackLabel: UILabel!
-    
+  @IBOutlet weak var ackLabel: UILabel!
+  @IBOutlet var imageHeightConstraint: NSLayoutConstraint!
+
   var acknowledged = false
   
   public func fillOut(with post: Post) {
@@ -42,6 +43,12 @@ final class PostTableViewCell: UITableViewCell {
     ackLabel.text = String(post.likeCount)
     createdAtLabel.text = "today"
     commentStackView.isHidden = !(post.comments.count > 0)
+
+    if post.image == nil {
+      imageHeightConstraint.constant = 0
+    } else {
+      postImage.image = post.image
+    }
 
     for (index, comment) in post.comments.enumerated() {
       switch index {

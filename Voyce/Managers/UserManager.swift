@@ -35,8 +35,7 @@ class UserManager {
   public func checkAcknowledgedPost(post:Post)->Bool{
     if(acknowledgedPosts[post.postID] != nil){ 
       return true
-    }
-    else{
+    } else {
       return false
     }
   }
@@ -71,6 +70,17 @@ class UserManager {
       }
     }
 
+  }
+
+  public func createHardcodedPosts() {
+    let post1 = Post(pid: "1", text: "Just had a great time at the getty", media: "",
+                     user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3, image: UIImage(named: "Getty"))
+    post1.addComment(Post(pid: "5", text: "Pedro: Nice!", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1))
+    let post2 = Post(pid: "2", text: "What's your favorite type of food?", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1)
+    post2.addComment(Post(pid: "5", text: "Quinn: Pizza for sure", media: "", user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 5), likeCount: 0))
+    let post3 = Post(pid: "3", text: "Concert time!", media: "", user: User(userID: "2", name: "Frank", username: "frank", goodVibes: 10), likeCount: 0, image: UIImage(named: "Concert"))
+    let post4 = Post(pid: "4", text: "So nice out today.", media: "", user: User(userID: "3", name: "Cole", username: "cole", goodVibes: 25), likeCount: 3, image: UIImage(named: "Beach"))
+    posts = [post1, post2, post3, post4]
   }
   
   public func addPost(with text: String) {
@@ -172,13 +182,12 @@ class UserManager {
     }
     
   public func addComment(with text: String, post: Post) {
-    for currPost in posts where currPost.text == post.text {
-    let id = UUID()
+    for currPost in posts where currPost.postID == post.postID {
+    //let id = UUID()
       print("addComment")
-      let comment = Post(pid: id.uuidString,text: text,media: "", user: UserManager.shared.sharedUser, likeCount: 0)
+      let comment = Post(pid: "comment", text: text,media: "", user: UserManager.shared.sharedUser, likeCount: 0)
       currPost.addComment(comment)
       NotificationCenter.default.post(name: .NewPosts, object: nil)
-      return
     }
   }
   public func addFollowed(username:String){
