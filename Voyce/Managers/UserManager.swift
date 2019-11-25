@@ -85,15 +85,15 @@ class UserManager {
     posts = [post1, post2, post3, post4]
   }
   
-  public func addPost(with text:String, image:UImage){
-    let newPost = Post(pid:id.uuidString, text: text, media: "", user: sharedUser, likeCount: 0, image: image)
+  public func addPost(with text: String, image: UIImage){
+    let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
     myPosts.insert(newPost, at: 0)
     posts.insert(newPost, at: 0)
   }
   
   public func addPost(with text: String) {
 //    let id = UUID()
-    let newPost = Post(pid:id.uuidString, text: text, media: "", user: sharedUser, likeCount: 0)
+    let newPost = Post(pid: "-1", text: text, media: "", user: sharedUser, likeCount: 0)
     myPosts.insert(newPost, at: 0)
     posts.insert(newPost, at: 0)
 //    db.collection("posts").document(id.uuidString).setData([

@@ -29,9 +29,9 @@ class FeedViewController: UIViewController {
     //UserManager.shared.LoadFeed()
 
     
-    if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
-      self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
-    }
+//    if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
+//      self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
+//    }
   }
   
   @objc private func newPosts() {
@@ -81,11 +81,10 @@ extension FeedViewController: PostTableViewCellDelegate {
   func profileButtonDidPressed(postUser: User) {
     if(postUser.userID == UserManager.shared.sharedUser.userID){
       self.tabBarController?.selectedIndex = 1
-    }
-    else{
+    } else {
       let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
       vc.user = postUser
-      navigationController?.pushViewController(vc,animated:true)
+      navigationController?.pushViewController(vc,animated: true)
     }
   }
 }

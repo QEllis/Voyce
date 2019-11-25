@@ -47,6 +47,7 @@ final class PostTableViewCell: UITableViewCell {
     if post.image == nil {
       imageHeightConstraint.constant = 0
     } else {
+      imageHeightConstraint.constant = 300
       postImage.image = post.image
     }
 

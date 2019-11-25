@@ -49,6 +49,22 @@ class AdViewController: UIViewController {
     if (loadNewAds()) {
       startTimer()
     }
+    let adNumber = 0
+    if ads[adNumber] is String {
+      adLabel.text = ads[adNumber] as? String
+      adLabel.isHidden = false
+      imageAdView.isHidden = true
+      videoLabel.isHidden = true
+    } else if ads[adNumber] is UIImage {
+      imageAdView.image = ads[adNumber] as? UIImage
+      adLabel.isHidden = true
+      imageAdView.isHidden = false
+      videoLabel.isHidden = true
+    } else {
+      adLabel.isHidden = true
+      imageAdView.isHidden = true
+      videoLabel.isHidden = false
+    }
   }
   
   override func viewDidDisappear(_ animated: Bool) {

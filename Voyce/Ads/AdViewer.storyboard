@@ -37,12 +37,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Ad Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-U1-Aim">
-                                        <rect key="frame" x="116.5" y="167" width="142.5" height="20.5"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Ad Goes Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-U1-Aim">
+                                        <rect key="frame" x="20" y="167" width="335" height="20.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="p09-N0-qlV" appends="YES" id="OO0-vv-Xs7"/>
@@ -64,6 +64,7 @@
                                     <constraint firstAttribute="bottom" secondItem="kue-mP-2fi" secondAttribute="bottom" id="FVV-3i-554"/>
                                     <constraint firstItem="cRR-U1-Aim" firstAttribute="centerX" secondItem="geM-ai-R4u" secondAttribute="centerX" id="Ggs-vz-3J1"/>
                                     <constraint firstItem="cRR-U1-Aim" firstAttribute="centerX" secondItem="geM-ai-R4u" secondAttribute="centerX" id="LSD-uU-NCx"/>
+                                    <constraint firstAttribute="trailing" secondItem="cRR-U1-Aim" secondAttribute="trailing" constant="20" id="Xy4-rk-23h"/>
                                     <constraint firstItem="kue-mP-2fi" firstAttribute="top" secondItem="geM-ai-R4u" secondAttribute="top" id="cgq-w6-ZBs"/>
                                     <constraint firstAttribute="trailing" secondItem="kue-mP-2fi" secondAttribute="trailing" id="hHg-Wu-ZWz"/>
                                     <constraint firstItem="79e-xe-eKg" firstAttribute="centerX" secondItem="geM-ai-R4u" secondAttribute="centerX" id="mHM-VL-bhe"/>

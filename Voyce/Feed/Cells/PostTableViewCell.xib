@@ -45,23 +45,23 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lYM-Yh-3au">
-                        <rect key="frame" x="0.0" y="420" width="528" height="387.5"/>
+                        <rect key="frame" x="10" y="430" width="508" height="387.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-Co-OKO">
-                                <rect key="frame" x="0.0" y="0.0" width="528" height="188"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="0.0" width="508" height="188"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpz-ur-Auy">
-                                <rect key="frame" x="0.0" y="188" width="528" height="69.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="188" width="508" height="69.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHb-8I-PI0">
-                                <rect key="frame" x="0.0" y="257.5" width="528" height="130"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="257.5" width="508" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -122,15 +122,15 @@
                     <constraint firstItem="Pkw-7T-7Tb" firstAttribute="top" secondItem="V6Y-zI-zMO" secondAttribute="bottom" id="Efp-pK-XeW"/>
                     <constraint firstAttribute="trailing" secondItem="Sxv-d1-f0r" secondAttribute="trailing" constant="8" id="Vkk-Wy-Wdv"/>
                     <constraint firstItem="42u-dP-Qsy" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" constant="8" id="VvE-JR-i0c"/>
-                    <constraint firstItem="lYM-Yh-3au" firstAttribute="top" secondItem="42u-dP-Qsy" secondAttribute="bottom" id="X9i-km-3eB"/>
-                    <constraint firstItem="lYM-Yh-3au" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" id="ahe-7s-VZW"/>
+                    <constraint firstItem="lYM-Yh-3au" firstAttribute="top" secondItem="42u-dP-Qsy" secondAttribute="bottom" constant="10" id="X9i-km-3eB"/>
+                    <constraint firstItem="lYM-Yh-3au" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" constant="10" id="ahe-7s-VZW"/>
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="leading" secondItem="hm4-5T-YcA" secondAttribute="trailing" constant="8" id="cMI-I2-BIV"/>
                     <constraint firstItem="hm4-5T-YcA" firstAttribute="top" secondItem="V7k-C9-fLu" secondAttribute="top" constant="10" id="fR3-em-OVA"/>
                     <constraint firstItem="hm4-5T-YcA" firstAttribute="leading" secondItem="V7k-C9-fLu" secondAttribute="leading" constant="8" id="gs7-ju-J38"/>
                     <constraint firstItem="Sxv-d1-f0r" firstAttribute="top" secondItem="V7k-C9-fLu" secondAttribute="top" constant="10" id="gxP-UY-GOq"/>
                     <constraint firstItem="Amd-qL-CnI" firstAttribute="top" secondItem="V6Y-zI-zMO" secondAttribute="bottom" id="iOp-ML-3Sy"/>
                     <constraint firstItem="Amd-qL-CnI" firstAttribute="centerY" secondItem="Pkw-7T-7Tb" secondAttribute="centerY" id="x0q-rV-Axi"/>
-                    <constraint firstAttribute="trailing" secondItem="lYM-Yh-3au" secondAttribute="trailing" id="z7g-55-dgB"/>
+                    <constraint firstAttribute="trailing" secondItem="lYM-Yh-3au" secondAttribute="trailing" constant="10" id="z7g-55-dgB"/>
                     <constraint firstItem="Amd-qL-CnI" firstAttribute="trailing" secondItem="Pkw-7T-7Tb" secondAttribute="leading" id="zbD-pO-vVi"/>
                 </constraints>
             </tableViewCellContentView>
