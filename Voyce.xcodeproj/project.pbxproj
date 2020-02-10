@@ -42,7 +42,7 @@
 		3F81E915236FA93D008B3673 /* PostPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E911236FA93D008B3673 /* PostPromotionViewController.swift */; };
 		3F81E91A236FE1F0008B3673 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E918236FE1F0008B3673 /* MyPostTableViewCell.swift */; };
 		3F81E91B236FE1F0008B3673 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */; };
-		DAA2C6A56129F25BDAB7C06D /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD976E066233AB502A49E88 /* Pods_Voyce.framework */; };
+		DE5907F2119F04E3F6BF2A61 /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA1803F7283CF23A6CF61C2 /* Pods_Voyce.framework */; };
 		E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4785A46235BB30F002AB769 /* PostCommentView.xib */; };
 		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
 		E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */; };
@@ -86,21 +86,12 @@
 		3F81E911236FA93D008B3673 /* PostPromotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPromotionViewController.swift; sourceTree = "<group>"; };
 		3F81E918236FE1F0008B3673 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
 		3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		5AA1803F7283CF23A6CF61C2 /* Pods_Voyce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voyce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88138A44DEA6DA9EFC329C4B /* Pods-Voyce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.release.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.release.xcconfig"; sourceTree = "<group>"; };
 		CF5C2599633B04C19D0D9953 /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
 		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
 		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreationViewController.swift; sourceTree = "<group>"; };
-=======
-		BB59C9088DC3BDC696FEFF43 /* Pods-Voyce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.release.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.release.xcconfig"; sourceTree = "<group>"; };
-		CFD976E066233AB502A49E88 /* Pods_Voyce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voyce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
-		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
-		E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreationViewController.swift; sourceTree = "<group>"; };
-		EF429693B623239C42A3A10A /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAA2C6A56129F25BDAB7C06D /* Pods_Voyce.framework in Frameworks */,
+				DE5907F2119F04E3F6BF2A61 /* Pods_Voyce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,26 +115,13 @@
 			path = Ads;
 			sourceTree = "<group>";
 		};
-		3B597C489B8FC80FAD8148ED /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CFD976E066233AB502A49E88 /* Pods_Voyce.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		3C2EEE7523327702009098D5 = {
 			isa = PBXGroup;
 			children = (
 				3C2EEE8023327702009098D5 /* Voyce */,
 				3C2EEE7F23327702009098D5 /* Products */,
-<<<<<<< HEAD
 				D4A04EB842FAFFD2251E8EF0 /* Frameworks */,
 				E3BB1E010EF1A7579D10F4A4 /* Pods */,
-=======
-				7039537EFCC4CEAA15F92665 /* Pods */,
-				3B597C489B8FC80FAD8148ED /* Frameworks */,
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			);
 			sourceTree = "<group>";
 		};
@@ -307,17 +285,11 @@
 		D4A04EB842FAFFD2251E8EF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				5AA1803F7283CF23A6CF61C2 /* Pods_Voyce.framework */,
-=======
-				EF429693B623239C42A3A10A /* Pods-Voyce.debug.xcconfig */,
-				BB59C9088DC3BDC696FEFF43 /* Pods-Voyce.release.xcconfig */,
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		E3BB1E010EF1A7579D10F4A4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,8 +300,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-=======
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,17 +307,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2EEE9023327703009098D5 /* Build configuration list for PBXNativeTarget "Voyce" */;
 			buildPhases = (
-				84EF3A6AF1D5700AE01C46F3 /* [CP] Check Pods Manifest.lock */,
+				509A61FB351A1BC1D8E35AD9 /* [CP] Check Pods Manifest.lock */,
 				3C2EEE7A23327702009098D5 /* Sources */,
 				3C2EEE7B23327702009098D5 /* Frameworks */,
 				3C2EEE7C23327702009098D5 /* Resources */,
-<<<<<<< HEAD
 				7CE4BB1FB837FABCA189E603 /* [CP] Embed Pods Frameworks */,
 				8763D7A118678EA718F4FC19 /* [CP] Copy Pods Resources */,
-=======
-				25194CC6B18F2FDFB48F4BB9 /* [CP] Embed Pods Frameworks */,
-				FD12BA155F5D7E25D1120902 /* [CP] Copy Pods Resources */,
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			);
 			buildRules = (
 			);
@@ -418,11 +383,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-<<<<<<< HEAD
 		509A61FB351A1BC1D8E35AD9 /* [CP] Check Pods Manifest.lock */ = {
-=======
-		25194CC6B18F2FDFB48F4BB9 /* [CP] Embed Pods Frameworks */ = {
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,45 +401,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-<<<<<<< HEAD
 		7CE4BB1FB837FABCA189E603 /* [CP] Embed Pods Frameworks */ = {
-=======
-		84EF3A6AF1D5700AE01C46F3 /* [CP] Check Pods Manifest.lock */ = {
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-<<<<<<< HEAD
 				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-=======
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Voyce-checkManifestLockResult.txt",
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-<<<<<<< HEAD
 		8763D7A118678EA718F4FC19 /* [CP] Copy Pods Resources */ = {
-=======
-		FD12BA155F5D7E25D1120902 /* [CP] Copy Pods Resources */ = {
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -659,11 +599,7 @@
 		};
 		3C2EEE9123327703009098D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
 			baseConfigurationReference = CF5C2599633B04C19D0D9953 /* Pods-Voyce.debug.xcconfig */;
-=======
-			baseConfigurationReference = EF429693B623239C42A3A10A /* Pods-Voyce.debug.xcconfig */;
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -723,11 +659,7 @@
 		};
 		3C2EEE9223327703009098D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
 			baseConfigurationReference = 88138A44DEA6DA9EFC329C4B /* Pods-Voyce.release.xcconfig */;
-=======
-			baseConfigurationReference = BB59C9088DC3BDC696FEFF43 /* Pods-Voyce.release.xcconfig */;
->>>>>>> 6dabb551a13e311b1f5cbc513692516054f24a3b
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
