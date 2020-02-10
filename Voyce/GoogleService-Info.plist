@@ -3,34 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>208984218590-esl09co8pjqt7q25qklesdfqrqreoukv.apps.googleusercontent.com</string>
+	<string>111770236541-pa8oqeisssl9u3ao82h6fthij66k7pk3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.208984218590-esl09co8pjqt7q25qklesdfqrqreoukv</string>
+	<string>com.googleusercontent.apps.111770236541-pa8oqeisssl9u3ao82h6fthij66k7pk3</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDiDHUagxFyhYko7m6rVYW3XCCBlSQR14w</string>
+	<string>AIzaSyAiLwZX-RTGRL--UosvcxNwfL59ua-jdCQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>208984218590</string>
+	<string>111770236541</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.QEDev.voyce</string>
 	<key>PROJECT_ID</key>
-	<string>voyce-f933e</string>
+	<string>voyce-401</string>
 	<key>STORAGE_BUCKET</key>
-	<string>voyce-f933e.appspot.com</string>
+	<string>voyce-401.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<false/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:208984218590:ios:72c280e8dbec08a8361b4f</string>
+	<string>1:111770236541:ios:d1c0286aaf2bd5a5896314</string>
 	<key>DATABASE_URL</key>
-	<string>https://voyce-f933e.firebaseio.com</string>
+	<string>https://voyce-401.firebaseio.com</string>
 </dict>
 </plist>
