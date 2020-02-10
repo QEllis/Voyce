@@ -4,7 +4,6 @@
 
 <ol type="a">
   <li>Switched database functionality from old database to new database. This includes updates to the GoogleService-Info.plist and Info.plist files.</li>
-  <li>Changed how the vibes or "like" functionality works by increasing every time a post is clicked, as opposed to a toggled on/off function.</li>
   <li>Changed the functionality where a user clicks on a like, the number of vibes keeps on incrementing. It used to be when a user clicked on a like the number of vibes would decrement or reset to 1. The main code change is in the switchButton() function in the PostTableViewCell.swift file.</li>
   <li>Commented the UnacknowledgePost function out so that users will be able to acknowledge the post as many times as they want. This includes updates to the UserManager.swift file.</li>
   <li> Added a function (randomEmoji()) that returns random iphone emojis (for now). This allows the feed to show random emojis when a user clicks on the like button next to a post. This includes updates to the PostTableViewCell.swift file.</li>
