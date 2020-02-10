@@ -10,7 +10,8 @@
 
 <b> 3. How to deploy? </b>
 
-Once coaocpods is installed successfully, go to your terminal and execute open Voyce.xcworkspace. Click "build and then run on current scheme."
+Once coaocpods is installed successfully, go to your terminal and execute: <pre><code>open Voyce.xcworkspace</code></pre> 
+Click "build and then run on current scheme."
 
 <b> 4. How to run the program? </b>
 
