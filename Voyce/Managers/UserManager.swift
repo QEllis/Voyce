@@ -19,7 +19,7 @@ class UserManager {
   var sharedUser = User.init(userID: "0", name: "null", username: "null")
     
   var db = Firestore.firestore()
-  let storage = Storage.storage() 
+  let storage = Storage.storage()
 
   var myPosts: [Post] = []
   
@@ -33,7 +33,7 @@ class UserManager {
   var acknowledgedPosts:[String:Post] = [:]
   
   public func checkAcknowledgedPost(post:Post)->Bool{
-    if(acknowledgedPosts[post.postID] != nil){ 
+    if(acknowledgedPosts[post.postID] != nil){
       return true
     } else {
       return false
@@ -43,11 +43,11 @@ class UserManager {
   public func AcknowledgedPost(post:Post){
     if(!checkAcknowledgedPost(post: post)){
       print("Acknowledged Post")
-      acknowledgedPosts[post.postID] = post
+      //acknowledgedPosts[post.postID] = post
       post.likeCount+=1;
     }
   }
-
+    /*
   public func UnacknowledgedPost(post:Post) {
     if(checkAcknowledgedPost(post: post)) {
       print("Deacknowledged Post")
@@ -55,6 +55,7 @@ class UserManager {
       post.likeCount-=1;
     }
   }
+ */
   
   public func userLogin(u: FirebaseAuth.User) {
     sharedUser  = User.init(user: u)

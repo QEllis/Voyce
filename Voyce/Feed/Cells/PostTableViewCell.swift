@@ -83,16 +83,37 @@ final class PostTableViewCell: UITableViewCell {
   }
   
   func switchButton(){
-    if(!acknowledged){
-      acknowledgeButton.setImage(UIImage(named: "closed_eye"), for: .normal)
-      UserManager.shared.UnacknowledgedPost(post: post)
+    //if(!acknowledged){
+      //acknowledgeButton.setImage(UIImage(named: "closed_eye"), for: .normal)
+    acknowledgeButton.setImage(nil, for: .normal)
+    //let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+    //    print("FIRE!!!")
+    //})
+    acknowledgeButton.setTitle(randomEmoji(), for: .normal)
+      //UserManager.shared.UnacknowledgedPost(post: post)
         ackLabel.text = String(post.likeCount)
-    }else{
-      acknowledgeButton.setImage(UIImage(named: "eye_open"), for: .normal)
+    //}else{
+      //acknowledgeButton.setImage(UIImage(named: "eye_open"), for: .normal)
       UserManager.shared.AcknowledgedPost(post: post)
-      ackLabel.text = String(post.likeCount)
-    }
+      //ackLabel.text = String(post.likeCount)
+   // }
   }
+    
+    func randomEmoji() -> String! {
+        var emojiArray = [String]()
+        emojiArray.append("🤠")//cowboy
+        emojiArray.append("😀")//grinning face
+        emojiArray.append("🤣")//rofl
+        emojiArray.append("😇")//smiling face with halo
+        emojiArray.append("🤩")//star-struck
+        emojiArray.append("😝")//squinting face with tongue
+        emojiArray.append("🤪")//zany face
+        emojiArray.append("🤨")//face with raised eyebrow
+        emojiArray.append("😑")//expressionless face
+        emojiArray.append("😐")//neutral face
+        let randomNumber = Int.random(in: 0..<10)
+        return emojiArray[randomNumber]
+    }
   
   
 }
