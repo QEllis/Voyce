@@ -2,8 +2,12 @@
 
 <b> 1. What functionality/code has been added? </b>
 
-<b> a. </b> Switched database functionality from old database to new database. This includes updates to the GoogleService-Info.plist and Info.plist files.<br />
-<b> b. </b>
+<ol type="a">
+  <li>Switched database functionality from old database to new database. This includes updates to the GoogleService-Info.plist and Info.plist files.</li>
+  <li>Changed how the vibes or "like" functionality works by increasing every time a post is clicked, as opposed to a toggled on/off function.</li>
+  <li>Tested video integration.</li>
+  <li>Began implementing new UI features and functionality.</li>
+</ol>
 
 
 <b> 2. How to compile? </b>
