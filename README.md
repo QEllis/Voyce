@@ -15,8 +15,7 @@ After Cocoapods is installed, your program should be able to compile.
 
 <b> 3. How to deploy? </b>
 
-Once CocoaPods is installed successfully, go to your terminal and execute: <pre><code>open Voyce.xcworkspace</code></pre> 
-Click "build and then run on current scheme."
+Once CocoaPods is installed successfully, go to your terminal and execute: <pre><code>open Voyce.xcworkspace</code></pre> After Xcode opens, click on the 'play' button at the top left corner of the interface to deploy the program.
 
 <b> 4. How to run the program? </b>
 
