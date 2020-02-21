@@ -45,8 +45,14 @@ class UserManager {
       print("Acknowledged Post")
       //acknowledgedPosts[post.postID] = post
       post.likeCount+=1;
+        
+        print(post.postID);
+      
+      //TODO: Modify database here?
+      
     }
   }
+    
     /*
   public func UnacknowledgedPost(post:Post) {
     if(checkAcknowledgedPost(post: post)) {
@@ -87,9 +93,25 @@ class UserManager {
   }
   
   public func addPost(with text: String, image: UIImage){
+    let id = UUID()
     let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
     myPosts.insert(newPost, at: 0)
     posts.insert(newPost, at: 0)
+    db.collection("posts").document(id.uuidString).setData([
+        "uid": sharedUser.userID,
+        "ts": NSDate().timeIntervalSince1970,
+        "text": text,
+        "media": "",
+        "likeCount": 0,
+        "image": ""
+    ]) { err in
+        if let err = err {
+            print("Error writing post to db: \(err)")
+        } else {
+            print("image post successfully written to db!")
+        }
+    }
+
   }
   
   public func addPost(with text: String) {
@@ -139,7 +161,7 @@ class UserManager {
     public func LoadFeed(){
         print("IN LOAD FEED");
         let collection = db.collection("posts")
-        collection.order(by: "ts", descending: true).limit(to: 10)
+        collection.order(by: "likeCount", descending: true).limit(to: 10)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -155,7 +177,7 @@ class UserManager {
                                      user: User(),
                                      likeCount: data["likeCount"] as! Int)
 //                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
-//                          self.posts.append(p)
+//                        self.posts.append(p)
                         uids.append(data["uid"] as! String)
                         newPosts.append(p)
                         print("POST: \(document.documentID) => \(document.data())")

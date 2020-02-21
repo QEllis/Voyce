@@ -23,15 +23,15 @@ class FeedViewController: UIViewController {
     UserManager.shared.createHardcodedPosts()
   }
   
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     //this will reload when you go back to the feed. In the future only reload when user does reload gesture or hits reload button
     UserManager.shared.LoadFeed()
 
-    
-//    if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
-//      self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
-//    }
+    if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
+      self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
+    }
   }
   
   @objc private func newPosts() {
