@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cGs-MB-HJR">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,41 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" id="3dz-dL-CBY">
+                                <rect key="frame" x="0.0" y="384" width="414" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="37x-G8-tAm">
-                                <rect key="frame" x="0.0" y="90.5" width="414" height="805.5"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="683"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHA-2y-kfc">
-                                <rect key="frame" x="349" y="40" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="xir-yz-2S7"/>
-                                    <constraint firstAttribute="height" constant="45" id="yYQ-OW-V3I"/>
-                                </constraints>
-                                <state key="normal" title="Post">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZHA-2y-kfc">
+                                <rect key="frame" x="172" y="792" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Add"/>
                                 <connections>
                                     <action selector="postPressed:" destination="cGs-MB-HJR" eventType="touchUpInside" id="uDX-J7-BJN"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voyce_logo" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-0i-QWe">
-                                <rect key="frame" x="-805.5" y="40" width="2025" height="45"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-0i-QWe">
+                                <rect key="frame" x="55.666666666666657" y="44" width="303" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="vvH-TX-Cmd"/>
+                                    <constraint firstAttribute="height" constant="50" id="82p-yh-rkF"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="37x-G8-tAm" secondAttribute="bottom" id="AUF-8b-WgO"/>
-                            <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="ZHA-2y-kfc" secondAttribute="trailing" constant="20" id="CZl-NJ-Zlw"/>
-                            <constraint firstItem="ZHA-2y-kfc" firstAttribute="top" secondItem="biQ-0i-QWe" secondAttribute="top" id="Ksv-G2-BpF"/>
-                            <constraint firstAttribute="trailing" secondItem="37x-G8-tAm" secondAttribute="trailing" id="WaD-UA-gyQ"/>
-                            <constraint firstItem="37x-G8-tAm" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="Ysu-v7-uki"/>
-                            <constraint firstItem="37x-G8-tAm" firstAttribute="top" secondItem="biQ-0i-QWe" secondAttribute="bottom" constant="5.5" id="aan-Yg-q87"/>
-                            <constraint firstItem="biQ-0i-QWe" firstAttribute="centerX" secondItem="41m-Dp-SnV" secondAttribute="centerX" id="fnI-Vs-Ehr"/>
-                            <constraint firstItem="41m-Dp-SnV" firstAttribute="top" secondItem="biQ-0i-QWe" secondAttribute="top" constant="4" id="k4O-x4-IXu"/>
+                            <constraint firstAttribute="trailing" secondItem="37x-G8-tAm" secondAttribute="trailing" id="3Tn-kD-SGD"/>
+                            <constraint firstItem="37x-G8-tAm" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="4Vc-30-5Gt"/>
+                            <constraint firstItem="biQ-0i-QWe" firstAttribute="top" secondItem="41m-Dp-SnV" secondAttribute="top" id="5sr-H5-Wna"/>
+                            <constraint firstItem="ZHA-2y-kfc" firstAttribute="top" secondItem="37x-G8-tAm" secondAttribute="bottom" constant="15" id="KpW-RT-FRx"/>
+                            <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="37x-G8-tAm" secondAttribute="trailing" id="Zxu-3o-zdt"/>
+                            <constraint firstItem="37x-G8-tAm" firstAttribute="top" secondItem="biQ-0i-QWe" secondAttribute="bottom" id="ndB-py-hPN"/>
+                            <constraint firstItem="biQ-0i-QWe" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="rDr-pE-wro"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="41m-Dp-SnV"/>
                     </view>
@@ -61,13 +59,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CZ-4Q-gJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62.318840579710148" y="95.758928571428569"/>
+            <point key="canvasLocation" x="-63.768115942028992" y="94.419642857142847"/>
         </scene>
     </scenes>
     <resources>
-        <image name="voyce_logo" width="2025" height="1201"/>
-        <namedColor name="BackgroundDarkBlue">
-            <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="Add" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="Logo" width="303" height="144"/>
     </resources>
 </document>
