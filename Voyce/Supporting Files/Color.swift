@@ -8,20 +8,23 @@
 
 import UIKit
 
-public enum Color: String {
-
-  case BackgroundDarkBlue
-
-  public var uiColor: UIColor {
-    return UIColor(named: self.rawValue)!
-  }
-
-  public var cgColor: CGColor {
-    return  UIColor(named: self.rawValue)!.cgColor
-  }
-
-  public func withAlpha(_ component: CGFloat) -> UIColor {
-    return self.uiColor.withAlphaComponent(component)
-  }
-
+public enum Color: String
+{
+    case Background
+    
+    public var uiColor: UIColor
+    {
+        return UIColor(named: self.rawValue)!
+    }
+    
+    public var cgColor: CGColor
+    {
+        return  UIColor(named: self.rawValue)!.cgColor
+    }
+    
+    public func withAlpha(_ component: CGFloat) -> UIColor
+    {
+        return self.uiColor.withAlphaComponent(component)
+    }
+    
 }
