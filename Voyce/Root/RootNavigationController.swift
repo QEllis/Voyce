@@ -9,21 +9,23 @@
 import UIKit
 
 @available(iOS 13.0, *)
-class RootNavigationController: UINavigationController {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    routeUser()
-  }
+class RootNavigationController: UINavigationController
+{
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        routeUser()
+    }
     
-//    Changed this to Login to test Login functionality
-  private func routeUser() {
-    guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
-        .instantiateInitialViewController() as? LoginViewController else { return }
-    viewControllers = [loginVC]
+    //    Changed this to Login to test Login functionality
+    private func routeUser()
+    {
+        guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
+            .instantiateInitialViewController() as? LoginViewController else { return }
+        viewControllers = [loginVC]
+        
+        //    let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
+        //    viewControllers = [tabBarVC]
+    }
     
-//    let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
-//    viewControllers = [tabBarVC]
-  }
-
 }
