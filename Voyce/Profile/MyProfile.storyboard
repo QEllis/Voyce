@@ -17,32 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder Profile Pic" translatesAutoresizingMaskIntoConstraints="NO" id="oh9-bp-Yxy" customClass="ProfileViewController">
-                                <rect key="frame" x="100" y="94" width="214" height="214"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="oh9-bp-Yxy" customClass="ProfileViewController">
+                                <rect key="frame" x="107" y="64" width="200" height="200"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="PeP-vi-UIS"/>
                                     <constraint firstAttribute="width" secondItem="oh9-bp-Yxy" secondAttribute="height" multiplier="1:1" id="ab9-2P-5hJ"/>
+                                    <constraint firstAttribute="width" constant="200" id="gYf-qm-Hak"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Last" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaE-Bc-kYb">
-                                <rect key="frame" x="157.5" y="324" width="99" height="30"/>
+                                <rect key="frame" x="157.5" y="289" width="99" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uC-oR-1Ss">
-                                <rect key="frame" x="161" y="362" width="92" height="21"/>
+                                <rect key="frame" x="161" y="327" width="92" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good vibes: %%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3G-PA-Euf">
-                                <rect key="frame" x="145" y="399" width="124" height="21"/>
+                                <rect key="frame" x="145" y="364" width="124" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good Vibes" translatesAutoresizingMaskIntoConstraints="NO" id="I89-KD-Xag">
-                                <rect key="frame" x="101" y="391.5" width="36" height="36"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="I89-KD-Xag">
+                                <rect key="frame" x="101" y="356.5" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="AnK-nU-l11"/>
                                     <constraint firstAttribute="height" constant="36" id="nSd-DI-s2d"/>
@@ -50,7 +52,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9n-Yc-avD">
-                                <rect key="frame" x="86.5" y="455" width="241" height="32"/>
+                                <rect key="frame" x="86.5" y="420" width="241" height="32"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
@@ -62,21 +64,22 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q91-hW-FHX">
-                                <rect key="frame" x="0.0" y="544" width="414" height="286"/>
+                                <rect key="frame" x="0.0" y="509" width="414" height="321"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sr-wu-aor">
-                                <rect key="frame" x="20" y="512" width="80" height="24"/>
+                                <rect key="frame" x="20" y="477" width="80" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <color key="tintColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="U9n-Yc-avD" firstAttribute="top" secondItem="i3G-PA-Euf" secondAttribute="bottom" constant="35" id="1RF-iL-UGz"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="top" secondItem="9uC-oR-1Ss" secondAttribute="bottom" constant="16" id="2BC-qt-2Bp"/>
-                            <constraint firstItem="ZaE-Bc-kYb" firstAttribute="top" secondItem="oh9-bp-Yxy" secondAttribute="bottom" constant="16" id="61b-a5-Ze3"/>
+                            <constraint firstItem="ZaE-Bc-kYb" firstAttribute="top" secondItem="oh9-bp-Yxy" secondAttribute="bottom" constant="25" id="61b-a5-Ze3"/>
                             <constraint firstItem="9uC-oR-1Ss" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="Bem-1l-rXN"/>
                             <constraint firstItem="9uC-oR-1Ss" firstAttribute="top" secondItem="ZaE-Bc-kYb" secondAttribute="bottom" constant="8" id="Cwr-XO-HBm"/>
                             <constraint firstItem="ZaE-Bc-kYb" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="DP0-qB-Rtl"/>
@@ -86,12 +89,10 @@
                             <constraint firstItem="q91-hW-FHX" firstAttribute="leading" secondItem="GZI-gz-PTb" secondAttribute="leading" id="SGX-NA-k4h"/>
                             <constraint firstItem="1sr-wu-aor" firstAttribute="top" secondItem="U9n-Yc-avD" secondAttribute="bottom" constant="25" id="TnA-iB-sAm"/>
                             <constraint firstItem="q91-hW-FHX" firstAttribute="top" secondItem="1sr-wu-aor" secondAttribute="bottom" constant="8" id="WdB-0p-bu1"/>
-                            <constraint firstItem="oh9-bp-Yxy" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="50" id="ZQd-zB-pgg"/>
+                            <constraint firstItem="oh9-bp-Yxy" firstAttribute="top" secondItem="GZI-gz-PTb" secondAttribute="top" constant="20" id="ZQd-zB-pgg"/>
                             <constraint firstItem="GZI-gz-PTb" firstAttribute="trailing" secondItem="q91-hW-FHX" secondAttribute="trailing" id="cyt-5u-zig"/>
-                            <constraint firstItem="GZI-gz-PTb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oh9-bp-Yxy" secondAttribute="trailing" constant="100" id="fVo-Jo-Eqf"/>
                             <constraint firstItem="1sr-wu-aor" firstAttribute="leading" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="20" id="gx7-ZC-Zem"/>
                             <constraint firstItem="U9n-Yc-avD" firstAttribute="centerX" secondItem="u6Q-GR-Rh5" secondAttribute="centerX" id="jGy-V8-Agp"/>
-                            <constraint firstItem="oh9-bp-Yxy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GZI-gz-PTb" secondAttribute="leading" constant="100" id="jV8-x8-biu"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="centerX" secondItem="GZI-gz-PTb" secondAttribute="centerX" id="oHg-gS-R8H"/>
                             <constraint firstItem="GZI-gz-PTb" firstAttribute="bottom" secondItem="q91-hW-FHX" secondAttribute="bottom" constant="32" id="uOd-lB-Pr2"/>
                         </constraints>
@@ -110,10 +111,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Good Vibes" width="298" height="300"/>
-        <image name="Placeholder Profile Pic" width="362" height="364"/>
-        <namedColor name="BackgroundDarkBlue">
-            <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="Profile" width="128" height="128"/>
+        <image name="Wand" width="128" height="128"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="BackgroundDarkBlue"/>

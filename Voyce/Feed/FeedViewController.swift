@@ -10,7 +10,6 @@ import UIKit
 
 class FeedViewController: UIViewController
 {
-    
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad()
@@ -25,27 +24,71 @@ class FeedViewController: UIViewController
         UserManager.shared.createHardcodedPosts()
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(animated)
         //this will reload when you go back to the feed. In the future only reload when user does reload gesture or hits reload button
         UserManager.shared.LoadFeed()
         
-        if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
+        if let selectionIndexPath = self.tableView.indexPathForSelectedRow
+        {
             self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
         }
     }
     
-    @objc private func newPosts() {
+    @objc private func newPosts()
+    {
         print("newPosts reload")
         tableView.reloadData()
     }
     
-    @IBAction func postPressed(_ sender: Any) {
+    @IBAction func postPressed(_ sender: Any)
+    {
         let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    override func awakeFromNib()
+    {
+        super.awakeFromNib()
+        let touchTest = UITapGestureRecognizer(target: self, action: #selector(self.testTap(sender:)))
+        testingLabel.isUserInteractionEnabled = true
+        testingLabel.addGestureRecognizer(touchTest)
+    }
+    
+    
+//    @IBAction func panCard(_ sender: UIPanGestureRecognizer)
+//    {
+//        let card = sender.view!
+//        let point = sender.translation(in: view)
+//        let xFromCenter = card.center.x - view.center.x
+//
+//        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+//
+//        if xFromCenter > 0 {
+//
+//        }
+//
+//
+//        if sender.state == UIGestureRecognizerState.ended {
+//
+//            if card.center.x > view.frame.width + 75 {
+//                UIView.animate(withDuration: 0.3, animations: {card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
+//                    card.alpha = 0
+//                })
+//                return
+//            }
+//            else if card.center.x > view.frame.width - 75 {
+//                UIView.animate(withDuration: 0.3, animations: {card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
+//                    card.alpha = 0
+//                })
+//                return
+//            }
+//            else {
+//                UIView.animate(withDuration: 0.2, animations: {card.center = self.view.center})
+//            }
+//        }
+//    }
 }
 
 // MARK: - UITableViewDelegate

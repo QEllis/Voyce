@@ -71,7 +71,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="U9n-Yc-avD" firstAttribute="top" secondItem="i3G-PA-Euf" secondAttribute="bottom" constant="35" id="1RF-iL-UGz"/>
                             <constraint firstItem="i3G-PA-Euf" firstAttribute="top" secondItem="9uC-oR-1Ss" secondAttribute="bottom" constant="16" id="2BC-qt-2Bp"/>
@@ -108,8 +108,8 @@
     <resources>
         <image name="Good Vibes" width="298" height="300"/>
         <image name="Placeholder Profile Pic" width="362" height="364"/>
-        <namedColor name="BackgroundDarkBlue">
-            <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="BackgroundDarkBlue"/>

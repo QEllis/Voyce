@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-wj-a5G">
                                         <rect key="frame" x="0.0" y="0.0" width="102" height="50"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="9,812" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-qs-8kf">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="9,812" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-qs-8kf">
                                                 <rect key="frame" x="58" y="0.0" width="44" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" name="Text - Body"/>
@@ -39,7 +39,10 @@
                                         <constraints>
                                             <constraint firstItem="fTI-qs-8kf" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="1s5-0a-Ytv"/>
                                             <constraint firstAttribute="trailing" secondItem="fTI-qs-8kf" secondAttribute="trailing" id="ad5-8Q-16g"/>
+                                            <constraint firstAttribute="trailing" secondItem="fTI-qs-8kf" secondAttribute="trailing" id="fxm-NS-B2K"/>
                                             <constraint firstItem="fTI-qs-8kf" firstAttribute="leading" secondItem="ewO-VQ-rf8" secondAttribute="trailing" constant="10" id="gfH-09-Jck"/>
+                                            <constraint firstAttribute="bottom" secondItem="fTI-qs-8kf" secondAttribute="bottom" id="hYh-Ly-Cf1"/>
+                                            <constraint firstItem="fTI-qs-8kf" firstAttribute="top" secondItem="FW9-wj-a5G" secondAttribute="top" id="nzA-gX-o3B"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-JF-OX4">
@@ -66,7 +69,6 @@
                                     <constraint firstAttribute="trailing" secondItem="A1P-jI-MZI" secondAttribute="trailing" id="5fi-a4-Zqg"/>
                                     <constraint firstAttribute="height" constant="50" id="EE1-jg-vvq"/>
                                     <constraint firstAttribute="bottom" secondItem="A1P-jI-MZI" secondAttribute="bottom" id="MGE-Ve-E6l"/>
-                                    <constraint firstItem="A1P-jI-MZI" firstAttribute="width" secondItem="6ar-JF-OX4" secondAttribute="width" multiplier="0.88" id="MXN-io-jI5"/>
                                     <constraint firstAttribute="bottom" secondItem="FW9-wj-a5G" secondAttribute="bottom" id="SKg-hR-pzo"/>
                                     <constraint firstItem="A1P-jI-MZI" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="top" id="ZCT-mu-NdT"/>
                                     <constraint firstItem="6ar-JF-OX4" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="top" id="dIw-IA-EKF"/>
@@ -92,7 +94,6 @@
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="dNr-6h-huJ"/>
                             <constraint firstItem="37x-G8-tAm" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="bottom" constant="7" id="fO6-7J-oVi"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="top" secondItem="wL9-sf-3MO" secondAttribute="top" id="kFY-2o-Qcs"/>
-                            <constraint firstItem="QT5-AN-Ht3" firstAttribute="top" secondItem="wL9-sf-3MO" secondAttribute="topMargin" constant="44" id="u2l-7d-gzz"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="z3A-eI-nBL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="41m-Dp-SnV"/>
@@ -113,7 +114,7 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text - Body">
-            <color red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
