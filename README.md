@@ -18,6 +18,8 @@ To compile the program, you should first download Xcode 11. Once you have succes
 These directions can found at: https://guides.cocoapods.org/using/getting-started.html.<br />
 After Cocoapods is installed, your program should be able to compile.
 
+If any issues persist, please view our installation tutorial https://drive.google.com/a/usc.edu/file/d/184Lolg838iuiCN95JMIAJaFOD9EYUauU/view?usp=sharing
+
 <b> 3. How to deploy? </b>
 
 Once CocoaPods is installed successfully, go to your terminal and execute: <pre><code>open Voyce.xcworkspace</code></pre>
