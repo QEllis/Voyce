@@ -106,11 +106,9 @@
                 <outlet property="createdAtLabel" destination="rNY-r3-8UL" id="R9M-e2-2WO"/>
                 <outlet property="postImage" destination="42u-dP-Qsy" id="0Y1-gE-rh7"/>
                 <outlet property="usernameLabel" destination="D19-lZ-56D" id="gDl-YM-Tpe"/>
-                <outletCollection property="gestureRecognizers" destination="trN-h8-7WP" appends="YES" id="xcV-j7-xtB"/>
             </connections>
             <point key="canvasLocation" x="205.79710144927537" y="285.60267857142856"/>
         </tableViewCell>
-        <panGestureRecognizer minimumNumberOfTouches="1" id="trN-h8-7WP"/>
     </objects>
     <resources>
         <image name="Profile" width="128" height="128"/>

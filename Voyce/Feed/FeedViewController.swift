@@ -48,13 +48,13 @@ class FeedViewController: UIViewController
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func awakeFromNib()
-    {
-        super.awakeFromNib()
-        let touchTest = UITapGestureRecognizer(target: self, action: #selector(self.testTap(sender:)))
-        testingLabel.isUserInteractionEnabled = true
-        testingLabel.addGestureRecognizer(touchTest)
-    }
+//    override func awakeFromNib()
+//    {
+//        super.awakeFromNib()
+//        let touchTest = UITapGestureRecognizer(target: self, action: #selector(self.testTap(sender:)))
+//        testingLabel.isUserInteractionEnabled = true
+//        testingLabel.addGestureRecognizer(touchTest)
+//    }
     
     
 //    @IBAction func panCard(_ sender: UIPanGestureRecognizer)
