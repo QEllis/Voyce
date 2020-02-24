@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 private let user = UserManager.shared.sharedUser
 
@@ -18,8 +19,8 @@ class MyProfileViewController: UIViewController, UITableViewDelegate {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var goodVibesLabel: UILabel!
-  
   var followed:Bool = false
+  lazy var functions = Functions.functions()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,8 +53,28 @@ class MyProfileViewController: UIViewController, UITableViewDelegate {
     tableView.reloadData()
   }
   
-  @IBAction func transferButtonPressed(_ sender: Any) {
-    //put bank account function here
+  @IBAction func transferButtonPressed(_ sender: Any)
+  {
+    print("Button Pressed")
+    functions.httpsCallable("addMessage").call(["text": "This is a test"])
+    {
+        (result, error) in
+        // Handles any errors in the communication
+        if let error = error as NSError?
+        {
+            if error.domain == FunctionsErrorDomain
+            {
+                let code = FunctionsErrorCode(rawValue: error.code)
+                let message = error.localizedDescription
+                let details = error.userInfo[FunctionsErrorDetailsKey]
+            }
+        }
+        // Handles the responses from the server
+        if let text = (result?.data as? [String: Any])?["text"] as? String
+        {
+            print("This is the output " + text)
+        }
+    }
   }
 }
 

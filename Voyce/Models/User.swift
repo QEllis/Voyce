@@ -104,6 +104,13 @@ public class User{
       self.goodVibes += vibes
     }
     
+    func removeVibes(){
+         print("remove vibes");
+         if(self.goodVibes>=1){
+             self.goodVibes -= 1
+         }
+     }
+    
     func LoadUserData(dataDict: [String : Any]){
         print(dataDict)
     }
