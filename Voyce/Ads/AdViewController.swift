@@ -177,11 +177,11 @@ class AdViewController: UIViewController {
   }
 
   @objc func updateViewTime(){
-    print("in update view time")
+    //print("in update view time")
           //UserManager.shared.sharedUser.goodVibes += 1
     vibes += 1 //FRANK update server side amount of vibez
     shared.db.collection("users").document(shared.sharedUser.userID).setData([ "goodvibes": vibes ], merge: true);
-    print(shared.sharedUser.userID);
+    //print(shared.sharedUser.userID);
     vibezLabel.text = "Good Vibes: \(vibes)"
   }
   
