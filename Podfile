@@ -8,6 +8,7 @@ target 'Voyce' do
   # Pods for Voyce
   pod 'Firebase/Core'#, '~> 5.0.1'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Google'
   pod 'Firebase/Storage'
