@@ -9,7 +9,6 @@
 import UIKit
 
 private let shared = UserManager.shared
-
 class AdViewController: UIViewController {
 
   @IBOutlet var vibezLabel: UILabel!
@@ -28,7 +27,8 @@ class AdViewController: UIViewController {
   override func viewDidLoad(){
     print("Ads View Did Load")
     super.viewDidLoad();
-    self.title = "Ads"
+    //self.title = "Ads"
+    self.navigationItem.title="Ads"
     initTimer()
     stopTimer()
     ads.addObjects(from: [UIImage(named: "Beach"),
@@ -177,8 +177,8 @@ class AdViewController: UIViewController {
   }
 
   @objc func updateViewTime(){
-    //print("Adding to vibes")
-    //      UserManager.shared.sharedUser.goodVibes += 1
+    print("in update view time")
+          //UserManager.shared.sharedUser.goodVibes += 1
     vibes += 1 //FRANK update server side amount of vibez
     vibezLabel.text = "Good Vibes: \(vibes)"
   }
