@@ -41,19 +41,13 @@ class UserManager {
   }
   
   public func AcknowledgedPost(post:Post){
-    if(!checkAcknowledgedPost(post: post)){
-      print("Acknowledged Post")
-      //acknowledgedPosts[post.postID] = post
-      post.likeCount+=1;
-        
-        print(post.postID);
-      
-      //TODO: Modify database here?
-      
-    }
+    print("I AM HERE");
+    post.likeCount+=1;
+    print(post.postID);
+    db.collection("posts").document(post.postID).setData([ "likeCount": post.likeCount ], merge: true);
   }
     
-    /*
+/*
   public func UnacknowledgedPost(post:Post) {
     if(checkAcknowledgedPost(post: post)) {
       print("Deacknowledged Post")
@@ -114,17 +108,20 @@ class UserManager {
 
   }
   
+
   public func addPost(with text: String) {
     let id = UUID()
     let newPost = Post(pid: "-1", text: text, media: "", user: sharedUser, likeCount: 0)
     myPosts.insert(newPost, at: 0)
     posts.insert(newPost, at: 0)
+        
     db.collection("posts").document(id.uuidString).setData([
         "uid": sharedUser.userID,
         "ts": NSDate().timeIntervalSince1970,
         "text": text,
         "media": "",
-        "likeCount": 0
+        "likeCount": 0,
+        "postID": id.uuidString
     ]) { err in
         if let err = err {
             print("Error writing post to db: \(err)")
