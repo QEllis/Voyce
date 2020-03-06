@@ -96,7 +96,7 @@ final class PostTableViewCell: UITableViewCell
     //    print("FIRE!!!")
     //})
       //UserManager.shared.UnacknowledgedPost(post: post)
-        ackLabel.text = String(post.likeCount)
+        
     //}else{
       UserManager.shared.AcknowledgedPost(post: post)
     // Adding vibe to post user
@@ -111,6 +111,7 @@ final class PostTableViewCell: UITableViewCell
     print("current user number of vibes : " + String(currentUser.getVibes()))
     currentUser.removeVibes()
     print("after removing vibes from current user number of vibes : " + String(currentUser.getVibes()))
+    ackLabel.text = String(post.likeCount)
     
     
       //ackLabel.text = String(post.likeCount)
