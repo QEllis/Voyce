@@ -82,40 +82,25 @@ final class PostTableViewCell: UITableViewCell
   }
   
   @IBAction func acknowledgePressed(_ sender: Any) {
-    print("acknowledge")
-    acknowledged.toggle()
-    switchButton()
+    updateVibes()
+    updateUI()
+    
   }
-  
-  // Add vibe to the post and removes vibes from current user
-  func switchButton()
+   
+    // update vibes for current and other user
+    func updateVibes(){
+     //adds to vibes to the other user
+     postUser?.addVibes(vibes: 1);
+     // Removing vibes from current user
+     currentUser.removeVibes()
+    }
+    
+  // changes emojis and vibe count
+  func updateUI()
   {
-    //if(!acknowledged){
-      acknowledgeButton.setImage(UIImage(named: randomEmoji()), for: .normal)
-    //let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-    //    print("FIRE!!!")
-    //})
-      //UserManager.shared.UnacknowledgedPost(post: post)
-        
-    //}else{
-      UserManager.shared.AcknowledgedPost(post: post)
-    // Adding vibe to post user
-     print("user has " + String(Int(postUser?.getVibes() ?? 0)) + " vibes")
-      postUser?.addVibes(vibes: 1);
-    
-    print("after adding vibe user has " + String(Int(postUser?.getVibes() ?? 0)) + " vibes")
-    print("Name " + String(postUser?.username ?? "Nil"))
-    
-    // Removing vibe from current user
-    print("current user name is : " + currentUser.username)
-    print("current user number of vibes : " + String(currentUser.getVibes()))
-    currentUser.removeVibes()
-    print("after removing vibes from current user number of vibes : " + String(currentUser.getVibes()))
+    acknowledgeButton.setImage(UIImage(named: randomEmoji()), for: .normal)
+    UserManager.shared.AcknowledgedPost(post: post)
     ackLabel.text = String(post.likeCount)
-    
-    
-      //ackLabel.text = String(post.likeCount)
-   // }
   }
     
     //function that returns random emoji from assets.xcassets folder
