@@ -22,7 +22,7 @@
 		3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C55ECBB23688D7A00B5738F /* VoyceTabBar.xib */; };
 		3C55ECBE23688D9400B5738F /* VoyceTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55ECBD23688D9400B5738F /* VoyceTabBar.swift */; };
 		3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */; };
-		3C62D8DB2333CF2200627FFB /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DA2333CF2200627FFB /* UserManager.swift */; };
+		3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */; };
 		3C62D8DE2333CFA300627FFB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DD2333CFA300627FFB /* Post.swift */; };
 		3C62D8E12333D00700627FFB /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C62D8E02333D00700627FFB /* PostTableViewCell.xib */; };
 		3C62D8E32333D01100627FFB /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8E22333D01100627FFB /* PostTableViewCell.swift */; };
@@ -66,7 +66,7 @@
 		3C55ECBB23688D7A00B5738F /* VoyceTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoyceTabBar.xib; sourceTree = "<group>"; };
 		3C55ECBD23688D9400B5738F /* VoyceTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyceTabBar.swift; sourceTree = "<group>"; };
 		3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyceTabBarViewController.swift; sourceTree = "<group>"; };
-		3C62D8DA2333CF2200627FFB /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		3C62D8DD2333CFA300627FFB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3C62D8E02333D00700627FFB /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		3C62D8E22333D01100627FFB /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 				01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */,
 				3F0E8E352346CF3D007705C2 /* Login */,
 				3F0E8E302346CDF5007705C2 /* Profile */,
-				3C62D8D92333CF1500627FFB /* Managers */,
+				3C62D8D92333CF1500627FFB /* Database */,
 				3CF41A552344E00A0082B6F7 /* Post Creation */,
 				3C2EEEA023327BD6009098D5 /* Feed */,
 				3C2EEE9B23327A55009098D5 /* Root */,
@@ -205,12 +205,12 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
-		3C62D8D92333CF1500627FFB /* Managers */ = {
+		3C62D8D92333CF1500627FFB /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				3C62D8DA2333CF2200627FFB /* UserManager.swift */,
+				3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */,
 			);
-			path = Managers;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		3C62D8DC2333CF9800627FFB /* Models */ = {
@@ -296,7 +296,6 @@
 				54FC284A894B24B1A02301D0 /* Pods-Voyce.debug.xcconfig */,
 				7E6135CEE7255E08DE1471D6 /* Pods-Voyce.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -464,7 +463,7 @@
 				3C62D8DE2333CFA300627FFB /* Post.swift in Sources */,
 				016FCC6F236BBC1C00B1F387 /* AdViewController.swift in Sources */,
 				3F81E912236FA93D008B3673 /* RangeSliderTrackLayer.swift in Sources */,
-				3C62D8DB2333CF2200627FFB /* UserManager.swift in Sources */,
+				3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */,
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
 				3F81E913236FA93D008B3673 /* RangeSlider.swift in Sources */,
 				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,

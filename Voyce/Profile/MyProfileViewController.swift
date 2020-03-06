@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
-private let user = UserManager.shared.sharedUser
+private let user = DatabaseManager.shared.sharedUser
 
 class MyProfileViewController: UIViewController, UITableViewDelegate {
   
@@ -101,12 +101,12 @@ extension MyProfileViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //return count of my posts
-    return UserManager.shared.myPosts.count
+    return DatabaseManager.shared.myPosts.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostCell") as! MyPostTableViewCell
-    cell.fillOut(with: UserManager.shared.myPosts[indexPath.row])
+    cell.fillOut(with: DatabaseManager.shared.myPosts[indexPath.row])
     cell.delegate = self
     return cell
   }

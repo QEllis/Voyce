@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-private let userManager = UserManager.shared
+private let userManager = DatabaseManager.shared
 
 class LoginViewController: UIViewController, FUIAuthDelegate {
     

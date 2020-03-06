@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let shared = UserManager.shared
+private let shared = DatabaseManager.shared
 class AdViewController: UIViewController {
 
   @IBOutlet var vibezLabel: UILabel!
@@ -88,14 +88,14 @@ class AdViewController: UIViewController {
     stopTimer()
     guard self.timer == nil else { return }
     initTimer()
-    vibes = UserManager.shared.sharedUser.getVibes()
+    vibes = DatabaseManager.shared.sharedUser.getVibes()
   }
   
   func stopTimer() {
     guard timer != nil else { return }
     timer?.invalidate()
     timer = nil
-    UserManager.shared.sharedUser.setVibes(vibes: self.vibes)
+    DatabaseManager.shared.sharedUser.setVibes(vibes: self.vibes)
   }
   
   func loadNewAds()->Bool{

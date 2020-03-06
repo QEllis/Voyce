@@ -18,7 +18,7 @@ final class PostTableViewCell: UITableViewCell
 {
   var delegate: PostTableViewCellDelegate?
      var user = User.init()
-    var currentUser: User = UserManager.shared.sharedUser
+    var currentUser: User = DatabaseManager.shared.sharedUser
     var postUser: User?
   var post:Post = Post()
   
@@ -99,7 +99,7 @@ final class PostTableViewCell: UITableViewCell
   func updateUI()
   {
     acknowledgeButton.setImage(UIImage(named: randomEmoji()), for: .normal)
-    UserManager.shared.AcknowledgedPost(post: post)
+    DatabaseManager.shared.AcknowledgedPost(post: post)
     ackLabel.text = String(post.likeCount)
   }
     

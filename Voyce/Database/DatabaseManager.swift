@@ -11,9 +11,9 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class UserManager {
+class DatabaseManager {
   
-  static let shared = UserManager()
+  static let shared = DatabaseManager()
   
   //is loaded in from DB on login
   var sharedUser = User.init(userID: "0", name: "null", username: "null")
@@ -42,9 +42,7 @@ class UserManager {
   
   public func AcknowledgedPost(post:Post){
     print("I AM HERE");
-    
-    
-    
+
     post.likeCount+=1;
     print(post.postID);
     db.collection("posts").document(post.postID).setData([ "likeCount": post.likeCount ], merge: true);
@@ -150,7 +148,7 @@ class UserManager {
                                         imageURL:  document.get("imageURL") as! String,
                                         goodVibes:  document.get("goodvibes")  as! Int)
                     p.user = actualUserFound
-                  UserManager.shared.posts.append(p)
+                  DatabaseManager.shared.posts.append(p)
                     print("Post Creator: \(p.user.userID)")
                 } else {
                     print("User does not exist")
@@ -217,7 +215,7 @@ class UserManager {
   public func addComment(with text: String, post: Post) {
     for currPost in posts where currPost.postID == post.postID {
       print("addComment")
-      let comment = Post(pid: "comment", text: text,media: "", user: UserManager.shared.sharedUser, likeCount: 0)
+      let comment = Post(pid: "comment", text: text,media: "", user: DatabaseManager.shared.sharedUser, likeCount: 0)
       //UserManager.shared.addComment(with: text, post: currPost)
       currPost.addComment(comment)
     }
@@ -225,13 +223,13 @@ class UserManager {
   }
 
   public func addFollowed(username:String){
-    UserManager.shared.sharedUser.addFollowed(username: username)
+    DatabaseManager.shared.sharedUser.addFollowed(username: username)
   }
   public func removeFollowed(username:String){
-    UserManager.shared.sharedUser.removeFollowed(username: username)
+    DatabaseManager.shared.sharedUser.removeFollowed(username: username)
   }
   
   public func checkIfFollowed(username:String)->Bool{
-    return UserManager.shared.sharedUser.checkIfFollowed(username: username)
+    return DatabaseManager.shared.sharedUser.checkIfFollowed(username: username)
   }
 }

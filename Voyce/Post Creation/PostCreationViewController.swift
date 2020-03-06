@@ -87,12 +87,12 @@ class PostCreationViewController: UIViewController, UITextViewDelegate {
     switch postSegmentedControl.selectedSegmentIndex {
     case 0:
       //just text post
-      UserManager.shared.addPost(with: textView.text)
+      DatabaseManager.shared.addPost(with: textView.text)
     case 1:
-      UserManager.shared.addPost(with: imageCaption.text, image: postImage.image!)
+      DatabaseManager.shared.addPost(with: imageCaption.text, image: postImage.image!)
       //add image to the post as well
     default:
-      UserManager.shared.addPost(with: textView.text)
+      DatabaseManager.shared.addPost(with: textView.text)
     }
     navigationController?.popViewController(animated: true)
   }
@@ -119,7 +119,7 @@ extension PostCreationViewController: UIImagePickerControllerDelegate,UINavigati
     }
     
     func UploadImageToFB(url: String){
-        let storageRef = UserManager.shared.storage.reference()
+        let storageRef = DatabaseManager.shared.storage.reference()
         // File located on disk
         let localFile = URL(string: url)!
 
