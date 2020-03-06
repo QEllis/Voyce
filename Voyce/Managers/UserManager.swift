@@ -42,6 +42,9 @@ class UserManager {
   
   public func AcknowledgedPost(post:Post){
     print("I AM HERE");
+    
+    
+    
     post.likeCount+=1;
     print(post.postID);
     db.collection("posts").document(post.postID).setData([ "likeCount": post.likeCount ], merge: true);

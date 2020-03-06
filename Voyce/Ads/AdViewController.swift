@@ -29,6 +29,15 @@ class AdViewController: UIViewController {
     super.viewDidLoad();
     //self.title = "Ads"
     self.navigationItem.title="Ads"
+    let docRef = shared.db.collection("users").document(shared.sharedUser.userID);
+    docRef.getDocument { (document, error) in
+        if let document = document, document.exists {
+            self.vibes = document.get("goodvibes") as! Int;
+        } else {
+            print("Vibes not found");
+        }
+    }
+
     initTimer()
     stopTimer()
     ads.addObjects(from: [UIImage(named: "Beach"),
@@ -37,7 +46,7 @@ class AdViewController: UIViewController {
                           "Text Advertisement"])
 
     //FRANK assuming this will come in as an array of Strings or UIImages
-    vibes = UserManager.shared.sharedUser.getVibes()
+    //vibes = UserManager.shared.sharedUser.getVibes()
 
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
     rightSwipe.direction = .right
@@ -178,9 +187,9 @@ class AdViewController: UIViewController {
 
   @objc func updateViewTime(){
     //print("in update view time")
-          //UserManager.shared.sharedUser.goodVibes += 1
+    //UserManager.shared.sharedUser.goodVibes += 1
     vibes += 1 //FRANK update server side amount of vibez
-    shared.db.collection("users").document(shared.sharedUser.userID).setData([ "goodvibes": vibes ], merge: true);
+    shared.db.collection("users").document(shared.sharedUser.userID) .setData([ "goodvibes": vibes ], merge: true);
     //print(shared.sharedUser.userID);
     vibezLabel.text = "Good Vibes: \(vibes)"
   }
