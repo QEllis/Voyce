@@ -56,6 +56,15 @@ class VoyceTabBarViewController: UITabBarController {
     guard let to = toIndex else { return }
     selectedIndex = to
     guard let toVC = viewControllers?[to] else { return }
+    //Check whether we are switching to the ads view contoller
+    if(toVC.title == "Ads") {
+        //Then cast the viewcontroller to an AdViewController and run its initTimer() function
+        var toAd = toVC as! AdViewController
+        toAd.timer?.invalidate()
+        toAd.timer = nil
+        toAd.initTimer()
+        
+    }
     delegate?.tabBarController?(self, didSelect: toVC)
   }
 

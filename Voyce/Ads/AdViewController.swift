@@ -28,6 +28,7 @@ class AdViewController: UIViewController {
   override func viewDidLoad(){
     print("Ads View Did Load")
     super.viewDidLoad();
+    self.title = "Ads"
     initTimer()
     stopTimer()
     ads.addObjects(from: [UIImage(named: "Beach"),
@@ -47,6 +48,7 @@ class AdViewController: UIViewController {
     view.addGestureRecognizer(leftSwipe)
     print("View did appear")
     if (loadNewAds()) {
+        print("starting timer")
       startTimer()
     }
     let adNumber = 0
@@ -73,6 +75,7 @@ class AdViewController: UIViewController {
   }
   
   func startTimer() {
+    print("in start timer function")
     stopTimer()
     guard self.timer == nil else { return }
     initTimer()
@@ -95,6 +98,7 @@ class AdViewController: UIViewController {
       return true
     }
     else{
+        print("in load new ads-false")
       return false
     }
   }

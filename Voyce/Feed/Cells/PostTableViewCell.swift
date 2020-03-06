@@ -104,7 +104,7 @@ final class PostTableViewCell: UITableViewCell
       postUser?.addVibes(vibes: 1);
     
     print("after adding vibe user has " + String(Int(postUser?.getVibes() ?? 0)) + " vibes")
-    print("Name" + String(postUser?.username ?? "Nil"))
+    print("Name " + String(postUser?.username ?? "Nil"))
     
     // Removing vibe from current user
     print("current user name is : " + currentUser.username)
