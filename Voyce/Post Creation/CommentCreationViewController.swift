@@ -25,7 +25,7 @@ class CommentCreationViewController: UIViewController {
 
   @IBAction func postPressed(_ sender: Any) {
     guard let text = textView.text, let post = post else { return }
-    UserManager.shared.addComment(with: "\(UserManager.shared.sharedUser.name): \(text)", post: post)
+    DatabaseManager.shared.addComment(with: "\(DatabaseManager.shared.sharedUser.name): \(text)", post: post)
     navigationController?.popViewController(animated: true)
   }
 

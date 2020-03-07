@@ -58,7 +58,7 @@ final class Card: UITableViewCell
         vibeButton.setImage(nil, for: .normal)
         vibeButton.setTitle(randomEmoji(), for: .normal)
         numVibes.text = String(post.likeCount)
-        UserManager.shared.AcknowledgedPost(post: post)
+        DatabaseManager.shared.AcknowledgedPost(post: post)
     }
     
     func randomEmoji() -> String!

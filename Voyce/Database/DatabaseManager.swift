@@ -11,9 +11,9 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class UserManager {
+class DatabaseManager {
   
-  static let shared = UserManager()
+  static let shared = DatabaseManager()
   
   //is loaded in from DB on login
   var sharedUser = User.init(userID: "0", name: "null", username: "null")
@@ -32,7 +32,7 @@ class UserManager {
   var dislikedAds: [String] = []
   var acknowledgedPosts:[String:Post] = [:]
   
-  public func checkAcknowledgedPost(post: Post) -> Bool{
+  public func checkAcknowledgedPost(post:Post)->Bool{
     if(acknowledgedPosts[post.postID] != nil){
       return true
     } else {
@@ -41,16 +41,11 @@ class UserManager {
   }
   
   public func AcknowledgedPost(post:Post){
-    if(!checkAcknowledgedPost(post: post)){
-      print("Acknowledged Post")
-      //acknowledgedPosts[post.postID] = post
-      post.likeCount+=1;
-        
-        print(post.postID);
-      
-      //TODO: Modify database here?
-      
-    }
+    print("I AM HERE");
+
+    post.likeCount+=1;
+    print(post.postID);
+    db.collection("posts").document(post.postID).setData([ "likeCount": post.likeCount ], merge: true);
   }
   
   public func userLogin(u: FirebaseAuth.User) {
@@ -68,6 +63,20 @@ class UserManager {
     }
   }
 
+  public func createHardcodedPosts() {
+    let post1 = Post(pid: "1", text: "Just had a great time at the getty", media: "",
+                     user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3, image: UIImage(named: "Getty"))
+    post1.addComment(Post(pid: "5", text: "Pedro: Nice!", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1))
+    let myPost = Post(pid: "1", text: "Promotion!", media: "",
+                      user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3)
+    myPosts = [myPost]
+    let post2 = Post(pid: "2", text: "What's your favorite type of food?", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1)
+    post2.addComment(Post(pid: "5", text: "Quinn: Pizza for sure", media: "", user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 5), likeCount: 0))
+    let post3 = Post(pid: "3", text: "Concert time!", media: "", user: User(userID: "2", name: "Frank", username: "frank", goodVibes: 10), likeCount: 0, image: UIImage(named: "Concert"))
+    let post4 = Post(pid: "4", text: "So nice out today.", media: "", user: User(userID: "3", name: "Cole", username: "cole", goodVibes: 25), likeCount: 3, image: UIImage(named: "Beach"))
+    posts = [post1, post2, post3, post4]
+  }
+  
   public func addPost(with text: String, image: UIImage){
     let id = UUID()
     let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
@@ -87,19 +96,23 @@ class UserManager {
             print("image post successfully written to db!")
         }
     }
+
   }
   
+
   public func addPost(with text: String) {
     let id = UUID()
     let newPost = Post(pid: "-1", text: text, media: "", user: sharedUser, likeCount: 0)
     myPosts.insert(newPost, at: 0)
     posts.insert(newPost, at: 0)
+        
     db.collection("posts").document(id.uuidString).setData([
         "uid": sharedUser.userID,
         "ts": NSDate().timeIntervalSince1970,
         "text": text,
         "media": "",
-        "likeCount": 0
+        "likeCount": 0,
+        "postID": id.uuidString
     ]) { err in
         if let err = err {
             print("Error writing post to db: \(err)")
@@ -125,7 +138,7 @@ class UserManager {
                                         imageURL:  document.get("imageURL") as! String,
                                         goodVibes:  document.get("goodvibes")  as! Int)
                     p.user = actualUserFound
-                  UserManager.shared.posts.append(p)
+                  DatabaseManager.shared.posts.append(p)
                     print("Post Creator: \(p.user.userID)")
                 } else {
                     print("User does not exist")
@@ -192,7 +205,7 @@ class UserManager {
   public func addComment(with text: String, post: Post) {
     for currPost in posts where currPost.postID == post.postID {
       print("addComment")
-      let comment = Post(pid: "comment", text: text,media: "", user: UserManager.shared.sharedUser, likeCount: 0)
+      let comment = Post(pid: "comment", text: text,media: "", user: DatabaseManager.shared.sharedUser, likeCount: 0)
       //UserManager.shared.addComment(with: text, post: currPost)
       currPost.addComment(comment)
     }
@@ -200,13 +213,13 @@ class UserManager {
   }
 
   public func addFollowed(username:String){
-    UserManager.shared.sharedUser.addFollowed(username: username)
+    DatabaseManager.shared.sharedUser.addFollowed(username: username)
   }
   public func removeFollowed(username:String){
-    UserManager.shared.sharedUser.removeFollowed(username: username)
+    DatabaseManager.shared.sharedUser.removeFollowed(username: username)
   }
   
   public func checkIfFollowed(username:String)->Bool{
-    return UserManager.shared.sharedUser.checkIfFollowed(username: username)
+    return DatabaseManager.shared.sharedUser.checkIfFollowed(username: username)
   }
 }

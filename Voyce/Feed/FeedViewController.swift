@@ -16,7 +16,7 @@ class FeedViewController: UIViewController
     {
         super.viewDidLoad()
         //    UserManager.shared.initWithPlaceholderPosts()
-        UserManager.shared.LoadFeed();
+        DatabaseManager.shared.LoadFeed();
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CardPic", bundle: nil), forCellReuseIdentifier: "Card")
@@ -29,7 +29,7 @@ class FeedViewController: UIViewController
         super.viewWillAppear(animated)
         
         //this will reload when you go back to the feed. In the future only reload when user does reload gesture or hits reload button
-        UserManager.shared.LoadFeed()
+        DatabaseManager.shared.LoadFeed()
         
         if let selectionIndexPath = self.tableView.indexPathForSelectedRow
         {
@@ -98,7 +98,7 @@ extension FeedViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else { return }
-        vc.post = UserManager.shared.posts[indexPath.row]
+        vc.post = DatabaseManager.shared.posts[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -111,12 +111,12 @@ extension FeedViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserManager.shared.posts.count
+        return DatabaseManager.shared.posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let card = tableView.dequeueReusableCell(withIdentifier: "Card") as! Card
-        card.fillOut(with: UserManager.shared.posts[indexPath.row])
+        card.fillOut(with: DatabaseManager.shared.posts[indexPath.row])
         card.delegate = self
         return card
     }
@@ -125,7 +125,7 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: CardDelegate {
     func profileButtonDidPressed(postUser: User) {
-        if (postUser.userID == UserManager.shared.sharedUser.userID){
+        if (postUser.userID == DatabaseManager.shared.sharedUser.userID){
             self.tabBarController?.selectedIndex = 0
         } else {
             let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController

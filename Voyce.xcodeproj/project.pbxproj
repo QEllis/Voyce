@@ -22,7 +22,7 @@
 		3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C55ECBB23688D7A00B5738F /* VoyceTabBar.xib */; };
 		3C55ECBE23688D9400B5738F /* VoyceTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55ECBD23688D9400B5738F /* VoyceTabBar.swift */; };
 		3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */; };
-		3C62D8DB2333CF2200627FFB /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DA2333CF2200627FFB /* UserManager.swift */; };
+		3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */; };
 		3C62D8DE2333CFA300627FFB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DD2333CFA300627FFB /* Post.swift */; };
 		3C62D8E12333D00700627FFB /* CardPic.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C62D8E02333D00700627FFB /* CardPic.xib */; };
 		3C62D8E32333D01100627FFB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8E22333D01100627FFB /* Card.swift */; };
@@ -45,7 +45,6 @@
 		40B43565159A6E43DF001194 /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E696BAFC0B3DC94CF07C66C /* Pods_Voyce.framework */; };
 		E1257CA624131557001927EB /* FindPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1257CA524131557001927EB /* FindPeople.storyboard */; };
 		E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1257CA724131567001927EB /* FindPeopleViewController.swift */; };
-		E1EE84A7240F4F4C00BA36C2 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE84A6240F4F4B00BA36C2 /* Database.swift */; };
 		E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4785A46235BB30F002AB769 /* PostCommentView.xib */; };
 		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
 		E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */; };
@@ -69,7 +68,7 @@
 		3C55ECBB23688D7A00B5738F /* VoyceTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoyceTabBar.xib; sourceTree = "<group>"; };
 		3C55ECBD23688D9400B5738F /* VoyceTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyceTabBar.swift; sourceTree = "<group>"; };
 		3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyceTabBarViewController.swift; sourceTree = "<group>"; };
-		3C62D8DA2333CF2200627FFB /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		3C62D8DD2333CFA300627FFB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3C62D8E02333D00700627FFB /* CardPic.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardPic.xib; sourceTree = "<group>"; };
 		3C62D8E22333D01100627FFB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -94,7 +93,6 @@
 		CF5C2599633B04C19D0D9953 /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
 		E1257CA524131557001927EB /* FindPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPeople.storyboard; sourceTree = "<group>"; };
 		E1257CA724131567001927EB /* FindPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPeopleViewController.swift; sourceTree = "<group>"; };
-		E1EE84A6240F4F4B00BA36C2 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
 		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreationViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +146,7 @@
 				01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */,
 				3F0E8E352346CF3D007705C2 /* Login */,
 				3F0E8E302346CDF5007705C2 /* Profile */,
-				3C62D8D92333CF1500627FFB /* Singletons */,
+				3C62D8D92333CF1500627FFB /* Database */,
 				3CF41A552344E00A0082B6F7 /* Post Creation */,
 				3C2EEEA023327BD6009098D5 /* Feed */,
 				3C2EEE9B23327A55009098D5 /* Root */,
@@ -204,13 +202,12 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
-		3C62D8D92333CF1500627FFB /* Singletons */ = {
+		3C62D8D92333CF1500627FFB /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				E1EE84A6240F4F4B00BA36C2 /* Database.swift */,
-				3C62D8DA2333CF2200627FFB /* UserManager.swift */,
+				3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */,
 			);
-			path = Singletons;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		3C62D8DC2333CF9800627FFB /* Models */ = {
@@ -478,11 +475,10 @@
 				3C62D8DE2333CFA300627FFB /* Post.swift in Sources */,
 				016FCC6F236BBC1C00B1F387 /* AdViewController.swift in Sources */,
 				3F81E912236FA93D008B3673 /* RangeSliderTrackLayer.swift in Sources */,
-				3C62D8DB2333CF2200627FFB /* UserManager.swift in Sources */,
+				3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */,
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
 				3F81E913236FA93D008B3673 /* RangeSlider.swift in Sources */,
 				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,
-				E1EE84A7240F4F4C00BA36C2 /* Database.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

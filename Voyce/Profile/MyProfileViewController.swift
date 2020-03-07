@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-private let user = UserManager.shared.sharedUser
+private let user = DatabaseManager.shared.sharedUser
 
-class MyProfileViewController: UIViewController, UITableViewDelegate {
+class MyProfileViewController: UIViewController, UITableViewDelegate
+{
   
   @IBOutlet var tableView: UITableView!
   
@@ -41,10 +42,12 @@ class MyProfileViewController: UIViewController, UITableViewDelegate {
   
   private func loadTextFields(){
     print("Loaded Text Fields")
-    print("\(UserManager.shared.sharedUser.goodVibes)")
+    print("\(DatabaseManager.shared.sharedUser.goodVibes)")
     nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
     goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
+    print(usernameLabel.text)
+    print(goodVibesLabel.text)
   }
   
   @objc private func newPosts() {
@@ -78,12 +81,12 @@ extension MyProfileViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //return count of my posts
-    return UserManager.shared.myPosts.count
+    return DatabaseManager.shared.myPosts.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostCell") as! MyPostTableViewCell
-    cell.fillOut(with: UserManager.shared.myPosts[indexPath.row])
+    cell.fillOut(with: DatabaseManager.shared.myPosts[indexPath.row])
     cell.delegate = self
     return cell
   }

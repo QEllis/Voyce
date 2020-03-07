@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let shared = UserManager.shared
+private let shared = DatabaseManager.shared
 
 class AdViewController: UIViewController {
 
@@ -36,7 +36,7 @@ class AdViewController: UIViewController {
                           "Text Advertisement"])
 
     //FRANK assuming this will come in as an array of Strings or UIImages
-    vibes = UserManager.shared.sharedUser.getVibes()
+    vibes = DatabaseManager.shared.sharedUser.getVibes()
 
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
     rightSwipe.direction = .right
@@ -76,14 +76,14 @@ class AdViewController: UIViewController {
     stopTimer()
     guard self.timer == nil else { return }
     initTimer()
-    vibes = UserManager.shared.sharedUser.getVibes()
+    vibes = DatabaseManager.shared.sharedUser.getVibes()
   }
   
   func stopTimer() {
     guard timer != nil else { return }
     timer?.invalidate()
     timer = nil
-    UserManager.shared.sharedUser.setVibes(vibes: self.vibes)
+    DatabaseManager.shared.sharedUser.setVibes(vibes: self.vibes)
   }
   
   func loadNewAds()->Bool{
@@ -167,7 +167,8 @@ class AdViewController: UIViewController {
     }
   }
 
-  func initTimer(){
+  func initTimer()
+  {
     // Scheduling timer to Call the function "updateViewTime" with the interval of 1 seconds
     timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateViewTime), userInfo: nil, repeats: true)
   }
@@ -176,6 +177,7 @@ class AdViewController: UIViewController {
     //print("Adding to vibes")
     //      UserManager.shared.sharedUser.goodVibes += 1
     vibes += 1 //FRANK update server side amount of vibez
+    print("My vibes, ads \(vibes)")
     vibezLabel.text = "Good Vibes: \(vibes)"
   }
   
