@@ -47,16 +47,6 @@ class DatabaseManager {
     print(post.postID);
     db.collection("posts").document(post.postID).setData([ "likeCount": post.likeCount ], merge: true);
   }
-    
-/*
-  public func UnacknowledgedPost(post:Post) {
-    if(checkAcknowledgedPost(post: post)) {
-      print("Deacknowledged Post")
-      acknowledgedPosts.removeValue(forKey: post.postID)
-      post.likeCount-=1;
-    }
-  }
- */
   
   public func userLogin(u: FirebaseAuth.User) {
     sharedUser  = User.init(user: u)
