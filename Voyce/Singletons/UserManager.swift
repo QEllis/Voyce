@@ -32,7 +32,7 @@ class UserManager {
   var dislikedAds: [String] = []
   var acknowledgedPosts:[String:Post] = [:]
   
-  public func checkAcknowledgedPost(post:Post)->Bool{
+  public func checkAcknowledgedPost(post: Post) -> Bool{
     if(acknowledgedPosts[post.postID] != nil){
       return true
     } else {
@@ -52,16 +52,6 @@ class UserManager {
       
     }
   }
-    
-    /*
-  public func UnacknowledgedPost(post:Post) {
-    if(checkAcknowledgedPost(post: post)) {
-      print("Deacknowledged Post")
-      acknowledgedPosts.removeValue(forKey: post.postID)
-      post.likeCount-=1;
-    }
-  }
- */
   
   public func userLogin(u: FirebaseAuth.User) {
     sharedUser  = User.init(user: u)
@@ -78,20 +68,6 @@ class UserManager {
     }
   }
 
-  public func createHardcodedPosts() {
-    let post1 = Post(pid: "1", text: "Just had a great time at the getty", media: "",
-                     user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3, image: UIImage(named: "Getty"))
-    post1.addComment(Post(pid: "5", text: "Pedro: Nice!", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1))
-    let myPost = Post(pid: "1", text: "Promotion!", media: "",
-                      user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3)
-    myPosts = [myPost]
-    let post2 = Post(pid: "2", text: "What's your favorite type of food?", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1)
-    post2.addComment(Post(pid: "5", text: "Quinn: Pizza for sure", media: "", user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 5), likeCount: 0))
-    let post3 = Post(pid: "3", text: "Concert time!", media: "", user: User(userID: "2", name: "Frank", username: "frank", goodVibes: 10), likeCount: 0, image: UIImage(named: "Concert"))
-    let post4 = Post(pid: "4", text: "So nice out today.", media: "", user: User(userID: "3", name: "Cole", username: "cole", goodVibes: 25), likeCount: 3, image: UIImage(named: "Beach"))
-    posts = [post1, post2, post3, post4]
-  }
-  
   public func addPost(with text: String, image: UIImage){
     let id = UUID()
     let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
@@ -111,7 +87,6 @@ class UserManager {
             print("image post successfully written to db!")
         }
     }
-
   }
   
   public func addPost(with text: String) {
