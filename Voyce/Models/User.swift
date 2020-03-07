@@ -9,9 +9,9 @@ public class User
 {
   let userID: String
   let name: String
-  let username: String
+    var username: String
   var goodVibes: Int
-  let imageURL: URL?
+    var imageURL: URL?
   let image: UIImage?
   var followed: Set<String>
     
@@ -64,7 +64,8 @@ public class User
     self.followed = Set<String>.init()
   }
   
-  init(user: FirebaseAuth.User){
+  init(user: FirebaseAuth.User)
+  {
       self.userID = user.uid
       self.name = user.displayName!
       self.username = user.displayName!
@@ -103,7 +104,23 @@ public class User
       self.goodVibes += vibes
     }
     
-    func LoadUserData(dataDict: [String : Any]){
-        print(dataDict)
+    func removeVibes()
+    {
+         print("remove vibes");
+         if(self.goodVibes>=1){
+             self.goodVibes -= 1
+         }
+     }
+    
+    func LoadUserData(document: DocumentSnapshot)
+    {
+        let vibeCount: Int = document.get("goodvibes") as! Int;
+        self.setVibes(vibes: vibeCount)
+        self.username = document.get("username") as! String
+        self.imageURL = URL(string: document.get("imageURL") as! String)
+        print(self.getVibes())
+        print(self.name)
+        print(self.imageURL ?? "nil")
+        print("Info set")
     }
 }

@@ -29,7 +29,6 @@ class MyProfileViewController: UIViewController, UITableViewDelegate
     tableView.dataSource = self
     tableView.register(UINib(nibName: "MyPostTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostCell")
     NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
-    
     nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
     goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
@@ -46,8 +45,8 @@ class MyProfileViewController: UIViewController, UITableViewDelegate
     nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
     goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
-    print(usernameLabel.text)
-    print(goodVibesLabel.text)
+    print(usernameLabel.text ?? "none")
+    print(goodVibesLabel.text ?? "none")
   }
   
   @objc private func newPosts() {
@@ -57,6 +56,25 @@ class MyProfileViewController: UIViewController, UITableViewDelegate
   
   @IBAction func transferButtonPressed(_ sender: Any) {
     //put bank account function here
+    //    //print("Button Pressed")
+    //   //functions.httpsCallable("addMessage").call(["text": "This is a test"])
+    //    {
+    //        (result, error) in
+    //        // Handles any errors in the communication
+    //        if let error = error as NSError?
+    //        {
+    //            if error.domain == FunctionsErrorDomain
+    //            {
+    //                let code = FunctionsErrorCode(rawValue: error.code)
+    //                let message = error.localizedDescription
+    //                let details = error.userInfo[FunctionsErrorDetailsKey]
+    //            }
+    //        }
+    //        // Handles the responses from the server
+    //        if let text = (result?.data as? [String: Any])?["text"] as? String
+    //        {
+    //            print("This is the output " + text)
+    //        }
   }
 }
 

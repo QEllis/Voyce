@@ -17,7 +17,8 @@ final class Card: UITableViewCell
 {
     
     var delegate: CardDelegate?
-    var postUser = User(userID: "0", name: "nil", username: "nil")
+    var postUser: User = User(userID: "0", name: "nil", username: "nil")
+    var currentUser: User = DatabaseManager.shared.sharedUser
     var post: Post = Post()
     
     @IBOutlet var usernameLabel: UILabel!
@@ -55,10 +56,22 @@ final class Card: UITableViewCell
     
     @IBAction func acknowledgePressed(_ sender: Any)
     {
+        updateVibes()
+        updateUI()
+    }
+    
+    func updateVibes()
+    {
+        postUser.addVibes(vibes: 1)
+        currentUser.removeVibes()
+    }
+    
+    func updateUI()
+    {
         vibeButton.setImage(nil, for: .normal)
         vibeButton.setTitle(randomEmoji(), for: .normal)
-        numVibes.text = String(post.likeCount)
         DatabaseManager.shared.AcknowledgedPost(post: post)
+        numVibes.text = String(post.likeCount)
     }
     
     func randomEmoji() -> String!
@@ -74,7 +87,59 @@ final class Card: UITableViewCell
         emojiArray.append("🤨") //face with raised eyebrow
         emojiArray.append("😑") //expressionless face
         emojiArray.append("😐") //neutral face
-        
+        // To be implemented --- Tyler & Jordan?
+//        emojiArray.append("art-and-design")
+//        emojiArray.append("avocado")
+//        emojiArray.append("birthday-cake")
+//        emojiArray.append("bread")
+//        emojiArray.append("cake")
+//        emojiArray.append("crown")
+//        emojiArray.append("crowns")
+//        emojiArray.append("dog")
+//        emojiArray.append("eye-mask")
+//        emojiArray.append("falling-star")
+//
+//        emojiArray.append("fan")
+//        emojiArray.append("fireworks")
+//        emojiArray.append("fort")
+//        emojiArray.append("gems")
+//        emojiArray.append("hat")
+//        emojiArray.append("hearts")
+//        emojiArray.append("ice-cream")
+//        emojiArray.append("icecream")
+//        emojiArray.append("idea")
+//        emojiArray.append("kissing")
+//
+//        emojiArray.append("lips")
+//        emojiArray.append("love-letter")
+//        emojiArray.append("money-1")
+//        emojiArray.append("money-2")
+//        emojiArray.append("money")
+//        emojiArray.append("orchid")
+//        emojiArray.append("paint-palette")
+//        emojiArray.append("palette")
+//        emojiArray.append("party")
+//        emojiArray.append("phsyics")
+//
+//
+//        emojiArray.append("pizza")
+//        emojiArray.append("plastic-cup")
+//        emojiArray.append("rainbow")
+//        emojiArray.append("rose-1")
+//        emojiArray.append("rose-2")
+//        emojiArray.append("rose")
+//        emojiArray.append("shirt")
+//        emojiArray.append("space")
+//        emojiArray.append("spark")
+//        emojiArray.append("stars")
+//
+//
+//        emojiArray.append("strawberry")
+//        emojiArray.append("sun")
+//        emojiArray.append("thumbs-up")
+//        emojiArray.append("venus-de-milo")
+//        emojiArray.append("wand")
+//        emojiArray.append("yin-yang")
         let randomNumber = Int.random(in: 0..<10)
         return emojiArray[randomNumber]
     }

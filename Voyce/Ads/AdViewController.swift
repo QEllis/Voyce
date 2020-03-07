@@ -5,11 +5,9 @@
 //  Created by Cole Gifford on 10/1/19.
 //  Copyright © 2019 QEDev. All rights reserved.
 //
-
 import UIKit
 
 private let shared = DatabaseManager.shared
-
 class AdViewController: UIViewController {
 
   @IBOutlet var vibezLabel: UILabel!
@@ -28,16 +26,23 @@ class AdViewController: UIViewController {
   override func viewDidLoad(){
     print("Ads View Did Load")
     super.viewDidLoad();
+    //self.title = "Ads"
+    self.navigationItem.title="Ads"
+    let docRef = shared.db.collection("users").document(shared.sharedUser.userID);
+    docRef.getDocument { (document, error) in
+        if let document = document, document.exists {
+            self.vibes = document.get("goodvibes") as! Int;
+            print("Updated: \(self.vibes)")
+        } else {
+            print("Vibes not found");
+        }
+    }
     initTimer()
     stopTimer()
-    ads.addObjects(from: [UIImage(named: "Beach"),
-                          UIImage(named: "Getty"),
-                          UIImage(named: "Concert"),
-                          "Text Advertisement"])
+    ads.addObjects(from: [UIImage(named: "Beach"), UIImage(named: "Getty"), UIImage(named: "Concert"), "Text Advertisement"])
 
     //FRANK assuming this will come in as an array of Strings or UIImages
-    vibes = DatabaseManager.shared.sharedUser.getVibes()
-
+    //vibes = UserManager.shared.sharedUser.getVibes()
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
     rightSwipe.direction = .right
     view.addGestureRecognizer(rightSwipe)
@@ -47,6 +52,7 @@ class AdViewController: UIViewController {
     view.addGestureRecognizer(leftSwipe)
     print("View did appear")
     if (loadNewAds()) {
+        print("starting timer")
       startTimer()
     }
     let adNumber = 0
@@ -73,6 +79,10 @@ class AdViewController: UIViewController {
   }
   
   func startTimer() {
+    print("in start timer function")
+    // Not correct at the start of the timer
+    print("Number of vibes: \(DatabaseManager.shared.sharedUser.getVibes())")
+    print("Username: \(shared.sharedUser.name)")
     stopTimer()
     guard self.timer == nil else { return }
     initTimer()
@@ -84,6 +94,8 @@ class AdViewController: UIViewController {
     timer?.invalidate()
     timer = nil
     DatabaseManager.shared.sharedUser.setVibes(vibes: self.vibes)
+    print("Number of vibes: \(shared.sharedUser.getVibes())")
+    print("Username: \(shared.sharedUser.name)")
   }
   
   func loadNewAds()->Bool{
@@ -95,6 +107,7 @@ class AdViewController: UIViewController {
       return true
     }
     else{
+        print("in load new ads-false")
       return false
     }
   }
@@ -167,18 +180,15 @@ class AdViewController: UIViewController {
     }
   }
 
-  func initTimer()
-  {
+  func initTimer(){
     // Scheduling timer to Call the function "updateViewTime" with the interval of 1 seconds
     timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateViewTime), userInfo: nil, repeats: true)
   }
 
   @objc func updateViewTime(){
-    //print("Adding to vibes")
-    //      UserManager.shared.sharedUser.goodVibes += 1
-    vibes += 1 //FRANK update server side amount of vibez
-    print("My vibes, ads \(vibes)")
+    vibes += 1
+    shared.db.collection("users").document(shared.sharedUser.userID) .setData([ "goodvibes": vibes ], merge: true);
+    //print(shared.sharedUser.userID);
     vibezLabel.text = "Good Vibes: \(vibes)"
   }
-  
 }

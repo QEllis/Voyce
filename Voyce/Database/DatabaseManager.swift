@@ -14,17 +14,15 @@ import FirebaseFirestore
 class DatabaseManager {
   
   static let shared = DatabaseManager()
-  
   //is loaded in from DB on login
   var sharedUser = User.init(userID: "0", name: "null", username: "null")
-    
   var db = Firestore.firestore()
   let storage = Storage.storage()
-
   var myPosts: [Post] = []
-  
-  var posts: [Post] = [] {
-    didSet {
+  var posts: [Post] = []
+  {
+    didSet
+    {
       NotificationCenter.default.post(name: .NewPosts, object: nil)
     }
   }
@@ -40,43 +38,46 @@ class DatabaseManager {
     }
   }
   
-  public func AcknowledgedPost(post:Post){
+  public func AcknowledgedPost(post:Post)
+  {
     print("I AM HERE");
-
     post.likeCount+=1;
     print(post.postID);
     db.collection("posts").document(post.postID).setData([ "likeCount": post.likeCount ], merge: true);
   }
-  
-  public func userLogin(u: FirebaseAuth.User) {
-    sharedUser  = User.init(user: u)
+    
+  public func userLogin(u: FirebaseAuth.User)
+  {
+    sharedUser = User.init(user: u)
     let collection = db.collection("users");
     let userDoc = collection.document(u.uid)
-
     userDoc.getDocument { (document, error) in
-      if let document = document, document.exists {
-          self.sharedUser.LoadUserData(dataDict: document.data()!)
-      } else {
-          print("User does not exist yet, create in db", u.uid)
-          userDoc.setData(self.sharedUser.dictionary)
+      if let document = document, document.exists
+      {
+        self.sharedUser.LoadUserData(document: document)
+      }
+      else
+      {
+        print("User does not exist yet, create in db", u.uid)
+        userDoc.setData(self.sharedUser.dictionary)
       }
     }
   }
 
-  public func createHardcodedPosts() {
-    let post1 = Post(pid: "1", text: "Just had a great time at the getty", media: "",
-                     user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3, image: UIImage(named: "Getty"))
-    post1.addComment(Post(pid: "5", text: "Pedro: Nice!", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1))
-    let myPost = Post(pid: "1", text: "Promotion!", media: "",
-                      user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3)
-    myPosts = [myPost]
-    let post2 = Post(pid: "2", text: "What's your favorite type of food?", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1)
-    post2.addComment(Post(pid: "5", text: "Quinn: Pizza for sure", media: "", user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 5), likeCount: 0))
-    let post3 = Post(pid: "3", text: "Concert time!", media: "", user: User(userID: "2", name: "Frank", username: "frank", goodVibes: 10), likeCount: 0, image: UIImage(named: "Concert"))
-    let post4 = Post(pid: "4", text: "So nice out today.", media: "", user: User(userID: "3", name: "Cole", username: "cole", goodVibes: 25), likeCount: 3, image: UIImage(named: "Beach"))
-    posts = [post1, post2, post3, post4]
-  }
-  
+//  public func createHardcodedPosts() {
+//    let post1 = Post(pid: "1", text: "Just had a great time at the getty", media: "",
+//                     user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3, image: UIImage(named: "Getty"))
+//    post1.addComment(Post(pid: "5", text: "Pedro: Nice!", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1))
+//    let myPost = Post(pid: "1", text: "Promotion!", media: "",
+//                      user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 19), likeCount: 3)
+//    myPosts = [myPost]
+//    let post2 = Post(pid: "2", text: "What's your favorite type of food?", media: "", user: User(userID: "1", name: "Pedro", username: "pedro", goodVibes: 5), likeCount: 1)
+//    post2.addComment(Post(pid: "5", text: "Quinn: Pizza for sure", media: "", user: User(userID: "19", name: "Quinn", username: "quinn", goodVibes: 5), likeCount: 0))
+//    let post3 = Post(pid: "3", text: "Concert time!", media: "", user: User(userID: "2", name: "Frank", username: "frank", goodVibes: 10), likeCount: 0, image: UIImage(named: "Concert"))
+//    let post4 = Post(pid: "4", text: "So nice out today.", media: "", user: User(userID: "3", name: "Cole", username: "cole", goodVibes: 25), likeCount: 3, image: UIImage(named: "Beach"))
+//    posts = [post1, post2, post3, post4]
+//  }
+//
   public func addPost(with text: String, image: UIImage){
     let id = UUID()
     let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
@@ -100,12 +101,12 @@ class DatabaseManager {
   }
   
 
-  public func addPost(with text: String) {
+  public func addPost(with text: String)
+  {
     let id = UUID()
     let newPost = Post(pid: "-1", text: text, media: "", user: sharedUser, likeCount: 0)
     myPosts.insert(newPost, at: 0)
     posts.insert(newPost, at: 0)
-        
     db.collection("posts").document(id.uuidString).setData([
         "uid": sharedUser.userID,
         "ts": NSDate().timeIntervalSince1970,
@@ -122,12 +123,13 @@ class DatabaseManager {
     }
   }
     
-    public func SetPostsUser(uid: String, p:Post){
-        
+    public func SetPostsUser(uid: String, p:Post)
+    {
         let collection = db.collection("users")
-        collection.document(uid)
-            .getDocument() { (document, error) in
-                if let document = document, document.exists {
+        collection.document(uid).getDocument()
+            { (document, error) in
+                if let document = document, document.exists
+                {
                     let data = document.data()
                     let dataDescription = data.map(String.init(describing:)) ?? "nil"
                     print("GET USER Doc id: \(document.documentID)")
@@ -140,13 +142,16 @@ class DatabaseManager {
                     p.user = actualUserFound
                   DatabaseManager.shared.posts.append(p)
                     print("Post Creator: \(p.user.userID)")
-                } else {
+                }
+                else
+                {
                     print("User does not exist")
                 }
             }
     }
   
-    public func LoadFeed(){
+    public func LoadFeed()
+    {
         print("IN LOAD FEED");
         let collection = db.collection("posts")
         collection.order(by: "likeCount", descending: true).limit(to: 10)
