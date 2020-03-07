@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-public class Post {
-  
+public class Post
+{
   let postID: String
   let text: String
   let media: String
@@ -63,5 +63,4 @@ public class Post {
     comments.append(comment)
     print("Comments count: \(comments.count)")
   }
-  
 }

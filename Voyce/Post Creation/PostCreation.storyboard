@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,7 +35,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F7m-19-BTT">
-                                <rect key="frame" x="53" y="122" width="101" height="29"/>
+                                <rect key="frame" x="53" y="122" width="111" height="32"/>
                                 <segments>
                                     <segment title="Text"/>
                                     <segment title="Photo"/>
@@ -48,7 +46,7 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygM-30-qSH">
-                                <rect key="frame" x="47" y="177" width="320" height="280"/>
+                                <rect key="frame" x="47" y="180" width="320" height="280"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to add text!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-9u-AkT">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
@@ -90,7 +88,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-nP-WIx">
-                                <rect key="frame" x="314" y="469" width="36" height="32"/>
+                                <rect key="frame" x="314" y="472" width="36" height="32"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                                 <state key="normal" title="Post!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +98,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="UVw-fw-PA7" firstAttribute="top" secondItem="Mb8-zs-1zU" secondAttribute="top" constant="20" id="0qn-QP-O15"/>
                             <constraint firstItem="gUS-ht-BKl" firstAttribute="centerY" secondItem="UVw-fw-PA7" secondAttribute="centerY" id="B1s-FT-J1M"/>
@@ -173,7 +171,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="GbZ-zN-Kqf" firstAttribute="top" secondItem="aTi-jm-HRA" secondAttribute="bottom" constant="15" id="7Hx-Nf-6GS"/>
                             <constraint firstItem="RNx-Ec-EJ2" firstAttribute="centerX" secondItem="K5S-X6-fdY" secondAttribute="centerX" id="FNR-WV-y8K"/>
@@ -198,6 +196,9 @@
     </scenes>
     <resources>
         <image name="backArrow" width="12" height="19"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BackgroundDarkBlue">
             <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

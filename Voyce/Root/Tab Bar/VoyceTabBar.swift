@@ -27,11 +27,6 @@ class VoyceTabBar: UIView
     var selectedTab: Tab = .feed
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet var feedIcon: UIImageView!
-    @IBOutlet var adIcon: UIImageView!
-    @IBOutlet var addPostIcon: UIImageView!
-    @IBOutlet var findPeopleIcon: UIImageView!
-    @IBOutlet var profileIcon: UIImageView!
     @IBOutlet var feedButton: UIButton!
     @IBOutlet var adButton: UIButton!
     @IBOutlet var addPostButton: UIButton!
@@ -54,9 +49,7 @@ class VoyceTabBar: UIView
     public func showTab(_ tab: Tab)
     {
         delegate?.tabBar(from: selectedTab.rawValue, to: tab.rawValue)
-        // update selected
         selectedTab = tab
-        setIcons()
     }
     
     override init(frame: CGRect)
@@ -84,49 +77,61 @@ class VoyceTabBar: UIView
         addSubview(contentView)
     }
     
-    private func setIcons()
-    {
-        switch selectedTab.rawValue
-        {
-        case 0:
-            feedIcon.image = feedSelected
-            adIcon.image = ad
-            addPostIcon.image = addPost
-            findPeopleIcon.image = findPeople
-            profileIcon.image = profile
-        case 1:
-            feedIcon.image = feed
-            adIcon.image = adSelected
-            addPostIcon.image = addPost
-            findPeopleIcon.image = findPeople
-            profileIcon.image = profile
-        case 2:
-            feedIcon.image = feed
-            adIcon.image = ad
-            addPostIcon.image = addPostSelected
-            findPeopleIcon.image = findPeople
-            profileIcon.image = profile
-//        case 3:
-//            feedIcon.image = feed
-//            adIcon.image = ad
-//            addPostIcon.image = addPost
-//            findPeopleIcon.image = findPeopleSelected
-//            profileIcon.image = profile
-        case 4:
-            feedIcon.image = feed
-            adIcon.image = ad
-            addPostIcon.image = addPost
-            findPeopleIcon.image = findPeople
-            profileIcon.image = profileSelected
-        default:
-            break
-        }
-    }
-    
-    @IBAction func tabPressed(_ sender: UIButton)
-    {
+    @IBAction func feedButtonPressed(_ sender: UIButton) {
+        feedButton.setImage(feedSelected, for: UIControlState.normal)
+        adButton.setImage(ad, for: UIControlState.normal)
+        addPostButton.setImage(addPost, for: UIControlState.normal)
+        findPeopleButton.setImage(findPeople, for: UIControlState.normal)
+        profileButton.setImage(profile, for: UIControlState.normal)
+        
         guard let tab = Tab(rawValue: sender.tag) else { return }
+        print(sender.tag)
         showTab(tab)
     }
     
+    @IBAction func adButtonPressed(_ sender: UIButton) {
+        feedButton.setImage(feed, for: UIControlState.normal)
+        adButton.setImage(adSelected, for: UIControlState.normal)
+        addPostButton.setImage(addPost, for: UIControlState.normal)
+        findPeopleButton.setImage(findPeople, for: UIControlState.normal)
+        profileButton.setImage(profile, for: UIControlState.normal)
+        
+        guard let tab = Tab(rawValue: sender.tag) else { return }
+        print(sender.tag)
+        showTab(tab)
+    }
+    
+    @IBAction func addPostButtonPressed(_ sender: UIButton) {
+        feedButton.setImage(feed, for: UIControlState.normal)
+        adButton.setImage(ad, for: UIControlState.normal)
+        addPostButton.setImage(addPostSelected, for: UIControlState.normal)
+        findPeopleButton.setImage(findPeople, for: UIControlState.normal)
+        profileButton.setImage(profile, for: UIControlState.normal)
+        
+        guard let tab = Tab(rawValue: sender.tag) else { return }
+        print(sender.tag)
+        showTab(tab)
+    }
+    @IBAction func findPeopleButtonPressed(_ sender: UIButton) {
+        feedButton.setImage(feed, for: UIControlState.normal)
+        adButton.setImage(ad, for: UIControlState.normal)
+        addPostButton.setImage(addPost, for: UIControlState.normal)
+        findPeopleButton.setImage(findPeopleSelected, for: UIControlState.normal)
+        profileButton.setImage(profile, for: UIControlState.normal)
+        
+        guard let tab = Tab(rawValue: sender.tag) else { return }
+        print(sender.tag)
+        showTab(tab)
+    }
+    @IBAction func profileButtonPressed(_ sender: UIButton) {
+        feedButton.setImage(feed, for: UIControlState.normal)
+        adButton.setImage(ad, for: UIControlState.normal)
+        addPostButton.setImage(addPost, for: UIControlState.normal)
+        findPeopleButton.setImage(findPeople, for: UIControlState.normal)
+        profileButton.setImage(profileSelected, for: UIControlState.normal)
+        
+        guard let tab = Tab(rawValue: sender.tag) else { return }
+        print(sender.tag)
+        showTab(tab)
+    }
 }

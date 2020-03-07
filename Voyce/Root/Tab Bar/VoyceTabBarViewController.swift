@@ -14,7 +14,7 @@ class VoyceTabBarViewController: UITabBarController
     @IBInspectable var defaultIndex : Int = 0
     
     fileprivate var debouncedUpdateTab: (() -> Void)!
-    
+
     fileprivate var fromIndex: Int?
     fileprivate var toIndex: Int?
     
@@ -27,7 +27,6 @@ class VoyceTabBarViewController: UITabBarController
     
     private func fillOutTabBar()
     {
-        //UserManager.shared.LoadFeed()
         view.layoutIfNeeded()
         let feedVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
         
@@ -35,11 +34,11 @@ class VoyceTabBarViewController: UITabBarController
         
         let addPostVC = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
         
-//        let findPeopleVC = UIStoryboard(name: "FindPeople", bundle: nil).instantiateViewController(withIdentifier: "FindPeopleVC")
+        let findPeopleVC = UIStoryboard(name: "FindPeople", bundle: nil).instantiateViewController(withIdentifier: "FindPeopleVC")
         
         let profileVC = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileVC")
         
-        viewControllers = [feedVC, adVC, addPostVC, profileVC]//findPeopleVC, profileVC]
+        viewControllers = [feedVC, adVC, addPostVC, findPeopleVC, profileVC]
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
         tabBar.clipsToBounds = true

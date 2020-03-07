@@ -28,12 +28,12 @@ class Database
     func addPostPic(text: String) {
         db.collection("posts").document().setData([
             "image": "Los Angeles",
-            "likeCount": "CA",
-            "media": "USA",
+            "vibeCount": 0,
+            "media": "",
             "text": "",
             "ts": "",
-            "uid": ""
-        ]) { err in
+            "uid": ""])
+        { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {

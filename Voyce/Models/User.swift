@@ -5,22 +5,22 @@ import Firebase
 import FirebaseAuth
 import FirebaseUI
 
-public class User{
-  
-  let userID:String
-  let name:String
-  let username:String
-  var goodVibes:Int
+public class User
+{
+  let userID: String
+  let name: String
+  let username: String
+  var goodVibes: Int
   let imageURL: URL?
-  let image:UIImage?
-  var followed:Set<String>
+  let image: UIImage?
+  var followed: Set<String>
     
   var dictionary: [String: Any] {
     return [
     "username": username,
     "name": name,
       "goodvibes": goodVibes,
-      "imageURL": imageURL?.absoluteString
+      "imageURL": imageURL?.absoluteString as Any
     ]
   }
   
@@ -34,7 +34,7 @@ public class User{
       self.followed = Set<String>.init()
   }
   
-  init(userID:String, name:String, username:String, goodVibes:Int){
+  init(userID:String, name:String, username:String, goodVibes:Int) {
     self.userID = userID
     self.name = name
     self.username = username
@@ -74,23 +74,22 @@ public class User{
       self.goodVibes = 0
   }
 
-  func addFollowed(username:String){
+  func addFollowed(username:String) {
     followed.insert(username)
     print(followed)
   }
   
-  func removeFollowed(username:String){
+  func removeFollowed(username:String) {
     followed.remove(username)
     print(followed)
   }
   
-  func checkIfFollowed(username:String)->Bool{
+  func checkIfFollowed(username:String)->Bool {
     if(followed.contains(username)){
       return true
     }
     return false
   }
-    
     
     func setVibes(vibes: Int){
       self.goodVibes = vibes

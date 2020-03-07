@@ -24,8 +24,8 @@
 		3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */; };
 		3C62D8DB2333CF2200627FFB /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DA2333CF2200627FFB /* UserManager.swift */; };
 		3C62D8DE2333CFA300627FFB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DD2333CFA300627FFB /* Post.swift */; };
-		3C62D8E12333D00700627FFB /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C62D8E02333D00700627FFB /* PostTableViewCell.xib */; };
-		3C62D8E32333D01100627FFB /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8E22333D01100627FFB /* PostTableViewCell.swift */; };
+		3C62D8E12333D00700627FFB /* CardPic.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C62D8E02333D00700627FFB /* CardPic.xib */; };
+		3C62D8E32333D01100627FFB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8E22333D01100627FFB /* Card.swift */; };
 		3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */; };
 		3CF41A572344E01C0082B6F7 /* PostCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */; };
 		3CF41A5A2344E26E0082B6F7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A592344E26E0082B6F7 /* Notifications.swift */; };
@@ -43,6 +43,9 @@
 		3F81E91A236FE1F0008B3673 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E918236FE1F0008B3673 /* MyPostTableViewCell.swift */; };
 		3F81E91B236FE1F0008B3673 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */; };
 		40B43565159A6E43DF001194 /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E696BAFC0B3DC94CF07C66C /* Pods_Voyce.framework */; };
+		E1257CA624131557001927EB /* FindPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1257CA524131557001927EB /* FindPeople.storyboard */; };
+		E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1257CA724131567001927EB /* FindPeopleViewController.swift */; };
+		E1EE84A7240F4F4C00BA36C2 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE84A6240F4F4B00BA36C2 /* Database.swift */; };
 		E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4785A46235BB30F002AB769 /* PostCommentView.xib */; };
 		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
 		E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */; };
@@ -68,8 +71,8 @@
 		3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyceTabBarViewController.swift; sourceTree = "<group>"; };
 		3C62D8DA2333CF2200627FFB /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		3C62D8DD2333CFA300627FFB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		3C62D8E02333D00700627FFB /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
-		3C62D8E22333D01100627FFB /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		3C62D8E02333D00700627FFB /* CardPic.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardPic.xib; sourceTree = "<group>"; };
+		3C62D8E22333D01100627FFB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationViewController.swift; sourceTree = "<group>"; };
 		3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreation.storyboard; sourceTree = "<group>"; };
 		3CF41A592344E26E0082B6F7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -89,6 +92,9 @@
 		88138A44DEA6DA9EFC329C4B /* Pods-Voyce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.release.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.release.xcconfig"; sourceTree = "<group>"; };
 		8E696BAFC0B3DC94CF07C66C /* Pods_Voyce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voyce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5C2599633B04C19D0D9953 /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
+		E1257CA524131557001927EB /* FindPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPeople.storyboard; sourceTree = "<group>"; };
+		E1257CA724131567001927EB /* FindPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPeopleViewController.swift; sourceTree = "<group>"; };
+		E1EE84A6240F4F4B00BA36C2 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
 		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreationViewController.swift; sourceTree = "<group>"; };
@@ -136,12 +142,13 @@
 		3C2EEE8023327702009098D5 /* Voyce */ = {
 			isa = PBXGroup;
 			children = (
+				E1257CA424131544001927EB /* Find People */,
 				3F81E90C236FA93D008B3673 /* Promotion */,
 				016FCC6B236BBC0D00B1F387 /* Ads */,
 				01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */,
 				3F0E8E352346CF3D007705C2 /* Login */,
 				3F0E8E302346CDF5007705C2 /* Profile */,
-				3C62D8D92333CF1500627FFB /* Managers */,
+				3C62D8D92333CF1500627FFB /* Singletons */,
 				3CF41A552344E00A0082B6F7 /* Post Creation */,
 				3C2EEEA023327BD6009098D5 /* Feed */,
 				3C2EEE9B23327A55009098D5 /* Root */,
@@ -178,7 +185,7 @@
 		3C2EEEA023327BD6009098D5 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				3C62D8DF2333CFF800627FFB /* Cells */,
+				3C62D8DF2333CFF800627FFB /* Cards */,
 				3C2EEEA123327BDE009098D5 /* Feed.storyboard */,
 				3C2EEEA323327C1A009098D5 /* FeedViewController.swift */,
 				E4785A46235BB30F002AB769 /* PostCommentView.xib */,
@@ -197,12 +204,13 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
-		3C62D8D92333CF1500627FFB /* Managers */ = {
+		3C62D8D92333CF1500627FFB /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
+				E1EE84A6240F4F4B00BA36C2 /* Database.swift */,
 				3C62D8DA2333CF2200627FFB /* UserManager.swift */,
 			);
-			path = Managers;
+			path = Singletons;
 			sourceTree = "<group>";
 		};
 		3C62D8DC2333CF9800627FFB /* Models */ = {
@@ -214,13 +222,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		3C62D8DF2333CFF800627FFB /* Cells */ = {
+		3C62D8DF2333CFF800627FFB /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				3C62D8E02333D00700627FFB /* PostTableViewCell.xib */,
-				3C62D8E22333D01100627FFB /* PostTableViewCell.swift */,
+				3C62D8E02333D00700627FFB /* CardPic.xib */,
+				3C62D8E22333D01100627FFB /* Card.swift */,
 			);
-			path = Cells;
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		3CF41A552344E00A0082B6F7 /* Post Creation */ = {
@@ -290,13 +298,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E1257CA424131544001927EB /* Find People */ = {
+			isa = PBXGroup;
+			children = (
+				E1257CA524131557001927EB /* FindPeople.storyboard */,
+				E1257CA724131567001927EB /* FindPeopleViewController.swift */,
+			);
+			path = "Find People";
+			sourceTree = "<group>";
+		};
 		E3BB1E010EF1A7579D10F4A4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				CF5C2599633B04C19D0D9953 /* Pods-Voyce.debug.xcconfig */,
 				88138A44DEA6DA9EFC329C4B /* Pods-Voyce.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -369,11 +385,12 @@
 				3F0E8E332346CDF6007705C2 /* Profile.storyboard in Resources */,
 				3C2EEE942332772D009098D5 /* Root.storyboard in Resources */,
 				3C2EEE9A233279CD009098D5 /* Colors.xcassets in Resources */,
-				3C62D8E12333D00700627FFB /* PostTableViewCell.xib in Resources */,
+				3C62D8E12333D00700627FFB /* CardPic.xib in Resources */,
 				3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */,
 				01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */,
 				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
 				3F81E914236FA93D008B3673 /* PostPromotion.storyboard in Resources */,
+				E1257CA624131557001927EB /* FindPeople.storyboard in Resources */,
 				3F4AE8BB2359637000DD0DC6 /* MyProfile.storyboard in Resources */,
 				3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */,
 				3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */,
@@ -443,7 +460,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */,
-				3C62D8E32333D01100627FFB /* PostTableViewCell.swift in Sources */,
+				E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */,
+				3C62D8E32333D01100627FFB /* Card.swift in Sources */,
 				3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
 				3F0E8E342346CDF6007705C2 /* ProfileViewController.swift in Sources */,
@@ -464,6 +482,7 @@
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
 				3F81E913236FA93D008B3673 /* RangeSlider.swift in Sources */,
 				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,
+				E1EE84A7240F4F4C00BA36C2 /* Database.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

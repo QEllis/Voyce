@@ -16,17 +16,18 @@ class FeedViewController: UIViewController
     {
         super.viewDidLoad()
         //    UserManager.shared.initWithPlaceholderPosts()
-        //UserManager.shared.LoadFeed();
+        UserManager.shared.LoadFeed();
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
+        tableView.register(UINib(nibName: "CardPic", bundle: nil), forCellReuseIdentifier: "Card")
         NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
-        UserManager.shared.createHardcodedPosts()
+        //UserManager.shared.createHardcodedPosts()
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
+        
         //this will reload when you go back to the feed. In the future only reload when user does reload gesture or hits reload button
         UserManager.shared.LoadFeed()
         
@@ -114,18 +115,18 @@ extension FeedViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
-        cell.fillOut(with: UserManager.shared.posts[indexPath.row])
-        cell.delegate = self
-        return cell
+        let card = tableView.dequeueReusableCell(withIdentifier: "Card") as! Card
+        card.fillOut(with: UserManager.shared.posts[indexPath.row])
+        card.delegate = self
+        return card
     }
     
 }
 
-extension FeedViewController: PostTableViewCellDelegate {
+extension FeedViewController: CardDelegate {
     func profileButtonDidPressed(postUser: User) {
-        if(postUser.userID == UserManager.shared.sharedUser.userID){
-            self.tabBarController?.selectedIndex = 1
+        if (postUser.userID == UserManager.shared.sharedUser.userID){
+            self.tabBarController?.selectedIndex = 0
         } else {
             let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
             vc.user = postUser

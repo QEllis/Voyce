@@ -6,11 +6,12 @@ target 'Voyce' do
   use_frameworks!
 
   # Pods for Voyce
+  pod 'Firebase/Auth'
   pod 'Firebase/Core'#, '~> 5.0.1'
   pod 'Firebase/Firestore'
-  pod 'Firebase/Auth'
-  pod 'FirebaseUI/Google'
-  pod 'Firebase/Storage'
+  pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Functions'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Google'
 
 end

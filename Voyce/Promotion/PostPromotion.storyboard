@@ -98,7 +98,7 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="TRJ-I3-VdK" firstAttribute="leading" secondItem="OoC-sZ-1s3" secondAttribute="trailing" constant="10" id="1RT-4W-gmr"/>
                             <constraint firstItem="h2R-HZ-SVG" firstAttribute="centerY" secondItem="Hks-nn-8UM" secondAttribute="centerY" id="Ajh-Fp-eS8"/>
@@ -141,6 +141,9 @@
     </scenes>
     <resources>
         <image name="backArrow" width="12" height="19"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BackgroundDarkBlue">
             <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

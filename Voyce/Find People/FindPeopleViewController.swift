@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FindPeopleController: UIViewController
+class FindPeopleViewController: UIViewController
 {
     
 }
