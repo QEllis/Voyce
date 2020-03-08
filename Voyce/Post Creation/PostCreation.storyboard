@@ -23,17 +23,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-ht-BKl">
-                                <rect key="frame" x="20" y="60.666666666666657" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="lIQ-ry-Qi2"/>
-                                    <constraint firstAttribute="height" constant="40" id="nTW-Ct-vfL"/>
-                                </constraints>
-                                <state key="normal" image="backArrow"/>
-                                <connections>
-                                    <action selector="backPressed:" destination="CA0-EX-7NZ" eventType="touchUpInside" id="t6R-0S-Mb3"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F7m-19-BTT">
                                 <rect key="frame" x="53" y="122" width="111" height="32"/>
                                 <segments>
@@ -101,10 +90,8 @@
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="UVw-fw-PA7" firstAttribute="top" secondItem="Mb8-zs-1zU" secondAttribute="top" constant="20" id="0qn-QP-O15"/>
-                            <constraint firstItem="gUS-ht-BKl" firstAttribute="centerY" secondItem="UVw-fw-PA7" secondAttribute="centerY" id="B1s-FT-J1M"/>
                             <constraint firstItem="ygM-30-qSH" firstAttribute="top" secondItem="F7m-19-BTT" secondAttribute="bottom" constant="27" id="Dw0-Ga-DtJ"/>
                             <constraint firstItem="ygM-30-qSH" firstAttribute="centerX" secondItem="Mb8-zs-1zU" secondAttribute="centerX" id="Erk-rg-Py1"/>
-                            <constraint firstItem="gUS-ht-BKl" firstAttribute="leading" secondItem="Mb8-zs-1zU" secondAttribute="leading" constant="20" id="M2U-yr-iPs"/>
                             <constraint firstItem="UVw-fw-PA7" firstAttribute="centerX" secondItem="QC9-37-xdX" secondAttribute="centerX" id="Mg3-bl-djB"/>
                             <constraint firstItem="9VQ-nP-WIx" firstAttribute="top" secondItem="ygM-30-qSH" secondAttribute="bottom" constant="12" id="Pto-iI-2hz"/>
                             <constraint firstItem="F7m-19-BTT" firstAttribute="top" secondItem="UVw-fw-PA7" secondAttribute="bottom" constant="25" id="ai8-9t-BNs"/>
@@ -159,17 +146,6 @@
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztV-FL-x1C">
-                                <rect key="frame" x="20" y="60.666666666666657" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="n6b-zg-133"/>
-                                    <constraint firstAttribute="width" constant="40" id="sFh-JB-fkm"/>
-                                </constraints>
-                                <state key="normal" image="backArrow"/>
-                                <connections>
-                                    <action selector="backPressed:" destination="t7n-JD-Qnq" eventType="touchUpInside" id="iCr-Os-A2k"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
@@ -179,9 +155,7 @@
                             <constraint firstItem="RNx-Ec-EJ2" firstAttribute="top" secondItem="FYr-4d-sva" secondAttribute="top" constant="20" id="GDG-iy-29r"/>
                             <constraint firstItem="FYr-4d-sva" firstAttribute="trailing" secondItem="GbZ-zN-Kqf" secondAttribute="trailing" constant="40" id="GaB-64-QMH"/>
                             <constraint firstItem="aTi-jm-HRA" firstAttribute="leading" secondItem="FYr-4d-sva" secondAttribute="leading" constant="20" id="Hib-tP-aFE"/>
-                            <constraint firstItem="ztV-FL-x1C" firstAttribute="centerY" secondItem="RNx-Ec-EJ2" secondAttribute="centerY" id="gsX-uT-reN"/>
                             <constraint firstItem="aTi-jm-HRA" firstAttribute="top" secondItem="RNx-Ec-EJ2" secondAttribute="bottom" constant="20" id="hxo-eK-daZ"/>
-                            <constraint firstItem="ztV-FL-x1C" firstAttribute="leading" secondItem="FYr-4d-sva" secondAttribute="leading" constant="20" id="rit-U2-vQH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FYr-4d-sva"/>
                     </view>
@@ -195,7 +169,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backArrow" width="12" height="19"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

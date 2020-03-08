@@ -21,6 +21,10 @@
                                 <rect key="frame" x="10" y="101" width="394" height="741"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="L4t-Kf-V2A" appends="YES" id="UUQ-hY-OyZ"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QT5-AN-Ht3">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
@@ -104,11 +108,51 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CZ-4Q-gJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="L4t-Kf-V2A">
+                    <connections>
+                        <segue destination="M7E-08-8EG" kind="presentation" id="3jn-km-gAe"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-66.666666666666671" y="93.75"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="uWE-hr-DWq">
+            <objects>
+                <viewController id="M7E-08-8EG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="keS-JL-mKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Concert" translatesAutoresizingMaskIntoConstraints="NO" id="W4Y-3L-cNd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sgU-F3-Kg3">
+                                <rect key="frame" x="0.0" y="404" width="414" height="404"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="W4Y-3L-cNd" firstAttribute="top" secondItem="pKY-Uu-C6O" secondAttribute="top" id="2i9-ev-dwy"/>
+                            <constraint firstItem="pKY-Uu-C6O" firstAttribute="bottom" secondItem="sgU-F3-Kg3" secondAttribute="bottom" id="Ls6-pb-CLn"/>
+                            <constraint firstItem="pKY-Uu-C6O" firstAttribute="trailing" secondItem="sgU-F3-Kg3" secondAttribute="trailing" id="jvI-OV-gHV"/>
+                            <constraint firstItem="sgU-F3-Kg3" firstAttribute="leading" secondItem="pKY-Uu-C6O" secondAttribute="leading" id="rqg-O4-FcF"/>
+                            <constraint firstItem="sgU-F3-Kg3" firstAttribute="top" secondItem="W4Y-3L-cNd" secondAttribute="bottom" id="szp-J3-wF7"/>
+                            <constraint firstItem="sgU-F3-Kg3" firstAttribute="height" secondItem="W4Y-3L-cNd" secondAttribute="height" id="xSd-qx-31v"/>
+                            <constraint firstItem="W4Y-3L-cNd" firstAttribute="leading" secondItem="pKY-Uu-C6O" secondAttribute="leading" id="xpI-kr-VHD"/>
+                            <constraint firstItem="pKY-Uu-C6O" firstAttribute="trailing" secondItem="W4Y-3L-cNd" secondAttribute="trailing" id="z8A-yj-FN2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pKY-Uu-C6O"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jf-P4-ipp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="94"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Concert" width="1000" height="750"/>
         <image name="Logo" width="303" height="144"/>
         <image name="wand" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="Background">
