@@ -28,15 +28,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-wj-a5G">
                                         <rect key="frame" x="0.0" y="0.0" width="132" height="50"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" editable="NO" text="9,812" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-qs-8kf">
-                                                <rect key="frame" x="58" y="0.0" width="74" height="50"/>
+                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="9,812,312" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-qs-8kf">
+                                                <rect key="frame" x="58" y="8.6666666666666643" width="74" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" name="Text - Body"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" id="ewO-VQ-rf8">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wand" id="ewO-VQ-rf8">
                                                 <rect key="frame" x="18" y="9" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,10 +48,7 @@
                                         <constraints>
                                             <constraint firstItem="fTI-qs-8kf" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="1s5-0a-Ytv"/>
                                             <constraint firstAttribute="trailing" secondItem="fTI-qs-8kf" secondAttribute="trailing" id="ad5-8Q-16g"/>
-                                            <constraint firstAttribute="trailing" secondItem="fTI-qs-8kf" secondAttribute="trailing" id="fxm-NS-B2K"/>
                                             <constraint firstItem="fTI-qs-8kf" firstAttribute="leading" secondItem="ewO-VQ-rf8" secondAttribute="trailing" constant="10" id="gfH-09-Jck"/>
-                                            <constraint firstAttribute="bottom" secondItem="fTI-qs-8kf" secondAttribute="bottom" id="hYh-Ly-Cf1"/>
-                                            <constraint firstItem="fTI-qs-8kf" firstAttribute="top" secondItem="FW9-wj-a5G" secondAttribute="top" id="nzA-gX-o3B"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-JF-OX4">
@@ -108,12 +105,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CZ-4Q-gJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-65.625" y="94.014084507042256"/>
+            <point key="canvasLocation" x="-66.666666666666671" y="93.75"/>
         </scene>
     </scenes>
     <resources>
         <image name="Logo" width="303" height="144"/>
-        <image name="Wand" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="wand" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

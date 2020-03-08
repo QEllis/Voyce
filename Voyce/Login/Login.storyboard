@@ -17,12 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="mO7-ta-3jt">
+                                <rect key="frame" x="-20.5" y="144" width="455" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="NMu-5b-R3C"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghZ-EZ-sqa">
-                                <rect key="frame" x="60" y="519" width="294" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Login With Google">
-                                    <color key="titleColor" name="BackgroundDarkBlue"/>
+                                <rect key="frame" x="112" y="431.5" width="190" height="33"/>
+                                <color key="backgroundColor" name="Text - Body"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="X68-Hy-cnp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Login/Create Account">
+                                    <color key="titleColor" name="Text - Post"/>
                                 </state>
                                 <state key="disabled">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,22 +40,26 @@
                                     <action selector="ShowLoginView:" destination="yLt-58-9rU" eventType="touchUpInside" id="hoO-Cf-YVX"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voyce_logo" translatesAutoresizingMaskIntoConstraints="NO" id="mO7-ta-3jt">
-                                <rect key="frame" x="87" y="244" width="240" height="200"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENc-g2-gQ2">
+                                <rect key="frame" x="32" y="264" width="350" height="147.5"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="qEb-AV-zLL"/>
+                                    <constraint firstAttribute="width" constant="350" id="pwj-oi-qhM"/>
                                 </constraints>
-                            </imageView>
+                                <string key="text">Welcome to Voyce! The social media platform that gives back power to our content creators. Please login or create an account below to get started!</string>
+                                <color key="textColor" name="Text - Body"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="mO7-ta-3jt" firstAttribute="centerX" secondItem="vKr-Og-8yu" secondAttribute="centerX" id="GEL-gb-QFc"/>
-                            <constraint firstItem="ghZ-EZ-sqa" firstAttribute="top" secondItem="mO7-ta-3jt" secondAttribute="bottom" constant="75" id="QSu-w2-ZPP"/>
-                            <constraint firstItem="ghZ-EZ-sqa" firstAttribute="leading" secondItem="vKr-Og-8yu" secondAttribute="leading" constant="60" id="kcW-wX-B9U"/>
-                            <constraint firstItem="mO7-ta-3jt" firstAttribute="top" secondItem="vKr-Og-8yu" secondAttribute="top" constant="200" id="ljc-Bt-dQh"/>
-                            <constraint firstItem="mO7-ta-3jt" firstAttribute="leading" secondItem="vKr-Og-8yu" secondAttribute="leading" constant="87" id="z8S-tx-ebU"/>
-                            <constraint firstItem="vKr-Og-8yu" firstAttribute="trailing" secondItem="ghZ-EZ-sqa" secondAttribute="trailing" constant="60" id="zCt-Hd-JVA"/>
-                            <constraint firstItem="vKr-Og-8yu" firstAttribute="trailing" secondItem="mO7-ta-3jt" secondAttribute="trailing" constant="87" id="za4-Fe-04e"/>
+                            <constraint firstItem="ghZ-EZ-sqa" firstAttribute="centerY" secondItem="eTw-vH-Shr" secondAttribute="centerY" id="Kgs-0X-hfn"/>
+                            <constraint firstItem="mO7-ta-3jt" firstAttribute="top" secondItem="vKr-Og-8yu" secondAttribute="top" constant="100" id="ZvZ-As-CXu"/>
+                            <constraint firstItem="ghZ-EZ-sqa" firstAttribute="top" secondItem="ENc-g2-gQ2" secondAttribute="bottom" constant="20" id="bFQ-PP-eOz"/>
+                            <constraint firstItem="ENc-g2-gQ2" firstAttribute="centerX" secondItem="eTw-vH-Shr" secondAttribute="centerX" id="eec-LR-atz"/>
+                            <constraint firstItem="ENc-g2-gQ2" firstAttribute="top" secondItem="mO7-ta-3jt" secondAttribute="bottom" constant="20" id="x4W-CP-dl7"/>
                             <constraint firstItem="ghZ-EZ-sqa" firstAttribute="centerX" secondItem="eTw-vH-Shr" secondAttribute="centerX" id="zie-tV-5Rg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vKr-Og-8yu"/>
@@ -59,9 +72,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="voyce_logo" width="2025" height="1201"/>
-        <namedColor name="BackgroundDarkBlue">
-            <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="Logo" width="454.5" height="216"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text - Body">
+            <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text - Post">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
