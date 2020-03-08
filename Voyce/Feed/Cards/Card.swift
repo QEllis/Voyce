@@ -28,6 +28,7 @@ final class Card: UITableViewCell
     @IBOutlet weak var vibeButton: UIButton!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var numVibes: UILabel!
+    @IBOutlet weak var profileButton: UIButton!
     
     public func fillOut(with post: Post)
     {
@@ -42,9 +43,14 @@ final class Card: UITableViewCell
         self.post = post
         postUser = post.user
         usernameLabel.text = postUser.username
+        //profileButton.imageView = postUser.
         numVibes.text = String(post.likeCount)
         createdAtLabel.text = "today"
-        postImage.image = post.image
+        print("image is \(String(describing: post.image))")
+        let url = URL(string: post.image ?? "https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg")
+        print("idk is not \(url?.absoluteURL)")
+        let data = try? Data(contentsOf: url!)
+        postImage.image = UIImage(data: data!)
     }
     
     @IBAction func profileButtonPressed(_ sender: Any)
@@ -60,14 +66,14 @@ final class Card: UITableViewCell
     
     func updateVibes()
     {
-        postUser.addVibes(vibes: 1)
+        postUser.addVibes(totalVibes: 1)
         currentUser.removeVibes()
     }
     
     func updateUI()
     {
         vibeButton.setImage(UIImage(named: randomEmoji()), for: .normal)
-        DatabaseManager.shared.AcknowledgedPost(post: post)
+        DatabaseManager.shared.acknowledgePost(post: post)
         numVibes.text = String(post.likeCount)
     }
     
@@ -124,9 +130,8 @@ final class Card: UITableViewCell
         emojiArray.append("sun")
         emojiArray.append("thumbs-up")
         emojiArray.append("venus-de-milo")
-        emojiArray.append("wand")
         emojiArray.append("yin-yang")
-        let randomNumber = Int.random(in: 0..<46)
+        let randomNumber = Int.random(in: 0..<45)
         return emojiArray[randomNumber]
     }
 }

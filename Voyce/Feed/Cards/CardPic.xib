@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="528" height="807"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beach" translatesAutoresizingMaskIntoConstraints="NO" id="42u-dP-Qsy">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="42u-dP-Qsy">
                         <rect key="frame" x="0.0" y="0.0" width="528" height="807"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,6 +107,7 @@
                 <outlet property="createdAtLabel" destination="rNY-r3-8UL" id="R9M-e2-2WO"/>
                 <outlet property="numVibes" destination="Amd-qL-CnI" id="tzy-5x-Bdm"/>
                 <outlet property="postImage" destination="42u-dP-Qsy" id="0Y1-gE-rh7"/>
+                <outlet property="profileButton" destination="hm4-5T-YcA" id="6dx-A1-f6b"/>
                 <outlet property="usernameLabel" destination="D19-lZ-56D" id="gDl-YM-Tpe"/>
                 <outlet property="vibeButton" destination="Pkw-7T-7Tb" id="DnB-tO-OqN"/>
             </connections>
@@ -114,7 +115,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Beach" width="275" height="183"/>
         <image name="Profile" width="128" height="128"/>
         <image name="closed_eye" width="512" height="512"/>
         <namedColor name="Gray">

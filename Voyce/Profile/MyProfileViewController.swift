@@ -31,7 +31,7 @@ class MyProfileViewController: UIViewController, UITableViewDelegate
     NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
     nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
-    goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
+    goodVibesLabel.text = "Good Vibes: \(user.totalVibes)"
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -41,10 +41,10 @@ class MyProfileViewController: UIViewController, UITableViewDelegate
   
   private func loadTextFields(){
     print("Loaded Text Fields")
-    print("\(DatabaseManager.shared.sharedUser.goodVibes)")
+    print("\(DatabaseManager.shared.sharedUser.totalVibes)")
     nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
-    goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
+    goodVibesLabel.text = "Good Vibes: \(user.totalVibes)"
     print(usernameLabel.text ?? "none")
     print(goodVibesLabel.text ?? "none")
   }

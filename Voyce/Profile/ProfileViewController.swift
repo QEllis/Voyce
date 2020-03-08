@@ -26,10 +26,10 @@ class ProfileViewController: UIViewController {
     //TODO: take user information from token passed through segue
     nameLabel.text = user.name
     usernameLabel.text = "@" + user.username
-    goodVibesLabel.text = "Good Vibes: \(user.goodVibes)"
+    goodVibesLabel.text = "Good Vibes: \(user.totalVibes)"
     
     //check if user is already followed
-    if(user.checkIfFollowed(username: usernameLabel.text!)){
+    if(user.checkIfFollowed(userID: usernameLabel.text!)){
       //if already followed, turn button text to followed
       followButtonLabel.setTitle("Unfollow", for: .normal)
       followed = true
@@ -43,10 +43,10 @@ class ProfileViewController: UIViewController {
   @IBAction func FollowPressed(_ sender: Any) {
     if(followed){
       //Unfollow user
-      user.removeFollowed(username: usernameLabel.text!)
+        user.removeFollowed(userID: usernameLabel.text!)
     }else{
       //follow user
-      user.addFollowed(username: usernameLabel.text!)
+        user.addFollowed(userID: usernameLabel.text!)
     }
     switchFollowButton()
     

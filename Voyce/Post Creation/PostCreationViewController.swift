@@ -9,139 +9,136 @@
 import UIKit
 
 class PostCreationViewController: UIViewController, UITextViewDelegate {
-
-  @IBOutlet weak var textView: UITextView!
-  @IBOutlet weak var postImage: UIImageView!
-  @IBOutlet weak var imageCaption: UITextView!
-  @IBOutlet weak var postSegmentedControl: UISegmentedControl!
-  
-  override func viewDidLoad() {
     
-    super.viewDidLoad()
-    textView.layer.cornerRadius = 5
-    textView.layer.borderWidth = 1
-    textView.layer.borderColor = UIColor.white.cgColor
-    textView.textColor = UIColor.lightGray
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var imageCaption: UITextView!
+    @IBOutlet weak var postSegmentedControl: UISegmentedControl!
     
-    imageCaption.layer.cornerRadius = 5
-    imageCaption.layer.borderWidth = 1
-    imageCaption.layer.borderColor = UIColor.white.cgColor
-    imageCaption.textColor = UIColor.lightGray
-    
-    postImage.isHidden = true
-    imageCaption.isHidden = true
-    textView.isHidden = false
-    
-    textView.delegate = self
-    imageCaption.delegate = self
-    
-  }
-  
-  func textViewDidBeginEditing(_ textView: UITextView) {
-    if textView.textColor == UIColor.lightGray {
-      textView.text = nil
-      textView.textColor = UIColor.white
-    }
-  }
-  
-  func textViewDidEndEditing(_ textView: UITextView) {
-    if textView.text.isEmpty {
-      textView.text = "Tap to add text!"
-      textView.textColor = UIColor.lightGray
-    }
-  }
-  
-  
-  @IBAction func PostTypeValueChanged(_ sender: Any) {
-    switch postSegmentedControl.selectedSegmentIndex {
-    case 0:
-      textView.isHidden = false
-      imageCaption.isHidden = true
-      postImage.isHidden = true
-      postImage.image = nil
-    case 1:
-      openImageGallery()
-      textView.isHidden = true
-      imageCaption.isHidden = false
-      postImage.isHidden = false
-    default:
-      textView.isHidden = false
-      imageCaption.isHidden = true
-      textView.isHidden = false
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        textView.layer.cornerRadius = 5
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.white.cgColor
+        textView.textColor = UIColor.lightGray
+        
+        imageCaption.layer.cornerRadius = 5
+        imageCaption.layer.borderWidth = 1
+        imageCaption.layer.borderColor = UIColor.white.cgColor
+        imageCaption.textColor = UIColor.lightGray
+        
+        postImage.isHidden = true
+        imageCaption.isHidden = true
+        textView.isHidden = false
+        
+        textView.delegate = self
+        imageCaption.delegate = self
+        
     }
     
-  }
-  
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.white
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Tap to add text!"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    
+    @IBAction func PostTypeValueChanged(_ sender: Any) {
+        switch postSegmentedControl.selectedSegmentIndex {
+        case 0:
+            textView.isHidden = false
+            imageCaption.isHidden = true
+            postImage.isHidden = true
+            postImage.image = nil
+        case 1:
+            openImageGallery()
+            textView.isHidden = true
+            imageCaption.isHidden = false
+            postImage.isHidden = false
+        default:
+            textView.isHidden = false
+            imageCaption.isHidden = true
+            textView.isHidden = false
+        }
+        
+    }
+    
     
     func openImageGallery() {
-     
-            let myPickerController = UIImagePickerController()
-            myPickerController.delegate = self;
-            myPickerController.sourceType =  UIImagePickerControllerSourceType.photoLibrary
+        
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType =  UIImagePickerControllerSourceType.photoLibrary
         self.present(myPickerController, animated: true, completion: nil)
     }
-
-  @IBAction func postPressed(_ sender: Any) {
-    guard !textView.text.isEmpty else { return }
-    guard !imageCaption.text.isEmpty else { return }
-    switch postSegmentedControl.selectedSegmentIndex {
-    case 0:
-      //just text post
-      DatabaseManager.shared.addPost(with: textView.text)
-    case 1:
-      DatabaseManager.shared.addPost(with: imageCaption.text, image: postImage.image!)
-      //add image to the post as well
-    default:
-      DatabaseManager.shared.addPost(with: textView.text)
+    
+    @IBAction func postPressed(_ sender: Any) {
+        guard !textView.text.isEmpty else { return }
+        guard !imageCaption.text.isEmpty else { return }
+        switch postSegmentedControl.selectedSegmentIndex {
+        case 0:
+            //just text post
+            DatabaseManager.shared.addPost(with: textView.text)
+        case 1:
+            DatabaseManager.shared.addPost(with: imageCaption.text, image: "")//add image to url converter
+        //add image to the post as well
+        default:
+            DatabaseManager.shared.addPost(with: textView.text)
+        }
+        navigationController?.popViewController(animated: true)
     }
-    navigationController?.popViewController(animated: true)
-  }
-
-  @IBAction func backPressed(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
-  }
-  
+    
+    @IBAction func backPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
 
-extension PostCreationViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate
-{
-   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+extension PostCreationViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         let image_data = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         postImage.image = image_data
+        print("image picked \(image_data)")
+        let imageURL = info[UIImagePickerControllerPHAsset] as! URL
+        uploadImage(imageURL: imageURL)
         
-        let imageURL = info[UIImagePickerControllerReferenceURL] as! URL
-        UploadImageToFB(url: imageURL.absoluteString)
-         
-        let imageData:Data = UIImagePNGRepresentation(image_data)!
-        let imageStr = imageData.base64EncodedString()
+        let imageData: Data = UIImagePNGRepresentation(image_data)!
+        _ = imageData.base64EncodedString()
         self.dismiss(animated: true, completion: nil)
     }
     
-    func UploadImageToFB(url: String){
+    func uploadImage(imageURL: URL) {
+        // Create a root reference
         let storageRef = DatabaseManager.shared.storage.reference()
-        // File located on disk
-        let localFile = URL(string: url)!
 
         // Create a reference to the file you want to upload
-        let riversRef = storageRef.child("images/rivers.jpg")
-
-        // Upload the file to the path "images/rivers.jpg"
-        let uploadTask = riversRef.putFile(from: localFile, metadata: nil) { metadata, error in
-          guard let metadata = metadata else {
-            // Uh-oh, an error occurred!
-            return
-          }
-          // Metadata contains file metadata such as size, content-type.
-          let size = metadata.size
-          // You can also access to download URL after upload.
-          riversRef.downloadURL { (url, error) in
-            guard let downloadURL = url else {
-              // Uh-oh, an error occurred!
-              return
+        let imageRef = storageRef.child("images/a.jpg");
+        
+        // Upload the file to the path
+        _ = imageRef.putFile(from: imageURL, metadata: nil) { metadata, error in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
             }
-          }
+            // Metadata contains file metadata such as size, content-type.
+            _ = metadata.size
+            // You can also access to download URL after upload.
+            imageRef.downloadURL { (url, error) in
+                guard url != nil else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+            }
         }
     }
-
 }

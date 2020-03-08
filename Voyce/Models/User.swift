@@ -7,120 +7,113 @@ import FirebaseUI
 
 public class User
 {
-  let userID: String
-  let name: String
+    let userID: String
+    var name: String
     var username: String
-  var goodVibes: Int
-    var imageURL: URL?
-  let image: UIImage?
-  var followed: Set<String>
+    var totalVibes: Int
+    var unusedVibes: Int
+    var profilePic: URL?
+    var followed: Set<String>
     
-  var dictionary: [String: Any] {
-    return [
-    "username": username,
-    "name": name,
-      "goodvibes": goodVibes,
-      "imageURL": imageURL?.absoluteString as Any
-    ]
-  }
-  
-  init(){
-      self.userID = "0"
-      self.name = "0"
-      self.username = "0"
-      self.goodVibes = 0
-      self.imageURL = nil
-      self.image = nil
-      self.followed = Set<String>.init()
-  }
-  
-  init(userID:String, name:String, username:String, goodVibes:Int) {
-    self.userID = userID
-    self.name = name
-    self.username = username
-    self.goodVibes = goodVibes
-    self.imageURL = nil
-    self.image = nil
-    self.followed = Set<String>.init()
-  }
-  
-  init(userID:String, name:String, username:String, imageURL:String, goodVibes:Int){
-    self.userID = userID
-    self.name = name
-    self.username = username
-    self.goodVibes = goodVibes
-    self.imageURL = URL(string: imageURL)
-    self.image = nil
-    self.followed = Set<String>.init()
-  }
-  
-  init(userID:String, name:String, username:String){
-    self.userID = userID
-    self.name = name
-    self.username = username
-    self.goodVibes = 0
-    self.imageURL = nil
-    self.image = nil
-    self.followed = Set<String>.init()
-  }
-  
-  init(user: FirebaseAuth.User)
-  {
-      self.userID = user.uid
-      self.name = user.displayName!
-      self.username = user.displayName!
-      self.imageURL = user.photoURL
-      self.image = nil
-      self.followed = Set<String>.init()
-      self.goodVibes = 0
-  }
-
-  func addFollowed(username:String) {
-    followed.insert(username)
-    print(followed)
-  }
-  
-  func removeFollowed(username:String) {
-    followed.remove(username)
-    print(followed)
-  }
-  
-  func checkIfFollowed(username:String)->Bool {
-    if(followed.contains(username)){
-      return true
-    }
-    return false
-  }
-    
-    func setVibes(vibes: Int){
-      self.goodVibes = vibes
+    var dictionary: [String: Any] {
+        return [
+            "name": name,
+            "username": username,
+            "totalvibes": totalVibes,
+            "unusedVibes": unusedVibes,
+            "profilePic": profilePic?.absoluteString as Any
+        ]
     }
     
-    func getVibes()->Int{
-      return self.goodVibes
+    init() {
+        self.userID = "0"
+        self.name = "0"
+        self.username = "0"
+        self.totalVibes = 0
+        self.unusedVibes = 0
+        self.profilePic = nil
+        self.followed = Set<String>.init()
     }
     
-    func addVibes(vibes: Int){
-      self.goodVibes += vibes
+    init(userID: String, name: String, username: String) {
+        self.userID = userID
+        self.name = name
+        self.username = username
+        self.totalVibes = 0
+        self.unusedVibes = 0
+        self.profilePic = nil
+        self.followed = Set<String>.init()
+    }
+    
+    init(userID: String, name: String, username: String, totalVibes: Int) {
+        self.userID = userID
+        self.name = name
+        self.username = username
+        self.totalVibes = totalVibes
+        self.unusedVibes = 0
+        self.profilePic = nil
+        self.followed = Set<String>.init()
+    }
+    
+    init(userID: String, name: String, username: String, totalVibes: Int, profilePic: String) {
+        self.userID = userID
+        self.name = name
+        self.username = username
+        self.totalVibes = totalVibes
+        self.unusedVibes = 0
+        self.profilePic = URL(string: profilePic)
+        self.followed = Set<String>.init()
+    }
+    
+    init(user: FirebaseAuth.User) {
+        self.userID = user.uid
+        self.name = user.displayName!
+        self.username = user.displayName!
+        self.totalVibes = 0
+        self.unusedVibes = 0
+        self.profilePic = URL(string: "")
+        self.followed = Set<String>.init()
+    }
+    
+    func addFollowed(userID: String) {
+        followed.insert(userID)
+    }
+    
+    func removeFollowed(userID: String) {
+        followed.remove(userID)
+    }
+    
+    func checkIfFollowed(userID: String) -> Bool {
+        if (followed.contains(userID)) {
+            return true
+        }
+        return false
+    }
+    
+    func setVibes(totalVibes: Int) {
+        self.totalVibes = totalVibes
+    }
+    
+    func getVibes() -> Int {
+        return self.totalVibes
+    }
+    
+    func addVibes(totalVibes: Int) {
+        self.totalVibes += totalVibes
     }
     
     func removeVibes()
     {
-         print("remove vibes");
-         if(self.goodVibes>=1){
-             self.goodVibes -= 1
-         }
-     }
+        if (self.totalVibes >= 1) {
+            self.totalVibes -= 1
+        }
+    }
     
-    func LoadUserData(document: DocumentSnapshot)
+    func loadUserData(document: DocumentSnapshot)
     {
-        let vibeCount: Int = document.get("goodvibes") as! Int;
-        self.setVibes(vibes: vibeCount)
+        let vibeCount: Int = document.get("totalVibes") as! Int;
+        self.setVibes(totalVibes: vibeCount)
         self.username = document.get("username") as! String
-        self.imageURL = URL(string: document.get("imageURL") as! String)
-        print(self.getVibes())
-        print(self.name)
-        print(self.imageURL ?? "nil")
-        print("Info set")
+        self.profilePic = URL(string: document.get("profilePic") as! String)
     }
 }

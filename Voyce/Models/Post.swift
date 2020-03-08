@@ -17,7 +17,7 @@ public class Post
   var likeCount: Int
   var user: User
   var comments: [Post]
-  var image: UIImage?
+  var image: String?
     
     var dictionary: [String: Any] {
       return [
@@ -29,7 +29,7 @@ public class Post
       ]
     }
 
-  init(pid:String, text: String, media: String, user: User, likeCount: Int, image: UIImage? = nil) {
+  init(pid:String, text: String, media: String, user: User, likeCount: Int, image: String? = nil) {
     self.postID = pid
     self.text = text
     self.media = media
@@ -39,7 +39,7 @@ public class Post
     self.image = image
   }
   
-  init(){
+  init() {
     self.postID = ""
     self.text = ""
     self.media = ""
@@ -48,7 +48,7 @@ public class Post
     self.comments = []
   }
   
-  init(post: Post){
+  init(post: Post) {
     self.postID = post.postID
     self.text = post.text
     self.media = post.media

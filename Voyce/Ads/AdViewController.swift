@@ -93,7 +93,7 @@ class AdViewController: UIViewController {
     guard timer != nil else { return }
     timer?.invalidate()
     timer = nil
-    DatabaseManager.shared.sharedUser.setVibes(vibes: self.vibes)
+    DatabaseManager.shared.sharedUser.setVibes(totalVibes: self.vibes)
     print("Number of vibes: \(shared.sharedUser.getVibes())")
     print("Username: \(shared.sharedUser.name)")
   }

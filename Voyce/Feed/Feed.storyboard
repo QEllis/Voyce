@@ -58,7 +58,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-JF-OX4">
                                         <rect key="frame" x="132" y="0.0" width="150" height="50"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-0i-QWe">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voyce_logo" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-0i-QWe">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
@@ -103,6 +103,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="41m-Dp-SnV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="V6C-tK-2jb"/>
                     <connections>
                         <outlet property="tableView" destination="37x-G8-tAm" id="51s-Z0-wdY"/>
                     </connections>
@@ -126,10 +127,11 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Concert" translatesAutoresizingMaskIntoConstraints="NO" id="W4Y-3L-cNd">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sgU-F3-Kg3">
                                 <rect key="frame" x="0.0" y="404" width="414" height="404"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="Background"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
@@ -145,6 +147,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pKY-Uu-C6O"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ran-1k-QGm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jf-P4-ipp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +156,7 @@
     </scenes>
     <resources>
         <image name="Concert" width="1000" height="750"/>
-        <image name="Logo" width="303" height="144"/>
+        <image name="voyce_logo" width="800" height="350"/>
         <image name="wand" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
