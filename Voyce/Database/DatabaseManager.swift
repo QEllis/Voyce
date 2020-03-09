@@ -13,14 +13,14 @@ import FirebaseFirestore
 
 class DatabaseManager
 {
+    // Member Variables
     static let shared = DatabaseManager()
-
-    var sharedUser = User.init()
-    var db = Firestore.firestore()
-    
-
-    let storage = Storage.storage()
-    var myPosts: [Post] = []
+    var sharedUser: User
+    var db: Firestore
+    let storage: Storage
+    var dislikedAds: [String]
+    var acknowledgedPosts:[String:Post]
+    var myPosts: [Post]
     var posts: [Post] = []
     {
         didSet
@@ -29,17 +29,31 @@ class DatabaseManager
         }
     }
     
-    var dislikedAds: [String] = []
-    var acknowledgedPosts:[String:Post] = [:]
+    // Class Constructor
+    init()
+    {
+        sharedUser = User.init()
+        db = Firestore.firestore()
+        storage = Storage.storage()
+        dislikedAds = []
+        acknowledgedPosts = [:]
+        myPosts  = []
+        
+
+    }
     
-    public func checkAcknowledgedPost(post: Post) -> Bool {
-        if (acknowledgedPosts[post.postID] != nil) {
+    public func checkAcknowledgedPost(post: Post) -> Bool
+    {
+        if (acknowledgedPosts[post.postID] != nil)
+        {
             return true
-        } else {
+        }
+        else
+        {
             return false
         }
     }
-    
+
     public func acknowledgePost(post: Post)
     {
         post.likeCount += 1;
@@ -51,7 +65,7 @@ class DatabaseManager
                      "likeCount": FieldValue.increment(Int64(1))
                  ])
     }
-    
+
     public func userLogin(u: FirebaseAuth.User)
     {
         sharedUser = User.init(user: u)
@@ -69,7 +83,7 @@ class DatabaseManager
             }
         }
     }
-    
+
     public func addPost(with text: String, image: String) {
         let id = UUID()
         let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
@@ -90,7 +104,7 @@ class DatabaseManager
             }
         }
     }
-    
+
     public func addPost(with text: String)
     {
         let id = UUID()
@@ -112,7 +126,7 @@ class DatabaseManager
             }
         }
     }
-    
+
     public func setPostsUser(uid: String, p: Post)
     {
         let collection = db.collection("users")
@@ -134,7 +148,7 @@ class DatabaseManager
             }
         }
     }
-    
+
     public func loadFeed() {
         print("IN LOAD FEED");
         let collection = db.collection("posts")
@@ -165,7 +179,7 @@ class DatabaseManager
                 }
         }
     }
-    
+
     public func updatePosts() {
         let collection = db.collection("posts");
         for post in posts {
@@ -188,7 +202,7 @@ class DatabaseManager
         }
         posts = []
     }
-    
+
     public func addComment(with text: String, post: Post) {
         for currPost in posts where currPost.postID == post.postID {
             print("addComment")
@@ -198,15 +212,15 @@ class DatabaseManager
         }
         NotificationCenter.default.post(name: .NewPosts, object: nil)
     }
-    
+
     public func addFollowed(username: String) {
         DatabaseManager.shared.sharedUser.addFollowed(userID: username)
     }
-    
+
     public func removeFollowed(username: String) {
         DatabaseManager.shared.sharedUser.removeFollowed(userID: username)
     }
-    
+
     public func checkIfFollowed(username: String) -> Bool {
         return DatabaseManager.shared.sharedUser.checkIfFollowed(userID: username)
     }
