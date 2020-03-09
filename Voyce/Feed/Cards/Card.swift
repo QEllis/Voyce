@@ -46,9 +46,8 @@ final class Card: UITableViewCell
         //profileButton.imageView = postUser.
         numVibes.text = String(post.likeCount)
         createdAtLabel.text = "today"
-        print("image is \(String(describing: post.image))")
-        let url = URL(string: post.image ?? "https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg")
-        print("idk is not \(url?.absoluteURL)")
+        
+        let url = URL(string: post.image!)
         let data = try? Data(contentsOf: url!)
         postImage.image = UIImage(data: data!)
     }
