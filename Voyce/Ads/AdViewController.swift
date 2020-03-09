@@ -198,8 +198,8 @@ class AdViewController: UIViewController {
         "unusedVibes": FieldValue.increment(Int64(1))
     ])
     
-//    shared.db.collection("users").document(shared.sharedUser.userID) .setData([ "goodvibes": vibes ], merge: true);
-//    //print(shared.sharedUser.userID);
-//    vibezLabel.text = "Good Vibes: \(vibes)"
+    shared.db.collection("users").document(shared.sharedUser.userID) .setData([ "goodvibes": vibes ], merge: true);
+    //print(shared.sharedUser.userID);
+    vibezLabel.text = "Good Vibes: \(vibes)"
   }
 }
