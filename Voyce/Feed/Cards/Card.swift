@@ -48,8 +48,10 @@ final class Card: UITableViewCell
         createdAtLabel.text = "today" //Add timestamp to Post
         
         let url = URL(string: post.image!)
-        let data = try? Data(contentsOf: url!)
-        postImage.image = UIImage(data: data!)
+        if url != nil {
+            let data = try? Data(contentsOf: url!)
+            postImage.image = UIImage(data: data!)
+        }
     }
     
     @IBAction func profileButtonPressed(_ sender: Any)
