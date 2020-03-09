@@ -18,33 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygM-30-qSH">
-                                <rect key="frame" x="47" y="54" width="320" height="280"/>
+                                <rect key="frame" x="47" y="54" width="320" height="600"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to add text!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-9u-AkT">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
-                                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                                        <color key="backgroundColor" name="Text - Post"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="280" id="BaG-Zb-dU0"/>
                                         </constraints>
-                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="Text - Body"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RF1-cg-ARJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to add a caption!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gYL-lD-qYy">
-                                        <rect key="frame" x="0.0" y="213" width="320" height="67"/>
-                                        <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                                        <rect key="frame" x="0.0" y="400" width="320" height="200"/>
+                                        <color key="backgroundColor" name="Text - Post"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="67" id="416-BU-2iz"/>
+                                            <constraint firstAttribute="height" constant="200" id="416-BU-2iz"/>
                                         </constraints>
-                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="Text - Body"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" name="BackgroundDarkBlue"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="VMi-9u-AkT" firstAttribute="leading" secondItem="RF1-cg-ARJ" secondAttribute="leading" id="2i9-Ko-dVc"/>
                                     <constraint firstItem="VMi-9u-AkT" firstAttribute="top" secondItem="RF1-cg-ARJ" secondAttribute="top" id="7FJ-ce-1Wt"/>
@@ -52,7 +52,7 @@
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="trailing" secondItem="RF1-cg-ARJ" secondAttribute="trailing" id="JA0-cG-bHX"/>
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="leading" secondItem="RF1-cg-ARJ" secondAttribute="leading" id="O34-ot-IbR"/>
                                     <constraint firstItem="RF1-cg-ARJ" firstAttribute="top" secondItem="ygM-30-qSH" secondAttribute="top" id="VCF-9B-Fe5"/>
-                                    <constraint firstAttribute="height" constant="280" id="ZAC-Kj-X2D"/>
+                                    <constraint firstAttribute="height" constant="600" id="ZAC-Kj-X2D"/>
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="top" secondItem="RF1-cg-ARJ" secondAttribute="bottom" constant="8" symbolic="YES" id="c22-xP-bMW"/>
                                     <constraint firstAttribute="trailing" secondItem="gYL-lD-qYy" secondAttribute="trailing" id="gNH-aW-A44"/>
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="leading" secondItem="ygM-30-qSH" secondAttribute="leading" id="uR5-EK-253"/>
@@ -60,20 +60,21 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-nP-WIx">
-                                <rect key="frame" x="314" y="346" width="36" height="32"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
-                                <state key="normal" title="Post!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="315" y="666" width="35" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" name="Text - Body"/>
                                 </state>
                                 <connections>
                                     <action selector="postPressed:" destination="CA0-EX-7NZ" eventType="touchUpInside" id="aZH-nC-koi"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F7m-19-BTT">
-                                <rect key="frame" x="151.66666666666666" y="811" width="110.99999999999997" height="32"/>
+                                <rect key="frame" x="123.66666666666669" y="811" width="167" height="32"/>
                                 <segments>
                                     <segment title="Text"/>
                                     <segment title="Photo"/>
+                                    <segment title="Video"/>
                                 </segments>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -166,6 +167,12 @@
         </namedColor>
         <namedColor name="BackgroundDarkBlue">
             <color red="0.074509803921568626" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text - Body">
+            <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text - Post">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
