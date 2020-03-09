@@ -59,8 +59,10 @@ final class Card: UITableViewCell
     
     @IBAction func acknowledgePressed(_ sender: Any)
     {
-        updateVibes()
-        updateUI()
+        if(currentUser.hasUnusedVibes()){
+            updateVibes()
+            updateUI()
+        }
     }
     
     func updateVibes()

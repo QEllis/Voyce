@@ -17,6 +17,8 @@ class DatabaseManager
 
     var sharedUser = User.init()
     var db = Firestore.firestore()
+    
+
     let storage = Storage.storage()
     var myPosts: [Post] = []
     var posts: [Post] = []
@@ -41,7 +43,13 @@ class DatabaseManager
     public func acknowledgePost(post: Post)
     {
         post.likeCount += 1;
-        db.collection("posts").document(post.postID).setData(["likeCount": post.likeCount], merge: true);
+        //    db.collection("posts").document(post.postID).setData(["likeCount":post.likeCount], merge: true);
+        //
+        let shardRef = DatabaseManager.shared.db.collection("posts").document(post.postID)
+
+                 shardRef.updateData([
+                     "likeCount": FieldValue.increment(Int64(1))
+                 ])
     }
     
     public func userLogin(u: FirebaseAuth.User)

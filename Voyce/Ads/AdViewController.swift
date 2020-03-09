@@ -6,6 +6,10 @@
 //  Copyright © 2019 QEDev. All rights reserved.
 //
 import UIKit
+import Foundation
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 private let shared = DatabaseManager.shared
 class AdViewController: UIViewController {
@@ -186,9 +190,16 @@ class AdViewController: UIViewController {
   }
 
   @objc func updateViewTime(){
+    //SALV
     vibes += 1
-    shared.db.collection("users").document(shared.sharedUser.userID) .setData([ "goodvibes": vibes ], merge: true);
-    //print(shared.sharedUser.userID);
-    vibezLabel.text = "Good Vibes: \(vibes)"
+    
+    let shardRef = DatabaseManager.shared.db.collection("users").document(shared.sharedUser.userID)
+    shardRef.updateData([
+        "unusedVibes": FieldValue.increment(Int64(1))
+    ])
+    
+//    shared.db.collection("users").document(shared.sharedUser.userID) .setData([ "goodvibes": vibes ], merge: true);
+//    //print(shared.sharedUser.userID);
+//    vibezLabel.text = "Good Vibes: \(vibes)"
   }
 }

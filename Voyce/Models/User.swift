@@ -73,6 +73,21 @@ public class User
         self.unusedVibes = 0
         self.profilePic = URL(string: "")
         self.followed = Set<String>.init()
+        
+        
+        //clean up, will need to load more things, move to it's own
+        //function. This is needed on startup
+        let docRef = DatabaseManager.shared.db.collection("users").document(userID)
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.unusedVibes = document.get("unusedVibes") as! Int
+                print("got vibes")
+                print(self.unusedVibes);
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func addFollowed(userID: String) {
@@ -100,6 +115,10 @@ public class User
     
     func addVibes(totalVibes: Int) {
         self.totalVibes += totalVibes
+        let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
+                 shardRef.updateData([
+                     "unusedVibes": FieldValue.increment(Int64(1))
+                 ])
     }
     
     func removeVibes()
@@ -115,5 +134,39 @@ public class User
         self.setVibes(totalVibes: vibeCount)
         self.username = document.get("username") as! String
         self.profilePic = URL(string: document.get("profilePic") as! String)
+    }
+    
+    func incrementUnusedVibes(){
+        let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
+
+          shardRef.updateData([
+              "unusedVibes": FieldValue.increment(Int64(1))
+          ])
+        
+    }
+    func incrementTotalVibes(){
+        let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
+                 shardRef.updateData([
+                     "totalVibes": FieldValue.increment(Int64(1))
+                 ])
+    }
+    func hasUnusedVibes() -> Bool {
+        
+        let docRef = DatabaseManager.shared.db.collection("users").document(userID)
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.unusedVibes = document.get("unusedVibes") as! Int
+                print("got vibes")
+                print(self.unusedVibes);
+            } else {
+                print("Document does not exist")
+            }
+        }
+        print(self.unusedVibes);
+        if(self.unusedVibes > 0){
+            return true;
+        }
+            return false;
     }
 }
