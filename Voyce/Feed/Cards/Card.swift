@@ -76,7 +76,7 @@ final class Card: UITableViewCell
     func updateUI()
     {
         vibeButton.setImage(UIImage(named: randomEmoji()), for: .normal)
-        DatabaseManager.shared.acknowledgePost(post: post)
+        DatabaseManager.shared.giveVibe(post: post)
         numVibes.text = String(post.likeCount)
     }
     
@@ -93,7 +93,6 @@ final class Card: UITableViewCell
         emojiArray.append("dog")
         emojiArray.append("eye-mask")
         emojiArray.append("falling-star")
-
         emojiArray.append("fan")
         emojiArray.append("fireworks")
         emojiArray.append("fort")
@@ -104,7 +103,6 @@ final class Card: UITableViewCell
         emojiArray.append("icecream")
         emojiArray.append("idea")
         emojiArray.append("kissing")
-
         emojiArray.append("lips")
         emojiArray.append("love-letter")
         emojiArray.append("money-1")
@@ -115,8 +113,6 @@ final class Card: UITableViewCell
         emojiArray.append("palette")
         emojiArray.append("party")
         emojiArray.append("phsyics")
-
-
         emojiArray.append("pizza")
         emojiArray.append("plastic-cup")
         emojiArray.append("rainbow")
@@ -127,8 +123,6 @@ final class Card: UITableViewCell
         emojiArray.append("space")
         emojiArray.append("spark")
         emojiArray.append("stars")
-
-
         emojiArray.append("strawberry")
         emojiArray.append("sun")
         emojiArray.append("thumbs-up")

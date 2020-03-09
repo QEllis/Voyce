@@ -20,7 +20,7 @@ class DatabaseManager
     let storage: Storage
     var dislikedAds: [String]
     var acknowledgedPosts:[String:Post]
-    var myPosts: [Post]
+    var myPosts: [Post]  
     var posts: [Post] = []
     {
         didSet
@@ -38,10 +38,8 @@ class DatabaseManager
         dislikedAds = []
         acknowledgedPosts = [:]
         myPosts  = []
-        
-
     }
-    
+
     public func checkAcknowledgedPost(post: Post) -> Bool
     {
         if (acknowledgedPosts[post.postID] != nil)
@@ -54,18 +52,16 @@ class DatabaseManager
         }
     }
 
-    public func acknowledgePost(post: Post)
+    public func giveVibe(post: Post)
     {
         post.likeCount += 1;
         //    db.collection("posts").document(post.postID).setData(["likeCount":post.likeCount], merge: true);
         //
         let shardRef = DatabaseManager.shared.db.collection("posts").document(post.postID)
-
-                 shardRef.updateData([
-                     "likeCount": FieldValue.increment(Int64(1))
-                 ])
+        shardRef.updateData(["likeCount": FieldValue.increment(Int64(1))])
     }
-
+    
+    // Called when the user logs in
     public func userLogin(u: FirebaseAuth.User)
     {
         sharedUser = User.init(user: u)
@@ -83,7 +79,8 @@ class DatabaseManager
             }
         }
     }
-
+    
+    // Adds image post to database -- Needs work
     public func addPost(with text: String, image: String) {
         let id = UUID()
         let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
@@ -104,7 +101,8 @@ class DatabaseManager
             }
         }
     }
-
+    
+    // Adds text post to database -- Should work
     public func addPost(with text: String)
     {
         let id = UUID()
@@ -126,7 +124,8 @@ class DatabaseManager
             }
         }
     }
-
+    
+    // Links a user to a post
     public func setPostsUser(uid: String, p: Post)
     {
         let collection = db.collection("users")
@@ -148,41 +147,55 @@ class DatabaseManager
             }
         }
     }
-
-    public func loadFeed() {
+    
+    // Updates the arrays that store the posts and
+    public func loadFeed()
+    {
         print("IN LOAD FEED");
         let collection = db.collection("posts")
-        collection.order(by: "likeCount", descending: true).limit(to: 10)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    self.posts = []
-                    var uids: [String] = []
-                    var newPosts: [Post] = []
-                    for document in querySnapshot!.documents {
-                        let data = document.data()
-                        let p = Post(pid: document.documentID,
-                                     text: data["text"] as! String,
-                                     media: data["media"] as! String,
-                                     user: User(),
-                                     likeCount: data["likeCount"] as! Int, image: data["image"] as? String)
-                        //                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
-                        //                        self.posts.append(p)
-                        uids.append(data["uid"] as! String)
-                        newPosts.append(p)
-                        print("POST: \(document.documentID) => \(document.data())")
-                    }
-                    for i in 0..<newPosts.count {
-                        self.setPostsUser(uid: uids[i], p: newPosts[i])
-                    }
+        collection.order(by: "likeCount", descending: true).limit(to: 10).getDocuments()
+        {
+            (querySnapshot, err) in
+            if let err = err
+            {
+                print("Error getting documents: \(err)")
+            }
+            else
+            {
+                self.posts = []
+                var uids: [String] = []
+                var newPosts: [Post] = []
+                // Iterates through all posts in Firebase
+                for document in querySnapshot!.documents
+                {
+                    let data = document.data()
+                    let p = Post(pid: document.documentID,
+                                 text: data["text"] as! String,
+                                 media: data["media"] as! String,
+                                 user: User(),
+                                 likeCount: data["likeCount"] as! Int,
+                                 image: data["image"] as? String)
+                    //                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
+                    //                        self.posts.append(p)
+                    uids.append(data["uid"] as! String)
+                    newPosts.append(p)
+                    print("POST: \(document.documentID) => \(document.data())")
                 }
+                // Links each post to a post user
+                for i in 0..<newPosts.count
+                {
+                    self.setPostsUser(uid: uids[i], p: newPosts[i])
+                }
+            }
         }
     }
-
-    public func updatePosts() {
+    
+    // May not be needed -- Never called
+    public func updatePosts()
+    {
         let collection = db.collection("posts");
-        for post in posts {
+        for post in posts
+        {
             db.collection("posts").document(post.postID).setData(post.dictionary) { err in
                 if let err = err {
                     print("Error updating post to db: \(err)")
@@ -202,8 +215,10 @@ class DatabaseManager
         }
         posts = []
     }
-
-    public func addComment(with text: String, post: Post) {
+    
+    
+    public func addComment(with text: String, post: Post)
+    {
         for currPost in posts where currPost.postID == post.postID {
             print("addComment")
             let comment = Post(pid: "comment", text: text,media: "", user: DatabaseManager.shared.sharedUser, likeCount: 0)
