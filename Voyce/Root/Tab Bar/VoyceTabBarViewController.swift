@@ -66,9 +66,8 @@ class VoyceTabBarViewController: UITabBarController
         {
             //Then cast the viewcontroller to an AdViewController and run its initTimer() function
             let toAd = toVC as! AdViewController
-            toAd.timer?.invalidate()
-            toAd.timer = nil
-            toAd.initTimer()
+            toAd.stopTimer()
+            toAd.startTimer()
         }
         delegate?.tabBarController?(self, didSelect: toVC)
     }
