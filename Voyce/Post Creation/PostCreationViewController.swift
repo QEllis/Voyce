@@ -15,26 +15,22 @@ class PostCreationViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var imageCaption: UITextView!
     @IBOutlet weak var postSegmentedControl: UISegmentedControl!
     
-    override func viewDidLoad() {
-        
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         textView.layer.cornerRadius = 5
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.white.cgColor
         textView.textColor = UIColor.lightGray
-        
         imageCaption.layer.cornerRadius = 5
         imageCaption.layer.borderWidth = 1
         imageCaption.layer.borderColor = UIColor.white.cgColor
         imageCaption.textColor = UIColor.lightGray
-        
         postImage.isHidden = true
         imageCaption.isHidden = true
         textView.isHidden = false
-        
         textView.delegate = self
         imageCaption.delegate = self
-        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
