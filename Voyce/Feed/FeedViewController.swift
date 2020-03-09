@@ -12,25 +12,21 @@ class FeedViewController: UIViewController
 {
     @IBOutlet var tableView: UITableView!
     
+    //Called after the controller's view is loaded into memory.
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        //    UserManager.shared.initWithPlaceholderPosts()
-        DatabaseManager.shared.LoadFeed();
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CardPic", bundle: nil), forCellReuseIdentifier: "Card")
         NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
-        //UserManager.shared.createHardcodedPosts()
     }
     
+    //Notifies the view controller that its view is about to be added to a view hierarchy.
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
-        
-        //this will reload when you go back to the feed. In the future only reload when user does reload gesture or hits reload button
-        DatabaseManager.shared.LoadFeed()
-        
+        DatabaseManager.shared.loadFeed()
         if let selectionIndexPath = self.tableView.indexPathForSelectedRow
         {
             self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
@@ -43,11 +39,13 @@ class FeedViewController: UIViewController
         tableView.reloadData()
     }
     
-    @IBAction func postPressed(_ sender: Any)
-    {
-        let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
-        navigationController?.pushViewController(vc, animated: true)
-    }
+//    @IBAction func postPressed(_ sender: Any)
+//    {
+//        let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
+    
+    
     
 //    override func awakeFromNib()
 //    {
@@ -125,12 +123,12 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: CardDelegate {
     func profileButtonDidPressed(postUser: User) {
-        if (postUser.userID == DatabaseManager.shared.sharedUser.userID){
+        if (postUser.userID == DatabaseManager.shared.sharedUser.userID) {
             self.tabBarController?.selectedIndex = 0
         } else {
             let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
             vc.user = postUser
-            navigationController?.pushViewController(vc,animated: true)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

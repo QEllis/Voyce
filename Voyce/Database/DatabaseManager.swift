@@ -14,7 +14,7 @@ import FirebaseFirestore
 class DatabaseManager
 {
     static let shared = DatabaseManager()
-    //is loaded in from DB on login
+
     var sharedUser = User.init()
     var db = Firestore.firestore()
     let storage = Storage.storage()
@@ -127,8 +127,7 @@ class DatabaseManager
         }
     }
     
-    public func LoadFeed()
-    {
+    public func loadFeed() {
         print("IN LOAD FEED");
         let collection = db.collection("posts")
         collection.order(by: "likeCount", descending: true).limit(to: 10)
@@ -159,7 +158,7 @@ class DatabaseManager
         }
     }
     
-    public func UpdatePosts(){
+    public func updatePosts() {
         let collection = db.collection("posts");
         for post in posts {
             db.collection("posts").document(post.postID).setData(post.dictionary) { err in

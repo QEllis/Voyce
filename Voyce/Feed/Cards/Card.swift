@@ -45,7 +45,7 @@ final class Card: UITableViewCell
         usernameLabel.text = postUser.username
         //profileButton.imageView = postUser.
         numVibes.text = String(post.likeCount)
-        createdAtLabel.text = "today"
+        createdAtLabel.text = "today" //Add timestamp to Post
         
         let url = URL(string: post.image!)
         let data = try? Data(contentsOf: url!)
