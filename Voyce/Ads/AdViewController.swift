@@ -35,7 +35,7 @@ class AdViewController: UIViewController {
     let docRef = shared.db.collection("users").document(shared.sharedUser.userID);
     docRef.getDocument { (document, error) in
         if let document = document, document.exists {
-            self.vibes = document.get("goodvibes") as! Int;
+            self.vibes = document.get("totalVibes") as! Int;
             print("Updated: \(self.vibes)")
         } else {
             print("Vibes not found");
@@ -102,7 +102,7 @@ class AdViewController: UIViewController {
     print("Username: \(shared.sharedUser.name)")
   }
   
-  func loadNewAds()->Bool{
+  func loadNewAds() -> Bool {
     //to be called when view appears
     //pull from database
     //filter ads that the user already disliked

@@ -103,7 +103,7 @@ class PostCreationViewController: UIViewController, UITextViewDelegate {
     
 }
 
-extension PostCreationViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+extension PostCreationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         let image_data = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
