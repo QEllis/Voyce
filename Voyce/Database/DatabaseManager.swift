@@ -39,19 +39,8 @@ class DatabaseManager
         acknowledgedPosts = [:]
         myPosts  = []
     }
-
-    public func checkAcknowledgedPost(post: Post) -> Bool
-    {
-        if (acknowledgedPosts[post.postID] != nil)
-        {
-            return true
-        }
-        else
-        {
-            return false
-        }
-    }
-
+    
+    // Gives a vibe from one use to the other -- Needs work
     public func giveVibe(post: Post)
     {
         post.likeCount += 1;
@@ -215,7 +204,6 @@ class DatabaseManager
         }
         posts = []
     }
-    
     
     public func addComment(with text: String, post: Post)
     {

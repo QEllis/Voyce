@@ -33,6 +33,17 @@ class PostCreationViewController: UIViewController, UITextViewDelegate {
         imageCaption.delegate = self
     }
     
+    // Removes text field when the background is touched
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        let touch = touches.first
+        if textView.isFirstResponder && touch?.view != textView
+        {
+            textView.resignFirstResponder()
+        }
+        super.touchesBegan(touches, with: event)
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
