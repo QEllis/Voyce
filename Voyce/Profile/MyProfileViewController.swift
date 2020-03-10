@@ -68,7 +68,8 @@ class MyProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         //return count of my posts
         return DatabaseManager.shared.myPosts.count
     }
-
+    
+    // Requires my MyPostTableViewCellDelegate, which in turn requires the promoteButtonDidPressed function
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostCell") as! MyPostTableViewCell
@@ -79,11 +80,7 @@ class MyProfileViewController: UIViewController, UITableViewDelegate, UITableVie
 
     func promoteButtonDidPressed(post: Post)
     {
-        print("Inside delegate promote")
-        let vc = UIStoryboard(name: "PostPromotion", bundle: nil).instantiateViewController(withIdentifier: "PostPromotionVC") as! PostPromotionViewController
-        print("Built vc")
-        vc.post = post
-        navigationController?.pushViewController(vc,animated:true)
+        
     }
 
     @objc private func newPosts()

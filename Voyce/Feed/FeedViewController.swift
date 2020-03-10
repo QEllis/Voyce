@@ -39,6 +39,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadData()
     }
     
+    // Table view uses CommentCreationViewController, so I did not remove the files --- Aron
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         guard let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else
@@ -66,7 +67,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         card.delegate = self
         return card
     }
-    
+    // Link
     func profileButtonDidPressed(postUser: User)
     {
         if (postUser.userID == DatabaseManager.shared.sharedUser.userID)
@@ -75,8 +76,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         else
         {
-            let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-            vc.user = postUser
+            let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! MyProfileViewController
+            // ProfileViewController has no user member
+//            vc.user = postUser
             navigationController?.pushViewController(vc, animated: true)
         }
     }
