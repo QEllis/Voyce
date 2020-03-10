@@ -76,7 +76,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         else
         {
-            let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! MyProfileViewController
+            let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
             // ProfileViewController has no user member
 //            vc.user = postUser
             navigationController?.pushViewController(vc, animated: true)

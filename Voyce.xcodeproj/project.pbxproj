@@ -10,6 +10,7 @@
 		01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */; };
 		016FCC6E236BBC1C00B1F387 /* AdViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016FCC6C236BBC1C00B1F387 /* AdViewer.storyboard */; };
 		016FCC6F236BBC1C00B1F387 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016FCC6D236BBC1C00B1F387 /* AdViewController.swift */; };
+		0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E329A8D24182F6D0020F007 /* Profile.storyboard */; };
 		3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8123327702009098D5 /* AppDelegate.swift */; };
 		3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8823327703009098D5 /* Assets.xcassets */; };
 		3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8A23327703009098D5 /* LaunchScreen.storyboard */; };
@@ -31,9 +32,8 @@
 		3CF41A5A2344E26E0082B6F7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A592344E26E0082B6F7 /* Notifications.swift */; };
 		3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E8E362346CF55007705C2 /* Login.storyboard */; };
 		3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3823494CE3007705C2 /* LoginViewController.swift */; };
-		3F4AE8BB2359637000DD0DC6 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */; };
 		3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BC235965DD00DD0DC6 /* User.swift */; };
-		3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */; };
+		3F4AE8BF235BB1B400DD0DC6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */; };
 		3F81E91A236FE1F0008B3673 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E918236FE1F0008B3673 /* MyPostTableViewCell.swift */; };
 		3F81E91B236FE1F0008B3673 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */; };
 		40B43565159A6E43DF001194 /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E696BAFC0B3DC94CF07C66C /* Pods_Voyce.framework */; };
@@ -48,6 +48,7 @@
 		01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		016FCC6C236BBC1C00B1F387 /* AdViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdViewer.storyboard; sourceTree = "<group>"; };
 		016FCC6D236BBC1C00B1F387 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
+		0E329A8D24182F6D0020F007 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3C2EEE7E23327702009098D5 /* Voyce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2EEE8123327702009098D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2EEE8823327703009098D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,9 +72,8 @@
 		3CF41A592344E26E0082B6F7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		3F0E8E362346CF55007705C2 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3F0E8E3823494CE3007705C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
 		3F4AE8BC235965DD00DD0DC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3F81E918236FE1F0008B3673 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
 		3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
 		88138A44DEA6DA9EFC329C4B /* Pods-Voyce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.release.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,8 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				3F81E917236FE1F0008B3673 /* Cells */,
-				3F4AE8BA2359637000DD0DC6 /* MyProfile.storyboard */,
-				3F4AE8BE235BB1B400DD0DC6 /* MyProfileViewController.swift */,
+				0E329A8D24182F6D0020F007 /* Profile.storyboard */,
+				3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -350,9 +350,9 @@
 				3C62D8E12333D00700627FFB /* CardPic.xib in Resources */,
 				3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */,
 				01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */,
+				0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */,
 				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
 				E1257CA624131557001927EB /* FindPeople.storyboard in Resources */,
-				3F4AE8BB2359637000DD0DC6 /* MyProfile.storyboard in Resources */,
 				3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */,
 				3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */,
 			);
@@ -423,7 +423,7 @@
 				3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */,
 				E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */,
 				3C62D8E32333D01100627FFB /* Card.swift in Sources */,
-				3F4AE8BF235BB1B400DD0DC6 /* MyProfileViewController.swift in Sources */,
+				3F4AE8BF235BB1B400DD0DC6 /* ProfileViewController.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
 				3C55ECBE23688D9400B5738F /* VoyceTabBar.swift in Sources */,
 				3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */,

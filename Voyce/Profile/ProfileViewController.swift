@@ -15,7 +15,7 @@ import UIKit
 
 private let user = DatabaseManager.shared.sharedUser
 
-class MyProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyPostTableViewCellDelegate
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyPostTableViewCellDelegate
 {
     // --- Used for firebase functions below ---
     // lazy var functions = Functions.functions()

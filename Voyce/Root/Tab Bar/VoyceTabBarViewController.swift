@@ -30,7 +30,7 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
         let adVC = UIStoryboard(name: "AdViewer", bundle: nil).instantiateViewController(withIdentifier: "AdViewerVC")
         let addPostVC = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
         let findPeopleVC = UIStoryboard(name: "FindPeople", bundle: nil).instantiateViewController(withIdentifier: "FindPeopleVC")
-        let profileVC = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileVC")
+        let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
         viewControllers = [feedVC, adVC, addPostVC, findPeopleVC, profileVC]
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
