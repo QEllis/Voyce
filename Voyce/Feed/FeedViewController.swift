@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CardDelegate
 {
     @IBOutlet var tableView: UITableView!
     
@@ -38,6 +38,51 @@ class FeedViewController: UIViewController
         print("newPosts reload")
         tableView.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        guard let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else
+        {
+            return
+        }
+        vc.post = DatabaseManager.shared.posts[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return tableView.frame.height
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return DatabaseManager.shared.posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let card = tableView.dequeueReusableCell(withIdentifier: "Card") as! Card
+        card.fillOut(with: DatabaseManager.shared.posts[indexPath.row])
+        card.delegate = self
+        return card
+    }
+    
+    func profileButtonDidPressed(postUser: User)
+    {
+        if (postUser.userID == DatabaseManager.shared.sharedUser.userID)
+        {
+            self.tabBarController?.selectedIndex = 0
+        }
+        else
+        {
+            let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+            vc.user = postUser
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
+// ------------------------------- To be used later -------------------------------
     
 //    @IBAction func postPressed(_ sender: Any)
 //    {
@@ -88,47 +133,3 @@ class FeedViewController: UIViewController
 //            }
 //        }
 //    }
-}
-
-// MARK: - UITableViewDelegate
-
-extension FeedViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else { return }
-        vc.post = DatabaseManager.shared.posts[indexPath.row]
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-}
-
-extension FeedViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DatabaseManager.shared.posts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let card = tableView.dequeueReusableCell(withIdentifier: "Card") as! Card
-        card.fillOut(with: DatabaseManager.shared.posts[indexPath.row])
-        card.delegate = self
-        return card
-    }
-    
-}
-
-extension FeedViewController: CardDelegate {
-    func profileButtonDidPressed(postUser: User) {
-        if (postUser.userID == DatabaseManager.shared.sharedUser.userID) {
-            self.tabBarController?.selectedIndex = 0
-        } else {
-            let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-            vc.user = postUser
-            navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-}

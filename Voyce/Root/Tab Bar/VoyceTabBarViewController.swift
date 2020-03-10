@@ -8,13 +8,11 @@
 
 import UIKit
 
-class VoyceTabBarViewController: UITabBarController
+class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
 {
     var voyceTabBar: VoyceTabBar = VoyceTabBar()
     @IBInspectable var defaultIndex : Int = 0
-    
     fileprivate var debouncedUpdateTab: (() -> Void)!
-
     fileprivate var fromIndex: Int?
     fileprivate var toIndex: Int?
     
@@ -29,15 +27,10 @@ class VoyceTabBarViewController: UITabBarController
     {
         view.layoutIfNeeded()
         let feedVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
-        
         let adVC = UIStoryboard(name: "AdViewer", bundle: nil).instantiateViewController(withIdentifier: "AdViewerVC")
-        
         let addPostVC = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
-        
         let findPeopleVC = UIStoryboard(name: "FindPeople", bundle: nil).instantiateViewController(withIdentifier: "FindPeopleVC")
-        
         let profileVC = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileVC")
-        
         viewControllers = [feedVC, adVC, addPostVC, findPeopleVC, profileVC]
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
@@ -76,12 +69,7 @@ class VoyceTabBarViewController: UITabBarController
     {
         return voyceTabBar.bounds.height
     }
-}
-
-// MARK: PinataTabBarDelegate
-
-extension VoyceTabBarViewController: VoyceTabBarDelegate
-{
+    
     func tabBar(from: Int, to: Int)
     {
         fromIndex = from

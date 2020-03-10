@@ -15,7 +15,6 @@ protocol CardDelegate
 
 final class Card: UITableViewCell
 {
-    
     var delegate: CardDelegate?
     var postUser: User = User(userID: "0", name: "nil", username: "nil")
     var currentUser: User = DatabaseManager.shared.sharedUser

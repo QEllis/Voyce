@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostCreationViewController: UIViewController, UITextViewDelegate {
+class PostCreationViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var postImage: UIImageView!
@@ -104,35 +104,35 @@ class PostCreationViewController: UIViewController, UITextViewDelegate {
     @IBAction func backPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-}
-
-extension PostCreationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image_data = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
-        postImage.image = image_data
-        let imageURL = info[UIImagePickerControllerImageURL] as! URL
-        uploadImage(imageURL: imageURL)
-        //                let imageData: Data = UIImagePNGRepresentation(image_data)!
-        //                _ = imageData.base64EncodedString()
-        self.dismiss(animated: true, completion: nil)
-    }
     
-    func uploadImage(imageURL: URL) {
-        // Create a root reference
-        let storageRef = DatabaseManager.shared.storage.reference()
-        
-        // Create a reference to the file you want to upload
-        let imageRef = storageRef.child("images/a.jpg");
-        
-        // Upload the file to the path
-        let uploadTask = imageRef.putFile(from: imageURL, metadata: nil) { metadata, error in guard let metadata = metadata else { return }
-            // Metadata contains file metadata such as size, content-type.
-            let size = metadata.size
-            // You can also access to download URL after upload.
-            imageRef.downloadURL { (url, error) in guard let downloadURL = url else { return }
-            }
-        }
-        
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+           let image_data = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+           postImage.image = image_data
+           let imageURL = info[UIImagePickerControllerImageURL] as! URL
+           uploadImage(imageURL: imageURL)
+           //                let imageData: Data = UIImagePNGRepresentation(image_data)!
+           //                _ = imageData.base64EncodedString()
+           self.dismiss(animated: true, completion: nil)
+       }
+       
+       func uploadImage(imageURL: URL)
+       {
+           // Create a root reference
+           let storageRef = DatabaseManager.shared.storage.reference()
+           
+           // Create a reference to the file you want to upload
+           let imageRef = storageRef.child("images/a.jpg");
+           
+           // Upload the file to the path
+           let uploadTask = imageRef.putFile(from: imageURL, metadata: nil) { metadata, error in guard let metadata = metadata else { return }
+               // Metadata contains file metadata such as size, content-type.
+               let size = metadata.size
+               // You can also access to download URL after upload.
+               imageRef.downloadURL { (url, error) in guard let downloadURL = url else { return }
+               }
+           }
+    }
+}
         
         
 
@@ -186,5 +186,4 @@ extension PostCreationViewController: UIImagePickerControllerDelegate, UINavigat
 //            }
 //          }
 //        }
-    }
-}
+

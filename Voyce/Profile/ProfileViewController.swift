@@ -11,57 +11,71 @@ import UIKit
 
 //private let user = UserManager.shared.sharedUser
 
-class ProfileViewController: UIViewController {
-  
-  @IBOutlet weak var nameLabel: UILabel!
-  
-  @IBOutlet weak var usernameLabel: UILabel!
-  @IBOutlet weak var goodVibesLabel: UILabel!
-  @IBOutlet weak var followButtonLabel: UIButton!
-  
-  var followed:Bool = false
+class ProfileViewController: UIViewController
+{
+    // Member Variables
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var goodVibesLabel: UILabel!
+    @IBOutlet weak var followButtonLabel: UIButton!
+    var isFollowed:Bool = false
+    var user = User.init()
+    
+    // Member Functions
+    override func viewDidLoad()
+    {
+        //TODO: take user information from token passed through segue
+        nameLabel.text = user.name
+        usernameLabel.text = "@" + user.username
+        goodVibesLabel.text = "Good Vibes: \(user.totalVibes)"
+        setIsFollowed()
+    }
+    
+    // Checks if the user is followed or not and sets isFollowed bool value
+    func setIsFollowed()
+    {
+        if(user.checkIfFollowed(userID: usernameLabel.text!))
+        {
+            followButtonLabel.setTitle("Unfollow", for: .normal)
+            isFollowed = true
+        }
+        else
+        {
+            followButtonLabel.setTitle("Follow", for: .normal)
+        }
+    }
+    
+    func switchFollowButton()
+    {
+        isFollowed.toggle()
+        if(isFollowed)
+        {
+            followButtonLabel.setTitle("Unfollow", for: .normal)
+        }
+        else
+        {
+            followButtonLabel.setTitle("Follow", for: .normal)
+        }
+    }
+    
+    // Allows user to follow/unfollower other user and updates database accordingly
+    @IBAction func FollowPressed(_ sender: Any)
+    {
+        if(isFollowed)
+        {
+            user.removeFollowed(userID: usernameLabel.text!)
+        }
 
-  var user = User.init()
-  override func viewDidLoad() {
-    //TODO: take user information from token passed through segue
-    nameLabel.text = user.name
-    usernameLabel.text = "@" + user.username
-    goodVibesLabel.text = "Good Vibes: \(user.totalVibes)"
+        else
+        {
+            user.addFollowed(userID: usernameLabel.text!)
+        }
+        switchFollowButton()
+    }
     
-    //check if user is already followed
-    if(user.checkIfFollowed(userID: usernameLabel.text!)){
-      //if already followed, turn button text to followed
-      followButtonLabel.setTitle("Unfollow", for: .normal)
-      followed = true
-//      print("User followed")
-    }else{
-      //else set to follow
-      followButtonLabel.setTitle("Follow", for: .normal)
-//      print("User not followed")
+    //
+    @IBAction func backPressed(_ sender: Any)
+    {
+        navigationController?.popViewController(animated: true)
     }
-  }
-  @IBAction func FollowPressed(_ sender: Any) {
-    if(followed){
-      //Unfollow user
-        user.removeFollowed(userID: usernameLabel.text!)
-    }else{
-      //follow user
-        user.addFollowed(userID: usernameLabel.text!)
-    }
-    switchFollowButton()
-    
-  }
-  @IBAction func backPressed(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
-  }
-  
-  func switchFollowButton(){
-    followed.toggle()
-    if(followed){
-      followButtonLabel.setTitle("Unfollow", for: .normal)
-    }else{
-      //else set to follow
-      followButtonLabel.setTitle("Follow", for: .normal)
-    }
-  }
 }
