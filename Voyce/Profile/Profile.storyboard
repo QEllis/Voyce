@@ -43,7 +43,7 @@
                                 <color key="textColor" name="Text - Body"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ad Feed Selected" translatesAutoresizingMaskIntoConstraints="NO" id="I89-KD-Xag">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="I89-KD-Xag">
                                 <rect key="frame" x="101" y="356.5" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="AnK-nU-l11"/>
@@ -111,8 +111,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ad Feed Selected" width="128" height="128"/>
         <image name="Profile" width="128" height="128"/>
+        <image name="Wand" width="128" height="128"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
