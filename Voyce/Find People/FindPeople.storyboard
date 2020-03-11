@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="sa4-PX-A5c">
-                                <rect key="frame" x="-247.5" y="44" width="909" height="50"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="sa4-PX-A5c">
+                                <rect key="frame" x="132" y="44" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QU7-mT-fRA"/>
                                 </constraints>
@@ -59,7 +59,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="454.5" height="216"/>
+        <image name="Logo" width="512" height="128"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
