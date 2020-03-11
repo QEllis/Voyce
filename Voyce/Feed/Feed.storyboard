@@ -32,33 +32,39 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-wj-a5G">
                                         <rect key="frame" x="0.0" y="0.0" width="132" height="50"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="9,812,312" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-qs-8kf">
-                                                <rect key="frame" x="58" y="8.6666666666666643" width="74" height="33"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="mqd-vA-ya8">
+                                                <rect key="frame" x="25" y="10" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="SdB-VF-YLJ"/>
+                                                    <constraint firstAttribute="width" constant="30" id="uBa-OP-JMd"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="9,312,734" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lZY-d8-vAc">
+                                                <rect key="frame" x="55" y="10" width="77" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="hrZ-Js-fAM"/>
+                                                </constraints>
                                                 <color key="textColor" name="Text - Body"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wand" id="ewO-VQ-rf8">
-                                                <rect key="frame" x="18" y="9" width="30" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="fTI-qs-8kf" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="1s5-0a-Ytv"/>
-                                            <constraint firstAttribute="trailing" secondItem="fTI-qs-8kf" secondAttribute="trailing" id="ad5-8Q-16g"/>
-                                            <constraint firstItem="fTI-qs-8kf" firstAttribute="leading" secondItem="ewO-VQ-rf8" secondAttribute="trailing" constant="10" id="gfH-09-Jck"/>
+                                            <constraint firstItem="lZY-d8-vAc" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="3bK-VW-NJV"/>
+                                            <constraint firstAttribute="trailing" secondItem="lZY-d8-vAc" secondAttribute="trailing" id="B6Z-49-n7J"/>
+                                            <constraint firstItem="mqd-vA-ya8" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="W1G-yT-5sV"/>
+                                            <constraint firstItem="mqd-vA-ya8" firstAttribute="leading" secondItem="FW9-wj-a5G" secondAttribute="leading" constant="25" id="yFX-sY-EgN"/>
+                                            <constraint firstItem="lZY-d8-vAc" firstAttribute="leading" secondItem="mqd-vA-ya8" secondAttribute="trailing" id="yd1-7o-VV9"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-JF-OX4">
                                         <rect key="frame" x="132" y="0.0" width="150" height="50"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voyce_logo" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-0i-QWe">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-0i-QWe">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
@@ -156,8 +162,8 @@
     </scenes>
     <resources>
         <image name="Concert" width="1000" height="750"/>
-        <image name="voyce_logo" width="800" height="350"/>
-        <image name="wand" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="Logo" width="341.33334350585938" height="85.333335876464844"/>
+        <image name="Wand" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
