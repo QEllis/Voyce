@@ -56,6 +56,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         goodVibesLabel.text = "Good Vibes: \(user.totalVibes)"
         print(usernameLabel.text ?? "none")
         print(goodVibesLabel.text ?? "none")
+        print("users'ad vibes are \(DatabaseManager.shared.sharedUser.adVibes)")
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

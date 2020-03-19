@@ -69,6 +69,8 @@ final class Card: UITableViewCell
     func updateVibes()
     {
         postUser.addVibes(totalVibes: 1)
+        //add earned vibes to postUser
+        postUser.addEarnedVibes(unusedVibes: 1)
         currentUser.removeVibes()
     }
     

@@ -12,6 +12,7 @@ public class User
     var username: String
     var totalVibes: Int
     var unusedVibes: Int
+    var adVibes: Int
     var profilePic: URL?
     var followed: Set<String>
     
@@ -21,6 +22,7 @@ public class User
             "username": username,
             "totalvibes": totalVibes,
             "unusedVibes": unusedVibes,
+            "adVibes": adVibes,
             "profilePic": profilePic?.absoluteString as Any
         ]
     }
@@ -31,6 +33,7 @@ public class User
         self.username = "0"
         self.totalVibes = 0
         self.unusedVibes = 0
+        self.adVibes = 0
         self.profilePic = nil
         self.followed = Set<String>.init()
     }
@@ -41,6 +44,7 @@ public class User
         self.username = username
         self.totalVibes = 0
         self.unusedVibes = 0
+        self.adVibes = 0
         self.profilePic = nil
         self.followed = Set<String>.init()
     }
@@ -51,6 +55,7 @@ public class User
         self.username = username
         self.totalVibes = totalVibes
         self.unusedVibes = 0
+        self.adVibes = 0
         self.profilePic = nil
         self.followed = Set<String>.init()
     }
@@ -61,6 +66,7 @@ public class User
         self.username = username
         self.totalVibes = totalVibes
         self.unusedVibes = 0
+        self.adVibes = 0
         self.profilePic = URL(string: profilePic)
         self.followed = Set<String>.init()
     }
@@ -71,6 +77,7 @@ public class User
         self.username = user.displayName!
         self.totalVibes = 0
         self.unusedVibes = 0
+        self.adVibes = 0
         self.profilePic = URL(string: "")
         self.followed = Set<String>.init()
         
@@ -120,12 +127,56 @@ public class User
                      "unusedVibes": FieldValue.increment(Int64(1))
                  ])
     }
-    
+    //remove number of ad vibes
     func removeVibes()
     {
-        if (self.totalVibes >= 1) {
-            self.totalVibes -= 1
+//        if (self.totalVibes >= 1) {
+//            self.totalVibes -= 1
+//        }
+        
+        if (self.adVibes >= 1) {
+            self.adVibes -= 1
+            let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
+                    shardRef.updateData([
+                        "adVibes": FieldValue.increment(Int64(-1))
+                    ])
         }
+    }
+    
+    //sets ad vibes
+    func setAdVibes(adVibes: Int){
+        self.adVibes = adVibes
+    }
+    
+    //gets ad vibes
+    func getAdVibes() -> Int {
+        return self.adVibes
+    }
+    
+    func addAdVibes(adVibes: Int) {
+        self.adVibes += adVibes
+        let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
+                 shardRef.updateData([
+                     "adVibes": FieldValue.increment(Int64(1))
+                 ])
+    }
+   
+    //sets earned vibes
+    func setEarnedVibes(unusedVibes: Int){
+        self.unusedVibes=unusedVibes
+    }
+    
+    //gets earned vibes
+    func getEarnedVibes() -> Int{
+        return self.unusedVibes
+    }
+    
+    func addEarnedVibes(unusedVibes: Int){
+        self.unusedVibes += unusedVibes
+        let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
+                shardRef.updateData([
+                    "unusedVibes": FieldValue.increment(Int64(1))
+                ])
     }
     
     func loadUserData(document: DocumentSnapshot)

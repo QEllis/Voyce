@@ -35,7 +35,8 @@ class AdViewController: UIViewController {
         let docRef = shared.db.collection("users").document(shared.sharedUser.userID);
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                self.vibes = document.get("totalVibes") as! Int;
+//                self.vibes = document.get("totalVibes") as! Int;
+              self.vibes = document.get("adVibes") as! Int;
                 print("Updated: \(self.vibes)")
             } else {
                 print("Vibes not found");
@@ -85,20 +86,31 @@ class AdViewController: UIViewController {
     func startTimer() {
         print("in start timer function")
         // Not correct at the start of the timer
-        print("Number of vibes: \(DatabaseManager.shared.sharedUser.getVibes())")
+//        print("Number of vibes: \(DatabaseManager.shared.sharedUser.getVibes())")
+//        print("Username: \(shared.sharedUser.name)")
+        
+        print("Number of ad vibes: \(DatabaseManager.shared.sharedUser.getAdVibes())")
         print("Username: \(shared.sharedUser.name)")
+        
         stopTimer()
         guard self.timer == nil else { return }
         initTimer()
-        vibes = DatabaseManager.shared.sharedUser.getVibes()
+//        vibes = DatabaseManager.shared.sharedUser.getVibes()
+        vibes = DatabaseManager.shared.sharedUser.getAdVibes()
     }
     
     func stopTimer() {
         guard timer != nil else { return }
         timer?.invalidate()
         timer = nil
-        DatabaseManager.shared.sharedUser.setVibes(totalVibes: self.vibes)
-        print("Number of vibes: \(shared.sharedUser.getVibes())")
+//        DatabaseManager.shared.sharedUser.setVibes(totalVibes: self.vibes)
+//        print("Number of vibes: \(shared.sharedUser.getVibes())")
+//        print("Username: \(shared.sharedUser.name)")
+        
+        //sets to ad vibes
+        DatabaseManager.shared.sharedUser.setAdVibes(adVibes: self.vibes)
+        print("in stop timer")
+        print("Number of ad vibes: \(shared.sharedUser.getAdVibes())")
         print("Username: \(shared.sharedUser.name)")
     }
     
@@ -193,10 +205,16 @@ class AdViewController: UIViewController {
         //SALV
         vibes += 1
         
+//        let shardRef = DatabaseManager.shared.db.collection("users").document(shared.sharedUser.userID)
+//        shardRef.updateData([
+//            "unusedVibes": FieldValue.increment(Int64(1))
+//        ])
+        //increment ad vibes in database
         let shardRef = DatabaseManager.shared.db.collection("users").document(shared.sharedUser.userID)
         shardRef.updateData([
-            "unusedVibes": FieldValue.increment(Int64(1))
+            "adVibes": FieldValue.increment(Int64(1))
         ])
+        
         vibezLabel.text = "Good Vibes: \(vibes)"
         //    shared.db.collection("users").document(shared.sharedUser.userID) .setData([ "goodvibes": vibes ], merge: true);
         //    //print(shared.sharedUser.userID);
