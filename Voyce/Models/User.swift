@@ -202,7 +202,6 @@ public class User
                  ])
     }
     func hasUnusedVibes() -> Bool {
-        
         let docRef = DatabaseManager.shared.db.collection("users").document(userID)
 
         docRef.getDocument { (document, error) in

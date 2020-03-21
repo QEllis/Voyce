@@ -233,9 +233,8 @@ class DatabaseManager
     
     /* Comment functionality portion below */
         
-        //creates comment from text, ID of commenter, and post on which commented
+    //creates comment from text, ID of commenter, and post on which commented
     public func addComment(content: String, userID: String, postID: String){
-        print("Called");
         let vibes = 0
         let id = UUID()
         db.collection("comments").document(id.uuidString).setData([
@@ -255,18 +254,16 @@ class DatabaseManager
          
     }
     
-    /* Load all comments of a specific post */
+    /* Load all comments of a specific post and populates the DatabaseManager.comments[] member */
     public func loadComments(postID: String){
-        
         db.collection("comments").whereField("postID", isEqualTo: postID).order(by: "vibes", descending: true)
                          .getDocuments() { (querySnapshot, err) in
                              if let err = err {
                                  print("Error getting documents: \(err)")
                              } else {
                                 self.comments = []
-                                 for document in querySnapshot!.documents {
+                                for document in querySnapshot!.documents {
                                      let data = document.data()
-                                     
                                      let currComment = Comment(commentID: data["commentID"] as! String,
                                                                content: data["content"] as! String,
                                                                userID: data["userID"] as! String,
@@ -276,10 +273,43 @@ class DatabaseManager
                                      
                                      print(currComment)
                                      self.comments.append(currComment)
-                                 }
+                                }
                              }
                      }
-        
     }
+    
+    /* Helper function that returns true if current user is owner of comment object */
+    public func isCommenter(currComment: Comment) -> Bool {
+        if(currComment.userID == sharedUser.userID){
+            print("Is the commenter")
+            return true;
+        }
+        print("Is not the commenter")
+        return false;
+    }
+    
+    /* If the current signed in user is the one who commented, then the comment object is removed from DB. Otherwise nothing happens */
+    public func removeComment(currComment: Comment){
+        if(isCommenter(currComment: currComment)){
+            db.collection("comments").document(currComment.commentID).delete() { err in
+                if let err = err {
+                    print("Error removing comment: \(err)")
+                } else {
+                    print("Comment successfully removed!")
+                }
+            }
+        }
+    }
+    
+    /* If the current signed in user is the one who commented, then comment is modified given the new text */
+    public func editComment(currComment: Comment, newText: String){
+        if(isCommenter(currComment: currComment)){
+            
+        }
+    }
+    
+    
+    
+    
 }
 
