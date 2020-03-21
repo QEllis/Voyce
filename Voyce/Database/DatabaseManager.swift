@@ -22,6 +22,7 @@ class DatabaseManager
     var acknowledgedPosts:[String:Post]
     var myPosts: [Post]  
     var posts: [Post] = []
+    var comments: [Comment] = []
     {
         didSet
         {
@@ -227,4 +228,71 @@ class DatabaseManager
     public func checkIfFollowed(username: String) -> Bool {
         return DatabaseManager.shared.sharedUser.checkIfFollowed(userID: username)
     }
+    
+    
+    
+    /* Comment functionality portion below */
+        
+        //creates comment from text, ID of commenter, and post on which commented
+    public func addComment(content: String, userID: String, postID: String){
+        print("Called");
+        let vibes = 0
+        let id = UUID()
+        db.collection("comments").document(id.uuidString).setData([
+            "postID": postID,
+            "userID": userID,
+            "ts": NSDate().timeIntervalSince1970,
+            "content": content,
+            "vibes": vibes,
+            "commentID": id.uuidString
+            ]) { err in
+                if let err = err {
+                    print("Error writing post to db: \(err)")
+                } else {
+                        print("post successfully written to db!")
+                }
+            }
+         
+    }
+    
+    /* Load all comments of a specific post */
+    public func loadComments(postID: String){
+        
+        let collection = db.collection("comments")
+        collection.order(by: "vibes", descending: true).limit(to: 100).getDocuments()
+        {
+            (querySnapshot, err) in
+            if let err = err
+            {
+                print("Error getting documents: \(err)")
+            }
+            else
+            {
+                self.comments = []
+                // Iterates through all comments
+                for document in querySnapshot!.documents
+                {
+                    let data = document.data()
+                    
+                    let currComment = Comment(commentID: data["commentID"] as! String,
+                                              content: data["content"] as! String,
+                                              userID: data["userID"] as! String,
+                                              postID: data["postID"] as! String,
+                                              timeStamp: data["ts"] as! TimeInterval,
+                                              vibes: data["vibes"] as! Int)
+                    
+                    print(currComment)
+                    self.comments.append(currComment)
+                    
+                }
+                // Links each post to a post user
+                for i in 0..<self.comments.count
+                {
+                    print(i);
+                }
+            }
+        }
+        
+    }
 }
+
