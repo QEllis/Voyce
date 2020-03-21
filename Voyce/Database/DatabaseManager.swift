@@ -258,40 +258,27 @@ class DatabaseManager
     /* Load all comments of a specific post */
     public func loadComments(postID: String){
         
-        let collection = db.collection("comments")
-        collection.order(by: "vibes", descending: true).limit(to: 100).getDocuments()
-        {
-            (querySnapshot, err) in
-            if let err = err
-            {
-                print("Error getting documents: \(err)")
-            }
-            else
-            {
-                self.comments = []
-                // Iterates through all comments
-                for document in querySnapshot!.documents
-                {
-                    let data = document.data()
-                    
-                    let currComment = Comment(commentID: data["commentID"] as! String,
-                                              content: data["content"] as! String,
-                                              userID: data["userID"] as! String,
-                                              postID: data["postID"] as! String,
-                                              timeStamp: data["ts"] as! TimeInterval,
-                                              vibes: data["vibes"] as! Int)
-                    
-                    print(currComment)
-                    self.comments.append(currComment)
-                    
-                }
-                // Links each post to a post user
-                for i in 0..<self.comments.count
-                {
-                    print(i);
-                }
-            }
-        }
+        db.collection("comments").whereField("postID", isEqualTo: postID).order(by: "vibes", descending: true)
+                         .getDocuments() { (querySnapshot, err) in
+                             if let err = err {
+                                 print("Error getting documents: \(err)")
+                             } else {
+                                self.comments = []
+                                 for document in querySnapshot!.documents {
+                                     let data = document.data()
+                                     
+                                     let currComment = Comment(commentID: data["commentID"] as! String,
+                                                               content: data["content"] as! String,
+                                                               userID: data["userID"] as! String,
+                                                               postID: data["postID"] as! String,
+                                                               timeStamp: data["ts"] as! TimeInterval,
+                                                               vibes: data["vibes"] as! Int)
+                                     
+                                     print(currComment)
+                                     self.comments.append(currComment)
+                                 }
+                             }
+                     }
         
     }
 }
