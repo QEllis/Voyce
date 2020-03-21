@@ -22,13 +22,15 @@ class DatabaseManager
     var acknowledgedPosts:[String:Post]
     var myPosts: [Post]  
     var posts: [Post] = []
-    var comments: [Comment] = []
     {
         didSet
         {
             NotificationCenter.default.post(name: .NewPosts, object: nil)
         }
     }
+    
+    var comments: [Comment] = []
+
     
     // Class Constructor
     init()
