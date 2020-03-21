@@ -124,7 +124,7 @@ public class User
         self.totalVibes += totalVibes
         let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
                  shardRef.updateData([
-                     "unusedVibes": FieldValue.increment(Int64(1))
+                     "totalVibes": FieldValue.increment(Int64(1))
                  ])
     }
     //remove number of ad vibes
