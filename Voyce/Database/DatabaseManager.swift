@@ -145,7 +145,7 @@ class DatabaseManager
     {
         print("IN LOAD FEED");
         let collection = db.collection("posts")
-        collection.order(by: "likeCount", descending: true).limit(to: 10).getDocuments()
+        collection.order(by: "vibes", descending: true).limit(to: 10).getDocuments()
         {
             (querySnapshot, err) in
             if let err = err
@@ -154,22 +154,24 @@ class DatabaseManager
             }
             else
             {
+                print("didn't error");
                 self.posts = []
                 var uids: [String] = []
                 var newPosts: [Post] = []
                 // Iterates through all posts in Firebase
                 for document in querySnapshot!.documents
                 {
+                    print("got document")
                     let data = document.data()
                     let p = Post(pid: document.documentID,
-                                 text: data["text"] as! String,
-                                 media: data["media"] as! String,
+                                 text: data["content"] as! String,
+                                 media: "",
                                  user: User(),
-                                 likeCount: data["likeCount"] as! Int,
-                                 image: data["image"] as? String)
+                                 likeCount: data["vibes"] as! Int,
+                                 image: data["content"] as? String)
                     //                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
                     //                        self.posts.append(p)
-                    uids.append(data["uid"] as! String)
+                    uids.append(data["userID"] as! String)
                     newPosts.append(p)
                     print("POST: \(document.documentID) => \(document.data())")
                 }
