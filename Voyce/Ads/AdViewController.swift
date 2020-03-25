@@ -10,23 +10,23 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
-
+import GoogleMobileAds
 private let shared = DatabaseManager.shared
 class AdViewController: UIViewController {
-    
+
     @IBOutlet var vibezLabel: UILabel!
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var videoLabel: UILabel!
     @IBOutlet var imageAdView: UIImageView!
     @IBOutlet var adView: UIView!
-    
+
     var vibes = 0
     var adNumber = 0
     var timer: Timer?
     //  var ads:[Ad] = []
     var ads = NSMutableArray()
     var icon = UIImage(named: "wand")
-    
+
     override func viewDidLoad(){
         print("Ads View Did Load")
         super.viewDidLoad();
@@ -45,7 +45,7 @@ class AdViewController: UIViewController {
         initTimer()
         stopTimer()
         ads.addObjects(from: [UIImage(named: "Beach"), UIImage(named: "Getty"), UIImage(named: "Concert"), "Text Advertisement"])
-        
+
         //FRANK assuming this will come in as an array of Strings or UIImages
         //vibes = UserManager.shared.sharedUser.getVibes()
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
@@ -77,28 +77,28 @@ class AdViewController: UIViewController {
             videoLabel.isHidden = false
         }
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         print("Triggered view did disappear")
         stopTimer()
     }
-    
+
     func startTimer() {
         print("in start timer function")
         // Not correct at the start of the timer
 //        print("Number of vibes: \(DatabaseManager.shared.sharedUser.getVibes())")
 //        print("Username: \(shared.sharedUser.name)")
-        
+
         print("Number of ad vibes: \(DatabaseManager.shared.sharedUser.getAdVibes())")
         print("Username: \(shared.sharedUser.name)")
-        
+
         stopTimer()
         guard self.timer == nil else { return }
         initTimer()
 //        vibes = DatabaseManager.shared.sharedUser.getVibes()
         vibes = DatabaseManager.shared.sharedUser.getAdVibes()
     }
-    
+
     func stopTimer() {
         guard timer != nil else { return }
         timer?.invalidate()
@@ -106,14 +106,14 @@ class AdViewController: UIViewController {
 //        DatabaseManager.shared.sharedUser.setVibes(totalVibes: self.vibes)
 //        print("Number of vibes: \(shared.sharedUser.getVibes())")
 //        print("Username: \(shared.sharedUser.name)")
-        
+
         //sets to ad vibes
         DatabaseManager.shared.sharedUser.setAdVibes(adVibes: self.vibes)
         print("in stop timer")
         print("Number of ad vibes: \(shared.sharedUser.getAdVibes())")
         print("Username: \(shared.sharedUser.name)")
     }
-    
+
     func loadNewAds() -> Bool {
         //to be called when view appears
         //pull from database
@@ -127,7 +127,7 @@ class AdViewController: UIViewController {
             return false
         }
     }
-    
+
     func showEmptyAd(){
         adLabel.text = "No more ads to show"
         adLabel.isHidden = false
@@ -135,8 +135,8 @@ class AdViewController: UIViewController {
         videoLabel.isHidden = true
         stopTimer()
     }
-    
-    
+
+
     @IBAction func swipeHandler(sender : UISwipeGestureRecognizer) {
         if sender.state == .ended {
             if(ads.count == 0){
@@ -166,7 +166,7 @@ class AdViewController: UIViewController {
             default:
                 break
             }
-            
+
             if adNumber >= ads.count {
                 //show no more ads message
                 showEmptyAd()
@@ -176,7 +176,7 @@ class AdViewController: UIViewController {
                 showEmptyAd()
                 return
             }
-            
+
             print(adNumber)
             if ads[adNumber] is String {
                 adLabel.text = ads[adNumber] as? String
@@ -195,16 +195,16 @@ class AdViewController: UIViewController {
             }
         }
     }
-    
+
     func initTimer() {
         // Scheduling timer to Call the function "updateViewTime" with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateViewTime), userInfo: nil, repeats: true)
     }
-    
+
     @objc func updateViewTime(){
         //SALV
         vibes += 1
-        
+
 //        let shardRef = DatabaseManager.shared.db.collection("users").document(shared.sharedUser.userID)
 //        shardRef.updateData([
 //            "unusedVibes": FieldValue.increment(Int64(1))
@@ -214,10 +214,49 @@ class AdViewController: UIViewController {
         shardRef.updateData([
             "adVibes": FieldValue.increment(Int64(1))
         ])
-        
+
         vibezLabel.text = "Good Vibes: \(vibes)"
         //    shared.db.collection("users").document(shared.sharedUser.userID) .setData([ "goodvibes": vibes ], merge: true);
         //    //print(shared.sharedUser.userID);
-        
+
     }
 }
+//
+//class AdViewController: UIViewController,GADRewardedAdDelegate{
+//     // The rewarded video ad.
+//    var rewardedAd: GADRewardedAd?
+//    override func viewDidLoad() {
+//      super.viewDidLoad()
+//      rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
+//      rewardedAd?.load(GADRequest()) { error in
+//        if let error = error {
+//          // Handle ad failed to load case.
+//        } else {
+//          // Ad successfully loaded.
+//        }
+//      }
+//    }
+//
+//    @IBAction func doSomething(sender: UIButton) {
+//      if rewardedAd?.isReady == true {
+//         rewardedAd?.present(fromRootViewController: self, delegate:self)
+//      }
+//    }
+//
+//    /// Tells the delegate that the user earned a reward.
+//    func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
+//      print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+//    }
+//    /// Tells the delegate that the rewarded ad was presented.
+//    func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
+//      print("Rewarded ad presented.")
+//    }
+//    /// Tells the delegate that the rewarded ad was dismissed.
+//    func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+//      print("Rewarded ad dismissed.")
+//    }
+//    /// Tells the delegate that the rewarded ad failed to present.
+//    func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
+//      print("Rewarded ad failed to present.")
+//    }
+//}
