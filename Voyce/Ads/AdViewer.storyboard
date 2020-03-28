@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,100 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Vibes: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0D-Dw-SEF">
-                                <rect key="frame" x="133" y="566" width="109" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geM-ai-R4u">
-                                <rect key="frame" x="0.0" y="156.5" width="375" height="354"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Ad Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79e-xe-eKg">
-                                        <rect key="frame" x="100" y="167" width="175" height="20.5"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="175" id="E46-mh-Wfw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Ad Goes Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-U1-Aim">
-                                        <rect key="frame" x="20" y="167" width="335" height="20.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="p09-N0-qlV" appends="YES" id="OO0-vv-Xs7"/>
-                                        </connections>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kue-mP-2fi" userLabel="Image Ad View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
-                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="p09-N0-qlV" appends="YES" id="E2U-DB-UUK"/>
-                                        </connections>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="kue-mP-2fi" firstAttribute="leading" secondItem="geM-ai-R4u" secondAttribute="leading" id="9JP-HQ-fcG"/>
-                                    <constraint firstItem="cRR-U1-Aim" firstAttribute="centerY" secondItem="geM-ai-R4u" secondAttribute="centerY" id="9PS-AC-SXn"/>
-                                    <constraint firstItem="79e-xe-eKg" firstAttribute="centerY" secondItem="geM-ai-R4u" secondAttribute="centerY" id="Bzu-OU-oAZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="kue-mP-2fi" secondAttribute="bottom" id="FVV-3i-554"/>
-                                    <constraint firstItem="cRR-U1-Aim" firstAttribute="centerX" secondItem="geM-ai-R4u" secondAttribute="centerX" id="Ggs-vz-3J1"/>
-                                    <constraint firstItem="cRR-U1-Aim" firstAttribute="centerX" secondItem="geM-ai-R4u" secondAttribute="centerX" id="LSD-uU-NCx"/>
-                                    <constraint firstAttribute="trailing" secondItem="cRR-U1-Aim" secondAttribute="trailing" constant="20" id="Xy4-rk-23h"/>
-                                    <constraint firstItem="kue-mP-2fi" firstAttribute="top" secondItem="geM-ai-R4u" secondAttribute="top" id="cgq-w6-ZBs"/>
-                                    <constraint firstAttribute="trailing" secondItem="kue-mP-2fi" secondAttribute="trailing" id="hHg-Wu-ZWz"/>
-                                    <constraint firstItem="79e-xe-eKg" firstAttribute="centerX" secondItem="geM-ai-R4u" secondAttribute="centerX" id="mHM-VL-bhe"/>
-                                    <constraint firstAttribute="height" constant="354" id="pwP-ur-CiC"/>
-                                </constraints>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="ehu-i6-GiD">
-                                <rect key="frame" x="91" y="448.5" width="34" height="256"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="34" id="A7m-rK-NL2"/>
-                                </constraints>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4q0-09-PMe">
+                                <rect key="frame" x="113" y="438" width="149" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="ButtonClick:" destination="OWg-zO-vfA" eventType="touchUpInside" id="QFS-Ed-vyg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="V0D-Dw-SEF" firstAttribute="centerY" secondItem="ehu-i6-GiD" secondAttribute="centerY" id="1W2-jP-U9e"/>
-                            <constraint firstItem="V0D-Dw-SEF" firstAttribute="centerX" secondItem="L4H-Qc-EZj" secondAttribute="centerX" id="8mF-e9-Ol6"/>
-                            <constraint firstItem="euc-WA-g2O" firstAttribute="bottom" secondItem="V0D-Dw-SEF" secondAttribute="bottom" constant="80" id="Egi-S0-q5c"/>
-                            <constraint firstItem="geM-ai-R4u" firstAttribute="leading" secondItem="euc-WA-g2O" secondAttribute="leading" id="KHD-zP-ed2"/>
-                            <constraint firstItem="geM-ai-R4u" firstAttribute="centerY" secondItem="L4H-Qc-EZj" secondAttribute="centerY" id="Nbe-q0-KsO"/>
-                            <constraint firstItem="geM-ai-R4u" firstAttribute="trailing" secondItem="euc-WA-g2O" secondAttribute="trailing" id="XFk-Jb-MtJ"/>
-                            <constraint firstItem="V0D-Dw-SEF" firstAttribute="leading" secondItem="ehu-i6-GiD" secondAttribute="trailing" constant="8" id="vKx-UF-GAx"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="euc-WA-g2O"/>
                     </view>
-                    <connections>
-                        <outlet property="adLabel" destination="cRR-U1-Aim" id="wIz-95-35V"/>
-                        <outlet property="adView" destination="geM-ai-R4u" id="Zrn-z1-FQk"/>
-                        <outlet property="imageAdView" destination="kue-mP-2fi" id="JBG-JI-akA"/>
-                        <outlet property="vibezLabel" destination="V0D-Dw-SEF" id="6dT-YQ-c4C"/>
-                        <outlet property="videoLabel" destination="79e-xe-eKg" id="eWV-XW-wGG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRr-rs-Zxn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="p09-N0-qlV">
-                    <connections>
-                        <action selector="swipeHandler:" destination="OWg-zO-vfA" id="nip-uR-QVl"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="125.59999999999999" y="184.85757121439281"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Wand" width="128" height="128"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

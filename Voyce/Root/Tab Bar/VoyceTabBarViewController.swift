@@ -55,14 +55,14 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
         selectedIndex = to
         guard let toVC = viewControllers?[to] else { return }
         //Check whether we are switching to the ads view contoller
-        if(toVC.navigationItem.title == "Ads")
-        {
-            //Then cast the viewcontroller to an AdViewController and run its initTimer() function
-            let toAd = toVC as! AdViewController
-            toAd.stopTimer()
-            toAd.startTimer()
-        }
-        delegate?.tabBarController?(self, didSelect: toVC)
+//        if(toVC.navigationItem.title == "Ads")
+//        {
+//            //Then cast the viewcontroller to an AdViewController and run its initTimer() function
+//            let toAd = toVC as! AdViewController
+//            toAd.stopTimer()
+//            toAd.startTimer()
+//        }
+//        delegate?.tabBarController?(self, didSelect: toVC)
     }
     
     public func getTabHeight() -> CGFloat
