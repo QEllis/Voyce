@@ -20,7 +20,8 @@ class DatabaseManager
     let storage: Storage
     var dislikedAds: [String]
     var acknowledgedPosts:[String:Post]
-    var myPosts: [Post]  
+    var myPosts: [Post]
+    var otherUsers: [User] = []
     var posts: [Post] = []
     {
         didSet
@@ -309,6 +310,32 @@ class DatabaseManager
     public func editComment(currComment: Comment, newText: String){
         if(isCommenter(currComment: currComment)){
             
+        }
+    }
+    // Loads all other users from the database
+    public func loadOtherUsers()
+    {
+        let collection = db.collection("users")
+        collection.order(by: "totalVibes", descending: true).limit(to: 10).getDocuments()
+        {
+            (querySnapshot, err) in
+            if let err = err
+            {
+                print("Error getting documents: \(err)")
+            }
+            else
+            {
+                // Iterates trough all users in the database
+                for document in querySnapshot!.documents
+                {
+                    let user = User(userID: document.documentID, name:  document.get("name") as! String, username:  document.get("username") as! String, totalVibes:  document.get("totalVibes")  as! Int, profilePic:  document.get("profilePic") as! String)
+                    if user.userID != self.sharedUser.userID
+                    {
+                        self.otherUsers.append(user)
+                    }
+                }
+                print("OtherUsers: \(self.otherUsers)")
+            }
         }
     }
     

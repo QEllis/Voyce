@@ -48,6 +48,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate
             let user = Auth.auth().currentUser
             print("User Logged in: "+user!.uid);
             userManager.userLogin(u: user!)
+            // Loads user table for FindPeopleViewController Page
+            DatabaseManager.shared.loadOtherUsers()
         }
         else
         {
