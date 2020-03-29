@@ -11,6 +11,7 @@
 		016FCC6E236BBC1C00B1F387 /* AdViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016FCC6C236BBC1C00B1F387 /* AdViewer.storyboard */; };
 		016FCC6F236BBC1C00B1F387 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016FCC6D236BBC1C00B1F387 /* AdViewController.swift */; };
 		0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E329A8D24182F6D0020F007 /* Profile.storyboard */; };
+		0E6B21D52431377300804734 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D42431377300804734 /* UserCell.swift */; };
 		3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8123327702009098D5 /* AppDelegate.swift */; };
 		3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8823327703009098D5 /* Assets.xcassets */; };
 		3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8A23327703009098D5 /* LaunchScreen.storyboard */; };
@@ -50,6 +51,7 @@
 		016FCC6C236BBC1C00B1F387 /* AdViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdViewer.storyboard; sourceTree = "<group>"; };
 		016FCC6D236BBC1C00B1F387 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 		0E329A8D24182F6D0020F007 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		0E6B21D42431377300804734 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		3C2EEE7E23327702009098D5 /* Voyce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2EEE8123327702009098D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2EEE8823327703009098D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				E1257CA524131557001927EB /* FindPeople.storyboard */,
 				E1257CA724131567001927EB /* FindPeopleViewController.swift */,
+				0E6B21D42431377300804734 /* UserCell.swift */,
 			);
 			path = "Find People";
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */,
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
 				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,
+				0E6B21D52431377300804734 /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
