@@ -13,24 +13,30 @@ import FirebaseFirestore
 import GoogleMobileAds
 private let user = DatabaseManager.shared.sharedUser
 class AdViewController: UIViewController,GADRewardedAdDelegate{
-    
+ 
      // The rewarded video ad.
     var rewardedAd: GADRewardedAd?
     override func viewDidLoad() {
-        print("in ads page")
+      print("in ads page")
       super.viewDidLoad()
-      rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
-      rewardedAd?.load(GADRequest()) { error in
-        if let error = error {
-          // Handle ad failed to load case.
-        } else {
-          // Ad successfully loaded.
-        }
-      }
     }
+    
+    override func viewDidAppear(_ animated: Bool){
+        print("test2");
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
+           rewardedAd?.load(GADRequest()) { error in
+             if let error = error {
+               // Handle ad failed to load case.
+             } else {
+               // Ad successfully loaded.
+             }
+           }
+    }
+
     
     @IBAction func ButtonClick(_ sender: Any) {
         print(rewardedAd?.isReady)
+        print("buttonClick");
             if rewardedAd?.isReady == true {
                 print("ad true")
              rewardedAd?.present(fromRootViewController: self, delegate:self)

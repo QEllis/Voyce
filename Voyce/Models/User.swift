@@ -157,7 +157,7 @@ public class User
         self.adVibes += adVibes
         let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
                  shardRef.updateData([
-                     "adVibes": FieldValue.increment(Int64(1))
+                     "adVibes": FieldValue.increment(Int64(adVibes))
                  ])
     }
    
