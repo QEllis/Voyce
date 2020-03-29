@@ -45,13 +45,27 @@ final class Card: UITableViewCell
         //profileButton.imageView = postUser.
         numVibes.text = String(post.likeCount)
         createdAtLabel.text = "today" //Add timestamp to Post
-        
-        let url = URL(string: post.image!)
-        if url != nil {
-            let data = try? Data(contentsOf: url!)
-            postImage.image = UIImage(data: data!)
-        }
+        postImage.image = URLToImg(URL(string: post.image!))
+        profileButton.setImage(URLToImg(postUser.profilePic), for: .normal)
+        circularImg(imageView: profileButton.imageView)
     }
+    // Changes the shape of each profile image into a circle
+    func circularImg(imageView: UIImageView?)
+    {
+        imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0)/2.0
+    }
+    
+    // Converts a URL to an image
+    func URLToImg(_ url: URL?) -> UIImage?
+    {
+        guard let imageURL = url else
+        {
+            return nil
+        }
+        let data = try? Data(contentsOf: imageURL)
+        return UIImage(data: data!)
+    }
+    
     
     @IBAction func profileButtonPressed(_ sender: Any)
     {
