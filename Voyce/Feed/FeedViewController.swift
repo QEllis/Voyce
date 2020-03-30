@@ -12,6 +12,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 {
     @IBOutlet var tableView: UITableView!
     
+    var limit = 3;
+    
     //Called after the controller's view is loaded into memory.
     override func viewDidLoad()
     {
@@ -55,6 +57,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return tableView.frame.height
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if(indexPath.row == DatabaseManager.shared.posts.count - 1){
+            print("At the end");
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return DatabaseManager.shared.posts.count
@@ -80,6 +88,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             // ProfileViewController has no user member
 //            vc.user = postUser
             navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            /* Add something to bottom of post*/
+            
         }
     }
 }

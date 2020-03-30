@@ -29,6 +29,16 @@ final class Card: UITableViewCell
     @IBOutlet weak var numVibes: UILabel!
     @IBOutlet weak var profileButton: UIButton!
     
+    func URLToImg(_ url: URL?) -> UIImage?
+      {
+          guard let imageURL = url else
+          {
+              return nil
+          }
+          let data = try? Data(contentsOf: imageURL)
+          return UIImage(data: data!)
+      }
+    
     public func fillOut(with post: Post)
     {
         //Set border color and size of Card
@@ -42,7 +52,7 @@ final class Card: UITableViewCell
         self.post = post
         postUser = post.user
         usernameLabel.text = postUser.username
-        //profileButton.imageView = postUser.
+        //profileButton.imageView = UIImageView(URLToImg(postUser.profilePic));
         numVibes.text = String(post.likeCount)
         createdAtLabel.text = "today" //Add timestamp to Post
         postImage.image = URLToImg(URL(string: post.image!))
@@ -54,18 +64,6 @@ final class Card: UITableViewCell
     {
         imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0)/2.0
     }
-    
-    // Converts a URL to an image
-    func URLToImg(_ url: URL?) -> UIImage?
-    {
-        guard let imageURL = url else
-        {
-            return nil
-        }
-        let data = try? Data(contentsOf: imageURL)
-        return UIImage(data: data!)
-    }
-    
     
     @IBAction func profileButtonPressed(_ sender: Any)
     {

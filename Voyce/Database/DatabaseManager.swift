@@ -14,7 +14,12 @@ import FirebaseFirestore
 class DatabaseManager
 {
     // Member Variables
+    
     static let shared = DatabaseManager()
+    
+    var mostRecentQuery: Query
+    var limit = 3
+    
     var sharedUser: User
     var db: Firestore
     let storage: Storage
@@ -42,16 +47,17 @@ class DatabaseManager
         dislikedAds = []
         acknowledgedPosts = [:]
         myPosts  = []
+        mostRecentQuery = db.collection("posts").order(by: "vibes", descending: true).limit(to: 10);
     }
     
-    // Gives a vibe from one use to the other -- Needs work
+    //adjust posts vibes count
     public func giveVibe(post: Post)
     {
         post.likeCount += 1;
         //    db.collection("posts").document(post.postID).setData(["likeCount":post.likeCount], merge: true);
         //
         let shardRef = DatabaseManager.shared.db.collection("posts").document(post.postID)
-        shardRef.updateData(["likeCount": FieldValue.increment(Int64(1))])
+        shardRef.updateData(["vibes": FieldValue.increment(Int64(1))])
     }
     
     // Called when the user logs in
