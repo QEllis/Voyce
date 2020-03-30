@@ -30,14 +30,14 @@ final class Card: UITableViewCell
     @IBOutlet weak var profileButton: UIButton!
     
     func URLToImg(_ url: URL?) -> UIImage?
-      {
-          guard let imageURL = url else
-          {
-              return nil
-          }
-          let data = try? Data(contentsOf: imageURL)
-          return UIImage(data: data!)
-      }
+    {
+        guard let imageURL = url else
+        {
+            return nil
+        }
+        let data = try? Data(contentsOf: imageURL)
+        return UIImage(data: data!)
+    }
     
     public func fillOut(with post: Post)
     {

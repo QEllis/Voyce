@@ -12,6 +12,8 @@
 		016FCC6F236BBC1C00B1F387 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016FCC6D236BBC1C00B1F387 /* AdViewController.swift */; };
 		0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E329A8D24182F6D0020F007 /* Profile.storyboard */; };
 		0E6B21D52431377300804734 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D42431377300804734 /* UserCell.swift */; };
+		0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D6243193D000804734 /* FundsViewController.swift */; };
+		0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D824319C7900804734 /* DwollaUser.swift */; };
 		3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8123327702009098D5 /* AppDelegate.swift */; };
 		3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8823327703009098D5 /* Assets.xcassets */; };
 		3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8A23327703009098D5 /* LaunchScreen.storyboard */; };
@@ -52,6 +54,8 @@
 		016FCC6D236BBC1C00B1F387 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 		0E329A8D24182F6D0020F007 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0E6B21D42431377300804734 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		0E6B21D6243193D000804734 /* FundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsViewController.swift; sourceTree = "<group>"; };
+		0E6B21D824319C7900804734 /* DwollaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DwollaUser.swift; sourceTree = "<group>"; };
 		3C2EEE7E23327702009098D5 /* Voyce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2EEE8123327702009098D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2EEE8823327703009098D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				3F81E917236FE1F0008B3673 /* Cells */,
 				0E329A8D24182F6D0020F007 /* Profile.storyboard */,
 				3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */,
+				0E6B21D6243193D000804734 /* FundsViewController.swift */,
+				0E6B21D824319C7900804734 /* DwollaUser.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -431,9 +437,11 @@
 				3C62D8E32333D01100627FFB /* Card.swift in Sources */,
 				3F4AE8BF235BB1B400DD0DC6 /* ProfileViewController.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
+				0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */,
 				3C55ECBE23688D9400B5738F /* VoyceTabBar.swift in Sources */,
 				3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */,
 				3CF41A5A2344E26E0082B6F7 /* Notifications.swift in Sources */,
+				0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */,
 				3C2EEE972332796B009098D5 /* Color.swift in Sources */,
 				E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */,
 				3C2EEEA423327C1A009098D5 /* FeedViewController.swift in Sources */,

@@ -95,24 +95,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Transfer funds to user for vibes will be implemented in the future
     @IBAction func transferButtonPressed(_ sender: Any)
     {
-//        print("Button Pressed")
-//        functions.httpsCallable("addMessage").call(["text": "This is a test"])
-//        {(result, error) in
-//            // Handles any errors in the communication
-//            if let error = error as NSError?
-//            {
-//                if error.domain == FunctionsErrorDomain
-//                {
-//                    let code = FunctionsErrorCode(rawValue: error.code)
-//                    let message = error.localizedDescription
-//                    let details = error.userInfo[FunctionsErrorDetailsKey]
-//                }
-//            }
-//            // Handles the responses from the server
-//            if let text = (result?.data as? [String: Any])?["text"] as? String
-//            {
-//                print("This is the output " + text)
-//            }
-//        }
+
     }
 }
