@@ -12,7 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="0Bx-fC-L1Y">
             <objects>
-                <navigationController id="r1c-IF-tLO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FindPeopleVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r1c-IF-tLO" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uXq-aS-Zij">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -28,7 +28,7 @@
         <!--Find People View Controller-->
         <scene sceneID="Ra4-Zh-9ZY">
             <objects>
-                <viewController storyboardIdentifier="FindPeopleVC" id="cO6-jo-RAB" customClass="FindPeopleViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cO6-jo-RAB" customClass="FindPeopleViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UQR-QB-GVG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,18 +179,6 @@
                                     <constraint firstAttribute="height" constant="36" id="ov3-MH-qW1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-ZM-CqG">
-                                <rect key="frame" x="86.5" y="464" width="241" height="32"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" title="Transfer Good Vibes to Bank">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="transferButtonPressed:" destination="Zyj-vY-GU3" eventType="touchUpInside" id="o0x-e6-HdH"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JPZ-fh-bhp">
                                 <rect key="frame" x="0.0" y="553" width="414" height="277"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -206,16 +194,14 @@
                         <color key="tintColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="fDV-W9-uAH" firstAttribute="centerX" secondItem="doz-EY-iOG" secondAttribute="centerX" id="0j6-5s-9KV"/>
-                            <constraint firstItem="5gQ-ZM-CqG" firstAttribute="centerX" secondItem="doz-EY-iOG" secondAttribute="centerX" id="1lu-RI-Bua"/>
                             <constraint firstItem="JPZ-fh-bhp" firstAttribute="leading" secondItem="Mbg-xk-yrL" secondAttribute="leading" id="2Dg-Wm-3iU"/>
                             <constraint firstItem="0Ej-ed-Q6b" firstAttribute="top" secondItem="vdY-HD-0a3" secondAttribute="bottom" constant="16" id="IEb-J8-9MB"/>
                             <constraint firstItem="FBc-4s-u5q" firstAttribute="centerY" secondItem="0Ej-ed-Q6b" secondAttribute="centerY" id="JIm-Ht-rGC"/>
+                            <constraint firstItem="f1K-iA-1oJ" firstAttribute="top" secondItem="Mbg-xk-yrL" secondAttribute="top" constant="433" id="NJi-7E-zvT"/>
                             <constraint firstItem="3vD-Oh-lI8" firstAttribute="top" secondItem="Mbg-xk-yrL" secondAttribute="top" constant="20" id="SzR-xy-uex"/>
-                            <constraint firstItem="5gQ-ZM-CqG" firstAttribute="top" secondItem="0Ej-ed-Q6b" secondAttribute="bottom" constant="35" id="XPH-wz-u3H"/>
                             <constraint firstItem="0Ej-ed-Q6b" firstAttribute="centerX" secondItem="Mbg-xk-yrL" secondAttribute="centerX" id="ZjL-OO-GzO"/>
                             <constraint firstItem="vdY-HD-0a3" firstAttribute="top" secondItem="fDV-W9-uAH" secondAttribute="bottom" constant="8" id="bq5-Ua-RLs"/>
                             <constraint firstItem="fDV-W9-uAH" firstAttribute="top" secondItem="3vD-Oh-lI8" secondAttribute="bottom" constant="25" id="fsU-yj-qhL"/>
-                            <constraint firstItem="f1K-iA-1oJ" firstAttribute="top" secondItem="5gQ-ZM-CqG" secondAttribute="bottom" constant="25" id="fui-lf-TF6"/>
                             <constraint firstItem="0Ej-ed-Q6b" firstAttribute="leading" secondItem="FBc-4s-u5q" secondAttribute="trailing" constant="8" id="n4t-jY-xgQ"/>
                             <constraint firstItem="JPZ-fh-bhp" firstAttribute="top" secondItem="f1K-iA-1oJ" secondAttribute="bottom" constant="8" id="ns2-E9-UNd"/>
                             <constraint firstItem="f1K-iA-1oJ" firstAttribute="leading" secondItem="Mbg-xk-yrL" secondAttribute="leading" constant="20" id="qYm-V7-dzd"/>

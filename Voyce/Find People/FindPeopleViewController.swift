@@ -39,9 +39,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         searchTextField.resignFirstResponder()
-        let userRow = userTableView.cellForRow(at: indexPath)
         userTableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "ProfileSegue", sender: userRow)
     }
     
     // Changes the shape of each profile image into a circle
