@@ -89,7 +89,7 @@ public class User
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 self.unusedVibes = document.get("unusedVibes") as! Int
-                print("got vibes")
+                print("got vibes2")
                 print(self.unusedVibes);
             } else {
                 print("Document does not exist")
@@ -130,17 +130,11 @@ public class User
     //remove number of ad vibes
     func removeVibes()
     {
-//        if (self.totalVibes >= 1) {
-//            self.totalVibes -= 1
-//        }
-        
-        if (self.adVibes >= 1) {
-            self.adVibes -= 1
-            let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
-                    shardRef.updateData([
+        self.adVibes -= 1
+        let shardRef = DatabaseManager.shared.db.collection("users").document(userID)
+                shardRef.updateData([
                         "adVibes": FieldValue.increment(Int64(-1))
-                    ])
-        }
+                ])
     }
     
     //sets ad vibes
@@ -206,7 +200,7 @@ public class User
 
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                self.unusedVibes = document.get("unusedVibes") as! Int
+                self.unusedVibes = document.get("adVibes") as! Int
                 print("got vibes")
                 print(self.unusedVibes);
             } else {
