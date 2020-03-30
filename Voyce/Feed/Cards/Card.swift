@@ -65,18 +65,6 @@ final class Card: UITableViewCell
         imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0)/2.0
     }
     
-    // Converts a URL to an image
-    func URLToImg(_ url: URL?) -> UIImage?
-    {
-        guard let imageURL = url else
-        {
-            return nil
-        }
-        let data = try? Data(contentsOf: imageURL)
-        return UIImage(data: data!)
-    }
-    
-    
     @IBAction func profileButtonPressed(_ sender: Any)
     {
         delegate?.profileButtonDidPressed(postUser: postUser)
