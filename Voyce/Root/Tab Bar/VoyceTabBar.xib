@@ -53,6 +53,7 @@
                             <subviews>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIH-pL-J17">
                                     <rect key="frame" x="19" y="7.6666666666666679" width="45" height="45"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="7vY-l9-O0I"/>
                                         <constraint firstAttribute="width" constant="45" id="dyE-qJ-l4l"/>
@@ -65,6 +66,7 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstItem="fIH-pL-J17" firstAttribute="centerX" secondItem="KWc-QJ-YHb" secondAttribute="centerX" id="Njh-qe-4nW"/>
                                 <constraint firstItem="fIH-pL-J17" firstAttribute="centerY" secondItem="KWc-QJ-YHb" secondAttribute="centerY" id="RtN-5s-5Pv"/>
@@ -141,6 +143,7 @@
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="jGK-kT-bOu" firstAttribute="trailing" secondItem="KmP-ic-YIB" secondAttribute="trailing" id="GyM-J5-jHc"/>
                 <constraint firstItem="KmP-ic-YIB" firstAttribute="leading" secondItem="jGK-kT-bOu" secondAttribute="leading" id="N9M-zx-KK3"/>

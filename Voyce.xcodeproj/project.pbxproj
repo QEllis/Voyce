@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */; };
-		016FCC6E236BBC1C00B1F387 /* AdViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016FCC6C236BBC1C00B1F387 /* AdViewer.storyboard */; };
-		016FCC6F236BBC1C00B1F387 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016FCC6D236BBC1C00B1F387 /* AdViewController.swift */; };
 		0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E329A8D24182F6D0020F007 /* Profile.storyboard */; };
 		0E6B21D52431377300804734 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D42431377300804734 /* UserCell.swift */; };
 		0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D6243193D000804734 /* FundsViewController.swift */; };
@@ -50,8 +48,6 @@
 
 /* Begin PBXFileReference section */
 		01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		016FCC6C236BBC1C00B1F387 /* AdViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdViewer.storyboard; sourceTree = "<group>"; };
-		016FCC6D236BBC1C00B1F387 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 		0E329A8D24182F6D0020F007 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0E6B21D42431377300804734 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		0E6B21D6243193D000804734 /* FundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsViewController.swift; sourceTree = "<group>"; };
@@ -106,15 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		016FCC6B236BBC0D00B1F387 /* Ads */ = {
-			isa = PBXGroup;
-			children = (
-				016FCC6D236BBC1C00B1F387 /* AdViewController.swift */,
-				016FCC6C236BBC1C00B1F387 /* AdViewer.storyboard */,
-			);
-			path = Ads;
-			sourceTree = "<group>";
-		};
 		3C2EEE7523327702009098D5 = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				E1257CA424131544001927EB /* Find People */,
-				016FCC6B236BBC0D00B1F387 /* Ads */,
 				01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */,
 				3F0E8E352346CF3D007705C2 /* Login */,
 				3F0E8E302346CDF5007705C2 /* Profile */,
@@ -354,7 +340,6 @@
 			files = (
 				E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */,
 				3F81E91B236FE1F0008B3673 /* MyPostTableViewCell.xib in Resources */,
-				016FCC6E236BBC1C00B1F387 /* AdViewer.storyboard in Resources */,
 				3C2EEEA223327BDE009098D5 /* Feed.storyboard in Resources */,
 				3CF41A572344E01C0082B6F7 /* PostCreation.storyboard in Resources */,
 				3C2EEE942332772D009098D5 /* Root.storyboard in Resources */,
@@ -450,7 +435,6 @@
 				3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */,
 				3C62D8DE2333CFA300627FFB /* Post.swift in Sources */,
 				3F41657C2425BD4400F65818 /* Comment.swift in Sources */,
-				016FCC6F236BBC1C00B1F387 /* AdViewController.swift in Sources */,
 				3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */,
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
 				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,

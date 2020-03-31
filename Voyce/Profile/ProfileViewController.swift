@@ -12,7 +12,6 @@
 import Foundation
 import UIKit
 
-
 private let user = DatabaseManager.shared.sharedUser
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyPostTableViewCellDelegate
