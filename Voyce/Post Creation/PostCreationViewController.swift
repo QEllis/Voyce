@@ -88,16 +88,8 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
     @IBAction func postPressed(_ sender: Any) {
         guard !textView.text.isEmpty else { return }
         guard !imageCaption.text.isEmpty else { return }
-        switch postSegmentedControl.selectedSegmentIndex {
-        case 0:
-            //just text post
-            DatabaseManager.shared.addPost(with: "text", content: textView.text)
-        case 1:
-            DatabaseManager.shared.addPost(with: "image", content: textView.text)//add image to url converter
-        //add image to the post as well
-        default:
-            DatabaseManager.shared.addPost(with: "video", content: textView.text)
-        }
+        var post = Post()
+        DatabaseManager.shared.addPost(post: post)
         navigationController?.popViewController(animated: true)
     }
     

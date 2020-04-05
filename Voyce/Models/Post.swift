@@ -118,7 +118,6 @@ public class Post
     }
     
     func removeComment(index: Int) {
-        
         self.comments.remove(at: index)
         
         let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
