@@ -125,11 +125,15 @@ class Card: UIView
     
     /// Action when vibeButton is pressed.
     @IBAction func vibeButtonPressed(_ sender: UIButton) {
-        // Update vibes in the database
-        user?.addVibes(totalVibes: 1)
-        user?.addVibes(earnedVibes: 1)
-        // Update UI
-        vibeButton.setImage(randomEmoji(), for: .normal)
+        if (user?.earnedVibes > 0) {
+            // Update vibes in the database
+            post?.addVibe()
+            user?.addVibes(totalVibes: 1)
+            user?.addVibes(earnedVibes: 1)
+            // Update UI
+            numVibes.text = String(post!.vibes)
+            vibeButton.setImage(randomEmoji(), for: .normal)
+        }
     }
     
     /// Play video on a video post.
