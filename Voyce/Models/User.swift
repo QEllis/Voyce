@@ -21,7 +21,7 @@ public class User
             "username": username,
             "adVibes": adVibes,
             "unusedVibes": earnedVibes,
-            "totalvibes": totalVibes,
+            "totalVibes": totalVibes,
             "profilePic": profilePic?.absoluteString as Any
         ]
     }
