@@ -17,15 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="37x-G8-tAm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucK-1x-JgX" customClass="Card" customModule="Voyce" customModuleProvider="target">
+                                <rect key="frame" x="20" y="111" width="374" height="721"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vlK-yP-sy4" customClass="Card" customModule="Voyce" customModuleProvider="target">
                                 <rect key="frame" x="10" y="101" width="394" height="741"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="L4t-Kf-V2A" appends="YES" id="UUQ-hY-OyZ"/>
+                                    <outletCollection property="gestureRecognizers" destination="2hI-gw-bxY" appends="YES" id="7TA-Q0-2cg"/>
+                                    <outletCollection property="gestureRecognizers" destination="EJF-Os-gSZ" appends="YES" id="YaK-0P-BZL"/>
                                 </connections>
-                            </tableView>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QT5-AN-Ht3">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
@@ -99,40 +101,52 @@
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="37x-G8-tAm" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" constant="10" id="4Vc-30-5Gt"/>
-                            <constraint firstItem="41m-Dp-SnV" firstAttribute="bottom" secondItem="37x-G8-tAm" secondAttribute="bottom" constant="20" id="579-gW-KZk"/>
+                            <constraint firstItem="ucK-1x-JgX" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="bottom" constant="17" identifier="queueTop" id="3UO-S1-2hh"/>
+                            <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="vlK-yP-sy4" secondAttribute="trailing" constant="10" id="6Ik-l6-jhe"/>
+                            <constraint firstItem="41m-Dp-SnV" firstAttribute="bottom" secondItem="vlK-yP-sy4" secondAttribute="bottom" constant="20" id="HuU-BA-XMG"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="top" secondItem="41m-Dp-SnV" secondAttribute="top" id="Qz7-hh-QtO"/>
                             <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="QT5-AN-Ht3" secondAttribute="trailing" id="Sjd-l6-Ofw"/>
-                            <constraint firstAttribute="trailing" secondItem="37x-G8-tAm" secondAttribute="trailing" constant="10" id="a66-bu-nbg"/>
+                            <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="ucK-1x-JgX" secondAttribute="trailing" constant="20" identifier="queueRight" id="cbL-yn-ZPf"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="dNr-6h-huJ"/>
-                            <constraint firstItem="37x-G8-tAm" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="bottom" constant="7" id="fO6-7J-oVi"/>
+                            <constraint firstItem="ucK-1x-JgX" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" constant="20" identifier="queueLeft" id="nwZ-GX-RO3"/>
+                            <constraint firstItem="vlK-yP-sy4" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" constant="10" id="pvl-JT-Fff"/>
+                            <constraint firstItem="41m-Dp-SnV" firstAttribute="bottom" secondItem="ucK-1x-JgX" secondAttribute="bottom" constant="30" identifier="queueBottom" id="tGE-JH-ir1"/>
+                            <constraint firstItem="vlK-yP-sy4" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="bottom" constant="7" id="tmd-nU-oef"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="z3A-eI-nBL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="41m-Dp-SnV"/>
                     </view>
                     <navigationItem key="navigationItem" id="V6C-tK-2jb"/>
                     <connections>
-                        <outlet property="tableView" destination="37x-G8-tAm" id="51s-Z0-wdY"/>
+                        <outlet property="activeCard" destination="vlK-yP-sy4" id="uar-O6-eo8"/>
+                        <outlet property="adVibes" destination="lZY-d8-vAc" id="br2-GO-Ppe"/>
+                        <outlet property="queueCard" destination="ucK-1x-JgX" id="jhU-Jh-Elv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CZ-4Q-gJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="L4t-Kf-V2A">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="2hI-gw-bxY">
                     <connections>
-                        <segue destination="M7E-08-8EG" kind="presentation" id="3jn-km-gAe"/>
+                        <action selector="panCard:" destination="cGs-MB-HJR" id="dj7-WJ-6bG"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="EJF-Os-gSZ">
+                    <connections>
+                        <action selector="commentTap:" destination="cGs-MB-HJR" id="mkH-qw-G1k"/>
+                        <segue destination="M7E-08-8EG" kind="presentation" id="IJu-pX-4jD"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-66.666666666666671" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Comment View Controller-->
         <scene sceneID="uWE-hr-DWq">
             <objects>
-                <viewController id="M7E-08-8EG" sceneMemberID="viewController">
+                <viewController id="M7E-08-8EG" customClass="CommentViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="keS-JL-mKJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Concert" translatesAutoresizingMaskIntoConstraints="NO" id="W4Y-3L-cNd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W4Y-3L-cNd">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -155,6 +169,10 @@
                         <viewLayoutGuide key="safeArea" id="pKY-Uu-C6O"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ran-1k-QGm"/>
+                    <connections>
+                        <outlet property="commentFeed" destination="sgU-F3-Kg3" id="PM3-TK-jVA"/>
+                        <outlet property="postImage" destination="W4Y-3L-cNd" id="h12-eM-706"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jf-P4-ipp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,7 +180,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Concert" width="1000" height="750"/>
         <image name="Logo" width="341.33334350585938" height="85.333335876464844"/>
         <image name="Wand" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="Background">
