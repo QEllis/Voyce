@@ -50,4 +50,9 @@ class CommentViewController: UIViewController
             print("Error: Unknown Post Type for \(post.postID)")
         }
     }
+    
+    /// Pause/Play video when postVideo is pressed.
+    @IBAction func videoPressed(_ sender: Any) {
+        
+    }
 }

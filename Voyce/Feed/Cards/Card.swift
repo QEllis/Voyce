@@ -100,17 +100,15 @@ class Card: UIView
         vibeButton.setImage(randomEmoji(), for: .normal)
     }
     
-    // Action when profileButton is pressed
+    /// Action when profileButton is pressed.
     @IBAction func profileButtonPressed(_ sender: UIButton) {
         
     }
     
-    //    func updateUI()
-    //    {
-    //        vibeButton.setImage(UIImage(named: randomEmoji()), for: .normal)
-    //        DatabaseManager.shared.giveVibe(post: post)
-    //        numVibes.text = String(post.likeCount)
-    //    }
+    /// Pause/Play video when postVideo is pressed.
+    @IBAction func videoPressed(_ sender: UITapGestureRecognizer) {
+        
+    }
     
     // Returns a random emoji as UIImage
     private func randomEmoji() -> UIImage!
