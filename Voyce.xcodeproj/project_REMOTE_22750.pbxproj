@@ -1,0 +1,723 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */; };
+		0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E329A8D24182F6D0020F007 /* Profile.storyboard */; };
+		0E6B21D52431377300804734 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D42431377300804734 /* UserCell.swift */; };
+		0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D6243193D000804734 /* FundsViewController.swift */; };
+		0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D824319C7900804734 /* DwollaUser.swift */; };
+		3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8123327702009098D5 /* AppDelegate.swift */; };
+		3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8823327703009098D5 /* Assets.xcassets */; };
+		3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8A23327703009098D5 /* LaunchScreen.storyboard */; };
+		3C2EEE942332772D009098D5 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE932332772D009098D5 /* Root.storyboard */; };
+		3C2EEE972332796B009098D5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEE962332796B009098D5 /* Color.swift */; };
+		3C2EEE9A233279CD009098D5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE99233279CD009098D5 /* Colors.xcassets */; };
+		3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEE9C23327A90009098D5 /* RootNavigationController.swift */; };
+		3C2EEEA223327BDE009098D5 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEEA123327BDE009098D5 /* Feed.storyboard */; };
+		3C2EEEA423327C1A009098D5 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEEA323327C1A009098D5 /* FeedViewController.swift */; };
+		3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C55ECBB23688D7A00B5738F /* VoyceTabBar.xib */; };
+		3C55ECBE23688D9400B5738F /* VoyceTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55ECBD23688D9400B5738F /* VoyceTabBar.swift */; };
+		3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */; };
+		3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */; };
+		3C62D8DE2333CFA300627FFB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8DD2333CFA300627FFB /* Post.swift */; };
+		3C62D8E12333D00700627FFB /* CardPic.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C62D8E02333D00700627FFB /* CardPic.xib */; };
+		3C62D8E32333D01100627FFB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C62D8E22333D01100627FFB /* Card.swift */; };
+		3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */; };
+		3CF41A572344E01C0082B6F7 /* PostCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */; };
+		3CF41A5A2344E26E0082B6F7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A592344E26E0082B6F7 /* Notifications.swift */; };
+		3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E8E362346CF55007705C2 /* Login.storyboard */; };
+		3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3823494CE3007705C2 /* LoginViewController.swift */; };
+		3F41657C2425BD4400F65818 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41657B2425BD4400F65818 /* Comment.swift */; };
+		3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BC235965DD00DD0DC6 /* User.swift */; };
+		3F4AE8BF235BB1B400DD0DC6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */; };
+		3F81E91A236FE1F0008B3673 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81E918236FE1F0008B3673 /* MyPostTableViewCell.swift */; };
+		3F81E91B236FE1F0008B3673 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */; };
+		40A877DD2437F4EC0093184F /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A877DC2437F4EC0093184F /* StartUpViewController.swift */; };
+		40B43565159A6E43DF001194 /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E696BAFC0B3DC94CF07C66C /* Pods_Voyce.framework */; };
+		E1257CA624131557001927EB /* FindPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1257CA524131557001927EB /* FindPeople.storyboard */; };
+		E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1257CA724131567001927EB /* FindPeopleViewController.swift */; };
+		E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4785A46235BB30F002AB769 /* PostCommentView.xib */; };
+		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
+		E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0E329A8D24182F6D0020F007 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		0E6B21D42431377300804734 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		0E6B21D6243193D000804734 /* FundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsViewController.swift; sourceTree = "<group>"; };
+		0E6B21D824319C7900804734 /* DwollaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DwollaUser.swift; sourceTree = "<group>"; };
+		3C2EEE7E23327702009098D5 /* Voyce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyce.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C2EEE8123327702009098D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3C2EEE8823327703009098D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C2EEE8B23327703009098D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3C2EEE8D23327703009098D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C2EEE932332772D009098D5 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
+		3C2EEE962332796B009098D5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		3C2EEE99233279CD009098D5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		3C2EEE9C23327A90009098D5 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		3C2EEEA123327BDE009098D5 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		3C2EEEA323327C1A009098D5 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		3C55ECBB23688D7A00B5738F /* VoyceTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoyceTabBar.xib; sourceTree = "<group>"; };
+		3C55ECBD23688D9400B5738F /* VoyceTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyceTabBar.swift; sourceTree = "<group>"; };
+		3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyceTabBarViewController.swift; sourceTree = "<group>"; };
+		3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		3C62D8DD2333CFA300627FFB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3C62D8E02333D00700627FFB /* CardPic.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardPic.xib; sourceTree = "<group>"; };
+		3C62D8E22333D01100627FFB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationViewController.swift; sourceTree = "<group>"; };
+		3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreation.storyboard; sourceTree = "<group>"; };
+		3CF41A592344E26E0082B6F7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		3F0E8E362346CF55007705C2 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3F0E8E3823494CE3007705C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3F41657B2425BD4400F65818 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		3F4AE8BC235965DD00DD0DC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3F81E918236FE1F0008B3673 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
+		3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
+		40A877DC2437F4EC0093184F /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
+		88138A44DEA6DA9EFC329C4B /* Pods-Voyce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.release.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.release.xcconfig"; sourceTree = "<group>"; };
+		8E696BAFC0B3DC94CF07C66C /* Pods_Voyce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voyce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF5C2599633B04C19D0D9953 /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
+		E1257CA524131557001927EB /* FindPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPeople.storyboard; sourceTree = "<group>"; };
+		E1257CA724131567001927EB /* FindPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPeopleViewController.swift; sourceTree = "<group>"; };
+		E4785A46235BB30F002AB769 /* PostCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentView.xib; sourceTree = "<group>"; };
+		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
+		E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreationViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C2EEE7B23327702009098D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40B43565159A6E43DF001194 /* Pods_Voyce.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C2EEE7523327702009098D5 = {
+			isa = PBXGroup;
+			children = (
+				3C2EEE8023327702009098D5 /* Voyce */,
+				3C2EEE7F23327702009098D5 /* Products */,
+				D4A04EB842FAFFD2251E8EF0 /* Frameworks */,
+				E3BB1E010EF1A7579D10F4A4 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		3C2EEE7F23327702009098D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C2EEE7E23327702009098D5 /* Voyce.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3C2EEE8023327702009098D5 /* Voyce */ = {
+			isa = PBXGroup;
+			children = (
+				E1257CA424131544001927EB /* Find People */,
+				01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */,
+				3F0E8E352346CF3D007705C2 /* Login */,
+				3F0E8E302346CDF5007705C2 /* Profile */,
+				3C62D8D92333CF1500627FFB /* Database */,
+				3CF41A552344E00A0082B6F7 /* Post Creation */,
+				3C2EEEA023327BD6009098D5 /* Feed */,
+				3C2EEE9B23327A55009098D5 /* Root */,
+				3C62D8DC2333CF9800627FFB /* Models */,
+				3C2EEE9523327960009098D5 /* Supporting Files */,
+				3C2EEE8123327702009098D5 /* AppDelegate.swift */,
+				3C2EEE8823327703009098D5 /* Assets.xcassets */,
+				3C2EEE8A23327703009098D5 /* LaunchScreen.storyboard */,
+				3C2EEE8D23327703009098D5 /* Info.plist */,
+			);
+			path = Voyce;
+			sourceTree = "<group>";
+		};
+		3C2EEE9523327960009098D5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C2EEE962332796B009098D5 /* Color.swift */,
+				3C2EEE99233279CD009098D5 /* Colors.xcassets */,
+				3CF41A592344E26E0082B6F7 /* Notifications.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3C2EEE9B23327A55009098D5 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				3C55ECBA23688D6A00B5738F /* Tab Bar */,
+				3C2EEE932332772D009098D5 /* Root.storyboard */,
+				3C2EEE9C23327A90009098D5 /* RootNavigationController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		3C2EEEA023327BD6009098D5 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				3C62D8DF2333CFF800627FFB /* Cards */,
+				3C2EEEA123327BDE009098D5 /* Feed.storyboard */,
+				3C2EEEA323327C1A009098D5 /* FeedViewController.swift */,
+				E4785A46235BB30F002AB769 /* PostCommentView.xib */,
+				E4785A48235BB317002AB769 /* PostCommentView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		3C55ECBA23688D6A00B5738F /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				3C55ECBB23688D7A00B5738F /* VoyceTabBar.xib */,
+				3C55ECBD23688D9400B5738F /* VoyceTabBar.swift */,
+				3C55ECC0236890BB00B5738F /* VoyceTabBarViewController.swift */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		3C62D8D92333CF1500627FFB /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				3C62D8DA2333CF2200627FFB /* DatabaseManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		3C62D8DC2333CF9800627FFB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F41657B2425BD4400F65818 /* Comment.swift */,
+				3C62D8DD2333CFA300627FFB /* Post.swift */,
+				3F4AE8BC235965DD00DD0DC6 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3C62D8DF2333CFF800627FFB /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				3C62D8E02333D00700627FFB /* CardPic.xib */,
+				3C62D8E22333D01100627FFB /* Card.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		3CF41A552344E00A0082B6F7 /* Post Creation */ = {
+			isa = PBXGroup;
+			children = (
+				E4887CF5235BB6DB00D2254D /* CommentCreationViewController.swift */,
+				3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */,
+				3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */,
+			);
+			path = "Post Creation";
+			sourceTree = "<group>";
+		};
+		3F0E8E302346CDF5007705C2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3F81E917236FE1F0008B3673 /* Cells */,
+				0E329A8D24182F6D0020F007 /* Profile.storyboard */,
+				3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */,
+				0E6B21D6243193D000804734 /* FundsViewController.swift */,
+				0E6B21D824319C7900804734 /* DwollaUser.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3F0E8E352346CF3D007705C2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3F0E8E362346CF55007705C2 /* Login.storyboard */,
+				3F0E8E3823494CE3007705C2 /* LoginViewController.swift */,
+				40A877DC2437F4EC0093184F /* StartUpViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3F81E917236FE1F0008B3673 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3F81E918236FE1F0008B3673 /* MyPostTableViewCell.swift */,
+				3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D4A04EB842FAFFD2251E8EF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E696BAFC0B3DC94CF07C66C /* Pods_Voyce.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1257CA424131544001927EB /* Find People */ = {
+			isa = PBXGroup;
+			children = (
+				E1257CA524131557001927EB /* FindPeople.storyboard */,
+				E1257CA724131567001927EB /* FindPeopleViewController.swift */,
+				0E6B21D42431377300804734 /* UserCell.swift */,
+			);
+			path = "Find People";
+			sourceTree = "<group>";
+		};
+		E3BB1E010EF1A7579D10F4A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF5C2599633B04C19D0D9953 /* Pods-Voyce.debug.xcconfig */,
+				88138A44DEA6DA9EFC329C4B /* Pods-Voyce.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C2EEE7D23327702009098D5 /* Voyce */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C2EEE9023327703009098D5 /* Build configuration list for PBXNativeTarget "Voyce" */;
+			buildPhases = (
+				509A61FB351A1BC1D8E35AD9 /* [CP] Check Pods Manifest.lock */,
+				3C2EEE7A23327702009098D5 /* Sources */,
+				3C2EEE7B23327702009098D5 /* Frameworks */,
+				3C2EEE7C23327702009098D5 /* Resources */,
+				8763D7A118678EA718F4FC19 /* [CP] Copy Pods Resources */,
+				59F99FEE581D67ECE0177564 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Voyce;
+			productName = Voyce;
+			productReference = 3C2EEE7E23327702009098D5 /* Voyce.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3C2EEE7623327702009098D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = QEDev;
+				TargetAttributes = {
+					3C2EEE7D23327702009098D5 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 3C2EEE7923327702009098D5 /* Build configuration list for PBXProject "Voyce" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3C2EEE7523327702009098D5;
+			productRefGroup = 3C2EEE7F23327702009098D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C2EEE7D23327702009098D5 /* Voyce */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3C2EEE7C23327702009098D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4785A47235BB30F002AB769 /* PostCommentView.xib in Resources */,
+				3F81E91B236FE1F0008B3673 /* MyPostTableViewCell.xib in Resources */,
+				3C2EEEA223327BDE009098D5 /* Feed.storyboard in Resources */,
+				3CF41A572344E01C0082B6F7 /* PostCreation.storyboard in Resources */,
+				3C2EEE942332772D009098D5 /* Root.storyboard in Resources */,
+				3C2EEE9A233279CD009098D5 /* Colors.xcassets in Resources */,
+				3C62D8E12333D00700627FFB /* CardPic.xib in Resources */,
+				3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */,
+				01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */,
+				0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */,
+				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
+				E1257CA624131557001927EB /* FindPeople.storyboard in Resources */,
+				3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */,
+				3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		509A61FB351A1BC1D8E35AD9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Voyce-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59F99FEE581D67ECE0177564 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8763D7A118678EA718F4FC19 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Voyce/Pods-Voyce-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C2EEE7A23327702009098D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */,
+				E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */,
+				3C62D8E32333D01100627FFB /* Card.swift in Sources */,
+				3F4AE8BF235BB1B400DD0DC6 /* ProfileViewController.swift in Sources */,
+				40A877DD2437F4EC0093184F /* StartUpViewController.swift in Sources */,
+				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
+				0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */,
+				3C55ECBE23688D9400B5738F /* VoyceTabBar.swift in Sources */,
+				3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */,
+				3CF41A5A2344E26E0082B6F7 /* Notifications.swift in Sources */,
+				0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */,
+				3C2EEE972332796B009098D5 /* Color.swift in Sources */,
+				E4887CF6235BB6DB00D2254D /* CommentCreationViewController.swift in Sources */,
+				3C2EEEA423327C1A009098D5 /* FeedViewController.swift in Sources */,
+				E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */,
+				3F81E91A236FE1F0008B3673 /* MyPostTableViewCell.swift in Sources */,
+				3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */,
+				3C62D8DE2333CFA300627FFB /* Post.swift in Sources */,
+				3F41657C2425BD4400F65818 /* Comment.swift in Sources */,
+				3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */,
+				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
+				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,
+				0E6B21D52431377300804734 /* UserCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3C2EEE8A23327703009098D5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C2EEE8B23327703009098D5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3C2EEE8E23327703009098D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3C2EEE8F23327703009098D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3C2EEE9123327703009098D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF5C2599633B04C19D0D9953 /* Pods-Voyce.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2M72D44988;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/BoringSSL-GRPC\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKLoginKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseFirestore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseUI\"",
+					"\"${PODS_ROOT}/Headers/Public/GTMSessionFetcher\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleToolboxForMac\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/Protobuf\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/gRPC\"",
+					"\"${PODS_ROOT}/Headers/Public/gRPC-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/gRPC-ProtoRPC\"",
+					"\"${PODS_ROOT}/Headers/Public/gRPC-RxLibrary\"",
+					"\"${PODS_ROOT}/Headers/Public/leveldb-library\"",
+					"\"${PODS_ROOT}/Headers/Public/nanopb\"",
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseAnonymousAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseDatabaseUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseEmailAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseFacebookAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseFirestoreUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseGoogleAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseOAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebasePhoneAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseStorageUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseTwitterAuthUI",
+				);
+				INFOPLIST_FILE = Voyce/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.QEDev.voyce;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3C2EEE9223327703009098D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88138A44DEA6DA9EFC329C4B /* Pods-Voyce.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2M72D44988;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/BoringSSL-GRPC\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKLoginKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseFirestore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseUI\"",
+					"\"${PODS_ROOT}/Headers/Public/GTMSessionFetcher\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleToolboxForMac\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/Protobuf\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/gRPC\"",
+					"\"${PODS_ROOT}/Headers/Public/gRPC-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/gRPC-ProtoRPC\"",
+					"\"${PODS_ROOT}/Headers/Public/gRPC-RxLibrary\"",
+					"\"${PODS_ROOT}/Headers/Public/leveldb-library\"",
+					"\"${PODS_ROOT}/Headers/Public/nanopb\"",
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseAnonymousAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseDatabaseUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseEmailAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseFacebookAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseFirestoreUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseGoogleAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseOAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebasePhoneAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseStorageUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseTwitterAuthUI",
+				);
+				INFOPLIST_FILE = Voyce/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.QEDev.voyce;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C2EEE7923327702009098D5 /* Build configuration list for PBXProject "Voyce" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2EEE8E23327703009098D5 /* Debug */,
+				3C2EEE8F23327703009098D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C2EEE9023327703009098D5 /* Build configuration list for PBXNativeTarget "Voyce" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2EEE9123327703009098D5 /* Debug */,
+				3C2EEE9223327703009098D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3C2EEE7623327702009098D5 /* Project object */;
+}

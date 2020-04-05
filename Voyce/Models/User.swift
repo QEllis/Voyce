@@ -100,18 +100,6 @@ public class User
         }
     }
     
-//    func setVibes(adVibes: Int) {
-//        self.adVibes = adVibes
-//    }
-//
-//    func setVibes(earnedVibes: Int) {
-//        self.earnedVibes = earnedVibes
-//    }
-//
-//    func setVibes(totalVibes: Int) {
-//        self.totalVibes = totalVibes
-//    }
-    
     func loadUserData(document: DocumentSnapshot)
     {
         let vibeCount: Int = document.get("totalVibes") as! Int;
