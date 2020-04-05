@@ -125,7 +125,7 @@ class DatabaseManager
         //        }
     }
     
-    public func loadFeed(view: FeedViewController)
+    public func loadFeed(view: FeedViewController, firstCard: Bool)
     {
         let numLoad = (numPosts - index) > 1 ? 2 : (numPosts - index)
     
@@ -157,6 +157,7 @@ class DatabaseManager
                     default: print("Error: counter is an invalid integer.")
                     }
                     view.counter += 1
+                    if firstCard { view.activeCard.playVideo() }
                 }
             }
         }

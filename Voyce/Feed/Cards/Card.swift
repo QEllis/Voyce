@@ -110,6 +110,7 @@ class Card: UIView
             postImage.image = UIImage()
         case "video":
             postVideo.isHidden = true
+            videoPausedView.isHidden = true
             for view in postVideo.subviews {
                 view.removeFromSuperview()
             }
@@ -156,12 +157,12 @@ class Card: UIView
     
     /// Pause video when postVideo is pressed.
     @IBAction func videoPressed(_ sender: UITapGestureRecognizer) {
-        playVideo()
+        pauseVideo()
     }
     
     /// Play video when postVideo is pressed.
     @IBAction func videoPausedPressed(_ sender: UITapGestureRecognizer) {
-        pauseVideo()
+        playVideo()
     }
     
     // Returns a random emoji as UIImage

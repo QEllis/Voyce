@@ -24,25 +24,16 @@ class FeedViewController: UIViewController
         super.viewDidLoad()
         //        NotificationCenter.default.addObserver(self, selector: #selector(exitComments), name: NSNotification.Name(rawValue: "exitComments"), object: nil)
         
-//        /// Load first active card.
-//        DatabaseManager.shared.loadFeed(view: self)
-//        
-//        /// Load first queued card.
-//        DatabaseManager.shared.loadFeed(view: self)
-        
-        activeCard.playVideo()
+        /// Load first active card.
+        DatabaseManager.shared.loadFeed(view: self, firstCard: true)
+
+        /// Load first queued card.
+        DatabaseManager.shared.loadFeed(view: self, firstCard: false)
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        /// Load first active card.
-               DatabaseManager.shared.loadFeed(view: self)
-               
-               /// Load first queued card.
-               DatabaseManager.shared.loadFeed(view: self)
-        activeCard.playVideo()
     }
     
     /// Swipable functionality for the  active card.
@@ -74,7 +65,7 @@ class FeedViewController: UIViewController
                 card.center = self.view.center
                 card.alpha = 1
                 card.transform = CGAffineTransform(rotationAngle: 0)
-                DatabaseManager.shared.loadFeed(view: self)
+                DatabaseManager.shared.loadFeed(view: self, firstCard: false)
                 
                 switch counter % 2 {
                 case 0:
@@ -103,7 +94,7 @@ class FeedViewController: UIViewController
     }
     
     /// Move card to indicated point.
-    func translateCard(card: Card, point: CGPoint) {
+    private func translateCard(card: Card, point: CGPoint) {
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
         
         /// Set transparency of the card.
@@ -117,7 +108,7 @@ class FeedViewController: UIViewController
     }
     
     /// Adjust constraints of card.
-    func changeConstraints(cardTop: Bool, sidesAndTop: Int, bottom: Int) {
+    private func changeConstraints(cardTop: Bool, sidesAndTop: Int, bottom: Int) {
         switch (counter + Int(truncating: NSNumber(value: cardTop))) % 2 {
                case 0:
                    for constraint in view.constraints {
