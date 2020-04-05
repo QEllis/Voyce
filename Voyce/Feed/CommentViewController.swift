@@ -8,14 +8,17 @@
 
 import Foundation
 import UIKit
+import AVKit
 import FirebaseFirestoreSwift
 
 class CommentViewController: UIViewController
 {
+    @IBOutlet var postText: UITextView!
     @IBOutlet var postImage: UIImageView!
+    @IBOutlet var postVideo: UIView!
     @IBOutlet var commentFeed: UITableView!
     
-    var activePost: Post!
+    var post: Post!
     
     override func viewDidLoad()
     {
@@ -24,19 +27,27 @@ class CommentViewController: UIViewController
     }
     
     private func loadContent() {
-        switch activePost.postType {
+        switch post.postType {
         case "text":
-            break
+            postText.text = post.content;
         case "image":
-            let url = URL(string: activePost.content)
+            let url = URL(string: post.content)
             if url != nil {
                 let data = try? Data(contentsOf: url!)
                 self.postImage.image = UIImage(data: data!)
             }
         case "video":
-            break
+            let url = URL(string: post.content)
+            if url != nil {
+                let player = AVPlayer(url: url!)
+                let playerFrame = CGRect(x: 0, y: 0, width: postVideo.frame.width, height: postVideo.frame.height)
+                let videoPlayerView = VideoPlayerView(frame: playerFrame)
+                videoPlayerView.player = player
+                postVideo.addSubview(videoPlayerView)
+                player.play()
+            }
         default:
-            print("Error: Unknown Post Type for \(activePost.postID)")
+            print("Error: Unknown Post Type for \(post.postID)")
         }
     }
 }

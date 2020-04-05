@@ -129,7 +129,7 @@ class DatabaseManager
     {
         var active = true
         let numLoad = (numPosts - index) > 1 ? 2 : (numPosts - index)
-      
+      print(numLoad)
         db.collection("posts").order(by: "date").start(at: ["2020-03-22 15:24:44 +0000"]).limit(to: 2).getDocuments() { QuerySnapshot, err in
             if let err = err {
                 print("Error getting documents: \(err)")

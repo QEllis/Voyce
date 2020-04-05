@@ -57,9 +57,9 @@ class LoginViewController: UIViewController, FUIAuthDelegate
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool
     {
-        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false
         {
             return true

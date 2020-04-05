@@ -81,7 +81,7 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
     func openImageGallery() {
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
-        myPickerController.sourceType =  UIImagePickerControllerSourceType.photoLibrary
+        myPickerController.sourceType =  UIImagePickerController.SourceType.photoLibrary
         self.present(myPickerController, animated: true, completion: nil)
     }
     
@@ -105,10 +105,13 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         navigationController?.popViewController(animated: true)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-           let image_data = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+           let image_data = (info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage)!
            postImage.image = image_data
-           let imageURL = info[UIImagePickerControllerImageURL] as! URL
+           let imageURL = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.imageURL)] as! URL
            uploadImage(imageURL: imageURL)
            //                let imageData: Data = UIImagePNGRepresentation(image_data)!
            //                _ = imageData.base64EncodedString()
@@ -124,11 +127,11 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
            let imageRef = storageRef.child("images/a.jpg");
            
            // Upload the file to the path
-           let uploadTask = imageRef.putFile(from: imageURL, metadata: nil) { metadata, error in guard let metadata = metadata else { return }
+        _ = imageRef.putFile(from: imageURL, metadata: nil) { metadata, error in guard let metadata = metadata else { return }
                // Metadata contains file metadata such as size, content-type.
-               let size = metadata.size
+            _ = metadata.size
                // You can also access to download URL after upload.
-               imageRef.downloadURL { (url, error) in guard let downloadURL = url else { return }
+            imageRef.downloadURL { (url, error) in guard url != nil else { return }
                }
            }
     }
@@ -187,3 +190,13 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
 //          }
 //        }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}

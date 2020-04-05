@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVKit
 
 class Card: UIView
 {
@@ -61,13 +62,13 @@ class Card: UIView
         usernameLabel.text = self.user?.username
         dateLabel.text = post.date
         numVibes.text = String(post.vibes)
-                
+        
         profileButton.setImage(URLToImg(user?.profilePic) ?? UIImage(named: "Profile"), for: .normal)
         circularImg(imageView: profileButton.imageView)
         
         switch post.postType {
         case "text":
-            break
+            postText.text = post.content
         case "image":
             let url = URL(string: post.content)
             if url != nil {
@@ -75,7 +76,16 @@ class Card: UIView
                 self.postImage.image = UIImage(data: data!)
             }
         case "video":
-            break
+            let url = URL(string: post.content)
+            if url != nil {
+                let player = AVPlayer(url: url!)
+                let playerFrame = CGRect(x: 0, y: 0, width: postVideo.frame.width, height: postVideo.frame.height)
+                let videoPlayerView = VideoPlayerView(frame: playerFrame)
+                videoPlayerView.player = player
+                postVideo.addSubview(videoPlayerView)
+                player.play()
+                //Make sure to stop video when swiping away.
+            }
         default:
             print("Error: Unknown Post Type for \(post.postID)")
         }

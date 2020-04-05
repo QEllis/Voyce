@@ -96,7 +96,7 @@ class FeedViewController: UIViewController
         }
         
         /// Swipe action has ended.
-        if sender.state == UIGestureRecognizerState.ended {
+        if sender.state == UIGestureRecognizer.State.ended {
             /// Remove the active card from deck.
             if abs(activeCard.center.x - (view.frame.width / 2)) > 100 || abs(activeCard.center.y - (view.frame.height / 2)) > 125 {
                 let offScreenX = activeCard.center.x < view.center.x ? -500 : view.frame.width + 500
@@ -107,11 +107,11 @@ class FeedViewController: UIViewController
                 
                 /// Send the active card to the back and the queued card to the front.
                 if counter % 2 == 0 {
-                    view.sendSubview(toBack: self.activeCard)
-                    view.bringSubview(toFront: self.queueCard)
+                    view.sendSubviewToBack(self.activeCard)
+                    view.bringSubviewToFront(self.queueCard)
                 } else {
-                    view.sendSubview(toBack: self.queueCard)
-                    view.bringSubview(toFront: self.activeCard)
+                    view.sendSubviewToBack(self.queueCard)
+                    view.bringSubviewToFront(self.activeCard)
                 }
                 
                 /// Load the next card.
@@ -227,8 +227,8 @@ class FeedViewController: UIViewController
         {
             let vc = segue.destination as? CommentViewController
             switch counter % 2 {
-            case 0: vc?.activePost = self.activeCard.post
-            case 1: vc?.activePost = self.queueCard.post
+            case 0: vc?.post = self.activeCard.post
+            case 1: vc?.post = self.queueCard.post
             default: print("Error: counter is an invalid integer.")
             }
         }

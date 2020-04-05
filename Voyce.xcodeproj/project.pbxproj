@@ -40,9 +40,9 @@
 		E1257CA624131557001927EB /* FindPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1257CA524131557001927EB /* FindPeople.storyboard */; };
 		E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1257CA724131567001927EB /* FindPeopleViewController.swift */; };
 		E128EC4C2439234200C5D91A /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1A5FD8C2433A98600FA911A /* Feed.storyboard */; };
+		E18CDE132439C1D3009F579F /* ViewPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CDE122439C1D3009F579F /* ViewPlayerView.swift */; };
 		E1A5FD832432FE1100FA911A /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A5FD822432FE1100FA911A /* Card.xib */; };
 		E1A5FD952433AA6D00FA911A /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5FD942433AA6D00FA911A /* CommentViewController.swift */; };
-		E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4785A48235BB317002AB769 /* PostCommentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,10 +81,10 @@
 		ABF161281AAA02296255D636 /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
 		E1257CA524131557001927EB /* FindPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPeople.storyboard; sourceTree = "<group>"; };
 		E1257CA724131567001927EB /* FindPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPeopleViewController.swift; sourceTree = "<group>"; };
+		E18CDE122439C1D3009F579F /* ViewPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlayerView.swift; sourceTree = "<group>"; };
 		E1A5FD822432FE1100FA911A /* Card.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Card.xib; path = ../../../../../Downloads/Voyce/Voyce/Feed/Cards/Card.xib; sourceTree = "<group>"; };
 		E1A5FD8C2433A98600FA911A /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		E1A5FD942433AA6D00FA911A /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
-		E4785A48235BB317002AB769 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		FBADAFE5BC8ED6D6CCC75F46 /* Pods_Voyce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voyce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -166,7 +166,6 @@
 				3C2EEEA323327C1A009098D5 /* FeedViewController.swift */,
 				E1A5FD8C2433A98600FA911A /* Feed.storyboard */,
 				E1A5FD942433AA6D00FA911A /* CommentViewController.swift */,
-				E4785A48235BB317002AB769 /* PostCommentView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -204,6 +203,7 @@
 			children = (
 				E1A5FD822432FE1100FA911A /* Card.xib */,
 				3C62D8E22333D01100627FFB /* Card.swift */,
+				E18CDE122439C1D3009F579F /* ViewPlayerView.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -309,6 +309,7 @@
 				TargetAttributes = {
 					3C2EEE7D23327702009098D5 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -430,8 +431,8 @@
 				0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */,
 				3C2EEE972332796B009098D5 /* Color.swift in Sources */,
 				3C2EEEA423327C1A009098D5 /* FeedViewController.swift in Sources */,
-				E4785A49235BB317002AB769 /* PostCommentView.swift in Sources */,
 				3F81E91A236FE1F0008B3673 /* MyPostTableViewCell.swift in Sources */,
+				E18CDE132439C1D3009F579F /* ViewPlayerView.swift in Sources */,
 				3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */,
 				3C62D8DE2333CFA300627FFB /* Post.swift in Sources */,
 				3F41657C2425BD4400F65818 /* Comment.swift in Sources */,
@@ -627,7 +628,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.QEDev.voyce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -687,7 +688,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.QEDev.voyce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
