@@ -12,7 +12,6 @@
 		0E6B21D52431377300804734 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D42431377300804734 /* UserCell.swift */; };
 		0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D6243193D000804734 /* FundsViewController.swift */; };
 		0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D824319C7900804734 /* DwollaUser.swift */; };
-		0E7D5E47243A681200EFC839 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E7D5E46243A681200EFC839 /* Card.xib */; };
 		3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8123327702009098D5 /* AppDelegate.swift */; };
 		3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8823327703009098D5 /* Assets.xcassets */; };
 		3C2EEE8C23327703009098D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2EEE8A23327703009098D5 /* LaunchScreen.storyboard */; };
@@ -39,6 +38,7 @@
 		E1257CA624131557001927EB /* FindPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1257CA524131557001927EB /* FindPeople.storyboard */; };
 		E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1257CA724131567001927EB /* FindPeopleViewController.swift */; };
 		E128EC4C2439234200C5D91A /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1A5FD8C2433A98600FA911A /* Feed.storyboard */; };
+		E139CFDA243A6A590005EC36 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = E139CFD9243A6A590005EC36 /* Card.xib */; };
 		E18CDE132439C1D3009F579F /* ViewPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CDE122439C1D3009F579F /* ViewPlayerView.swift */; };
 		E18CDE17243A47E5009F579F /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CDE14243A47E4009F579F /* StartUpViewController.swift */; };
 		E18CDE18243A47E5009F579F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18CDE15243A47E5009F579F /* Login.storyboard */; };
@@ -52,7 +52,6 @@
 		0E6B21D42431377300804734 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		0E6B21D6243193D000804734 /* FundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsViewController.swift; sourceTree = "<group>"; };
 		0E6B21D824319C7900804734 /* DwollaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DwollaUser.swift; sourceTree = "<group>"; };
-		0E7D5E46243A681200EFC839 /* Card.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Card.xib; path = "../../../../../../Downloads/Voyce-master/Voyce/Feed/Cards/Card.xib"; sourceTree = "<group>"; };
 		26A66FDFE7C16DDE707DCCFC /* Pods-Voyce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.release.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.release.xcconfig"; sourceTree = "<group>"; };
 		3C2EEE7E23327702009098D5 /* Voyce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2EEE8123327702009098D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		ABF161281AAA02296255D636 /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
 		E1257CA524131557001927EB /* FindPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPeople.storyboard; sourceTree = "<group>"; };
 		E1257CA724131567001927EB /* FindPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPeopleViewController.swift; sourceTree = "<group>"; };
+		E139CFD9243A6A590005EC36 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		E18CDE122439C1D3009F579F /* ViewPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlayerView.swift; sourceTree = "<group>"; };
 		E18CDE14243A47E4009F579F /* StartUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		E18CDE15243A47E5009F579F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -203,9 +203,9 @@
 		3C62D8DF2333CFF800627FFB /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				0E7D5E46243A681200EFC839 /* Card.xib */,
 				3C62D8E22333D01100627FFB /* Card.swift */,
 				E18CDE122439C1D3009F579F /* ViewPlayerView.swift */,
+				E139CFD9243A6A590005EC36 /* Card.xib */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -348,10 +348,10 @@
 				01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */,
 				0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */,
 				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
-				0E7D5E47243A681200EFC839 /* Card.xib in Resources */,
 				E1257CA624131557001927EB /* FindPeople.storyboard in Resources */,
 				3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */,
 				E18CDE18243A47E5009F579F /* Login.storyboard in Resources */,
+				E139CFDA243A6A590005EC36 /* Card.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
