@@ -91,12 +91,12 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         switch postSegmentedControl.selectedSegmentIndex {
         case 0:
             //just text post
-            DatabaseManager.shared.addPost(with: textView.text)
+            DatabaseManager.shared.addPost(with: "text", content: textView.text)
         case 1:
-            DatabaseManager.shared.addPost(with: imageCaption.text, image: "")//add image to url converter
+            DatabaseManager.shared.addPost(with: "image", content: textView.text)//add image to url converter
         //add image to the post as well
         default:
-            DatabaseManager.shared.addPost(with: textView.text)
+            DatabaseManager.shared.addPost(with: "video", content: textView.text)
         }
         navigationController?.popViewController(animated: true)
     }

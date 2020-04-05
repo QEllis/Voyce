@@ -16,7 +16,7 @@ final class MyPostTableViewCell: UITableViewCell {
   
   var delegate: MyPostTableViewCellDelegate?
   var postUser = User()
-  var post:Post = Post()
+  var post: Post = Post()
   
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var createdAtLabel: UILabel!
@@ -28,7 +28,7 @@ final class MyPostTableViewCell: UITableViewCell {
     self.postUser = post.user
     self.post = post
     usernameLabel.text = postUser.username
-    textView.text = post.text
+    textView.text = post.content
     createdAtLabel.text = "today"
   }
   

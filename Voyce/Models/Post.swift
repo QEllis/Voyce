@@ -8,59 +8,122 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseUI
 
 public class Post
 {
     let postID: String
-    let text: String
-    let media: String
-    var likeCount: Int
-    var user: User
-    var comments: [Post]
-    var image: String?
+    let user: User
+    let userID: String
+    let date: String
+    let postType: String
+    let content: String
+    var vibes: Int
+    var caption: String
+    var comments: [Comment]
     
     var dictionary: [String: Any] {
         return [
-            "text": text,
-            "media": media,
             "uid": user.userID,
-            "likeCount": likeCount,
+            "date": date,
+            "postType": postType,
+            "content": content,
+            "vibes": vibes,
+            "caption": caption,
             "comments": comments
         ]
     }
     
     init() {
         self.postID = ""
-        self.text = ""
-        self.media = ""
         self.user = User()
-        self.likeCount = 0
+        self.userID = ""
+        self.date = Date().description
+        self.postType = ""
+        self.content = ""
+        self.vibes = 0
+        self.caption = ""
         self.comments = []
     }
     
-    init(pid:String, text: String, media: String, user: User, likeCount: Int, image: String? = nil) {
+    init(pid: String, user: User, postType: String, content: String, caption: String) {
         self.postID = pid
-        self.text = text
-        self.media = media
         self.user = user
-        self.likeCount = likeCount
+        self.userID = user.userID
+        self.date = Date().description
+        self.postType = postType
+        self.content = content
+        self.vibes = 0
+        self.caption = caption
         self.comments = []
-        self.image = image
+    }
+    
+    init(pid: String, user: User, postType: String, content: String, vibes: Int, caption: String) {
+        self.postID = pid
+        self.user = user
+        self.userID = user.userID
+        self.date = Date().description
+        self.postType = postType
+        self.content = content
+        self.vibes = vibes
+        self.caption = caption
+        self.comments = []
+    }
+    
+    init(pid: String, user: User, date: String, postType: String, content: String, vibes: Int, caption: String) {
+        self.postID = pid
+        self.user = user
+        self.userID = user.userID
+        self.date = date
+        self.postType = postType
+        self.content = content
+        self.vibes = vibes
+        self.caption = caption
+        self.comments = []
     }
     
     init(post: Post) {
         self.postID = post.postID
-        self.text = post.text
-        self.media = post.media
         self.user = post.user
-        self.likeCount = post.likeCount
+        self.userID = user.userID
+        self.date = post.date
+        self.postType = post.postType
+        self.content = post.content
+        self.vibes = post.vibes
+        self.caption = post.caption
         self.comments = post.comments
-        self.image = post.image
     }
     
-    public func addComment(_ comment: Post) {
-        print("comments count before: \(comments.count)")
-        comments.append(comment)
-        print("Comments count: \(comments.count)")
+    func addVibe() {
+        self.vibes += 1
+        
+        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
+        sharedRef.updateData(["vibes": FieldValue.increment(Int64(1))])
     }
+    
+    func changeCaption(caption: String) {
+        self.caption = caption
+        
+        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
+        sharedRef.updateData(["caption": caption])
+    }
+    
+    func addComment(comment: Comment) {
+        self.comments.append(comment)
+        
+        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
+        sharedRef.updateData(["comments": comments])
+    }
+    
+    func removeComment(index: Int) {
+        
+        self.comments.remove(at: index)
+        
+        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
+        sharedRef.updateData(["comments": comments])
+    }
+    
+    ///Add functions to update values of Comments in the database.
 }

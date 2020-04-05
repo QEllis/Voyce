@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate
     {
         super.viewDidAppear(animated)
     }
-
+    
     private func isUserSignedIn() -> Bool
     {
         guard Auth.auth().currentUser != nil else
@@ -37,19 +37,17 @@ class LoginViewController: UIViewController, FUIAuthDelegate
             return false
         }
         return true
-      }
+    }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?)
     {
-      // handle user and error as necessary
+        // handle user and error as necessary
         //User init
         if Auth.auth().currentUser != nil
         {
             let user = Auth.auth().currentUser
-            print("User Logged in: "+user!.uid);
+            print("User Logged in: " + user!.uid);
             userManager.userLogin(u: user!)
-            // Loads user table for FindPeopleViewController Page
-            DatabaseManager.shared.loadOtherUsers()
         }
         else
         {

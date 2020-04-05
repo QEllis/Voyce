@@ -149,7 +149,7 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
     /// Tells the delegate that the user earned a reward.
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
         print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-        user.addAdVibes(adVibes: Int(truncating: reward.amount))
+        user.addVibes(adVibes: Int(truncating: reward.amount))
     }
     /// Tells the delegate that the rewarded ad was presented.
     func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {

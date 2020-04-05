@@ -81,7 +81,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         userTableView.delegate = self
         userTableView.dataSource = self
-        users = DatabaseManager.shared.otherUsers
+//        users = DatabaseManager.shared.otherUsers
         searchTextField.becomeFirstResponder()
     }
 }

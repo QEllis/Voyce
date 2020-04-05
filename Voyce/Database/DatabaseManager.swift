@@ -11,54 +11,53 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
+import FirebaseCore
+import FirebaseFirestoreSwift
+
 class DatabaseManager
 {
-    // Member Variables
-    
     static let shared = DatabaseManager()
-    
-    var mostRecentQuery: Query
-    var limit = 3
     
     var sharedUser: User
     var db: Firestore
     let storage: Storage
-    var dislikedAds: [String]
-    var acknowledgedPosts:[String:Post]
+    var numPosts: Int
     var myPosts: [Post]
-    var otherUsers: [User] = []
-    var posts: [Post] = []
     {
         didSet
         {
             NotificationCenter.default.post(name: .NewPosts, object: nil)
         }
     }
+    var index: Int
     
-    var comments: [Comment] = []
-
-    
-    // Class Constructor
     init()
     {
         sharedUser = User.init()
         db = Firestore.firestore()
         storage = Storage.storage()
-        dislikedAds = []
-        acknowledgedPosts = [:]
         myPosts  = []
-        mostRecentQuery = db.collection("posts").order(by: "vibes", descending: true).limit(to: 10);
+        index = 0
+        numPosts = 0
+        var ref = db.collection("posts").addSnapshotListener() { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+              print("Error fetching documents: \(error!)")
+              return
+            }
+            guard let data = documents.map { $0["name"]! }
+            print("Current data: \(data)")
+        }
     }
     
     //adjust posts vibes count
-    public func giveVibe(post: Post)
-    {
-        post.likeCount += 1;
-        //    db.collection("posts").document(post.postID).setData(["likeCount":post.likeCount], merge: true);
-        //
-        let shardRef = DatabaseManager.shared.db.collection("posts").document(post.postID)
-        shardRef.updateData(["vibes": FieldValue.increment(Int64(1))])
-    }
+    //    public func giveVibe(post: Post)
+    //    {
+    //        post.vibes += 1;
+    //        //    db.collection("posts").document(post.postID).setData(["likeCount":post.likeCount], merge: true);
+    //        //
+    //        let shardRef = DatabaseManager.shared.db.collection("posts").document(post.postID)
+    //        shardRef.updateData(["vibes": FieldValue.increment(Int64(1))])
+    //    }
     
     // Called when the user logs in
     public func userLogin(u: FirebaseAuth.User)
@@ -79,274 +78,284 @@ class DatabaseManager
         }
     }
     
+    ///Fix Fix Fix!!!
     // Adds image post to database -- Needs work
-    public func addPost(with text: String, image: String) {
-        let id = UUID()
-        let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
-        myPosts.insert(newPost, at: 0)
-        posts.insert(newPost, at: 0)
-        db.collection("posts").document(id.uuidString).setData([
-            "uid": sharedUser.userID,
-            "ts": NSDate().timeIntervalSince1970,
-            "text": text,
-            "media": "",
-            "likeCount": 0,
-            "image": ""
-        ]) { err in
-            if let err = err {
-                print("Error writing post to db: \(err)")
-            } else {
-                print("image post successfully written to db!")
-            }
-        }
-    }
-    
-    // Adds text post to database -- Should work
-    public func addPost(with text: String)
-    {
-        let id = UUID()
-        let newPost = Post(pid: "-1", text: text, media: "", user: sharedUser, likeCount: 0)
-        myPosts.insert(newPost, at: 0)
-        posts.insert(newPost, at: 0)
-        db.collection("posts").document(id.uuidString).setData([
-            "uid": sharedUser.userID,
-            "ts": NSDate().timeIntervalSince1970,
-            "text": text,
-            "media": "",
-            "likeCount": 0,
-            "postID": id.uuidString
-        ]) { err in
-            if let err = err {
-                print("Error writing post to db: \(err)")
-            } else {
-                print("post successfully written to db!")
-            }
-        }
+    public func addPost(with postType: String, content: String) {
+        //        let id = UUID()
+        //        let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
+        //        myPosts.insert(newPost, at: 0)
+        //        posts.insert(newPost, at: 0)
+        //        db.collection("posts").document(id.uuidString).setData([
+        //            "uid": sharedUser.userID,
+        //            "ts": NSDate().timeIntervalSince1970,
+        //            "text": text,
+        //            "media": "",
+        //            "likeCount": 0,
+        //            "comments": ""
+        //
+        //            let postID: String
+        //            let user: User
+        //            let userID: String
+        //            let date: String
+        //            let postType: String
+        //            let content: String
+        //            var vibes: Int
+        //            var caption: String
+        //            var comments: [Comment]
+        //        ]) { err in
+        //            if let err = err {
+        //                print("Error writing post to db: \(err)")
+        //            } else {
+        //                print("image post successfully written to db!")
+        //            }
+        //        }
     }
     
     // Links a user to a post
     public func setPostsUser(uid: String, p: Post)
     {
-        let collection = db.collection("users")
-        collection.document(uid).getDocument() { (document, error) in
-            if let document = document, document.exists
-            {
-                let data = document.data()
-                let dataDescription = data.map(String.init(describing:)) ?? "nil"
-                print("GET USER Doc id: \(document.documentID)")
-                print("GET USER Document data: \(dataDescription)")
-                let actualUserFound = User(userID: document.documentID, name:  document.get("name") as! String, username:  document.get("username") as! String, totalVibes:  document.get("totalVibes")  as! Int, profilePic:  document.get("profilePic") as! String)
-                p.user = actualUserFound
-                DatabaseManager.shared.posts.append(p)
-                print("Post Creator: \(p.user.userID)")
-            }
-            else
-            {
-                print("User does not exist!")
-            }
-        }
+        //        let collection = db.collection("users")
+        //        collection.document(uid).getDocument() { (document, error) in
+        //            if let document = document, document.exists
+        //            {
+        //                let data = document.data()
+        //                let dataDescription = data.map(String.init(describing:)) ?? "nil"
+        //                print("GET USER Doc id: \(document.documentID)")
+        //                print("GET USER Document data: \(dataDescription)")
+        //                let actualUserFound = User(userID: document.documentID, name:  document.get("name") as! String, username:  document.get("username") as! String, totalVibes:  document.get("totalVibes")  as! Int, profilePic:  document.get("profilePic") as! String)
+        //                p.user = actualUserFound
+        //                DatabaseManager.shared.posts.append(p)
+        //                print("Post Creator: \(p.user.userID)")
+        //            }
+        //            else
+        //            {
+        //                print("User does not exist!")
+        //            }
+        //        }
     }
     
     // Updates the arrays that store the posts and
-    public func loadFeed()
+    //    public func loadFeed()
+    //    {
+    //        print("IN LOAD FEED");
+    //        let collection = db.collection("posts")
+    //        collection.order(by: "vibes", descending: true).limit(to: 10).getDocuments()
+    //        {
+    //            (querySnapshot, err) in
+    //            if let err = err
+    //            {
+    //                print("Error getting documents: \(err)")
+    //            }
+    //            else
+    //            {
+    //                print("didn't error");
+    //                self.posts = []
+    //                var uids: [String] = []
+    //                var newPosts: [Post] = []
+    //                // Iterates through all posts in Firebase
+    //                for document in querySnapshot!.documents
+    //                {
+    //                    print("got document")
+    //                    let data = document.data()
+    //                    let p = Post(pid: document.documentID,
+    //                                 text: data["content"] as! String,
+    //                                 media: "",
+    //                                 user: User(),
+    //                                 likeCount: data["vibes"] as! Int,
+    //                                 image: data["content"] as? String)
+    //                    //                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
+    //                    //                        self.posts.append(p)
+    //                    uids.append(data["userID"] as! String)
+    //                    newPosts.append(p)
+    //                    print("POST: \(document.documentID) => \(document.data())")
+    //                }
+    //                // Links each post to a post user
+    //                for i in 0..<newPosts.count
+    //                {
+    //                    self.setPostsUser(uid: uids[i], p: newPosts[i])
+    //                }
+    //            }
+    //        }
+    //    }
+    
+    public func loadFeed(view: FeedViewController)
     {
-        print("IN LOAD FEED");
-        let collection = db.collection("posts")
-        collection.order(by: "vibes", descending: true).limit(to: 10).getDocuments()
-        {
-            (querySnapshot, err) in
-            if let err = err
-            {
+        let collection = db.collection("posts")//.limit(to: 2)//.where post has not been seen
+        collection.getDocuments() { (QuerySnapshot, err) in
+            if let err = err {
                 print("Error getting documents: \(err)")
-            }
-            else
-            {
-                print("didn't error");
-                self.posts = []
-                var uids: [String] = []
-                var newPosts: [Post] = []
-                // Iterates through all posts in Firebase
-                for document in querySnapshot!.documents
+            } else {
+                for document in QuerySnapshot!.documents
                 {
-                    print("got document")
                     let data = document.data()
-                    let p = Post(pid: document.documentID,
-                                 text: data["content"] as! String,
-                                 media: "",
-                                 user: User(),
-                                 likeCount: data["vibes"] as! Int,
-                                 image: data["content"] as? String)
-                    //                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
-                    //                        self.posts.append(p)
-                    uids.append(data["userID"] as! String)
-                    newPosts.append(p)
-                    print("POST: \(document.documentID) => \(document.data())")
-                }
-                // Links each post to a post user
-                for i in 0..<newPosts.count
-                {
-                    self.setPostsUser(uid: uids[i], p: newPosts[i])
-                }
-            }
-        }
-    }
-    
-    // May not be needed -- Never called
-    public func updatePosts()
-    {
-        let collection = db.collection("posts");
-        for post in posts
-        {
-            db.collection("posts").document(post.postID).setData(post.dictionary) { err in
-                if let err = err {
-                    print("Error updating post to db: \(err)")
-                } else {
-                    print("post successfully updated to db!")
-                }
-            }
-            
-            let postDoc = collection.document(post.postID)
-            postDoc.getDocument { (document, error) in
-                if let document = document, document.exists {
+                    let postID = data["postID"] as! String
+                    let userID = data["userID"] as! String
+                    let user = self.userIDtoUser(userID: userID)
+                    let date = data["date"] as! String
+                    let postType = data["postType"] as! String
+                    let content = data["content"] as! String
+                    let vibes = data["vibes"] as! Int
+                    let caption = data["caption"] as! String
                     
-                } else {
-                    print("UPDATE POST: Post does not exist", post.postID)
+                    let post = Post(pid: postID, user: user, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
+                    self.posts.append(post)
+                    
+                    if userID == self.sharedUser.userID {
+                        self.myPosts.append(post)
+                    }
+                }
+                
+                /// Populate initial cards with posts.
+                switch self.index % 2 {
+                case 0:
+                    view.activeCard.addPost(post: self.posts[self.index])
+                    if self.index < self.posts.count - 1 {
+                        view.queueCard.addPost(post: self.posts[self.index + 1])
+                    }
+                    else {
+                        view.queueCard.hideCard()
+                    }
+                case 1:
+                    view.queueCard.addPost(post: self.posts[self.index])
+                    if self.index < self.posts.count - 1 {
+                        view.activeCard.addPost(post: self.posts[self.index + 1])
+                    }
+                    else {
+                        view.activeCard.hideCard()
+                    }
+                default:
+                    print("Error populating the feed.")
+                }
+                self.incremementIndex()
+            }
+        }
+    }
+    
+    private func userIDtoUser(userID: String) -> User {
+        var user: User = User()
+        
+        let ref = db.collection("users")
+        ref.getDocuments() { (QuerySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in QuerySnapshot!.documents
+                {
+                    if document.documentID == userID {
+                        let data = document.data()
+                        let userID = document.documentID
+                        let name = data["name"] as! String
+                        let username = data["username"] as! String
+                        let adVibes = data["adVibes"] as! Int
+                        let earnedVibes = data["earnedVibes"] as! Int
+                        let totalVibes = data["totalVibes"] as! Int
+                        let profilePic = data["profilePic"] as! String
+                        
+                        user = User(userID: userID, name: name, username: username, adVibes: adVibes, earnedVibes: earnedVibes, totalVibes: totalVibes, profilePic: profilePic)
+                        print("who is this \(user.username)")
+                    }
                 }
             }
         }
-        posts = []
+        return user
     }
     
-    public func addComment(with text: String, post: Post)
-    {
-        for currPost in posts where currPost.postID == post.postID {
-            print("addComment")
-            let comment = Post(pid: "comment", text: text,media: "", user: DatabaseManager.shared.sharedUser, likeCount: 0)
-            //UserManager.shared.addComment(with: text, post: currPost)
-            currPost.addComment(comment)
-        }
-        NotificationCenter.default.post(name: .NewPosts, object: nil)
+    func incremementIndex() {
+        self.index += 1
     }
-
-    public func addFollowed(username: String) {
-        DatabaseManager.shared.sharedUser.addFollowed(userID: username)
-    }
-
-    public func removeFollowed(username: String) {
-        DatabaseManager.shared.sharedUser.removeFollowed(userID: username)
-    }
-
-    public func checkIfFollowed(username: String) -> Bool {
-        return DatabaseManager.shared.sharedUser.checkIfFollowed(userID: username)
-    }
-    
-    
     
     /* Comment functionality portion below */
-        
+    
     //creates comment from text, ID of commenter, and post on which commented
     public func addComment(content: String, userID: String, postID: String){
-        let vibes = 0
-        let id = UUID()
-        db.collection("comments").document(id.uuidString).setData([
-            "postID": postID,
-            "userID": userID,
-            "ts": NSDate().timeIntervalSince1970,
-            "content": content,
-            "vibes": vibes,
-            "commentID": id.uuidString
-            ]) { err in
-                if let err = err {
-                    print("Error writing post to db: \(err)")
-                } else {
-                        print("post successfully written to db!")
-                }
-            }
-         
+        //        let vibes = 0
+        //        let id = UUID()
+        //        db.collection("comments").document(id.uuidString).setData([
+        //            "postID": postID,
+        //            "userID": userID,
+        //            "ts": NSDate().timeIntervalSince1970,
+        //            "content": content,
+        //            "vibes": vibes,
+        //            "commentID": id.uuidString
+        //            ]) { err in
+        //                if let err = err {
+        //                    print("Error writing post to db: \(err)")
+        //                } else {
+        //                        print("post successfully written to db!")
+        //                }
+        //            }
+        
     }
     
     /* Load all comments of a specific post and populates the DatabaseManager.comments[] member */
     public func loadComments(postID: String){
-        db.collection("comments").whereField("postID", isEqualTo: postID).order(by: "vibes", descending: true)
-                         .getDocuments() { (querySnapshot, err) in
-                             if let err = err {
-                                 print("Error getting documents: \(err)")
-                             } else {
-                                self.comments = []
-                                for document in querySnapshot!.documents {
-                                     let data = document.data()
-                                     let currComment = Comment(commentID: data["commentID"] as! String,
-                                                               content: data["content"] as! String,
-                                                               userID: data["userID"] as! String,
-                                                               postID: data["postID"] as! String,
-                                                               timeStamp: data["ts"] as! TimeInterval,
-                                                               vibes: data["vibes"] as! Int)
-                                     
-                                     print(currComment)
-                                     self.comments.append(currComment)
-                                }
-                             }
-                     }
+        //        db.collection("comments").whereField("postID", isEqualTo: postID).order(by: "vibes", descending: true)
+        //                         .getDocuments() { (querySnapshot, err) in
+        //                             if let err = err {
+        //                                 print("Error getting documents: \(err)")
+        //                             } else {
+        //                                self.comments = []
+        //                                for document in querySnapshot!.documents {
+        //                                     let data = document.data()
+        //                                     let currComment = Comment(commentID: data["commentID"] as! String,
+        //                                                               content: data["content"] as! String,
+        //                                                               userID: data["userID"] as! String,
+        //                                                               postID: data["postID"] as! String,
+        //                                                               timeStamp: data["ts"] as! TimeInterval,
+        //                                                               vibes: data["vibes"] as! Int)
+        //
+        //                                     print(currComment)
+        //                                     self.comments.append(currComment)
+        //                                }
+        //                             }
+        //                     }
     }
     
     /* Helper function that returns true if current user is owner of comment object */
-    public func isCommenter(currComment: Comment) -> Bool {
-        if(currComment.userID == sharedUser.userID){
-            print("Is the commenter")
-            return true;
-        }
-        print("Is not the commenter")
-        return false;
-    }
     
     /* If the current signed in user is the one who commented, then the comment object is removed from DB. Otherwise nothing happens */
     public func removeComment(currComment: Comment){
-        if(isCommenter(currComment: currComment)){
-            db.collection("comments").document(currComment.commentID).delete() { err in
-                if let err = err {
-                    print("Error removing comment: \(err)")
-                } else {
-                    print("Comment successfully removed!")
-                }
-            }
-        }
+        //        if(isCommenter(currComment: currComment)){
+        //            db.collection("comments").document(currComment.commentID).delete() { err in
+        //                if let err = err {
+        //                    print("Error removing comment: \(err)")
+        //                } else {
+        //                    print("Comment successfully removed!")
+        //                }
+        //            }
+        //        }
     }
     
     /* If the current signed in user is the one who commented, then comment is modified given the new text */
     public func editComment(currComment: Comment, newText: String){
-        if(isCommenter(currComment: currComment)){
-            
-        }
+        //        if(isCommenter(currComment: currComment)){
+        //
+        //        }
     }
     // Loads all other users from the database
     public func loadOtherUsers()
     {
-        let collection = db.collection("users")
-        collection.order(by: "totalVibes", descending: true).limit(to: 10).getDocuments()
-        {
-            (querySnapshot, err) in
-            if let err = err
-            {
-                print("Error getting documents: \(err)")
-            }
-            else
-            {
-                // Iterates trough all users in the database
-                for document in querySnapshot!.documents
-                {
-                    let user = User(userID: document.documentID, name:  document.get("name") as! String, username:  document.get("username") as! String, totalVibes:  document.get("totalVibes")  as! Int, profilePic:  document.get("profilePic") as! String)
-                    if user.userID != self.sharedUser.userID
-                    {
-                        self.otherUsers.append(user)
-                    }
-                }
-                print("OtherUsers: \(self.otherUsers)")
-            }
-        }
+        //        let collection = db.collection("users")
+        //        collection.order(by: "totalVibes", descending: true).limit(to: 10).getDocuments()
+        //        {
+        //            (querySnapshot, err) in
+        //            if let err = err
+        //            {
+        //                print("Error getting documents: \(err)")
+        //            }
+        //            else
+        //            {
+        //                // Iterates trough all users in the database
+        //                for document in querySnapshot!.documents
+        //                {
+        //                    let user = User(userID: document.documentID, name:  document.get("name") as! String, username:  document.get("username") as! String, totalVibes:  document.get("totalVibes")  as! Int, profilePic:  document.get("profilePic") as! String)
+        //                    if user.userID != self.sharedUser.userID
+        //                    {
+        //                        self.otherUsers.append(user)
+        //                    }
+        //                }
+        //                print("OtherUsers: \(self.otherUsers)")
+        //            }
+        //        }
     }
-    
-    
-    
-    
 }
-

@@ -1,99 +1,114 @@
 //
-//  PostTableViewCell.swift
+//  Card.swift
 //  Voyce
 //
-//  Created by Quinn Ellis on 9/19/19.
-//  Copyright © 2019 QEDev. All rights reserved.
+//  Created by Jordan Ghidossi on 2/10/20.
+//  Copyright © 2020 QEDev. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-protocol CardDelegate
+class Card: UIView
 {
-    func profileButtonDidPressed(postUser: User)
-}
-
-final class Card: UITableViewCell
-{
-    var delegate: CardDelegate?
-    var postUser: User = User(userID: "0", name: "nil", username: "nil")
-    var currentUser: User = DatabaseManager.shared.sharedUser
-    var post: Post = Post()
-    
+    @IBOutlet var card: UIView!
     @IBOutlet var usernameLabel: UILabel!
-    @IBOutlet var createdAtLabel: UILabel!
-    @IBOutlet var textView: UITextView!
-    @IBOutlet weak var commentStackView: UIStackView!
-    @IBOutlet weak var vibeButton: UIButton!
-    @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet weak var numVibes: UILabel!
-    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var vibeButton: UIButton!
+    @IBOutlet var numVibes: UILabel!
+    @IBOutlet var profileButton: UIButton!
     
-    func URLToImg(_ url: URL?) -> UIImage?
+    @IBOutlet var postImage: UIImageView!
+    @IBOutlet var postText: UITextView!
+    @IBOutlet var postVideo: UIView!
+    
+    var user: User?
+    var post: Post?
+    
+    // For using Card in Swift
+    override init(frame: CGRect)
     {
-        guard let imageURL = url else
-        {
-            return nil
-        }
-        let data = try? Data(contentsOf: imageURL)
-        return UIImage(data: data!)
+        super.init(frame: frame)
+        commonInit()
     }
     
-    public func fillOut(with post: Post)
+    // For using Card in InterfaceBuilder
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit()
     {
-        //Set border color and size of Card
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.init(red: 170/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
-        self.layer.cornerRadius = 50
+        Bundle.main.loadNibNamed("Card", owner: self, options: nil)
+        addSubview(card)
+        card.frame = self.bounds
+        card.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        // Set border color and size of Card
+        card.layer.borderWidth = 1
+        card.layer.borderColor = UIColor.init(red: 170/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+        card.layer.cornerRadius = 50
+        postImage.layer.cornerRadius = 50
         
         layoutIfNeeded()
-        
-        //Populate Card with associated information
+    }
+    
+    /// Populate Card with associated information
+    func addPost(post: Post) {
         self.post = post
-        postUser = post.user
-        usernameLabel.text = postUser.username
-        //profileButton.imageView = UIImageView(URLToImg(postUser.profilePic));
-        numVibes.text = String(post.likeCount)
-        createdAtLabel.text = "today" //Add timestamp to Post
-        postImage.image = URLToImg(URL(string: post.image!))
-        profileButton.setImage(URLToImg(postUser.profilePic), for: .normal)
+        self.user = post.user
+        usernameLabel.text = self.user?.username
+        dateLabel.text = post.date
+        numVibes.text = String(post.vibes)
+                
+        profileButton.setImage(URLToImg(user?.profilePic) ?? UIImage(named: "Profile"), for: .normal)
         circularImg(imageView: profileButton.imageView)
-    }
-    // Changes the shape of each profile image into a circle
-    func circularImg(imageView: UIImageView?)
-    {
-        imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0)/2.0
-    }
-    
-    @IBAction func profileButtonPressed(_ sender: Any)
-    {
-        delegate?.profileButtonDidPressed(postUser: postUser)
-    }
-    
-    @IBAction func acknowledgePressed(_ sender: Any)
-    {
-        if(currentUser.hasUnusedVibes()){
-            updateVibes()
-            updateUI()
+        
+        switch post.postType {
+        case "text":
+            break
+        case "image":
+            let url = URL(string: post.content)
+            if url != nil {
+                let data = try? Data(contentsOf: url!)
+                self.postImage.image = UIImage(data: data!)
+            }
+        case "video":
+            break
+        default:
+            print("Error: Unknown Post Type for \(post.postID)")
         }
     }
     
-    func updateVibes()
-    {
-        postUser.addVibes(totalVibes: 1)
-        //add earned vibes to postUser
-        postUser.addEarnedVibes(unusedVibes: 1)
-        currentUser.removeVibes()
+    func hideCard() {
+        card.isHidden = true
+        //Make sure to unhide when reloading the page.
     }
     
-    func updateUI()
-    {
-        vibeButton.setImage(UIImage(named: randomEmoji()), for: .normal)
-        DatabaseManager.shared.giveVibe(post: post)
-        numVibes.text = String(post.likeCount)
+    // Action when vibeButton is pressed
+    @IBAction func vibeButtonPressed(_ sender: UIButton) {
+        // Update vibes in the database
+        user?.addVibes(totalVibes: 1)
+        user?.addVibes(earnedVibes: 1)
+        // Update UI
+        vibeButton.setImage(randomEmoji(), for: .normal)
     }
     
-    func randomEmoji() -> String!
+    // Action when profileButton is pressed
+    @IBAction func profileButtonPressed(_ sender: UIButton) {
+        
+    }
+    
+    //    func updateUI()
+    //    {
+    //        vibeButton.setImage(UIImage(named: randomEmoji()), for: .normal)
+    //        DatabaseManager.shared.giveVibe(post: post)
+    //        numVibes.text = String(post.likeCount)
+    //    }
+    
+    // Returns a random emoji as UIImage
+    private func randomEmoji() -> UIImage!
     {
         var emojiArray = [String]()
         emojiArray.append("art-and-design")
@@ -142,6 +157,22 @@ final class Card: UITableViewCell
         emojiArray.append("venus-de-milo")
         emojiArray.append("yin-yang")
         let randomNumber = Int.random(in: 0..<45)
-        return emojiArray[randomNumber]
+        return UIImage(named:emojiArray[randomNumber])
+    }
+    
+    func URLToImg(_ url: URL?) -> UIImage?
+    {
+        guard let imageURL = url else
+        {
+            return nil
+        }
+        let data = try? Data(contentsOf: imageURL)
+        return UIImage(data: data!)
+    }
+    
+    /// Changes the shape of each profile image into a circle.
+    func circularImg(imageView: UIImageView?)
+    {
+        imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0) / 2.0
     }
 }

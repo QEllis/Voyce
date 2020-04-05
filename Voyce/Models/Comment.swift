@@ -12,28 +12,53 @@ import UIKit
 public class Comment
 {
     let commentID: String
-    var userID: String //ID of user that posted
-    let timeStamp: TimeInterval //date posted
-    let content: String //text
+    let user: User
+    let userID: String
+    let date: String
+    var content: String
     var vibes: Int
-    var postID: String
     
-    init() {
-        self.commentID = ""
-        self.timeStamp = NSDate().timeIntervalSince1970;
-        self.content = ""
-        self.vibes = 0
-        self.userID = "";
-        self.postID = "";
+    var dictionary: [String: Any] {
+        return [
+            "uid": user.userID,
+            "date": date,
+            "content": content,
+            "vibes": vibes,
+        ]
     }
     
-    init(commentID: String, content: String, userID: String, postID: String, timeStamp: TimeInterval, vibes: Int){
+    init(commentID: String, user: User, content: String) {
         self.commentID = commentID
+        self.user = user;
+        self.userID = user.userID
+        self.date = Date().description;
         self.content = content;
-        self.userID = userID;
-        self.postID = postID;
-        self.timeStamp = timeStamp;
+        self.vibes = 0;
+    }
+    
+    init(commentID: String, user: User, content: String, vibes: Int) {
+        self.commentID = commentID
+        self.user = user;
+        self.userID = user.userID
+        self.date = Date().description;
+        self.content = content;
         self.vibes = vibes;
-        
+    }
+    
+    init(comment: Comment) {
+        self.commentID = comment.commentID
+        self.user = comment.user;
+        self.userID = user.userID
+        self.date = comment.date;
+        self.content = comment.content;
+        self.vibes = comment.vibes;
+    }
+    
+    func changeContent(content: String) {
+        self.content = content
+    }
+    
+    func addVibe() {
+        self.vibes += 1
     }
 }

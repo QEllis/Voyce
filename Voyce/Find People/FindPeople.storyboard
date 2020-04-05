@@ -78,6 +78,8 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" name="Background"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="lDX-RC-g3T" secondAttribute="bottom" constant="5" id="KLn-th-P8x"/>
                                                 <constraint firstAttribute="trailing" secondItem="lDX-RC-g3T" secondAttribute="trailing" constant="15" id="eEi-5E-Vtw"/>
@@ -213,7 +215,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mbg-xk-yrL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7rU-UT-Nq2"/>
+                    <navigationItem key="navigationItem" id="7rU-UT-Nq2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="dqq-b9-rW5">
+                            <color key="tintColor" name="Text - Body"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="goodVibesLabel" destination="0Ej-ed-Q6b" id="i4y-Wt-f9B"/>
                         <outlet property="nameLabel" destination="fDV-W9-uAH" id="d6k-rQ-3B6"/>

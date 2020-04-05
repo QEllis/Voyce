@@ -66,14 +66,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         //return count of my posts
-        return DatabaseManager.shared.myPosts.count
+//        return DatabaseManager.shared.myPosts.count
+        return 0
     }
     
     // Requires my MyPostTableViewCellDelegate, which in turn requires the promoteButtonDidPressed function
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostCell") as! MyPostTableViewCell
-        cell.fillOut(with: DatabaseManager.shared.myPosts[indexPath.row])
+//        cell.fillOut(with: DatabaseManager.shared.myPosts[indexPath.row])
         cell.delegate = self
         return cell
     }
