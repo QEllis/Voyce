@@ -29,8 +29,6 @@
 		3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */; };
 		3CF41A572344E01C0082B6F7 /* PostCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */; };
 		3CF41A5A2344E26E0082B6F7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF41A592344E26E0082B6F7 /* Notifications.swift */; };
-		3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E8E362346CF55007705C2 /* Login.storyboard */; };
-		3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E8E3823494CE3007705C2 /* LoginViewController.swift */; };
 		3F41657C2425BD4400F65818 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41657B2425BD4400F65818 /* Comment.swift */; };
 		3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BC235965DD00DD0DC6 /* User.swift */; };
 		3F4AE8BF235BB1B400DD0DC6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */; };
@@ -41,6 +39,9 @@
 		E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1257CA724131567001927EB /* FindPeopleViewController.swift */; };
 		E128EC4C2439234200C5D91A /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1A5FD8C2433A98600FA911A /* Feed.storyboard */; };
 		E18CDE132439C1D3009F579F /* ViewPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CDE122439C1D3009F579F /* ViewPlayerView.swift */; };
+		E18CDE17243A47E5009F579F /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CDE14243A47E4009F579F /* StartUpViewController.swift */; };
+		E18CDE18243A47E5009F579F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18CDE15243A47E5009F579F /* Login.storyboard */; };
+		E18CDE19243A47E5009F579F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CDE16243A47E5009F579F /* LoginViewController.swift */; };
 		E1A5FD832432FE1100FA911A /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A5FD822432FE1100FA911A /* Card.xib */; };
 		E1A5FD952433AA6D00FA911A /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5FD942433AA6D00FA911A /* CommentViewController.swift */; };
 /* End PBXBuildFile section */
@@ -71,8 +72,6 @@
 		3CF41A532344E0060082B6F7 /* PostCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationViewController.swift; sourceTree = "<group>"; };
 		3CF41A562344E01C0082B6F7 /* PostCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreation.storyboard; sourceTree = "<group>"; };
 		3CF41A592344E26E0082B6F7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		3F0E8E362346CF55007705C2 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		3F0E8E3823494CE3007705C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F41657B2425BD4400F65818 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		3F4AE8BC235965DD00DD0DC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +81,9 @@
 		E1257CA524131557001927EB /* FindPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPeople.storyboard; sourceTree = "<group>"; };
 		E1257CA724131567001927EB /* FindPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPeopleViewController.swift; sourceTree = "<group>"; };
 		E18CDE122439C1D3009F579F /* ViewPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlayerView.swift; sourceTree = "<group>"; };
+		E18CDE14243A47E4009F579F /* StartUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
+		E18CDE15243A47E5009F579F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		E18CDE16243A47E5009F579F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1A5FD822432FE1100FA911A /* Card.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Card.xib; path = ../../../../../Downloads/Voyce/Voyce/Feed/Cards/Card.xib; sourceTree = "<group>"; };
 		E1A5FD8C2433A98600FA911A /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		E1A5FD942433AA6D00FA911A /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -232,8 +234,9 @@
 		3F0E8E352346CF3D007705C2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				3F0E8E362346CF55007705C2 /* Login.storyboard */,
-				3F0E8E3823494CE3007705C2 /* LoginViewController.swift */,
+				E18CDE15243A47E5009F579F /* Login.storyboard */,
+				E18CDE16243A47E5009F579F /* LoginViewController.swift */,
+				E18CDE14243A47E4009F579F /* StartUpViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -348,7 +351,7 @@
 				3C2EEE8923327703009098D5 /* Assets.xcassets in Resources */,
 				E1257CA624131557001927EB /* FindPeople.storyboard in Resources */,
 				3C55ECBC23688D7A00B5738F /* VoyceTabBar.xib in Resources */,
-				3F0E8E372346CF55007705C2 /* Login.storyboard in Resources */,
+				E18CDE18243A47E5009F579F /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +424,9 @@
 				3F4AE8BD235965DD00DD0DC6 /* User.swift in Sources */,
 				E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */,
 				3C62D8E32333D01100627FFB /* Card.swift in Sources */,
+				E18CDE19243A47E5009F579F /* LoginViewController.swift in Sources */,
 				3F4AE8BF235BB1B400DD0DC6 /* ProfileViewController.swift in Sources */,
+				E18CDE17243A47E5009F579F /* StartUpViewController.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
 				0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */,
 				3C55ECBE23688D9400B5738F /* VoyceTabBar.swift in Sources */,
@@ -438,7 +443,6 @@
 				3F41657C2425BD4400F65818 /* Comment.swift in Sources */,
 				3C62D8DB2333CF2200627FFB /* DatabaseManager.swift in Sources */,
 				3C2EEE9D23327A90009098D5 /* RootNavigationController.swift in Sources */,
-				3F0E8E3923494CE3007705C2 /* LoginViewController.swift in Sources */,
 				0E6B21D52431377300804734 /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

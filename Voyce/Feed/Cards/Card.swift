@@ -87,20 +87,37 @@ class Card: UIView
                 let videoPlayerView = VideoPlayerView(frame: playerFrame)
                 videoPlayerView.player = player
                 postVideo.addSubview(videoPlayerView)
-                player.play()
             }
         default:
             print("Error: Unknown Post Type for \(post.postID)")
         }
     }
     
-    // Action when vibeButton is pressed
+    /// Action when vibeButton is pressed.
     @IBAction func vibeButtonPressed(_ sender: UIButton) {
         // Update vibes in the database
         user?.addVibes(totalVibes: 1)
         user?.addVibes(earnedVibes: 1)
         // Update UI
         vibeButton.setImage(randomEmoji(), for: .normal)
+    }
+    
+    /// Play video on a video post.
+    func playVideo() {
+        for subview in postVideo.subviews {
+            let view = subview as! VideoPlayerView
+            view.player?.play()
+            videoPausedView.isHidden = true
+        }
+    }
+    
+    /// Pause video on a video post.
+    func pauseVideo() {
+        for subview in postVideo.subviews {
+            let view = subview as! VideoPlayerView
+            view.player?.pause()
+            videoPausedView.isHidden = false
+        }
     }
     
     /// Action when profileButton is pressed.
@@ -110,20 +127,12 @@ class Card: UIView
     
     /// Pause video when postVideo is pressed.
     @IBAction func videoPressed(_ sender: UITapGestureRecognizer) {
-        for subview in postVideo.subviews {
-            let view = subview as! VideoPlayerView
-            view.player?.pause()
-            videoPausedView.isHidden = false
-        }
+        playVideo()
     }
     
     /// Play video when postVideo is pressed.
     @IBAction func videoPausedPressed(_ sender: UITapGestureRecognizer) {
-        for subview in postVideo.subviews {
-            let view = subview as! VideoPlayerView
-            view.player?.play()
-            videoPausedView.isHidden = true
-        }
+        pauseVideo()
     }
     
     // Returns a random emoji as UIImage

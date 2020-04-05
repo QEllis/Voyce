@@ -6,8 +6,10 @@
 //  Copyright © 2019 QEDev. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
+private let userManager = DatabaseManager.shared
 @available(iOS 13.0, *)
 class RootNavigationController: UINavigationController
 {
@@ -20,12 +22,9 @@ class RootNavigationController: UINavigationController
     //    Changed this to Login to test Login functionality
     private func routeUser()
     {
-        guard let loginVC = UIStoryboard(name: "Login", bundle: nil)
-            .instantiateInitialViewController() as? LoginViewController else { return }
-        viewControllers = [loginVC]
-        
-        //    let tabBarVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
-        //    viewControllers = [tabBarVC]
+        print("going to loginview controllerswift")
+        guard let loginNav = UIStoryboard(name: "Login", bundle: nil)
+            .instantiateInitialViewController() as? StartUpViewController else { return }
+        viewControllers = [loginNav]
     }
-    
 }

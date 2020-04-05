@@ -42,8 +42,8 @@ class DatabaseManager
         
         db.collection("posts").addSnapshotListener() { querySnapshot, error in
             guard querySnapshot?.documents != nil else {
-              print("Error fetching documents: \(error!)")
-              return
+                print("Error fetching documents: \(error!)")
+                return
             }
             let num = querySnapshot?.count
             print("Current data: \(num ?? -1)")
@@ -67,8 +67,8 @@ class DatabaseManager
                     
                     let post = Post(pid: postID, user: user, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
                     self.myPosts.append(post)
-                    }
                 }
+            }
             
         }
     }
@@ -127,10 +127,10 @@ class DatabaseManager
     
     public func loadFeed(view: FeedViewController)
     {
-        var active = true
+        var first = true
         let numLoad = (numPosts - index) > 1 ? 2 : (numPosts - index)
-      print(numLoad)
-        db.collection("posts").order(by: "date").start(at: ["2020-03-22 15:24:44 +0000"]).limit(to: 2).getDocuments() { QuerySnapshot, err in
+    
+        db.collection("posts").order(by: "date").start(at: ["2020-03-22 15:24:44 +0000"]).limit(to: 1).getDocuments() { QuerySnapshot, err in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -145,26 +145,28 @@ class DatabaseManager
                     let content = data["content"] as! String
                     let vibes = data["vibes"] as! Int
                     let caption = data["caption"] as! String
-
+                    
                     let post = Post(pid: postID, user: user, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
-                    if active {
-                        view.activeCard.addPost(post: post)
-                        view.activeCard.isHidden = false
-                    } else {
-                        view.queueCard.addPost(post: post)
-                        view.queueCard.isHidden = false
-
+                    
+                    switch view.counter % 2 {
+                    case 0:
+                            view.activeCard.addPost(post: post)
+                            view.activeCard.isHidden = false
+                    case 1:
+                            view.queueCard.addPost(post: post)
+                            view.queueCard.isHidden = false
+                    default: print("Error: counter is an invalid integer.")
                     }
-                    active = false
+                    view.counter += 1
                 }
             }
         }
-//        switch numLoad
-//        {
-//        case _ where numLoad < 1: view.queueCard.isHidden = true
-//        case _ where numLoad < 2: view.activeCard.isHidden = true
-//        default: break
-//        }
+        //        switch numLoad
+        //        {
+        //        case _ where numLoad < 1: view.queueCard.isHidden = true
+        //        case _ where numLoad < 2: view.activeCard.isHidden = true
+        //        default: break
+        //        }
         
         self.index += 1
     }
