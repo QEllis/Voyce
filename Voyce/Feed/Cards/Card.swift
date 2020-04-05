@@ -125,11 +125,12 @@ class Card: UIView
     
     /// Action when vibeButton is pressed.
     @IBAction func vibeButtonPressed(_ sender: UIButton) {
-        if (user?.earnedVibes > 0) {
+        if (DatabaseManager.shared.sharedUser.adVibes > 0) {
             // Update vibes in the database
             post?.addVibe()
             user?.addVibes(totalVibes: 1)
             user?.addVibes(earnedVibes: 1)
+            
             // Update UI
             numVibes.text = String(post!.vibes)
             vibeButton.setImage(randomEmoji(), for: .normal)
