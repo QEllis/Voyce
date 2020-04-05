@@ -22,6 +22,7 @@ class FeedViewController: UIViewController
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
+//        NotificationCenter.default.addObserver(self, selector: #selector(exitComments), name: NSNotification.Name(rawValue: "exitComments"), object: nil)
         DatabaseManager.shared.loadFeed(view: self)
     }
     
@@ -227,10 +228,49 @@ class FeedViewController: UIViewController
         {
             let vc = segue.destination as? CommentViewController
             switch counter % 2 {
-            case 0: vc?.post = self.activeCard.post
-            case 1: vc?.post = self.queueCard.post
+            case 0:
+                if activeCard.post?.postType == "video" {
+                    for subview in activeCard.postVideo.subviews {
+                        let view = subview as! VideoPlayerView
+                        view.player?.pause()
+                        activeCard.videoPausedView.isHidden = false
+                    }
+                }
+                vc?.post = self.activeCard.post
+            case 1:
+                if queueCard.post?.postType == "video" {
+                    for subview in queueCard.postVideo.subviews {
+                        let view = subview as! VideoPlayerView
+                        view.player?.pause()
+                        queueCard.videoPausedView.isHidden = false
+                    }
+                }
+                vc?.post = self.queueCard.post
             default: print("Error: counter is an invalid integer.")
             }
         }
     }
+    
+//    /// Play video when exiting the comments.
+//    @objc func exitComments() {
+//        switch counter % 2 {
+//        case 0:
+//            if activeCard.post?.postType == "video" {
+//                for subview in activeCard.postVideo.subviews {
+//                    let view = subview as! VideoPlayerView
+//                    view.player?.play()
+//                    activeCard.videoPausedView.isHidden = true
+//                }
+//            }
+//        case 1:
+//            if queueCard.post?.postType == "video" {
+//                for subview in queueCard.postVideo.subviews {
+//                    let view = subview as! VideoPlayerView
+//                    view.player?.play()
+//                    queueCard.videoPausedView.isHidden = true
+//                }
+//            }
+//        default: print("Error: counter is an invalid integer.")
+//        }
+//    }
 }

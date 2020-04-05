@@ -13,9 +13,11 @@ import FirebaseFirestoreSwift
 
 class CommentViewController: UIViewController
 {
-    @IBOutlet var postText: UITextView!
+    @IBOutlet var postText: UILabel!
     @IBOutlet var postImage: UIImageView!
     @IBOutlet var postVideo: UIView!
+    @IBOutlet var videoPausedView: UIView!
+    
     @IBOutlet var commentFeed: UITableView!
     
     var post: Post!
@@ -23,20 +25,24 @@ class CommentViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "exitComments"), object: nil)
         loadContent()
     }
     
     private func loadContent() {
         switch post.postType {
         case "text":
+            postText.isHidden = false
             postText.text = post.content;
         case "image":
+            postImage.isHidden = false
             let url = URL(string: post.content)
             if url != nil {
                 let data = try? Data(contentsOf: url!)
                 self.postImage.image = UIImage(data: data!)
             }
         case "video":
+            postVideo.isHidden = false
             let url = URL(string: post.content)
             if url != nil {
                 let player = AVPlayer(url: url!)
@@ -53,6 +59,19 @@ class CommentViewController: UIViewController
     
     /// Pause/Play video when postVideo is pressed.
     @IBAction func videoPressed(_ sender: Any) {
-        
+        for subview in postVideo.subviews {
+            let view = subview as! VideoPlayerView
+            view.player?.pause()
+            videoPausedView.isHidden = false
+        }
+    }
+    
+    /// Play video when postVideo is pressed.
+    @IBAction func videoPausedPressed(_ sender: UITapGestureRecognizer) {
+        for subview in postVideo.subviews {
+            let view = subview as! VideoPlayerView
+            view.player?.play()
+            videoPausedView.isHidden = true
+        }
     }
 }

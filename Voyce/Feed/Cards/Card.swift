@@ -19,9 +19,10 @@ class Card: UIView
     @IBOutlet var numVibes: UILabel!
     @IBOutlet var profileButton: UIButton!
     
+    @IBOutlet var postText: UILabel!
     @IBOutlet var postImage: UIImageView!
-    @IBOutlet var postText: UITextView!
     @IBOutlet var postVideo: UIView!
+    @IBOutlet var videoPausedView: UIView!
     
     var user: User?
     var post: Post?
@@ -68,14 +69,17 @@ class Card: UIView
         
         switch post.postType {
         case "text":
+            postText.isHidden = false
             postText.text = post.content
         case "image":
+            postImage.isHidden = false
             let url = URL(string: post.content)
             if url != nil {
                 let data = try? Data(contentsOf: url!)
                 self.postImage.image = UIImage(data: data!)
             }
         case "video":
+            postVideo.isHidden = false
             let url = URL(string: post.content)
             if url != nil {
                 let player = AVPlayer(url: url!)
@@ -84,7 +88,6 @@ class Card: UIView
                 videoPlayerView.player = player
                 postVideo.addSubview(videoPlayerView)
                 player.play()
-                //Make sure to stop video when swiping away.
             }
         default:
             print("Error: Unknown Post Type for \(post.postID)")
@@ -105,9 +108,22 @@ class Card: UIView
         
     }
     
-    /// Pause/Play video when postVideo is pressed.
+    /// Pause video when postVideo is pressed.
     @IBAction func videoPressed(_ sender: UITapGestureRecognizer) {
-        
+        for subview in postVideo.subviews {
+            let view = subview as! VideoPlayerView
+            view.player?.pause()
+            videoPausedView.isHidden = false
+        }
+    }
+    
+    /// Play video when postVideo is pressed.
+    @IBAction func videoPausedPressed(_ sender: UITapGestureRecognizer) {
+        for subview in postVideo.subviews {
+            let view = subview as! VideoPlayerView
+            view.player?.play()
+            videoPausedView.isHidden = true
+        }
     }
     
     // Returns a random emoji as UIImage
