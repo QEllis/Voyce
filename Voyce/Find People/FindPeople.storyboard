@@ -87,6 +87,7 @@
                                                 <constraint firstItem="lDX-RC-g3T" firstAttribute="leading" secondItem="nui-du-Wup" secondAttribute="leading" constant="15" id="uwW-fB-SwA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
                                         <connections>
                                             <outlet property="name" destination="0is-jh-08D" id="4KQ-hl-dVN"/>
                                             <outlet property="profileImage" destination="8ud-ux-OLG" id="iiN-yc-tVG"/>
