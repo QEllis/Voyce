@@ -24,82 +24,37 @@ class FeedViewController: UIViewController
         super.viewDidLoad()
         //        NotificationCenter.default.addObserver(self, selector: #selector(exitComments), name: NSNotification.Name(rawValue: "exitComments"), object: nil)
         
-        /// Load first active card.
-        DatabaseManager.shared.loadFeed(view: self)
+//        /// Load first active card.
+//        DatabaseManager.shared.loadFeed(view: self)
+//        
+//        /// Load first queued card.
+//        DatabaseManager.shared.loadFeed(view: self)
         
-        /// Load first queued card.
-        DatabaseManager.shared.loadFeed(view: self)
+        activeCard.playVideo()
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        /// Load first active card.
+               DatabaseManager.shared.loadFeed(view: self)
+               
+               /// Load first queued card.
+               DatabaseManager.shared.loadFeed(view: self)
+        activeCard.playVideo()
     }
     
     /// Swipable functionality for the  active card.
     @IBAction func panCard(_ sender: UIPanGestureRecognizer)
     {
         /// Move the card freely.
-        let card = sender.view!
+        let card = sender.view! as! Card
         let point = sender.translation(in: view)
-        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
-        
-        /// Set transparency of the card.
-        let xFromCenter = card.center.x - view.center.x
-        let yFromCenter = card.center.y - view.center.y
-        let distFromCenter = sqrt(xFromCenter * xFromCenter + yFromCenter * yFromCenter)
-        card.alpha = 1 - (abs(distFromCenter) / view.frame.height)
-        
-        /// Angle the card with movement.
-        card.transform = CGAffineTransform(rotationAngle: xFromCenter / (view.frame.width / 1.02))
+        translateCard(card: card, point: point)
         
         /// Bring the queued card to the front visually with constraints.
-        switch counter % 2 {
-        case 0:
-            for constraint in view.constraints {
-                switch constraint.identifier {
-                case "queueTop":
-                    UIView.animate(withDuration: 5) {
-                        constraint.constant = 10
-                    }
-                case "queueLeft", "queueRight":
-                    UIView.animate(withDuration: 5) {
-                        constraint.constant = 10
-                    }
-                case "queueBottom":
-                    UIView.animate(withDuration: 5) {
-                        constraint.constant = 15
-                    }
-                case .none:
-                    break
-                case .some(_):
-                    break
-                }
-            }
-        case 1:
-            for constraint in view.constraints {
-                switch constraint.identifier {
-                case "activeTop":
-                    UIView.animate(withDuration: 5) {
-                        constraint.constant = 10
-                    }
-                case "activeLeft", "activeRight":
-                    UIView.animate(withDuration: 5) {
-                        constraint.constant = 10
-                    }
-                case "activeBottom":
-                    UIView.animate(withDuration: 5) {
-                        constraint.constant = 15
-                    }
-                case .none:
-                    break
-                case .some(_):
-                    break
-                }
-            }
-        default:
-            print("Error: counter is an invalid integer.")
-        }
+        changeConstraints(cardTop: false, sidesAndTop: 10, bottom: 15)
         
         /// Swipe action has ended.
         if sender.state == UIGestureRecognizer.State.ended {
@@ -111,70 +66,27 @@ class FeedViewController: UIViewController
                     card.center = CGPoint(x: offScreenX, y: offScreenY)
                     card.alpha = 0 })
                 
-                /// Send the active card to the back and the queued card to the front.
+                /// Send the active card to the back and remove content.
+                card.removePost()
                 view.sendSubviewToBack(card)
-                for view in (card as! Card).postVideo.subviews {
-                    view.removeFromSuperview()
-                }
-//                if counter % 2 == 0 {
-//                    view.sendSubviewToBack(self.activeCard)
-//                    view.bringSubviewToFront(self.queueCard)
-//
-//                    for view in self.activeCard.postVideo.subviews {
-//                        view.removeFromSuperview()
-//                    }
-//                } else {
-//                    view.sendSubviewToBack(self.queueCard)
-//                    view.bringSubviewToFront(self.activeCard)
-//
-//                    for view in self.queueCard.postVideo.subviews {
-//                        view.removeFromSuperview()
-//                    }
-//                }
                 
                 /// Load the next queued card.
                 card.center = self.view.center
                 card.alpha = 1
                 card.transform = CGAffineTransform(rotationAngle: 0)
-                
-                card.isHidden = true
                 DatabaseManager.shared.loadFeed(view: self)
                 
-                /// Set the size of the old active card constraints to those of a queued card.
                 switch counter % 2 {
                 case 0:
-                    for constraint in view.constraints {
-                        switch constraint.identifier {
-                        case "activeTop":
-                            constraint.constant = 20
-                        case "activeLeft", "activeRight":
-                            constraint.constant = 20
-                        case "activeBottom":
-                            constraint.constant = 25
-                        case .none:
-                            break
-                        case .some(_):
-                            break
-                        }
-                    }
+                        queueCard.playVideo()
                 case 1:
-                    for constraint in view.constraints {
-                        switch constraint.identifier {
-                        case "queueTop":
-                            constraint.constant = 20
-                        case "queueLeft", "queueRight":
-                            constraint.constant = 20
-                        case "queueBottom":
-                            constraint.constant = 25
-                        case .none:
-                            break
-                        case .some(_):
-                            break
-                        }
-                    }
-                default:
-                    print("Error: counter is an invalid integer.")
+                        activeCard.playVideo()
+                default: print("Error: counter is an invalid integer.")
+
                 }
+                
+                /// Set the size of the old active card constraints to those of a queued card.
+                changeConstraints(cardTop: true, sidesAndTop: 20, bottom: 25)
             }
                 /// Reset the active card if the swipe is premature.
             else {
@@ -185,54 +97,73 @@ class FeedViewController: UIViewController
                 })
                 
                 /// Reset the queued card to its initial constraints.
-                switch counter % 2 {
-                case 0:
-                    for constraint in view.constraints {
-                        switch constraint.identifier {
-                        case "queueTop":
-                            UIView.animate(withDuration: 5) {
-                                constraint.constant = 20
-                            }
-                        case "queueLeft", "queueRight":
-                            UIView.animate(withDuration: 5) {
-                                constraint.constant = 20
-                            }
-                        case "queueBottom":
-                            UIView.animate(withDuration: 5) {
-                                constraint.constant = 25
-                            }
-                        case .none:
-                            break
-                        case .some(_):
-                            break
-                        }
-                    }
-                case 1:
-                    for constraint in view.constraints {
-                        switch constraint.identifier {
-                        case "activeTop":
-                            UIView.animate(withDuration: 5) {
-                                constraint.constant = 20
-                            }
-                        case "activeLeft", "activeRight":
-                            UIView.animate(withDuration: 5) {
-                                constraint.constant = 20
-                            }
-                        case "activeBottom":
-                            UIView.animate(withDuration: 5) {
-                                constraint.constant = 25
-                            }
-                        case .none:
-                            break
-                        case .some(_):
-                            break
-                        }
-                    }
-                default:
-                    print("Error: counter is an invalid integer.")
-                }
+                changeConstraints(cardTop: false, sidesAndTop: 20, bottom: 25)
             }
         }
+    }
+    
+    /// Move card to indicated point.
+    func translateCard(card: Card, point: CGPoint) {
+        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        /// Set transparency of the card.
+        let xFromCenter = card.center.x - view.center.x
+        let yFromCenter = card.center.y - view.center.y
+        let distFromCenter = sqrt(xFromCenter * xFromCenter + yFromCenter * yFromCenter)
+        card.alpha = 1 - (abs(distFromCenter) / view.frame.height)
+        
+        /// Angle the card with movement.
+        card.transform = CGAffineTransform(rotationAngle: xFromCenter / (view.frame.width / 1.02))
+    }
+    
+    /// Adjust constraints of card.
+    func changeConstraints(cardTop: Bool, sidesAndTop: Int, bottom: Int) {
+        switch (counter + Int(truncating: NSNumber(value: cardTop))) % 2 {
+               case 0:
+                   for constraint in view.constraints {
+                       switch constraint.identifier {
+                       case "queueTop":
+                           UIView.animate(withDuration: 5) {
+                            constraint.constant = CGFloat(sidesAndTop)
+                           }
+                       case "queueLeft", "queueRight":
+                           UIView.animate(withDuration: 5) {
+                            constraint.constant = CGFloat(sidesAndTop)
+                           }
+                       case "queueBottom":
+                           UIView.animate(withDuration: 5) {
+                            constraint.constant = CGFloat(bottom)
+                           }
+                       case .none:
+                           break
+                       case .some(_):
+                           break
+                       }
+                   }
+               case 1:
+                   for constraint in view.constraints {
+                       switch constraint.identifier {
+                       case "activeTop":
+                           UIView.animate(withDuration: 5) {
+                            constraint.constant = CGFloat(sidesAndTop)
+                           }
+                       case "activeLeft", "activeRight":
+                           UIView.animate(withDuration: 5) {
+                            constraint.constant = CGFloat(sidesAndTop)
+                           }
+                       case "activeBottom":
+                           UIView.animate(withDuration: 5) {
+                            constraint.constant = CGFloat(bottom)
+                           }
+                       case .none:
+                           break
+                       case .some(_):
+                           break
+                       }
+                   }
+               default:
+                   print("Error: counter is an invalid integer.")
+               }
     }
     
     /// Send the active cards data to CommentVC.
@@ -253,30 +184,30 @@ class FeedViewController: UIViewController
                 }
                 vc?.post = self.queueCard.post
             default: print("Error: counter is an invalid integer.")
+            }
         }
     }
-}
-
-//    /// Play video when exiting the comments.
-//    @objc func exitComments() {
-//        switch counter % 2 {
-//        case 0:
-//            if activeCard.post?.postType == "video" {
-//                for subview in activeCard.postVideo.subviews {
-//                    let view = subview as! VideoPlayerView
-//                    view.player?.play()
-//                    activeCard.videoPausedView.isHidden = true
-//                }
-//            }
-//        case 1:
-//            if queueCard.post?.postType == "video" {
-//                for subview in queueCard.postVideo.subviews {
-//                    let view = subview as! VideoPlayerView
-//                    view.player?.play()
-//                    queueCard.videoPausedView.isHidden = true
-//                }
-//            }
-//        default: print("Error: counter is an invalid integer.")
-//        }
-//    }
+    
+    //    /// Play video when exiting the comments.
+    //    @objc func exitComments() {
+    //        switch counter % 2 {
+    //        case 0:
+    //            if activeCard.post?.postType == "video" {
+    //                for subview in activeCard.postVideo.subviews {
+    //                    let view = subview as! VideoPlayerView
+    //                    view.player?.play()
+    //                    activeCard.videoPausedView.isHidden = true
+    //                }
+    //            }
+    //        case 1:
+    //            if queueCard.post?.postType == "video" {
+    //                for subview in queueCard.postVideo.subviews {
+    //                    let view = subview as! VideoPlayerView
+    //                    view.player?.play()
+    //                    queueCard.videoPausedView.isHidden = true
+    //                }
+    //            }
+    //        default: print("Error: counter is an invalid integer.")
+    //        }
+    //    }
 }

@@ -93,6 +93,35 @@ class Card: UIView
         }
     }
     
+    /// Remove associated information from Card.
+    func removePost() {
+        usernameLabel.text = ""
+        dateLabel.text = ""
+        numVibes.text = ""
+        
+        profileButton.setImage(nil, for: .normal)
+        
+        switch post?.postType {
+        case "text":
+            postText.isHidden = true
+            postText.text = ""
+        case "image":
+            postImage.isHidden = true
+            postImage.image = UIImage()
+        case "video":
+            postVideo.isHidden = true
+            for view in postVideo.subviews {
+                view.removeFromSuperview()
+            }
+        default:
+            print("Error: Unknown Post Type for \(String(describing: post?.postID))")
+        }
+        
+        self.post = nil
+        self.user = nil
+        self.isHidden = true
+    }
+    
     /// Action when vibeButton is pressed.
     @IBAction func vibeButtonPressed(_ sender: UIButton) {
         // Update vibes in the database
