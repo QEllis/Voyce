@@ -1,4 +1,4 @@
- 
+
 import Foundation
 import UIKit
 import Firebase
@@ -20,7 +20,7 @@ public class User
         return [
             "name": name,
             "username": username,
-            "totalvibes": totalVibes,
+            "totalVibes": totalVibes,
             "unusedVibes": unusedVibes,
             "adVibes": adVibes,
             "profilePic": profilePic?.absoluteString as Any

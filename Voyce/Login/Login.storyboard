@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yLt-58-9rU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bLU-5p-9FD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,13 +12,13 @@
         <!--Login View Controller-->
         <scene sceneID="wpV-xB-aSn">
             <objects>
-                <viewController title="Login" id="yLt-58-9rU" userLabel="Login View Controller" customClass="LoginViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="Login" id="yLt-58-9rU" userLabel="Login View Controller" customClass="LoginViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eTw-vH-Shr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="mO7-ta-3jt">
-                                <rect key="frame" x="-247.5" y="144" width="909" height="100"/>
+                                <rect key="frame" x="-49" y="144" width="512" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="NMu-5b-R3C"/>
                                 </constraints>
@@ -68,11 +68,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2OD-L7-KuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479.71014492753625" y="-1.3392857142857142"/>
+            <point key="canvasLocation" x="2265" y="-652"/>
+        </scene>
+        <!--Start Up View Controller-->
+        <scene sceneID="dRN-ZH-vTg">
+            <objects>
+                <viewController storyboardIdentifier="StartUp" id="bLU-5p-9FD" customClass="StartUpViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k6T-LH-okw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PFI-9v-dEH">
+                                <rect key="frame" x="-49" y="140" width="512" height="616"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="qrI-c3-WpQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="512" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="TzP-jF-rH4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06f-PG-8lD">
+                                        <rect key="frame" x="81" y="108" width="350" height="508"/>
+                                        <color key="backgroundColor" name="Background"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="4IS-vg-sor"/>
+                                        </constraints>
+                                        <string key="text">Welcome to Voyce! The social media platform that gives back power to our content creators. Please login or create an account below to get started!</string>
+                                        <color key="textColor" name="Text - Body"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PFI-9v-dEH" firstAttribute="centerY" secondItem="k6T-LH-okw" secondAttribute="centerY" id="W6n-Yn-MDK"/>
+                            <constraint firstItem="PFI-9v-dEH" firstAttribute="centerX" secondItem="k6T-LH-okw" secondAttribute="centerX" id="p0e-eo-WQw"/>
+                            <constraint firstItem="PFI-9v-dEH" firstAttribute="top" secondItem="NCP-Df-xn9" secondAttribute="top" constant="96" id="zbE-bg-3bf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NCP-Df-xn9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7p-0J-bg3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1448" y="-652"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="454.5" height="216"/>
+        <image name="Logo" width="512" height="128"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

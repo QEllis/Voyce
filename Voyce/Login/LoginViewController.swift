@@ -16,6 +16,7 @@ private let userManager = DatabaseManager.shared
 class LoginViewController: UIViewController, FUIAuthDelegate
 {
     let authUI: FUIAuth? = FUIAuth.defaultAuthUI()
+    let currentUser=Auth.auth().currentUser
     override func viewDidLoad()
     {
         // You need to adopt a FUIAuthDelegate protocol to receive callback

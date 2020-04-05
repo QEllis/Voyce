@@ -6,19 +6,21 @@
 //  Copyright © 2019 QEDev. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import GoogleMobileAds
 
 protocol VoyceTabBarDelegate: class
 {
     func tabBar(from: Int, to: Int)
 }
 
-class VoyceTabBar: UIView
+private let user = DatabaseManager.shared.sharedUser
+class VoyceTabBar: UIView, GADRewardedAdDelegate
 {
     public enum Tab: Int
     {
         case feed = 0
-        case ad = 1
         case addPost = 2
         case findPeople = 3
         case profile = 4
@@ -38,7 +40,7 @@ class VoyceTabBar: UIView
     let feed = UIImage(named: "Feed")
     let feedSelected = UIImage(named: "Feed Selected")
     let ad = UIImage(named: "Ad Feed")
-    let adSelected = UIImage(named: "Ad Feed Selected")
+    //    let adSelected = UIImage(named: "Ad Feed Selected")
     let addPost = UIImage(named: "Add Post")
     let addPostSelected = UIImage(named: "Add Post Selected")
     let findPeople = UIImage(named: "Find People")
@@ -75,6 +77,8 @@ class VoyceTabBar: UIView
         Bundle.main.loadNibNamed("VoyceTabBar", owner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
+        
+        rewardedAd = createAndLoadRewardedAd()
     }
     
     @IBAction func feedButtonPressed(_ sender: UIButton) {
@@ -85,20 +89,13 @@ class VoyceTabBar: UIView
         profileButton.setImage(profile, for: UIControlState.normal)
         
         guard let tab = Tab(rawValue: sender.tag) else { return }
-        print(sender.tag)
         showTab(tab)
     }
     
     @IBAction func adButtonPressed(_ sender: UIButton) {
-        feedButton.setImage(feed, for: UIControlState.normal)
-        adButton.setImage(adSelected, for: UIControlState.normal)
-        addPostButton.setImage(addPost, for: UIControlState.normal)
-        findPeopleButton.setImage(findPeople, for: UIControlState.normal)
-        profileButton.setImage(profile, for: UIControlState.normal)
-        
-        guard let tab = Tab(rawValue: sender.tag) else { return }
-        print(sender.tag)
-        showTab(tab)
+        if rewardedAd?.isReady == true {
+            rewardedAd?.present(fromRootViewController: UIApplication.topViewController()!, delegate: self)
+        }
     }
     
     @IBAction func addPostButtonPressed(_ sender: UIButton) {
@@ -109,7 +106,6 @@ class VoyceTabBar: UIView
         profileButton.setImage(profile, for: UIControlState.normal)
         
         guard let tab = Tab(rawValue: sender.tag) else { return }
-        print(sender.tag)
         showTab(tab)
     }
     @IBAction func findPeopleButtonPressed(_ sender: UIButton) {
@@ -120,7 +116,6 @@ class VoyceTabBar: UIView
         profileButton.setImage(profile, for: UIControlState.normal)
         
         guard let tab = Tab(rawValue: sender.tag) else { return }
-        print(sender.tag)
         showTab(tab)
     }
     @IBAction func profileButtonPressed(_ sender: UIButton) {
@@ -131,7 +126,60 @@ class VoyceTabBar: UIView
         profileButton.setImage(profileSelected, for: UIControlState.normal)
         
         guard let tab = Tab(rawValue: sender.tag) else { return }
-        print(sender.tag)
         showTab(tab)
+    }
+    
+    /* The code for the loading a Rewarded Ad from AdMob. */
+    
+    var rewardedAd: GADRewardedAd?
+    
+    /// Load a new ad in the queue.
+    func createAndLoadRewardedAd() -> GADRewardedAd{
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
+        rewardedAd?.load(GADRequest()) { error in
+            if let error = error {
+                print("Loading Failed: \(error)")
+            } else {
+                print("Loading Succeeded")
+            }
+        }
+        return rewardedAd!
+    }
+    
+    /// Tells the delegate that the user earned a reward.
+    func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        user.addAdVibes(adVibes: Int(truncating: reward.amount))
+    }
+    /// Tells the delegate that the rewarded ad was presented.
+    func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
+        print("Rewarded ad presented.")
+    }
+    /// Tells the delegate that the rewarded ad was dismissed.
+    func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+        print("Rewarded ad dismissed.")
+        self.rewardedAd = createAndLoadRewardedAd()
+    }
+    /// Tells the delegate that the rewarded ad failed to present.
+    func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
+        print("Rewarded ad failed to present.")
+    }
+}
+
+/// Allows the code to access the current UIViewController.
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
     }
 }

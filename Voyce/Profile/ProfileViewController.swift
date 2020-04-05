@@ -12,10 +12,9 @@
 import Foundation
 import UIKit
 
-
 private let user = DatabaseManager.shared.sharedUser
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyPostTableViewCellDelegate
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyPostTableViewCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     // --- Used for firebase functions below ---
     // lazy var functions = Functions.functions()
@@ -27,6 +26,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var goodVibesLabel: UILabel!
     var followed:Bool = false
 
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var username: UILabel!
+    
     // Member Functions
     override func viewDidLoad()
     {
@@ -39,12 +42,48 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.username
         goodVibesLabel.text = "Good Vibes: \(user.totalVibes)"
+        //profile image
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageClick)))
+        profileImage.isUserInteractionEnabled = true
+        profileImage.contentMode = .scaleAspectFit
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.clipsToBounds = true
+        
     }
 
     override func viewDidAppear(_ animated: Bool)
     {
         loadTextFields()
         tableView.reloadData()
+    }
+    //handles loading images into profile UIView
+    @objc func handleImageClick(){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+        
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var newProfileImage: UIImage?
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
+            newProfileImage = editedImage
+        }else if let original = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            newProfileImage = original
+        }
+        if let newImage = newProfileImage{
+            profileImage.image = newImage
+        }
+        DatabaseManager.shared.uploadImage(image: profileImage)
+        
+        dismiss(animated: true, completion: nil)
+
+        
+    }
+    //if we exit picker
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 
     private func loadTextFields()
@@ -88,6 +127,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     {
         print("New opsts reload")
         tableView.reloadData()
+    }
+    
+    func loadProfilePic(){
+        /*
+        URLSession.shared.dataTask(with: DatabaseManager.shared.sharedUser.profilePic?.absoluteString) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+        }.resume()
+ */
     }
     
     // ---- Does not compile due to firebase functions installation that is required ----

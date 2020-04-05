@@ -27,7 +27,7 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
     {
         view.layoutIfNeeded()
         let feedVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "FeedVC")
-        let adVC = UIStoryboard(name: "AdViewer", bundle: nil).instantiateViewController(withIdentifier: "AdViewerVC")
+        let adVC = UIViewController()
         let addPostVC = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "PostCreationVC")
         let findPeopleVC = UIStoryboard(name: "FindPeople", bundle: nil).instantiateViewController(withIdentifier: "FindPeopleVC")
         let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
@@ -54,14 +54,7 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
         guard let to = toIndex else { return }
         selectedIndex = to
         guard let toVC = viewControllers?[to] else { return }
-        //Check whether we are switching to the ads view contoller
-        if(toVC.navigationItem.title == "Ads")
-        {
-            //Then cast the viewcontroller to an AdViewController and run its initTimer() function
-            let toAd = toVC as! AdViewController
-            toAd.stopTimer()
-            toAd.startTimer()
-        }
+       
         delegate?.tabBarController?(self, didSelect: toVC)
     }
     

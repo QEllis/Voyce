@@ -98,7 +98,11 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         default:
             DatabaseManager.shared.addPost(with: textView.text)
         }
-        navigationController?.popViewController(animated: true)
+        
+        //navigationController?.popViewController(animated: true)
+        
+        
+        
     }
     
     @IBAction func backPressed(_ sender: Any) {

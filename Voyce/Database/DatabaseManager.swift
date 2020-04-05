@@ -345,8 +345,78 @@ class DatabaseManager
         }
     }
     
+    public func uploadImage(image: UIImageView){
+        /*
+        let refStorage = Storage.storage().reference().child("testimage.png")
+        if let uploadData = UIImagePNGRepresentation(image.image!){
+            refStorage.putData(uploadData, metadata: nil, completion: {
+                (metadata, error) in
+                //if anything goes wrong print error
+                if(error != nil){
+                    print(error)
+                }
+                
+                
+            })
+        }
+        */
+        var uploadedImageURL: String?
+
+        // Data in memory
+        if let data = UIImagePNGRepresentation(image.image!){
+            let imageName = NSUUID().uuidString
+            // Create a reference to the file you want to upload
+            let imageRef = Storage.storage().reference().child(imageName)
+            // Upload the file to the path "images/rivers.jpg"
+            let uploadTask = imageRef.putData(data, metadata: nil) { (metadata, error) in
+              guard let metadata = metadata else {
+                return
+              }
+              // Metadata contains file metadata such as size, content-type.
+              let size = metadata.size
+              // You can also access to download URL after upload.
+              imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                  // Uh-oh, an error occurred!
+                  return
+                }
+                print("Image link: \(downloadURL)")
+                uploadedImageURL = downloadURL.absoluteString
+                updateProfileImage(profileURL: uploadedImageURL ?? "")
+              }
+        }
     
+    }
+        
+        func updateProfileImage(profileURL: String){
+        /*
+
+         */
+        let collection = db.collection("users");
+        let userDoc = collection.document(sharedUser.userID)
+        userDoc.getDocument { (document, error) in
+            self.sharedUser.profilePic = URL(fileURLWithPath: profileURL)
+            if let document = document, document.exists{
+                self.db.collection("users").document(self.sharedUser.userID).setData([
+                    "name": document.get("name"),
+                    "profilePic": profileURL,
+                    "totalVibes": document.get("totalVibes"),
+                    "unusedVibes": document.get("unusedVibes"),
+                    "username": document.get("username")
+                ]) { err in
+                    if let err = err {
+                        print("Error writing post to db: \(err)")
+                    }else{
+                        
+                    }
+                }
+            }
+
+        };
+        
+    }
     
     
 }
 
+}
