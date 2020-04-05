@@ -16,6 +16,9 @@ class FeedViewController: UIViewController
     @IBOutlet weak var queueCard: Card!
     @IBOutlet weak var adVibes: UITextView!
     
+    /// Keeps track of how many cards have been swiped.
+    var counter: Int = 0
+    
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,204 +30,207 @@ class FeedViewController: UIViewController
         super.viewWillAppear(animated)
     }
     
-    /// Populate the Feed with an active and queued card with the next available posts.
-    func populateFeed() {
-        let index = DatabaseManager.shared.index
-        let posts = DatabaseManager.shared.posts
-        
-        switch index % 2 {
-        case 0:
-            if index < posts.count - 1 {
-                self.queueCard.addPost(post: posts[index + 1])
-            }
-            else {
-                self.queueCard.hideCard()
-            }
-        case 1:
-            if index < posts.count - 1 {
-                self.activeCard.addPost(post: posts[index + 1])
-            }
-            else {
-                self.activeCard.hideCard()
-            }
-        default:
-            print("Error populating the feed.")
-        }
-        DatabaseManager.shared.incremementIndex()
-    }
-    
-    // Swipable functionality for activeCard
+    /// Swipable functionality for the  active card.
     @IBAction func panCard(_ sender: UIPanGestureRecognizer)
     {
+        /// Move the card freely.
         let activeCard = sender.view!
         let point = sender.translation(in: view)
         activeCard.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
         
-        // Transparency of card
+        /// Set transparency of the card.
         let xFromCenter = activeCard.center.x - view.center.x
         let yFromCenter = activeCard.center.y - view.center.y
-        activeCard.alpha = 1 - abs(xFromCenter) / view.center.x
+        let distFromCenter = sqrt(xFromCenter * xFromCenter + yFromCenter * yFromCenter)
+        activeCard.alpha = 1 - (abs(distFromCenter) / view.frame.height)
         
-        //Angle of card
+        /// Angle the card with movement.
         activeCard.transform = CGAffineTransform(rotationAngle: xFromCenter / (view.frame.width / 1.02))
         
-        //Bring queueCard to front
-        //                for constraint in view.constraints {
-        //                    switch constraint.identifier {
-        //                    case "queueTop":
-        //                        let dist = sqrt(xFromCenter * xFromCenter + yFromCenter * yFromCenter)
-        //                        constraint.constant = 17 - (10 * abs(dist / (view.frame.width / 2)))
-        //                    case "queueLeft", "queueRight":
-        //                        let dist = sqrt(xFromCenter * xFromCenter + yFromCenter * yFromCenter)
-        //                        constraint.constant = 20 - (10 * abs(dist / (view.frame.width / 2)))
-        //                    case "queueBottom":
-        //                        let dist = sqrt(xFromCenter * xFromCenter + yFromCenter * yFromCenter)
-        //                        constraint.constant = 30 - (10 * abs(dist / (view.frame.width / 2)))
-        //                    case .none:
-        //                        break
-        //                    case .some(_):
-        //                        print("Error: Invalid constraint")
-        //                    }
-        //                }
+        /// Bring the queued card to the front visually with constraints.
+        switch counter % 2 {
+        case 0:
+            for constraint in view.constraints {
+                switch constraint.identifier {
+                case "queueTop":
+                    UIView.animate(withDuration: 5) {
+                        constraint.constant = 10
+                    }
+                case "queueLeft", "queueRight":
+                    UIView.animate(withDuration: 5) {
+                        constraint.constant = 10
+                    }
+                case "queueBottom":
+                    UIView.animate(withDuration: 5) {
+                        constraint.constant = 15
+                    }
+                case .none:
+                    break
+                case .some(_):
+                    break
+                }
+            }
+        case 1:
+            for constraint in view.constraints {
+                switch constraint.identifier {
+                case "activeTop":
+                    UIView.animate(withDuration: 5) {
+                        constraint.constant = 10
+                    }
+                case "activeLeft", "activeRight":
+                    UIView.animate(withDuration: 5) {
+                        constraint.constant = 10
+                    }
+                case "activeBottom":
+                    UIView.animate(withDuration: 5) {
+                        constraint.constant = 15
+                    }
+                case .none:
+                    break
+                case .some(_):
+                    break
+                }
+            }
+        default:
+            print("Error: counter is an invalid integer.")
+        }
         
-        // Swipe has ended
+        /// Swipe action has ended.
         if sender.state == UIGestureRecognizerState.ended {
-            // Remove card
-            if abs(activeCard.center.x - (view.frame.width / 2)) > 75 || abs(activeCard.center.y - (view.frame.height / 2)) > 100 {
-                UIView.animate(withDuration: 0.3, animations: {activeCard.center = CGPoint(x: activeCard.center.x - 200, y: activeCard.center.y + 75)
-                    activeCard.alpha = 0
-                })
+            /// Remove the active card from deck.
+            if abs(activeCard.center.x - (view.frame.width / 2)) > 100 || abs(activeCard.center.y - (view.frame.height / 2)) > 125 {
+                let offScreenX = activeCard.center.x < view.center.x ? -500 : view.frame.width + 500
+                let offScreenY = activeCard.center.y < view.center.y ? -500 : view.frame.height + 500
+                UIView.animate(withDuration: 0.25, animations: {
+                    activeCard.center = CGPoint(x: offScreenX, y: offScreenY)
+                    activeCard.alpha = 0 })
                 
-                // Load next card
-                populateFeed()
+                /// Send the active card to the back and the queued card to the front.
+                if counter % 2 == 0 {
+                    view.sendSubview(toBack: self.activeCard)
+                    view.bringSubview(toFront: self.queueCard)
+                } else {
+                    view.sendSubview(toBack: self.queueCard)
+                    view.bringSubview(toFront: self.activeCard)
+                }
+                
+                /// Load the next card.
                 activeCard.center = self.view.center
                 activeCard.alpha = 1
                 activeCard.transform = CGAffineTransform(rotationAngle: 0)
+
+                activeCard.isHidden = true
                 
-                return
+                DatabaseManager.shared.loadFeed(view: self)
+                
+                
+                /// Set the size of the old active card constraints to those of a queued card.
+                switch counter % 2 {
+                case 0:
+                    for constraint in view.constraints {
+                        switch constraint.identifier {
+                        case "activeTop":
+                             constraint.constant = 20
+                        case "activeLeft", "activeRight":
+                            constraint.constant = 20
+                        case "activeBottom":
+                            constraint.constant = 25
+                        case .none:
+                            break
+                        case .some(_):
+                            break
+                        }
+                    }
+                case 1:
+                    for constraint in view.constraints {
+                        switch constraint.identifier {
+                        case "queueTop":
+                            constraint.constant = 20
+                        case "queueLeft", "queueRight":
+                            constraint.constant = 20
+                        case "queueBottom":
+                            constraint.constant = 25
+                        case .none:
+                            break
+                        case .some(_):
+                            break
+                        }
+                    }
+                default:
+                    print("Error: counter is an invalid integer.")
+                }
+                counter += 1
             }
-                // Reset card if swipe is premature
+                /// Reset the active card if the swipe is premature.
             else {
-                UIView.animate(withDuration: 0.2, animations: {
+                UIView.animate(withDuration: 0.5, animations: {
                     activeCard.center = self.view.center
                     activeCard.alpha = 1
                     activeCard.transform = CGAffineTransform(rotationAngle: 0)
                 })
+                
+                /// Reset the queued card to its initial constraints.
+                switch counter % 2 {
+                case 0:
+                    for constraint in view.constraints {
+                        switch constraint.identifier {
+                        case "queueTop":
+                            UIView.animate(withDuration: 5) {
+                                constraint.constant = 20
+                            }
+                        case "queueLeft", "queueRight":
+                            UIView.animate(withDuration: 5) {
+                                constraint.constant = 20
+                            }
+                        case "queueBottom":
+                            UIView.animate(withDuration: 5) {
+                                constraint.constant = 25
+                            }
+                        case .none:
+                            break
+                        case .some(_):
+                            break
+                        }
+                    }
+                case 1:
+                    for constraint in view.constraints {
+                        switch constraint.identifier {
+                        case "activeTop":
+                            UIView.animate(withDuration: 5) {
+                                constraint.constant = 20
+                            }
+                        case "activeLeft", "activeRight":
+                            UIView.animate(withDuration: 5) {
+                                constraint.constant = 20
+                            }
+                        case "activeBottom":
+                            UIView.animate(withDuration: 5) {
+                                constraint.constant = 25
+                            }
+                        case .none:
+                            break
+                        case .some(_):
+                            break
+                        }
+                    }
+                default:
+                    print("Error: counter is an invalid integer.")
+                }
             }
         }
     }
     
-    // Send activeCard data to CommentVC
+    /// Send the active cards data to CommentVC.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is CommentViewController
         {
             let vc = segue.destination as? CommentViewController
-            vc?.activePost = self.activeCard.post
+            switch counter % 2 {
+            case 0: vc?.activePost = self.activeCard.post
+            case 1: vc?.activePost = self.queueCard.post
+            default: print("Error: counter is an invalid integer.")
+            }
         }
     }
 }
-
-////
-////  FeedViewController.swift
-////  Voyce
-////
-////  Created by Quinn Ellis on 9/18/19.
-////  Copyright © 2019 QEDev. All rights reserved.
-////
-//
-//import UIKit
-//
-//class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CardDelegate
-//{
-//    @IBOutlet var tableView: UITableView!
-//
-//    var limit = 3;
-//
-//    //Called after the controller's view is loaded into memory.
-//    override func viewDidLoad()
-//    {
-//        super.viewDidLoad()
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        tableView.register(UINib(nibName: "CardPic", bundle: nil), forCellReuseIdentifier: "Card")
-//        NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
-//    }
-//
-//    //Notifies the view controller that its view is about to be added to a view hierarchy.
-//    override func viewWillAppear(_ animated: Bool)
-//    {
-//        super.viewWillAppear(animated)
-//        DatabaseManager.shared.loadFeed()
-//        if let selectionIndexPath = self.tableView.indexPathForSelectedRow
-//        {
-//            self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
-//        }
-//    }
-//
-//    @objc private func newPosts()
-//    {
-//        print("newPosts reload")
-//        tableView.reloadData()
-//    }
-//
-//    // Table view uses CommentCreationViewController, so I did not remove the files --- Aron
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-//    {
-//        guard let vc = UIStoryboard(name: "PostCreation", bundle: nil).instantiateViewController(withIdentifier: "CommentCreationVC") as? CommentCreationViewController else
-//        {
-//            return
-//        }
-//        vc.post = DatabaseManager.shared.posts[indexPath.row]
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-//    {
-//        return tableView.frame.height
-//    }
-//
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if (indexPath.row == DatabaseManager.shared.posts.count - 1) {
-//            print("At the end");
-//        }
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-//    {
-//        return DatabaseManager.shared.posts.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-//    {
-//        let card = tableView.dequeueReusableCell(withIdentifier: "Card") as! Card
-//        card.fillOut(with: DatabaseManager.shared.posts[indexPath.row])
-//        card.delegate = self
-//        return card
-//    }
-//    // Link
-//    func profileButtonDidPressed(postUser: User)
-//    {
-//        if (postUser.userID == DatabaseManager.shared.sharedUser.userID)
-//        {
-//            self.tabBarController?.selectedIndex = 0
-//        }
-//        else
-//        {
-//            let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-//            // ProfileViewController has no user member
-////            vc.user = postUser
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
-//    }
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let height = scrollView.frame.size.height
-//        let contentYoffset = scrollView.contentOffset.y
-//        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-//        if distanceFromBottom < height {
-//            /* Add something to bottom of post*/
-//
-//        }
-//    }
-//}

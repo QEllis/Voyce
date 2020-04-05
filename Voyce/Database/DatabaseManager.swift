@@ -29,37 +29,51 @@ class DatabaseManager
             NotificationCenter.default.post(name: .NewPosts, object: nil)
         }
     }
-    var index: Int
+    var index: Int //Will be changed to individual user's index
     
     init()
     {
         sharedUser = User.init()
         db = Firestore.firestore()
         storage = Storage.storage()
-        myPosts  = []
-        index = 0
         numPosts = 0
-        var ref = db.collection("posts").addSnapshotListener() { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else {
+        myPosts = []
+        index = 0
+        
+        db.collection("posts").addSnapshotListener() { querySnapshot, error in
+            guard querySnapshot?.documents != nil else {
               print("Error fetching documents: \(error!)")
               return
             }
-            guard let data = documents.map { $0["name"]! }
-            print("Current data: \(data)")
+            let num = querySnapshot?.count
+            print("Current data: \(num ?? -1)")
+        }
+        
+        db.collection("posts").whereField("userID", isEqualTo: sharedUser.userID).getDocuments() { querySnapshot, error in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents
+                {
+                    let data = document.data()
+                    let postID = data["postID"] as! String
+                    let userID = data["userID"] as! String
+                    let user = self.userIDtoUser(userID: userID)
+                    let date = data["date"] as! String
+                    let postType = data["postType"] as! String
+                    let content = data["content"] as! String
+                    let vibes = data["vibes"] as! Int
+                    let caption = data["caption"] as! String
+                    
+                    let post = Post(pid: postID, user: user, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
+                    self.myPosts.append(post)
+                    }
+                }
+            
         }
     }
     
-    //adjust posts vibes count
-    //    public func giveVibe(post: Post)
-    //    {
-    //        post.vibes += 1;
-    //        //    db.collection("posts").document(post.postID).setData(["likeCount":post.likeCount], merge: true);
-    //        //
-    //        let shardRef = DatabaseManager.shared.db.collection("posts").document(post.postID)
-    //        shardRef.updateData(["vibes": FieldValue.increment(Int64(1))])
-    //    }
-    
-    // Called when the user logs in
+    /// Called when the user logs in.
     public func userLogin(u: FirebaseAuth.User)
     {
         sharedUser = User.init(user: u)
@@ -111,77 +125,12 @@ class DatabaseManager
         //        }
     }
     
-    // Links a user to a post
-    public func setPostsUser(uid: String, p: Post)
-    {
-        //        let collection = db.collection("users")
-        //        collection.document(uid).getDocument() { (document, error) in
-        //            if let document = document, document.exists
-        //            {
-        //                let data = document.data()
-        //                let dataDescription = data.map(String.init(describing:)) ?? "nil"
-        //                print("GET USER Doc id: \(document.documentID)")
-        //                print("GET USER Document data: \(dataDescription)")
-        //                let actualUserFound = User(userID: document.documentID, name:  document.get("name") as! String, username:  document.get("username") as! String, totalVibes:  document.get("totalVibes")  as! Int, profilePic:  document.get("profilePic") as! String)
-        //                p.user = actualUserFound
-        //                DatabaseManager.shared.posts.append(p)
-        //                print("Post Creator: \(p.user.userID)")
-        //            }
-        //            else
-        //            {
-        //                print("User does not exist!")
-        //            }
-        //        }
-    }
-    
-    // Updates the arrays that store the posts and
-    //    public func loadFeed()
-    //    {
-    //        print("IN LOAD FEED");
-    //        let collection = db.collection("posts")
-    //        collection.order(by: "vibes", descending: true).limit(to: 10).getDocuments()
-    //        {
-    //            (querySnapshot, err) in
-    //            if let err = err
-    //            {
-    //                print("Error getting documents: \(err)")
-    //            }
-    //            else
-    //            {
-    //                print("didn't error");
-    //                self.posts = []
-    //                var uids: [String] = []
-    //                var newPosts: [Post] = []
-    //                // Iterates through all posts in Firebase
-    //                for document in querySnapshot!.documents
-    //                {
-    //                    print("got document")
-    //                    let data = document.data()
-    //                    let p = Post(pid: document.documentID,
-    //                                 text: data["content"] as! String,
-    //                                 media: "",
-    //                                 user: User(),
-    //                                 likeCount: data["vibes"] as! Int,
-    //                                 image: data["content"] as? String)
-    //                    //                        self.SetPostsUser(uid: data["uid"] as! String, p: p)
-    //                    //                        self.posts.append(p)
-    //                    uids.append(data["userID"] as! String)
-    //                    newPosts.append(p)
-    //                    print("POST: \(document.documentID) => \(document.data())")
-    //                }
-    //                // Links each post to a post user
-    //                for i in 0..<newPosts.count
-    //                {
-    //                    self.setPostsUser(uid: uids[i], p: newPosts[i])
-    //                }
-    //            }
-    //        }
-    //    }
-    
     public func loadFeed(view: FeedViewController)
     {
-        let collection = db.collection("posts")//.limit(to: 2)//.where post has not been seen
-        collection.getDocuments() { (QuerySnapshot, err) in
+        var active = true
+        let numLoad = (numPosts - index) > 1 ? 2 : (numPosts - index)
+      
+        db.collection("posts").order(by: "date").start(at: ["2020-03-22 15:24:44 +0000"]).limit(to: 2).getDocuments() { QuerySnapshot, err in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -190,45 +139,34 @@ class DatabaseManager
                     let data = document.data()
                     let postID = data["postID"] as! String
                     let userID = data["userID"] as! String
-                    let user = self.userIDtoUser(userID: userID)
+                    let user = self.userIDtoUser(userID: userID)// Fix
                     let date = data["date"] as! String
                     let postType = data["postType"] as! String
                     let content = data["content"] as! String
                     let vibes = data["vibes"] as! Int
                     let caption = data["caption"] as! String
-                    
+
                     let post = Post(pid: postID, user: user, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
-                    self.posts.append(post)
-                    
-                    if userID == self.sharedUser.userID {
-                        self.myPosts.append(post)
+                    if active {
+                        view.activeCard.addPost(post: post)
+                        view.activeCard.isHidden = false
+                    } else {
+                        view.queueCard.addPost(post: post)
+                        view.queueCard.isHidden = false
+
                     }
+                    active = false
                 }
-                
-                /// Populate initial cards with posts.
-                switch self.index % 2 {
-                case 0:
-                    view.activeCard.addPost(post: self.posts[self.index])
-                    if self.index < self.posts.count - 1 {
-                        view.queueCard.addPost(post: self.posts[self.index + 1])
-                    }
-                    else {
-                        view.queueCard.hideCard()
-                    }
-                case 1:
-                    view.queueCard.addPost(post: self.posts[self.index])
-                    if self.index < self.posts.count - 1 {
-                        view.activeCard.addPost(post: self.posts[self.index + 1])
-                    }
-                    else {
-                        view.activeCard.hideCard()
-                    }
-                default:
-                    print("Error populating the feed.")
-                }
-                self.incremementIndex()
             }
         }
+//        switch numLoad
+//        {
+//        case _ where numLoad < 1: view.queueCard.isHidden = true
+//        case _ where numLoad < 2: view.activeCard.isHidden = true
+//        default: break
+//        }
+        
+        self.index += 1
     }
     
     private func userIDtoUser(userID: String) -> User {
@@ -252,16 +190,11 @@ class DatabaseManager
                         let profilePic = data["profilePic"] as! String
                         
                         user = User(userID: userID, name: name, username: username, adVibes: adVibes, earnedVibes: earnedVibes, totalVibes: totalVibes, profilePic: profilePic)
-                        print("who is this \(user.username)")
                     }
                 }
             }
         }
         return user
-    }
-    
-    func incremementIndex() {
-        self.index += 1
     }
     
     /* Comment functionality portion below */

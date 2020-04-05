@@ -81,11 +81,6 @@ class Card: UIView
         }
     }
     
-    func hideCard() {
-        card.isHidden = true
-        //Make sure to unhide when reloading the page.
-    }
-    
     // Action when vibeButton is pressed
     @IBAction func vibeButtonPressed(_ sender: UIButton) {
         // Update vibes in the database
