@@ -24,7 +24,7 @@ class FeedViewController: UIViewController
         super.viewDidLoad()
         adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes)
         //        NotificationCenter.default.addObserver(self, selector: #selector(exitComments), name: NSNotification.Name(rawValue: "exitComments"), object: nil)
-        
+
         /// Load first active card.
         DatabaseManager.shared.loadFeed(view: self, firstCard: true)
 

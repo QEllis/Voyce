@@ -62,13 +62,13 @@ class Card: UIView
         numVibes.text = String(post.vibes)
         vibeButton.setImage(randomEmoji(), for: .normal)
         
-//        let currentDate = NSDate()
-////        let dateFormatter = ISO8601DateFormatter()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS'Z'" 2020-04-06 00:43:34 +0000
-//        let dateString = post.date
-//        let date = dateFormatter.date(from: dateString)
-//        print("date is \(currentDate)")
+        //        let currentDate = NSDate()
+        ////        let dateFormatter = ISO8601DateFormatter()
+        //        let dateFormatter = DateFormatter()
+        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS'Z'" 2020-04-06 00:43:34 +0000
+        //        let dateString = post.date
+        //        let date = dateFormatter.date(from: dateString)
+        //        print("date is \(currentDate)")
         //dateLabel.text = post.date
         
         getPosterInfo(userID: post.userID)
@@ -122,166 +122,166 @@ class Card: UIView
             }
         }
     }
+    
+    /// Remove associated information from Card.
+    func removePost() {
+        usernameLabel.text = ""
+        dateLabel.text = ""
+        numVibes.text = ""
         
-        /// Remove associated information from Card.
-        func removePost() {
-            usernameLabel.text = ""
-            dateLabel.text = ""
-            numVibes.text = ""
-            
-            profileButton.setImage(nil, for: .normal)
-            
-            switch post?.postType {
-            case "text":
-                postText.isHidden = true
-                postText.text = ""
-            case "image":
-                postImage.isHidden = true
-                postImage.image = UIImage()
-            case "video":
-                postVideo.isHidden = true
-                videoPausedView.isHidden = true
-                for view in postVideo.subviews {
-                    view.removeFromSuperview()
-                }
-            default:
-                print("Error: Unknown Post Type for \(String(describing: post?.postID))")
+        profileButton.setImage(nil, for: .normal)
+        
+        switch post?.postType {
+        case "text":
+            postText.isHidden = true
+            postText.text = ""
+        case "image":
+            postImage.isHidden = true
+            postImage.image = UIImage()
+        case "video":
+            postVideo.isHidden = true
+            videoPausedView.isHidden = true
+            for view in postVideo.subviews {
+                view.removeFromSuperview()
             }
+        default:
+            print("Error: Unknown Post Type for \(String(describing: post?.postID))")
+        }
+        
+        self.post = nil
+        self.user = nil
+        self.isHidden = true
+    }
+    
+    /// Action when vibeButton is pressed.
+    @IBAction func vibeButtonPressed(_ sender: UIButton) {
+        if (DatabaseManager.shared.sharedUser.adVibes > 0) {
             
-            self.post = nil
-            self.user = nil
-            self.isHidden = true
-        }
-        
-        /// Action when vibeButton is pressed.
-        @IBAction func vibeButtonPressed(_ sender: UIButton) {
-            if (DatabaseManager.shared.sharedUser.adVibes > 0) {
-                
-                DatabaseManager.shared.sharedUser.removeAdVibe()
-                // Update vibes in the database
-                post?.addVibes(vibes: 1)
-                user?.addVibes(totalVibes: 1)
-                user?.addVibes(earnedVibes: 1)
-                
-                // Update UI
-                numVibes.text = String(post!.vibes)
-                vibeButton.setImage(randomEmoji(), for: .normal)
-            }
-        }
-        
-        /// Play video on a video post.
-        func playVideo() {
-            for subview in postVideo.subviews {
-                let view = subview as! VideoPlayerView
-                view.player?.play()
-                videoPausedView.isHidden = true
-            }
-        }
-        
-        /// Pause video on a video post.
-        func pauseVideo() {
-            for subview in postVideo.subviews {
-                let view = subview as! VideoPlayerView
-                view.player?.pause()
-                videoPausedView.isHidden = false
-            }
-        }
-        
-        /// Action when profileButton is pressed.
-        @IBAction func profileButtonPressed(_ sender: UIButton) {
+            DatabaseManager.shared.sharedUser.removeAdVibe()
+            // Update vibes in the database
+            post?.addVibes(vibes: 1)
+            user?.addVibes(totalVibes: 1)
+            user?.addVibes(earnedVibes: 1)
             
+            // Update UI
+            numVibes.text = String(post!.vibes)
+            vibeButton.setImage(randomEmoji(), for: .normal)
         }
-        
-        /// Pause video when postVideo is pressed.
-        @IBAction func videoPressed(_ sender: UITapGestureRecognizer) {
-            pauseVideo()
+    }
+    
+    /// Play video on a video post.
+    func playVideo() {
+        for subview in postVideo.subviews {
+            let view = subview as! VideoPlayerView
+            view.player?.play()
+            videoPausedView.isHidden = true
         }
-        
-        /// Play video when postVideo is pressed.
-        @IBAction func videoPausedPressed(_ sender: UITapGestureRecognizer) {
-            playVideo()
+    }
+    
+    /// Pause video on a video post.
+    func pauseVideo() {
+        for subview in postVideo.subviews {
+            let view = subview as! VideoPlayerView
+            view.player?.pause()
+            videoPausedView.isHidden = false
         }
+    }
+    
+    /// Action when profileButton is pressed.
+    @IBAction func profileButtonPressed(_ sender: UIButton) {
         
-        // Returns a random emoji as UIImage
-        private func randomEmoji() -> UIImage!
+    }
+    
+    /// Pause video when postVideo is pressed.
+    @IBAction func videoPressed(_ sender: UITapGestureRecognizer) {
+        pauseVideo()
+    }
+    
+    /// Play video when postVideo is pressed.
+    @IBAction func videoPausedPressed(_ sender: UITapGestureRecognizer) {
+        playVideo()
+    }
+    
+    // Returns a random emoji as UIImage
+    private func randomEmoji() -> UIImage!
+    {
+        var emojiArray = [String]()
+        emojiArray.append("art-and-design")
+        emojiArray.append("avocado")
+        emojiArray.append("birthday-cake")
+        emojiArray.append("bread")
+        emojiArray.append("cake")
+        emojiArray.append("crown")
+        emojiArray.append("crowns")
+        emojiArray.append("dog")
+        emojiArray.append("eye-mask")
+        emojiArray.append("falling-star")
+        emojiArray.append("fan")
+        emojiArray.append("fireworks")
+        emojiArray.append("fort")
+        emojiArray.append("gems")
+        emojiArray.append("hat")
+        emojiArray.append("hearts")
+        emojiArray.append("ice-cream")
+        emojiArray.append("icecream")
+        emojiArray.append("idea")
+        emojiArray.append("kissing")
+        emojiArray.append("lips")
+        emojiArray.append("love-letter")
+        emojiArray.append("money-1")
+        emojiArray.append("money-2")
+        emojiArray.append("money")
+        emojiArray.append("orchid")
+        emojiArray.append("paint-palette")
+        emojiArray.append("palette")
+        emojiArray.append("party")
+        emojiArray.append("phsyics")
+        emojiArray.append("pizza")
+        emojiArray.append("plastic-cup")
+        emojiArray.append("rainbow")
+        emojiArray.append("rose-1")
+        emojiArray.append("rose-2")
+        emojiArray.append("rose")
+        emojiArray.append("shirt")
+        emojiArray.append("space")
+        emojiArray.append("spark")
+        emojiArray.append("stars")
+        emojiArray.append("strawberry")
+        emojiArray.append("sun")
+        emojiArray.append("thumbs-up")
+        emojiArray.append("venus-de-milo")
+        emojiArray.append("yin-yang")
+        let randomNumber = Int.random(in: 0..<45)
+        return UIImage(named:emojiArray[randomNumber])
+    }
+    
+    func URLToImg(_ url: URL?) -> UIImage?
+    {
+        guard let imageURL = url else
         {
-            var emojiArray = [String]()
-            emojiArray.append("art-and-design")
-            emojiArray.append("avocado")
-            emojiArray.append("birthday-cake")
-            emojiArray.append("bread")
-            emojiArray.append("cake")
-            emojiArray.append("crown")
-            emojiArray.append("crowns")
-            emojiArray.append("dog")
-            emojiArray.append("eye-mask")
-            emojiArray.append("falling-star")
-            emojiArray.append("fan")
-            emojiArray.append("fireworks")
-            emojiArray.append("fort")
-            emojiArray.append("gems")
-            emojiArray.append("hat")
-            emojiArray.append("hearts")
-            emojiArray.append("ice-cream")
-            emojiArray.append("icecream")
-            emojiArray.append("idea")
-            emojiArray.append("kissing")
-            emojiArray.append("lips")
-            emojiArray.append("love-letter")
-            emojiArray.append("money-1")
-            emojiArray.append("money-2")
-            emojiArray.append("money")
-            emojiArray.append("orchid")
-            emojiArray.append("paint-palette")
-            emojiArray.append("palette")
-            emojiArray.append("party")
-            emojiArray.append("phsyics")
-            emojiArray.append("pizza")
-            emojiArray.append("plastic-cup")
-            emojiArray.append("rainbow")
-            emojiArray.append("rose-1")
-            emojiArray.append("rose-2")
-            emojiArray.append("rose")
-            emojiArray.append("shirt")
-            emojiArray.append("space")
-            emojiArray.append("spark")
-            emojiArray.append("stars")
-            emojiArray.append("strawberry")
-            emojiArray.append("sun")
-            emojiArray.append("thumbs-up")
-            emojiArray.append("venus-de-milo")
-            emojiArray.append("yin-yang")
-            let randomNumber = Int.random(in: 0..<45)
-            return UIImage(named:emojiArray[randomNumber])
+            return nil
         }
-        
-        func URLToImg(_ url: URL?) -> UIImage?
-        {
-            guard let imageURL = url else
-            {
-                return nil
-            }
-            let data = try? Data(contentsOf: imageURL)
-            return UIImage(data: data!)
-        }
-        
-        /// Changes the shape of each profile image into a circle.
-        func circularImg(imageView: UIImageView?)
-        {
-            imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0) / 2.0
-        }
+        let data = try? Data(contentsOf: imageURL)
+        return UIImage(data: data!)
+    }
+    
+    /// Changes the shape of each profile image into a circle.
+    func circularImg(imageView: UIImageView?)
+    {
+        imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0) / 2.0
+    }
 }
 
 extension Date {
     func offsetFrom(date: Date) -> String {
         let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
         let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self)
-
+        
         let seconds = "\(difference.second ?? 0)s"
         let minutes = "\(difference.minute ?? 0)m" + " " + seconds
         let hours = "\(difference.hour ?? 0)h" + " " + minutes
         let days = "\(difference.day ?? 0)d" + " " + hours
-
+        
         if let day = difference.day, day          > 0 { return days }
         if let hour = difference.hour, hour       > 0 { return hours }
         if let minute = difference.minute, minute > 0 { return minutes }
