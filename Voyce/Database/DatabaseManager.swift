@@ -132,14 +132,13 @@ class DatabaseManager
                     let data = document.data()
                     let postID = data["postID"] as! String
                     let userID = data["userID"] as! String
-                    let user = self.userIDtoUser(userID: userID)// Fix
                     let date = data["date"] as! String
                     let postType = data["postType"] as! String
                     let content = data["content"] as! String
                     let vibes = data["vibes"] as! Int
                     let caption = data["caption"] as! String
                     
-                    let post = Post(pid: postID, user: user, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
+                    let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
                     
                     switch view.counter % 2 {
                     case 0:
@@ -165,6 +164,7 @@ class DatabaseManager
         self.index += 1
     }
     
+    //Can delete
     private func userIDtoUser(userID: String) -> User {
         var user: User = User()
         

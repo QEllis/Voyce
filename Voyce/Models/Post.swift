@@ -15,7 +15,6 @@ import FirebaseUI
 public class Post
 {
     let postID: String
-    let user: User
     let userID: String
     let date: String
     let postType: String
@@ -26,7 +25,7 @@ public class Post
     
     var dictionary: [String: Any] {
         return [
-            "uid": user.userID,
+            "uid": userID,
             "date": date,
             "postType": postType,
             "content": content,
@@ -38,7 +37,6 @@ public class Post
     
     init() {
         self.postID = ""
-        self.user = User()
         self.userID = ""
         self.date = Date().description
         self.postType = ""
@@ -50,9 +48,8 @@ public class Post
     
     init(pid: String, user: User, postType: String, content: String, caption: String) {
         self.postID = pid
-        self.user = user
         self.userID = user.userID
-        self.date = Date().description
+        self.date = NSDate().description
         self.postType = postType
         self.content = content
         self.vibes = 0
@@ -62,9 +59,8 @@ public class Post
     
     init(pid: String, user: User, postType: String, content: String, vibes: Int, caption: String) {
         self.postID = pid
-        self.user = user
         self.userID = user.userID
-        self.date = Date().description
+        self.date = NSDate().description
         self.postType = postType
         self.content = content
         self.vibes = vibes
@@ -74,8 +70,18 @@ public class Post
     
     init(pid: String, user: User, date: String, postType: String, content: String, vibes: Int, caption: String) {
         self.postID = pid
-        self.user = user
         self.userID = user.userID
+        self.date = date
+        self.postType = postType
+        self.content = content
+        self.vibes = vibes
+        self.caption = caption
+        self.comments = []
+    }
+    
+    init(pid: String, userID: String, date: String, postType: String, content: String, vibes: Int, caption: String) {
+        self.postID = pid
+        self.userID = userID
         self.date = date
         self.postType = postType
         self.content = content
@@ -86,8 +92,7 @@ public class Post
     
     init(post: Post) {
         self.postID = post.postID
-        self.user = post.user
-        self.userID = user.userID
+        self.userID = post.userID
         self.date = post.date
         self.postType = post.postType
         self.content = post.content
