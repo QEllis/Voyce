@@ -35,18 +35,21 @@
                     <gestureRecognizers/>
                 </imageView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DN-e2-KMY">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="331.5" width="414" height="233"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="5DN-e2-KMY" secondAttribute="height" multiplier="1920:1080" id="V5H-81-8x6"/>
+                    </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="MF9-zc-cik" appends="YES" id="sYv-Cx-k1s"/>
                     </connections>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCa-UP-B9I">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="331.5" width="414" height="233"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play" translatesAutoresizingMaskIntoConstraints="NO" id="gLj-du-s6i">
-                            <rect key="frame" x="157" y="398" width="100" height="100"/>
+                            <rect key="frame" x="157" y="66.5" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="1gJ-WH-77p"/>
                                 <constraint firstAttribute="height" constant="100" id="Ucl-YG-868"/>
@@ -59,6 +62,7 @@
                     <constraints>
                         <constraint firstItem="gLj-du-s6i" firstAttribute="centerY" secondItem="jCa-UP-B9I" secondAttribute="centerY" id="4Dt-M9-bus"/>
                         <constraint firstItem="gLj-du-s6i" firstAttribute="centerX" secondItem="jCa-UP-B9I" secondAttribute="centerX" id="Gar-lT-Djh"/>
+                        <constraint firstAttribute="width" secondItem="jCa-UP-B9I" secondAttribute="height" multiplier="1920:1080" id="MBM-CZ-Cq4"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="dWu-qh-Wd8" appends="YES" id="88E-VN-rsJ"/>
@@ -87,14 +91,14 @@
                         <action selector="profileButtonPressed:" destination="-1" eventType="touchUpInside" id="kvV-SH-84w"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlg-f5-nkV">
-                    <rect key="frame" x="248" y="20" width="92" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlg-f5-nkV">
+                    <rect key="frame" x="340" y="20" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date posted" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIU-OE-ekP">
-                    <rect key="frame" x="248" y="40.5" width="92" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIU-OE-ekP">
+                    <rect key="frame" x="340" y="20" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="Red"/>
                     <nil key="highlightedColor"/>
@@ -120,7 +124,7 @@
                         <constraint firstAttribute="height" constant="40" id="DkD-gJ-XWg"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="textColor" name="Text - Body"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -131,20 +135,19 @@
             </accessibility>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="yeP-Bc-99W" secondAttribute="bottom" id="1Ht-eG-J81"/>
+                <constraint firstItem="jCa-UP-B9I" firstAttribute="centerX" secondItem="rAy-Ck-FBm" secondAttribute="centerX" id="2Ff-cg-TV5"/>
                 <constraint firstItem="dT3-yd-Xn9" firstAttribute="centerX" secondItem="rAy-Ck-FBm" secondAttribute="centerX" id="3em-Mq-vVq"/>
                 <constraint firstAttribute="bottom" secondItem="Z2y-Im-dEX" secondAttribute="bottom" constant="25" id="6SE-za-fja"/>
-                <constraint firstAttribute="bottom" secondItem="jCa-UP-B9I" secondAttribute="bottom" identifier="videoPausedBottom" id="9dK-yZ-UC9"/>
                 <constraint firstAttribute="trailing" secondItem="Z2y-Im-dEX" secondAttribute="trailing" constant="25" id="BQ3-6l-icD"/>
                 <constraint firstItem="5DN-e2-KMY" firstAttribute="leading" secondItem="rAy-Ck-FBm" secondAttribute="leading" identifier="postVideoLeft" id="DXI-Ou-weR"/>
                 <constraint firstItem="k2y-e8-gzV" firstAttribute="leading" secondItem="hIU-OE-ekP" secondAttribute="trailing" constant="10" id="FqA-iu-BEs"/>
                 <constraint firstAttribute="trailing" secondItem="yeP-Bc-99W" secondAttribute="trailing" id="G90-f6-Fba"/>
                 <constraint firstItem="yeP-Bc-99W" firstAttribute="top" secondItem="rAy-Ck-FBm" secondAttribute="top" id="KPM-MK-q1D"/>
                 <constraint firstItem="dT3-yd-Xn9" firstAttribute="centerY" secondItem="rAy-Ck-FBm" secondAttribute="centerY" id="Kfb-aG-R97"/>
-                <constraint firstItem="jCa-UP-B9I" firstAttribute="top" secondItem="rAy-Ck-FBm" secondAttribute="top" identifier="videoPausedTop" id="NL3-XM-Oly"/>
+                <constraint firstItem="jCa-UP-B9I" firstAttribute="centerY" secondItem="rAy-Ck-FBm" secondAttribute="centerY" id="NHa-0x-Z2P"/>
                 <constraint firstItem="5DN-e2-KMY" firstAttribute="centerY" secondItem="rAy-Ck-FBm" secondAttribute="centerY" id="NrX-PZ-5og"/>
                 <constraint firstAttribute="trailing" secondItem="jCa-UP-B9I" secondAttribute="trailing" identifier="videoPausedRight" id="QK1-G2-Dst"/>
                 <constraint firstAttribute="bottom" secondItem="efm-s0-oTF" secondAttribute="bottom" constant="25" id="U1p-lG-5Dp"/>
-                <constraint firstItem="5DN-e2-KMY" firstAttribute="top" secondItem="rAy-Ck-FBm" secondAttribute="top" identifier="postVideoTop" id="WYS-Lk-PyJ"/>
                 <constraint firstAttribute="trailing" secondItem="k2y-e8-gzV" secondAttribute="trailing" constant="14" id="bHt-Mx-YmW"/>
                 <constraint firstAttribute="trailing" secondItem="5DN-e2-KMY" secondAttribute="trailing" identifier="postVideoRight" id="e1P-1Y-ZCc"/>
                 <constraint firstItem="ZNZ-Rg-PSR" firstAttribute="trailing" secondItem="dT3-yd-Xn9" secondAttribute="trailing" id="fzD-W4-RQF"/>
@@ -152,7 +155,6 @@
                 <constraint firstItem="Qlg-f5-nkV" firstAttribute="top" secondItem="rAy-Ck-FBm" secondAttribute="top" constant="20" id="jQB-pU-hmh"/>
                 <constraint firstItem="hIU-OE-ekP" firstAttribute="top" secondItem="Qlg-f5-nkV" secondAttribute="bottom" id="jYC-kp-g8n"/>
                 <constraint firstItem="k2y-e8-gzV" firstAttribute="leading" secondItem="Qlg-f5-nkV" secondAttribute="trailing" constant="10" id="mYK-Uo-r5p"/>
-                <constraint firstAttribute="bottom" secondItem="5DN-e2-KMY" secondAttribute="bottom" identifier="postVideoBottom" id="n1w-79-WdR"/>
                 <constraint firstItem="jCa-UP-B9I" firstAttribute="leading" secondItem="rAy-Ck-FBm" secondAttribute="leading" identifier="videoPausedLeft" id="pDa-gb-S9U"/>
                 <constraint firstItem="k2y-e8-gzV" firstAttribute="top" secondItem="rAy-Ck-FBm" secondAttribute="top" constant="14" id="qXs-Ol-wsS"/>
                 <constraint firstItem="dT3-yd-Xn9" firstAttribute="leading" secondItem="ZNZ-Rg-PSR" secondAttribute="leading" id="vDR-qZ-8nO"/>
@@ -160,7 +162,7 @@
                 <constraint firstItem="5DN-e2-KMY" firstAttribute="centerX" secondItem="rAy-Ck-FBm" secondAttribute="centerX" id="zC0-P3-gRH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZNZ-Rg-PSR"/>
-            <point key="canvasLocation" x="457" y="-329"/>
+            <point key="canvasLocation" x="456.52173913043481" y="-329.46428571428572"/>
         </view>
         <tapGestureRecognizer id="MF9-zc-cik">
             <connections>
@@ -181,6 +183,9 @@
         </namedColor>
         <namedColor name="Red">
             <color red="0.66666666666666663" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text - Body">
+            <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
