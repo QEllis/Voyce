@@ -60,14 +60,13 @@ class DatabaseManager
                     let data = document.data()
                     let postID = data["postID"] as! String
                     let userID = data["userID"] as! String
-                    let user = self.userIDtoUser(userID: userID)
                     let date = data["date"] as! String
                     let postType = data["postType"] as! String
                     let content = data["content"] as! String
                     let vibes = data["vibes"] as! Int
                     let caption = data["caption"] as! String
                     
-                    let post = Post(pid: postID, user: user, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
+                    let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
                     self.myPosts.append(post)
                 }
             }
@@ -162,35 +161,6 @@ class DatabaseManager
         //        }
         
         self.index += 1
-    }
-    
-    //Can delete
-    private func userIDtoUser(userID: String) -> User {
-        var user: User = User()
-        
-        let ref = db.collection("users")
-        ref.getDocuments() { (QuerySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in QuerySnapshot!.documents
-                {
-                    if document.documentID == userID {
-                        let data = document.data()
-                        let userID = document.documentID
-                        let name = data["name"] as! String
-                        let username = data["username"] as! String
-                        let adVibes = data["adVibes"] as! Int
-                        let earnedVibes = data["earnedVibes"] as! Int
-                        let totalVibes = data["totalVibes"] as! Int
-                        let profilePic = data["profilePic"] as! String
-                        
-                        user = User(userID: userID, name: name, username: username, adVibes: adVibes, earnedVibes: earnedVibes, totalVibes: totalVibes, profilePic: profilePic)
-                    }
-                }
-            }
-        }
-        return user
     }
     
     /* Comment functionality portion below */
