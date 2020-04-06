@@ -106,7 +106,7 @@
                         <constraint firstAttribute="width" constant="40" id="jGu-yI-z84"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="Button" image="stars">
+                    <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -114,8 +114,8 @@
                         <action selector="vibeButtonPressed:" destination="-1" eventType="touchUpInside" id="gcI-cx-zxh"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efm-s0-oTF">
-                    <rect key="frame" x="297" y="831" width="42" height="40"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efm-s0-oTF">
+                    <rect key="frame" x="339" y="831" width="0.0" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="DkD-gJ-XWg"/>
                     </constraints>
@@ -176,7 +176,6 @@
     <resources>
         <image name="Play" width="128" height="128"/>
         <image name="Profile" width="128" height="128"/>
-        <image name="stars" width="170.5" height="170.5"/>
         <namedColor name="Gray">
             <color red="0.23921568627450981" green="0.23921568627450981" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

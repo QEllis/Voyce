@@ -47,7 +47,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6M-iS-dKg">
-                                                <rect key="frame" x="50.000000000000007" y="0.0" width="69.666666666666686" height="50"/>
+                                                <rect key="frame" x="55.000000000000007" y="0.0" width="64.666666666666686" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="v6M-iS-dKg" firstAttribute="leading" secondItem="mqd-vA-ya8" secondAttribute="trailing" constant="5" id="02O-zi-Naa"/>
+                                            <constraint firstItem="v6M-iS-dKg" firstAttribute="leading" secondItem="mqd-vA-ya8" secondAttribute="trailing" constant="10" id="02O-zi-Naa"/>
                                             <constraint firstAttribute="bottom" secondItem="v6M-iS-dKg" secondAttribute="bottom" id="Cgz-A5-zFJ"/>
                                             <constraint firstItem="mqd-vA-ya8" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="W1G-yT-5sV"/>
                                             <constraint firstAttribute="trailing" secondItem="v6M-iS-dKg" secondAttribute="trailing" id="mQE-CI-EFD"/>
