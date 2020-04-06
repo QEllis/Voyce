@@ -46,26 +46,22 @@
                                                     <constraint firstAttribute="width" constant="35" id="uBa-OP-JMd"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="9,312,734" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lZY-d8-vAc">
-                                                <rect key="frame" x="50.000000000000007" y="10" width="69.666666666666686" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="hrZ-Js-fAM"/>
-                                                </constraints>
-                                                <color key="textColor" name="Text - Body"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6M-iS-dKg">
+                                                <rect key="frame" x="50.000000000000007" y="0.0" width="69.666666666666686" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="lZY-d8-vAc" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="3bK-VW-NJV"/>
-                                            <constraint firstAttribute="trailing" secondItem="lZY-d8-vAc" secondAttribute="trailing" id="B6Z-49-n7J"/>
+                                            <constraint firstItem="v6M-iS-dKg" firstAttribute="leading" secondItem="mqd-vA-ya8" secondAttribute="trailing" constant="5" id="02O-zi-Naa"/>
+                                            <constraint firstAttribute="bottom" secondItem="v6M-iS-dKg" secondAttribute="bottom" id="Cgz-A5-zFJ"/>
                                             <constraint firstItem="mqd-vA-ya8" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="W1G-yT-5sV"/>
+                                            <constraint firstAttribute="trailing" secondItem="v6M-iS-dKg" secondAttribute="trailing" id="mQE-CI-EFD"/>
+                                            <constraint firstItem="v6M-iS-dKg" firstAttribute="top" secondItem="FW9-wj-a5G" secondAttribute="top" id="uAy-hy-VSD"/>
                                             <constraint firstItem="mqd-vA-ya8" firstAttribute="leading" secondItem="FW9-wj-a5G" secondAttribute="leading" constant="10" id="yFX-sY-EgN"/>
-                                            <constraint firstItem="lZY-d8-vAc" firstAttribute="leading" secondItem="mqd-vA-ya8" secondAttribute="trailing" constant="5" id="yd1-7o-VV9"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-JF-OX4">
@@ -124,7 +120,7 @@
                     <navigationItem key="navigationItem" id="V6C-tK-2jb"/>
                     <connections>
                         <outlet property="activeCard" destination="vlK-yP-sy4" id="uar-O6-eo8"/>
-                        <outlet property="adVibes" destination="lZY-d8-vAc" id="br2-GO-Ppe"/>
+                        <outlet property="adVibes" destination="v6M-iS-dKg" id="376-JN-jjT"/>
                         <outlet property="queueCard" destination="ucK-1x-JgX" id="jhU-Jh-Elv"/>
                     </connections>
                 </viewController>
@@ -264,9 +260,6 @@
         <image name="Wand" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Text - Body">
-            <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text - Post">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

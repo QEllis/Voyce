@@ -101,11 +101,10 @@ public class Post
         self.comments = post.comments
     }
     
-    func addVibe() {
-        self.vibes += 1
-        
+    func addVibes(vibes: Int) {
+        self.vibes += vibes
         let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
-        sharedRef.updateData(["vibes": FieldValue.increment(Int64(1))])
+        sharedRef.updateData(["vibes": FieldValue.increment(Int64(vibes))])
     }
     
     func changeCaption(caption: String) {

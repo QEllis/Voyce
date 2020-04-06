@@ -60,6 +60,7 @@ class Card: UIView
     func addPost(post: Post) {
         self.post = post
         numVibes.text = String(post.vibes)
+        vibeButton.setImage(randomEmoji(), for: .normal)
         
 //        let currentDate = NSDate()
 ////        let dateFormatter = ISO8601DateFormatter()
@@ -155,8 +156,10 @@ class Card: UIView
         /// Action when vibeButton is pressed.
         @IBAction func vibeButtonPressed(_ sender: UIButton) {
             if (DatabaseManager.shared.sharedUser.adVibes > 0) {
+                
+                DatabaseManager.shared.sharedUser.removeAdVibe()
                 // Update vibes in the database
-                post?.addVibe()
+                post?.addVibes(vibes: 1)
                 user?.addVibes(totalVibes: 1)
                 user?.addVibes(earnedVibes: 1)
                 

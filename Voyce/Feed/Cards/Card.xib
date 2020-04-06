@@ -106,7 +106,7 @@
                         <constraint firstAttribute="width" constant="40" id="jGu-yI-z84"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="Button" image="closed_eye">
+                    <state key="normal" title="Button" image="stars">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -176,7 +176,7 @@
     <resources>
         <image name="Play" width="128" height="128"/>
         <image name="Profile" width="128" height="128"/>
-        <image name="closed_eye" width="512" height="512"/>
+        <image name="stars" width="170.5" height="170.5"/>
         <namedColor name="Gray">
             <color red="0.23921568627450981" green="0.23921568627450981" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -14,7 +14,7 @@ class FeedViewController: UIViewController
 {
     @IBOutlet weak var activeCard: Card!
     @IBOutlet weak var queueCard: Card!
-    @IBOutlet weak var adVibes: UITextView!
+    @IBOutlet var adVibes: UILabel!
     
     /// Keeps track of how many cards have been swiped.
     var counter: Int = 0
@@ -22,6 +22,7 @@ class FeedViewController: UIViewController
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
+        adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes)
         //        NotificationCenter.default.addObserver(self, selector: #selector(exitComments), name: NSNotification.Name(rawValue: "exitComments"), object: nil)
         
         /// Load first active card.
@@ -34,6 +35,14 @@ class FeedViewController: UIViewController
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        DatabaseManager.shared.db.collection("users").document(DatabaseManager.shared.sharedUser.userID).addSnapshotListener() { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            self.adVibes.text = String(document.data()?["adVibes"] as! Int)
+        }
     }
     
     /// Swipable functionality for the  active card.
