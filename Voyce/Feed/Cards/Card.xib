@@ -68,12 +68,12 @@
                         <outletCollection property="gestureRecognizers" destination="dWu-qh-Wd8" appends="YES" id="88E-VN-rsJ"/>
                     </connections>
                 </view>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT3-yd-Xn9">
-                    <rect key="frame" x="0.0" y="448" width="414" height="0.0"/>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT3-yd-Xn9">
+                    <rect key="frame" x="20" y="448" width="374" height="0.0"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" name="Text - Body"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2y-e8-gzV">
@@ -150,14 +150,14 @@
                 <constraint firstAttribute="bottom" secondItem="efm-s0-oTF" secondAttribute="bottom" constant="25" id="U1p-lG-5Dp"/>
                 <constraint firstAttribute="trailing" secondItem="k2y-e8-gzV" secondAttribute="trailing" constant="14" id="bHt-Mx-YmW"/>
                 <constraint firstAttribute="trailing" secondItem="5DN-e2-KMY" secondAttribute="trailing" identifier="postVideoRight" id="e1P-1Y-ZCc"/>
-                <constraint firstItem="ZNZ-Rg-PSR" firstAttribute="trailing" secondItem="dT3-yd-Xn9" secondAttribute="trailing" id="fzD-W4-RQF"/>
+                <constraint firstItem="ZNZ-Rg-PSR" firstAttribute="trailing" secondItem="dT3-yd-Xn9" secondAttribute="trailing" constant="20" id="fzD-W4-RQF"/>
                 <constraint firstItem="Z2y-Im-dEX" firstAttribute="leading" secondItem="efm-s0-oTF" secondAttribute="trailing" constant="10" id="j0E-1Z-FY3"/>
                 <constraint firstItem="Qlg-f5-nkV" firstAttribute="top" secondItem="rAy-Ck-FBm" secondAttribute="top" constant="20" id="jQB-pU-hmh"/>
                 <constraint firstItem="hIU-OE-ekP" firstAttribute="top" secondItem="Qlg-f5-nkV" secondAttribute="bottom" id="jYC-kp-g8n"/>
                 <constraint firstItem="k2y-e8-gzV" firstAttribute="leading" secondItem="Qlg-f5-nkV" secondAttribute="trailing" constant="10" id="mYK-Uo-r5p"/>
                 <constraint firstItem="jCa-UP-B9I" firstAttribute="leading" secondItem="rAy-Ck-FBm" secondAttribute="leading" identifier="videoPausedLeft" id="pDa-gb-S9U"/>
                 <constraint firstItem="k2y-e8-gzV" firstAttribute="top" secondItem="rAy-Ck-FBm" secondAttribute="top" constant="14" id="qXs-Ol-wsS"/>
-                <constraint firstItem="dT3-yd-Xn9" firstAttribute="leading" secondItem="ZNZ-Rg-PSR" secondAttribute="leading" id="vDR-qZ-8nO"/>
+                <constraint firstItem="dT3-yd-Xn9" firstAttribute="leading" secondItem="ZNZ-Rg-PSR" secondAttribute="leading" constant="20" id="vDR-qZ-8nO"/>
                 <constraint firstItem="yeP-Bc-99W" firstAttribute="leading" secondItem="rAy-Ck-FBm" secondAttribute="leading" id="vxK-oJ-dl2"/>
                 <constraint firstItem="5DN-e2-KMY" firstAttribute="centerX" secondItem="rAy-Ck-FBm" secondAttribute="centerX" id="zC0-P3-gRH"/>
             </constraints>
