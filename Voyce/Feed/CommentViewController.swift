@@ -88,6 +88,7 @@ class CommentViewController: UIViewController
         }
     }
     
+    ///Move the commentText and toggle commentButton with keyboard.
     @objc func keyboardNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
@@ -109,5 +110,10 @@ class CommentViewController: UIViewController
                                        animations: { self.view.layoutIfNeeded() },
                                        completion: nil)
         }
+    }
+    
+    ///Post a comment.
+    @IBAction func commentButtonClicked(_ sender: UIButton) {
+        commentText.text = ""
     }
 }
