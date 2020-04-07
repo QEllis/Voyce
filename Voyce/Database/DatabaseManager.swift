@@ -109,7 +109,7 @@ class DatabaseManager
     
     public func loadFeed(view: FeedViewController, firstCard: Bool)
     {
-        db.collection("posts").order(by: "date").getDocuments() { querySnapshot, error in
+        db.collection("posts").order(by: "date", descending: true).getDocuments() { querySnapshot, error in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
