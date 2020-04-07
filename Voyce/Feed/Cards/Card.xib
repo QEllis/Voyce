@@ -83,7 +83,7 @@
                         <constraint firstAttribute="width" constant="50" id="rRd-Gc-ymL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" image="Profile">
+                    <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -177,7 +177,6 @@
     </objects>
     <resources>
         <image name="Play" width="128" height="128"/>
-        <image name="Profile" width="128" height="128"/>
         <namedColor name="Gray">
             <color red="0.23899999260902405" green="0.23899999260902405" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
