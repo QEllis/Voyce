@@ -16,6 +16,8 @@ class FeedViewController: UIViewController
     @IBOutlet weak var queueCard: Card!
     @IBOutlet var adVibes: UILabel!
     
+    @IBOutlet var noMorePosts: UIStackView!
+    
     /// Keeps track of how many cards have been swiped.
     var counter: Int = 0
     
@@ -69,6 +71,7 @@ class FeedViewController: UIViewController
                 /// Send the active card to the back and remove content.
                 card.removePost()
                 view.sendSubviewToBack(card)
+                view.sendSubviewToBack(noMorePosts)
                 
                 /// Load the next queued card.
                 card.center = self.view.center

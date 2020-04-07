@@ -17,6 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="k6r-Ux-9qG">
+                                <rect key="frame" x="108.66666666666669" y="419.33333333333331" width="197" height="57.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No More Posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khy-HP-erK">
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try Reloading Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-35-j3V">
+                                        <rect key="frame" x="0.0" y="28.666666666666686" width="197" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucK-1x-JgX" customClass="Card" customModule="Voyce" customModuleProvider="target">
                                 <rect key="frame" x="20" y="114" width="374" height="723"/>
                                 <gestureRecognizers/>
@@ -108,9 +125,11 @@
                             <constraint firstItem="vlK-yP-sy4" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" constant="10" identifier="activeLeft" id="Wk9-TR-esP"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="dNr-6h-huJ"/>
                             <constraint firstItem="ucK-1x-JgX" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" constant="20" identifier="queueLeft" id="eTA-rV-Rvz"/>
+                            <constraint firstItem="k6r-Ux-9qG" firstAttribute="centerY" secondItem="wL9-sf-3MO" secondAttribute="centerY" id="lE1-Fs-weg"/>
                             <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="ucK-1x-JgX" secondAttribute="trailing" constant="20" identifier="queueRight" id="lFJ-y7-88U"/>
                             <constraint firstItem="41m-Dp-SnV" firstAttribute="bottom" secondItem="vlK-yP-sy4" secondAttribute="bottom" constant="15" identifier="activeBottom" id="pNF-0Z-E2x"/>
                             <constraint firstItem="ucK-1x-JgX" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="bottom" constant="20" identifier="queueTop" id="pk4-Ta-pc8"/>
+                            <constraint firstItem="k6r-Ux-9qG" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="srt-77-jLa"/>
                             <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="vlK-yP-sy4" secondAttribute="trailing" constant="10" identifier="activeRight" id="wfg-QX-GIV"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="z3A-eI-nBL"/>
                             <constraint firstItem="41m-Dp-SnV" firstAttribute="bottom" secondItem="ucK-1x-JgX" secondAttribute="bottom" constant="25" identifier="queueBottom" id="zTm-yH-CsY"/>
@@ -121,6 +140,7 @@
                     <connections>
                         <outlet property="activeCard" destination="vlK-yP-sy4" id="uar-O6-eo8"/>
                         <outlet property="adVibes" destination="v6M-iS-dKg" id="376-JN-jjT"/>
+                        <outlet property="noMorePosts" destination="k6r-Ux-9qG" id="w5q-DI-fJF"/>
                         <outlet property="queueCard" destination="ucK-1x-JgX" id="jhU-Jh-Elv"/>
                     </connections>
                 </viewController>
