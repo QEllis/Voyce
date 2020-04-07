@@ -20,7 +20,7 @@ public class Comment
     
     var dictionary: [String: Any] {
         return [
-            "uid": user.userID,
+            "userID": user.userID,
             "date": date,
             "content": content,
             "vibes": vibes,

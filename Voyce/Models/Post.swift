@@ -25,7 +25,7 @@ public class Post
     
     var dictionary: [String: Any] {
         return [
-            "uid": userID,
+            "userID": userID,
             "date": date,
             "postType": postType,
             "content": content,

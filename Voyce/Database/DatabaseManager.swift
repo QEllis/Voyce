@@ -136,16 +136,16 @@ class DatabaseManager
                     default: print("Error: counter is an invalid integer.")
                     }
                 } else {
-                   switch view.counter % 2 {
-                        case 0:
-                            view.activeCard.isHidden = true
-                        case 1:
-                            view.queueCard.isHidden = true
-                        default: print("Error: counter is an invalid integer.")
-                        }
+                    switch view.counter % 2 {
+                    case 0:
+                        view.activeCard.isHidden = true
+                    case 1:
+                        view.queueCard.isHidden = true
+                    default: print("Error: counter is an invalid integer.")
                     }
-                    self.index += 1
-                    view.counter += 1
+                }
+                self.index += 1
+                view.counter += 1
             }
         }
     }
@@ -154,22 +154,18 @@ class DatabaseManager
     
     //creates comment from text, ID of commenter, and post on which commented
     public func addComment(content: String, userID: String, postID: String) {
-        //        let vibes = 0
-        //        let id = UUID()
-        //        db.collection("comments").document(id.uuidString).setData([
-        //            "postID": postID,
-        //            "userID": userID,
-        //            "ts": NSDate().timeIntervalSince1970,
-        //            "content": content,
-        //            "vibes": vibes,
-        //            "commentID": id.uuidString
-        //            ]) { err in
-        //                if let err = err {
-        //                    print("Error writing post to db: \(err)")
-        //                } else {
-        //                        print("post successfully written to db!")
-        //                }
-        //            }
+        db.collection("posts").document(postID).collection("comments").document().setData([
+            "userID": userID,
+            "date": Date().description,
+            "content": content,
+            "vibes": 0
+        ]) { err in
+            if let err = err {
+                print("Error writing comment to db: \(err)")
+            } else {
+                print("Comment successfully written to db!")
+            }
+        }
         
     }
     
