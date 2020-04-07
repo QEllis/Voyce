@@ -30,14 +30,15 @@ class CommentViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil);
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
         
         NotificationCenter.default.addObserver(self,
         selector: #selector(self.keyboardNotification(notification:)),
         name: UIResponder.keyboardWillChangeFrameNotification,
         object: nil)
+
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "exitComments"), object: nil)
         loadContent()
     }
@@ -112,7 +113,12 @@ class CommentViewController: UIViewController
         }
     }
     
-    ///Post a comment.
+    /// Dismiss the keybaord.
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    /// Post a comment.
     @IBAction func commentButtonClicked(_ sender: UIButton) {
         commentText.text = ""
     }
