@@ -23,6 +23,7 @@ class CommentViewController: UIViewController
     @IBOutlet var commentText: UITextField!
     
     @IBOutlet var commentViewBottom: NSLayoutConstraint!
+    @IBOutlet var commentButton: UIButton!
     
     var post: Post!
     
@@ -97,8 +98,10 @@ class CommentViewController: UIViewController
             let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
             if endFrameY >= UIScreen.main.bounds.size.height {
                 self.commentViewBottom.constant = 0.0
+                self.commentButton.isHidden = true
             } else {
                 self.commentViewBottom.constant = (endFrame?.size.height ?? 0.0) - 40
+                self.commentButton.isHidden = false
             }
             UIView.animate(withDuration: duration,
                                        delay: TimeInterval(0),

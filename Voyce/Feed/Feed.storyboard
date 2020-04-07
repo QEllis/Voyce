@@ -209,17 +209,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9V-XK-0mW">
                                 <rect key="frame" x="0.0" y="740" width="414" height="68"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fiT-F3-886">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fiT-F3-886">
                                         <rect key="frame" x="40" y="17" width="334" height="34"/>
                                         <color key="backgroundColor" name="Background"/>
                                         <color key="textColor" name="Text - Body"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVn-Kv-9AH">
+                                        <rect key="frame" x="343" y="19" width="31" height="30"/>
+                                        <state key="normal" title="Post"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="fiT-F3-886" secondAttribute="height" multiplier="2" id="2b7-ab-dNY"/>
+                                    <constraint firstAttribute="trailing" secondItem="fVn-Kv-9AH" secondAttribute="trailing" constant="40" id="DEz-jb-h7e"/>
+                                    <constraint firstItem="fVn-Kv-9AH" firstAttribute="centerY" secondItem="E9V-XK-0mW" secondAttribute="centerY" id="Irs-QK-zy2"/>
+                                    <constraint firstItem="fVn-Kv-9AH" firstAttribute="height" secondItem="fiT-F3-886" secondAttribute="height" multiplier="0.882353" id="Iv7-8y-MkB"/>
                                     <constraint firstItem="fiT-F3-886" firstAttribute="centerY" secondItem="E9V-XK-0mW" secondAttribute="centerY" id="YtG-ht-SqC"/>
                                     <constraint firstAttribute="trailing" secondItem="fiT-F3-886" secondAttribute="trailing" constant="40" id="hnB-y0-1R0"/>
                                     <constraint firstItem="fiT-F3-886" firstAttribute="leading" secondItem="E9V-XK-0mW" secondAttribute="leading" constant="40" id="ixz-KC-dAs"/>
@@ -253,6 +260,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ran-1k-QGm"/>
                     <connections>
+                        <outlet property="commentButton" destination="fVn-Kv-9AH" id="IRi-0h-Ugz"/>
                         <outlet property="commentFeed" destination="sgU-F3-Kg3" id="PM3-TK-jVA"/>
                         <outlet property="commentText" destination="fiT-F3-886" id="hgC-X1-BWk"/>
                         <outlet property="commentView" destination="E9V-XK-0mW" id="jCy-aR-Siw"/>
