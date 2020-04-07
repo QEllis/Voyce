@@ -18,7 +18,10 @@ class FundsViewController: UIViewController
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var accountNumber: UITextField!
     @IBOutlet weak var routingNumber: UITextField!
-    var amount: String = "20"
+    var amount: String = "21.00"
+    var fundingSource: String = "4aafc54b-4c51-4ee5-a20b-45b5edfee599"
+    // Please don't remove the functions variable
+//    lazy var functions = Functions.functions()
     
     // Pops view controller off the view controller stack
     func removeViewController()
@@ -60,8 +63,11 @@ class FundsViewController: UIViewController
     // Sends user info to Dwolla and transfers funds
     func sendData(user: DwollaUser)
     {
-//        print("Button Pressed")
-//        functions.httpsCallable("addMessage").call(["text": "\(user.firstName), \(user.lastName), \(user.email), \(user.accountNumber), \(user.routingNumber)"])
+        // Called when user has no fundingSource in Firebase
+//        functions.httpsCallable("addMessage").call(["text": "\(user.firstName), \(user.lastName), \(user.email), \(user.accountNumber), \(user.routingNumber), \(amount)"])
+        // Called when user has a fundingSource in Firebase
+//        functions.httpsCallable("addMessage").call(["text": "\(fundingSource), \(amount)"])
+            
 //        {(result, error) in
 //            // Handles any errors in the communication
 //            if let error = error as NSError?
