@@ -19,12 +19,24 @@ class CommentViewController: UIViewController
     @IBOutlet var videoPausedView: UIView!
     
     @IBOutlet var commentFeed: UITableView!
+    @IBOutlet var commentView: UIView!
+    @IBOutlet var commentText: UITextField!
+    
+    @IBOutlet var commentViewBottom: NSLayoutConstraint!
     
     var post: Post!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil);
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
+        
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(self.keyboardNotification(notification:)),
+        name: UIResponder.keyboardWillChangeFrameNotification,
+        object: nil)
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "exitComments"), object: nil)
         loadContent()
     }
@@ -72,6 +84,27 @@ class CommentViewController: UIViewController
             let view = subview as! VideoPlayerView
             view.player?.play()
             videoPausedView.isHidden = true
+        }
+    }
+    
+    @objc func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrameY = endFrame?.origin.y ?? 0
+            let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+            if endFrameY >= UIScreen.main.bounds.size.height {
+                self.commentViewBottom.constant = 0.0
+            } else {
+                self.commentViewBottom.constant = (endFrame?.size.height ?? 0.0) - 40
+            }
+            UIView.animate(withDuration: duration,
+                                       delay: TimeInterval(0),
+                                       options: animationCurve,
+                                       animations: { self.view.layoutIfNeeded() },
+                                       completion: nil)
         }
     }
 }
