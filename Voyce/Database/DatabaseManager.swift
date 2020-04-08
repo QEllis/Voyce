@@ -141,9 +141,8 @@ class DatabaseManager
                                     view.queueCard.addPost(post: post)
                                     view.queueCard.isHidden = false
                                 default: print("Error: counter is an invalid integer.")
-                                    view.counter += 1
-                                    
                                 }
+                                view.counter += 1
                             } else {
                                 self.loadFeed(view: view, firstCard: firstCard)
                             }
