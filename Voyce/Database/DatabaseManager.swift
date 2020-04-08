@@ -138,6 +138,9 @@ class DatabaseManager
                                     view.queueCard.addPost(post: post)
                                     view.queueCard.isHidden = false
                                 default: print("Error: counter is an invalid integer.")
+                                    self.index += 1
+                                    view.counter += 1
+                                    
                                 }
                             } else {
                                 self.index += 1
@@ -162,6 +165,8 @@ class DatabaseManager
                                 view.queueCard.isHidden = false
                             default: print("Error: counter is an invalid integer.")
                             }
+                            self.index += 1
+                            view.counter += 1
                         }
                     }
                 } else {
@@ -172,9 +177,9 @@ class DatabaseManager
                         view.queueCard.isHidden = true
                     default: print("Error: counter is an invalid integer.")
                     }
+                    self.index += 1
+                    view.counter += 1
                 }
-                self.index += 1
-                view.counter += 1
             }
         }
     }
