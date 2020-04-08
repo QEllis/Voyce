@@ -33,6 +33,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="YSc-hi-ADz" appends="YES" id="5fe-EE-q4e"/>
+                                </connections>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucK-1x-JgX" customClass="Card" customModule="Voyce" customModuleProvider="target">
                                 <rect key="frame" x="20" y="114" width="374" height="723"/>
@@ -57,14 +61,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="mqd-vA-ya8">
-                                                <rect key="frame" x="10" y="7.6666666666666643" width="35" height="35"/>
+                                                <rect key="frame" x="15" y="12.666666666666664" width="25" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="SdB-VF-YLJ"/>
-                                                    <constraint firstAttribute="width" constant="35" id="uBa-OP-JMd"/>
+                                                    <constraint firstAttribute="height" constant="25" id="SdB-VF-YLJ"/>
+                                                    <constraint firstAttribute="width" constant="25" id="uBa-OP-JMd"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6M-iS-dKg">
-                                                <rect key="frame" x="55.000000000000007" y="0.0" width="64.666666666666686" height="50"/>
+                                                <rect key="frame" x="50.000000000000007" y="0.0" width="69.666666666666686" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -78,14 +82,14 @@
                                             <constraint firstItem="mqd-vA-ya8" firstAttribute="centerY" secondItem="FW9-wj-a5G" secondAttribute="centerY" id="W1G-yT-5sV"/>
                                             <constraint firstAttribute="trailing" secondItem="v6M-iS-dKg" secondAttribute="trailing" id="mQE-CI-EFD"/>
                                             <constraint firstItem="v6M-iS-dKg" firstAttribute="top" secondItem="FW9-wj-a5G" secondAttribute="top" id="uAy-hy-VSD"/>
-                                            <constraint firstItem="mqd-vA-ya8" firstAttribute="leading" secondItem="FW9-wj-a5G" secondAttribute="leading" constant="10" id="yFX-sY-EgN"/>
+                                            <constraint firstItem="mqd-vA-ya8" firstAttribute="leading" secondItem="FW9-wj-a5G" secondAttribute="leading" constant="15" id="yFX-sY-EgN"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-JF-OX4">
                                         <rect key="frame" x="119.66666666666669" y="0.0" width="175" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-0i-QWe">
-                                                <rect key="frame" x="-253.66666666666669" y="0.0" width="682.33333333333337" height="50"/>
+                                                <rect key="frame" x="-424.66666666666669" y="0.0" width="1024.3333333333333" height="50"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="il6-dJ-waV"/>
@@ -163,6 +167,11 @@
                 <tapGestureRecognizer id="j4U-pT-uM7">
                     <connections>
                         <segue destination="M7E-08-8EG" kind="presentation" id="w49-ks-WX7"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="YSc-hi-ADz">
+                    <connections>
+                        <action selector="reloadFeed:" destination="cGs-MB-HJR" id="eWV-wZ-JRd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

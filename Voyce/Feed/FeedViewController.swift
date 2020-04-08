@@ -192,6 +192,11 @@ class FeedViewController: UIViewController
         }
     }
     
+    /// Reload feed upon tapping No More Posts
+    @IBAction func reloadFeed(_ sender: UITapGestureRecognizer) {
+        DatabaseManager.shared.reloadFeed(view: self)
+    }
+    
     //    /// Play video when exiting the comments.
     //    @objc func exitComments() {
     //        switch counter % 2 {

@@ -184,6 +184,12 @@ class DatabaseManager
         }
     }
     
+    public func reloadFeed(view: FeedViewController) {
+        index = 0
+        loadFeed(view: view, firstCard: true)
+        loadFeed(view: view, firstCard: false)
+    }
+    
     public func postSeen(postID: String, userID: String) {
         db.collection("postsSeen").document(postID).setData([
             "posts": FieldValue.arrayUnion([userID])
