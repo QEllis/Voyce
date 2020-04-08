@@ -175,6 +175,6 @@ public class User
         self.profilePic = profilePic
         
         let sharedRef = DatabaseManager.shared.db.collection("users").document(userID)
-        sharedRef.updateData(["profilePic": profilePic.absoluteString])
+        sharedRef.updateData(["profilePic": profilePic])
     }
 }

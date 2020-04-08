@@ -67,6 +67,7 @@ class FeedViewController: UIViewController
                 UIView.animate(withDuration: 0.25, animations: {
                     card.center = CGPoint(x: offScreenX, y: offScreenY)
                     card.alpha = 0 })
+                DatabaseManager.shared.postSeen(postID: card.post!.postID, userID: card.post!.userID)
                 
                 /// Send the active card to the back and remove content.
                 card.removePost()

@@ -29,7 +29,7 @@ class DatabaseManager
             NotificationCenter.default.post(name: .NewPosts, object: nil)
         }
     }
-    var index: Int //Will be changed to individual user's index
+    var index: Int
     
     init()
     {
@@ -117,23 +117,52 @@ class DatabaseManager
                     let data = document.data()
                     let postID = data["postID"] as! String
                     let userID = data["userID"] as! String
-                    let date = data["date"] as! String
-                    let postType = data["postType"] as! String
-                    let content = data["content"] as! String
-                    let vibes = data["vibes"] as! Int
-                    let caption = data["caption"] as! String
-                    
-                    let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
-                    
-                    switch view.counter % 2 {
-                    case 0:
-                        view.activeCard.addPost(post: post)
-                        view.activeCard.isHidden = false
-                        if firstCard { view.activeCard.playVideo() }
-                    case 1:
-                        view.queueCard.addPost(post: post)
-                        view.queueCard.isHidden = false
-                    default: print("Error: counter is an invalid integer.")
+                    self.db.collection("postsSeen").document(postID).getDocument() { document, error in
+                        if let document = document, document.exists {
+                            let posts = document.data()!["posts"] as! [String]
+                            if (!posts.contains(userID)) {
+                                let date = data["date"] as! String
+                                let postType = data["postType"] as! String
+                                let content = data["content"] as! String
+                                let vibes = data["vibes"] as! Int
+                                let caption = data["caption"] as! String
+                                
+                                let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
+                                
+                                switch view.counter % 2 {
+                                case 0:
+                                    view.activeCard.addPost(post: post)
+                                    view.activeCard.isHidden = false
+                                    if firstCard { view.activeCard.playVideo() }
+                                case 1:
+                                    view.queueCard.addPost(post: post)
+                                    view.queueCard.isHidden = false
+                                default: print("Error: counter is an invalid integer.")
+                                }
+                            } else {
+                                self.index += 1
+                                self.loadFeed(view: view, firstCard: firstCard)
+                            }
+                        } else {
+                            let date = data["date"] as! String
+                            let postType = data["postType"] as! String
+                            let content = data["content"] as! String
+                            let vibes = data["vibes"] as! Int
+                            let caption = data["caption"] as! String
+                            
+                            let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
+                            
+                            switch view.counter % 2 {
+                            case 0:
+                                view.activeCard.addPost(post: post)
+                                view.activeCard.isHidden = false
+                                if firstCard { view.activeCard.playVideo() }
+                            case 1:
+                                view.queueCard.addPost(post: post)
+                                view.queueCard.isHidden = false
+                            default: print("Error: counter is an invalid integer.")
+                            }
+                        }
                     }
                 } else {
                     switch view.counter % 2 {
@@ -148,6 +177,12 @@ class DatabaseManager
                 view.counter += 1
             }
         }
+    }
+    
+    public func postSeen(postID: String, userID: String) {
+        db.collection("postsSeen").document(postID).setData([
+            "posts": FieldValue.arrayUnion([userID])
+        ])
     }
     
     /* Comment functionality portion below */
