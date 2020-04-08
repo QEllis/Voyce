@@ -112,7 +112,7 @@ class DatabaseManager
         let index = self.index
         self.index += 1
         
-        db.collection("posts").order(by: "date", descending: true).getDocuments() { querySnapshot, error in
+        db.collection("posts").order(by: "vibes", descending: true).getDocuments() { querySnapshot, error in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
