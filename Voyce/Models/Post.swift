@@ -114,19 +114,19 @@ public class Post
         sharedRef.updateData(["caption": caption])
     }
     
-    func addComment(comment: Comment) {
-        self.comments.append(comment)
-        
-        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
-        sharedRef.updateData(["comments": comments])
-    }
-    
-    func removeComment(index: Int) {
-        self.comments.remove(at: index)
-        
-        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
-        sharedRef.updateData(["comments": comments])
-    }
+//    func addComment(comment: Comment) {
+//        self.comments.append(comment)
+//
+//        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
+//        sharedRef.updateData(["comments": comments])
+//    }
+//
+//    func removeComment(index: Int) {
+//        self.comments.remove(at: index)
+//
+//        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
+//        sharedRef.updateData(["comments": comments])
+//    }
     
     ///Add functions to update values of Comments in the database.
 }
