@@ -109,13 +109,16 @@ class DatabaseManager
     
     public func loadFeed(view: FeedViewController, firstCard: Bool)
     {
+        let index = self.index
+        self.index += 1
+        
         db.collection("posts").order(by: "date", descending: true).getDocuments() { querySnapshot, error in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
-                if let document = querySnapshot?.documents[safe: self.index] {
+                if let document = querySnapshot?.documents[safe: index] {
                     let data = document.data()
-                    let postID = data["postID"] as! String
+                    let postID = document.documentID
                     let userID = data["userID"] as! String
                     self.db.collection("postsSeen").document(postID).getDocument() { document, error in
                         if let document = document, document.exists {
@@ -138,12 +141,10 @@ class DatabaseManager
                                     view.queueCard.addPost(post: post)
                                     view.queueCard.isHidden = false
                                 default: print("Error: counter is an invalid integer.")
-                                    self.index += 1
                                     view.counter += 1
                                     
                                 }
                             } else {
-                                self.index += 1
                                 self.loadFeed(view: view, firstCard: firstCard)
                             }
                         } else {
@@ -165,7 +166,6 @@ class DatabaseManager
                                 view.queueCard.isHidden = false
                             default: print("Error: counter is an invalid integer.")
                             }
-                            self.index += 1
                             view.counter += 1
                         }
                     }
@@ -177,7 +177,6 @@ class DatabaseManager
                         view.queueCard.isHidden = true
                     default: print("Error: counter is an invalid integer.")
                     }
-                    self.index += 1
                     view.counter += 1
                 }
             }

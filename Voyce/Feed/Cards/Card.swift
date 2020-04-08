@@ -77,6 +77,7 @@ class Card: UIView
         case "text":
             postText.isHidden = false
             postText.text = post.content
+            card.backgroundColor = UIColor(named: "Gray")
         case "image":
             postImage.isHidden = false
             let url = URL(string: post.content)
@@ -93,6 +94,7 @@ class Card: UIView
                 let videoPlayerView = VideoPlayerView(frame: playerFrame)
                 videoPlayerView.player = player
                 postVideo.addSubview(videoPlayerView)
+                card.backgroundColor = UIColor(named: "Gray")
             }
         default:
             print("Error: Unknown Post Type for \(post.postID)")
