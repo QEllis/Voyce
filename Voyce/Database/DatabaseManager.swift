@@ -110,7 +110,9 @@ class DatabaseManager
     public func loadFeed(view: FeedViewController, firstCard: Bool)
     {
         let index = self.index
+        let counter = view.counter
         self.index += 1
+        view.counter += 1
         
         db.collection("posts").order(by: "vibes", descending: true).getDocuments() { querySnapshot, error in
             if let error = error {
@@ -131,19 +133,19 @@ class DatabaseManager
                                 let caption = data["caption"] as! String
                                 
                                 let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
-                                
-                                switch view.counter % 2 {
+                                print(index)
+                                switch counter % 2 {
                                 case 0:
                                     view.activeCard.addPost(post: post)
                                     view.activeCard.isHidden = false
-                                    if firstCard { view.activeCard.playVideo() }
                                 case 1:
                                     view.queueCard.addPost(post: post)
                                     view.queueCard.isHidden = false
                                 default: print("Error: counter is an invalid integer.")
                                 }
-                                view.counter += 1
+                                if firstCard { view.activeCard.playVideo() }
                             } else {
+                                view.counter -= 1
                                 self.loadFeed(view: view, firstCard: firstCard)
                             }
                         } else {
@@ -154,29 +156,27 @@ class DatabaseManager
                             let caption = data["caption"] as! String
                             
                             let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
-                            
-                            switch view.counter % 2 {
+                            print(index)
+                            switch counter % 2 {
                             case 0:
                                 view.activeCard.addPost(post: post)
                                 view.activeCard.isHidden = false
-                                if firstCard { view.activeCard.playVideo() }
                             case 1:
                                 view.queueCard.addPost(post: post)
                                 view.queueCard.isHidden = false
                             default: print("Error: counter is an invalid integer.")
                             }
-                            view.counter += 1
+                            if firstCard { view.activeCard.playVideo() }
                         }
                     }
                 } else {
-                    switch view.counter % 2 {
+                    switch counter % 2 {
                     case 0:
                         view.activeCard.isHidden = true
                     case 1:
                         view.queueCard.isHidden = true
                     default: print("Error: counter is an invalid integer.")
                     }
-                    view.counter += 1
                 }
             }
         }
