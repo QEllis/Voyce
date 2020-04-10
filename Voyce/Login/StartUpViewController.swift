@@ -47,12 +47,14 @@ class StartUpViewController: UIViewController, FUIAuthDelegate{
     //navigate user to feed if user is signed in
       public func navigateToFeed()
       {
+        print("in navigate to feed - startupviewcontroller.swift")
           let vc = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
           self.navigationController?.pushViewController(vc, animated: true)
       }
       
       public func navigateToLogin()
       {
+            print("in navigate to login - startupviewcontroller.swift")
              let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
              self.navigationController?.pushViewController(vc, animated: true)
          }

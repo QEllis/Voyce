@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate
     let currentUser=Auth.auth().currentUser
     override func viewDidLoad()
     {
+        print("in loginviewcontroller.swift")
         // You need to adopt a FUIAuthDelegate protocol to receive callback
         authUI?.delegate = self
         //authUI?.FacebookAutoLogAppEventsEnabled = false;

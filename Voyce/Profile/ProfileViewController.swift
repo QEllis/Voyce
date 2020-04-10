@@ -7,7 +7,7 @@
 //
 
 // --- Used for firebase functions below ---
-//import Firebase
+import Firebase
 
 import Foundation
 import UIKit
@@ -96,5 +96,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func transferButtonPressed(_ sender: Any)
     {
 
+    }
+    
+    @IBAction func logout(_ sender: UIButton) {
+        print("logout")
+          //sign out user
+            let firebaseAuth = Auth.auth()
+          do {
+            try firebaseAuth.signOut()
+          } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+          }
+          //redirect user to login page
+          let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                      self.navigationController?.pushViewController(vc, animated: true)
     }
 }
