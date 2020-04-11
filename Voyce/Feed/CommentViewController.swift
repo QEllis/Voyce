@@ -11,7 +11,7 @@ import UIKit
 import AVKit
 import FirebaseFirestoreSwift
 
-class CommentViewController: UIViewController, UITextFieldDelegate
+class CommentViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
 {
     @IBOutlet var postText: UILabel!
     @IBOutlet var postImage: UIImageView!
@@ -40,7 +40,6 @@ class CommentViewController: UIViewController, UITextFieldDelegate
         view.addGestureRecognizer(tap)
         self.commentText.delegate = self
 
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "exitComments"), object: nil)
         loadContent()
     }
     

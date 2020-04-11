@@ -21,7 +21,7 @@ class Card: UIView
     
     @IBOutlet var postText: UILabel!
     @IBOutlet var postImage: UIImageView!
-    @IBOutlet var postVideo: UIView!
+    @IBOutlet var postVideo: VideoPlayerView!
     @IBOutlet var videoPausedView: UIView!
     
     var user: User?
@@ -132,10 +132,7 @@ class Card: UIView
             let url = URL(string: post.content)
             if url != nil {
                 let player = AVPlayer(url: url!)
-                let playerFrame = CGRect(x: 0, y: 0, width: postVideo.frame.width, height: postVideo.frame.height)
-                let videoPlayerView = VideoPlayerView(frame: playerFrame)
-                videoPlayerView.player = player
-                postVideo.addSubview(videoPlayerView)
+                postVideo.player = player
             }
         default:
             print("Error: Unknown Post Type for \(post.postID)")
@@ -184,20 +181,14 @@ class Card: UIView
     
     /// Play video on a video post.
     func playVideo() {
-        for subview in postVideo.subviews {
-            let view = subview as! VideoPlayerView
-            view.player?.play()
-            videoPausedView.isHidden = true
-        }
+        postVideo.player?.play()
+        videoPausedView.isHidden = true
     }
     
     /// Pause video on a video post.
     func pauseVideo() {
-        for subview in postVideo.subviews {
-            let view = subview as! VideoPlayerView
-            view.player?.pause()
-            videoPausedView.isHidden = false
-        }
+        postVideo.player?.pause()
+        videoPausedView.isHidden = false
     }
     
     /// Action when profileButton is pressed.

@@ -21,7 +21,6 @@ public class Post
     let content: String
     var vibes: Int
     var caption: String
-    var comments: [Comment]
     
     var dictionary: [String: Any] {
         return [
@@ -31,7 +30,6 @@ public class Post
             "content": content,
             "vibes": vibes,
             "caption": caption,
-            "comments": comments
         ]
     }
     
@@ -43,7 +41,6 @@ public class Post
         self.content = ""
         self.vibes = 0
         self.caption = ""
-        self.comments = []
     }
     
     init(pid: String, user: User, postType: String, content: String, caption: String) {
@@ -54,7 +51,6 @@ public class Post
         self.content = content
         self.vibes = 0
         self.caption = caption
-        self.comments = []
     }
     
     init(pid: String, user: User, postType: String, content: String, vibes: Int, caption: String) {
@@ -65,7 +61,6 @@ public class Post
         self.content = content
         self.vibes = vibes
         self.caption = caption
-        self.comments = []
     }
     
     init(pid: String, user: User, date: String, postType: String, content: String, vibes: Int, caption: String) {
@@ -76,7 +71,6 @@ public class Post
         self.content = content
         self.vibes = vibes
         self.caption = caption
-        self.comments = []
     }
     
     init(pid: String, userID: String, date: String, postType: String, content: String, vibes: Int, caption: String) {
@@ -87,7 +81,6 @@ public class Post
         self.content = content
         self.vibes = vibes
         self.caption = caption
-        self.comments = []
     }
     
     init(post: Post) {
@@ -98,7 +91,6 @@ public class Post
         self.content = post.content
         self.vibes = post.vibes
         self.caption = post.caption
-        self.comments = post.comments
     }
     
     func addVibes(vibes: Int) {
@@ -113,20 +105,4 @@ public class Post
         let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
         sharedRef.updateData(["caption": caption])
     }
-    
-//    func addComment(comment: Comment) {
-//        self.comments.append(comment)
-//
-//        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
-//        sharedRef.updateData(["comments": comments])
-//    }
-//
-//    func removeComment(index: Int) {
-//        self.comments.remove(at: index)
-//
-//        let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
-//        sharedRef.updateData(["comments": comments])
-//    }
-    
-    ///Add functions to update values of Comments in the database.
 }

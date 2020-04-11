@@ -16,7 +16,7 @@
                 <outlet property="numVibes" destination="efm-s0-oTF" id="BiT-dg-phj"/>
                 <outlet property="postImage" destination="yeP-Bc-99W" id="bN3-SU-udk"/>
                 <outlet property="postText" destination="dT3-yd-Xn9" id="lFr-dA-7mY"/>
-                <outlet property="postVideo" destination="5DN-e2-KMY" id="H3Y-SA-YFM"/>
+                <outlet property="postVideo" destination="5DN-e2-KMY" id="p2g-A4-oRx"/>
                 <outlet property="profileButton" destination="k2y-e8-gzV" id="umv-Vd-jDn"/>
                 <outlet property="usernameLabel" destination="Qlg-f5-nkV" id="njS-js-GcO"/>
                 <outlet property="vibeButton" destination="Z2y-Im-dEX" id="aqf-gQ-JXR"/>
@@ -34,7 +34,7 @@
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
                 </imageView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DN-e2-KMY">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DN-e2-KMY" customClass="VideoPlayerView" customModule="Voyce" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="331.5" width="414" height="233"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>

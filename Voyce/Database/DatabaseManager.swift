@@ -95,7 +95,6 @@ class DatabaseManager
             "postType": post.postType,
             "userID": post.userID,
             "vibes": post.vibes,
-            "comments": post.comments
         ]) { err in
             if let err = err {
                 print("Error writing post to db: \(err)")
@@ -205,7 +204,6 @@ class DatabaseManager
                             self.otherUsers.append(user)
                         }
                     }
-                    print("OtherUsers: \(self.otherUsers)")
                 }
         }
     }
