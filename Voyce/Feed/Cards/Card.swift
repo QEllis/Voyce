@@ -59,8 +59,6 @@ class Card: UIView
     public func loadPost(feed: FeedViewController, first: Bool) {
         let index = DatabaseManager.shared.index
         DatabaseManager.shared.index += 1
-        print(index)
-        print(DatabaseManager.shared.index)
         
         DatabaseManager.shared.db.collection("posts").order(by: "vibes", descending: true).getDocuments() { querySnapshot, error in
             if let error = error {

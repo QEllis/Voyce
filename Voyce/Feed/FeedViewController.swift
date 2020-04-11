@@ -39,6 +39,7 @@ class FeedViewController: UIViewController
         let card = Card(frame: CGRect(x: 0, y: 0, width: view.frame.width - (first ? 20 : 40), height: view.frame.height - (first ? 210 : 230)))
         card.center = view.center
         card.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panCard(_:))))
+        card.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openComments(_:))))
         card.loadPost(feed: self, first: first)
     }
     
@@ -126,55 +127,21 @@ class FeedViewController: UIViewController
         addCard(first: true)
     }
     
+    @objc func openComments(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "openComments", sender: sender)
+    }
+    
     /// Send the active cards data to CommentVC.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is CommentViewController
         {
             let vc = segue.destination as? CommentViewController
-//            switch counter % 2 {
-//            case 0:
-//                if activeCard.post?.postType == "video" {
-//                    activeCard.pauseVideo()
-//                }
-//                vc?.post = self.activeCard.post
-//            case 1:
-//                if queueCard.post?.postType == "video" {
-//                    queueCard.pauseVideo()
-//                }
-//                vc?.post = self.queueCard.post
-//            default: print("Error: counter is an invalid integer.")
-//            }
+            let card = (sender as! UITapGestureRecognizer).view as! Card
+            if (card.post?.postType == "video") {
+                card.pauseVideo()
+            }
+            vc?.post = card.post
         }
     }
-    
-    //    /// Play video when exiting the comments.
-    //    @objc func exitComments() {
-    //        switch counter % 2 {
-    //        case 0:
-    //            if activeCard.post?.postType == "video" {
-    //                for subview in activeCard.postVideo.subviews {
-    //                    let view = subview as! VideoPlayerView
-    //                    view.player?.play()
-    //                    activeCard.videoPausedView.isHidden = true
-    //                }
-    //            }
-    //        case 1:
-    //            if queueCard.post?.postType == "video" {
-    //                for subview in queueCard.postVideo.subviews {
-    //                    let view = subview as! VideoPlayerView
-    //                    view.player?.play()
-    //                    queueCard.videoPausedView.isHidden = true
-    //                }
-    //            }
-    //        default: print("Error: counter is an invalid integer.")
-    //        }
-    //    }
 }
-
-//extension Array {
-//    subscript(safe index: Index) -> Element? {
-//        let isValidIndex = index >= 0 && index < count
-//        return isValidIndex ? self[index] : nil
-//    }
-//}

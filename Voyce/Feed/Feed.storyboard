@@ -120,29 +120,10 @@
                     <connections>
                         <outlet property="adVibes" destination="v6M-iS-dKg" id="376-JN-jjT"/>
                         <outlet property="noMorePosts" destination="k6r-Ux-9qG" id="w5q-DI-fJF"/>
+                        <segue destination="M7E-08-8EG" kind="presentation" identifier="openComments" id="78J-eX-hNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CZ-4Q-gJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="2hI-gw-bxY">
-                    <connections>
-                        <action selector="panCard:" destination="cGs-MB-HJR" id="dj7-WJ-6bG"/>
-                    </connections>
-                </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="mX6-Mi-Qvl">
-                    <connections>
-                        <action selector="panCard:" destination="cGs-MB-HJR" id="38Q-le-sHn"/>
-                    </connections>
-                </panGestureRecognizer>
-                <tapGestureRecognizer id="EJF-Os-gSZ">
-                    <connections>
-                        <segue destination="M7E-08-8EG" kind="presentation" id="IJu-pX-4jD"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="j4U-pT-uM7">
-                    <connections>
-                        <segue destination="M7E-08-8EG" kind="presentation" id="w49-ks-WX7"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer id="YSc-hi-ADz">
                     <connections>
                         <action selector="reloadFeed:" destination="cGs-MB-HJR" id="eWV-wZ-JRd"/>
@@ -357,7 +338,4 @@
             <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="IJu-pX-4jD"/>
-    </inferredMetricsTieBreakers>
 </document>
