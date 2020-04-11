@@ -198,6 +198,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
             DatabaseManager.shared.addComment(content: comment, userID: post.userID, postID: post.postID)
             commentText.text = ""
         }
+        DatabaseManager.shared.loadComments(postID: post.postID)
         dismissKeyboard()
     }
 }
