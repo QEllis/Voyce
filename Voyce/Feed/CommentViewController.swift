@@ -11,17 +11,17 @@ import UIKit
 import AVKit
 import FirebaseFirestoreSwift
 
-class CommentViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
+class CommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate
 {
     @IBOutlet var postText: UILabel!
     @IBOutlet var postImage: UIImageView!
     @IBOutlet var postVideo: UIView!
     @IBOutlet var videoPausedView: UIView!
-    
+        
     @IBOutlet var commentFeed: UITableView!
+    
     @IBOutlet var commentView: UIView!
     @IBOutlet var commentText: UITextField!
-    
     @IBOutlet var commentViewBottom: NSLayoutConstraint!
     @IBOutlet var commentButton: UIButton!
     
@@ -39,6 +39,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITextFieldD
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         self.commentText.delegate = self
+        
+        commentFeed.delegate = self
+        commentFeed.dataSource = self
 
         loadContent()
     }
@@ -69,6 +72,66 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITextFieldD
         default:
             print("Error: Unknown Post Type for \(post.postID)")
         }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DatabaseManager.shared.comments.count + (post.caption != "" ? 1 : 0)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = (indexPath.row == 0 && post.caption != "") ? "CaptionCell" : "CommentCell"
+        
+        guard let cell = commentFeed.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CommentCell else {
+            fatalError("The dequeued cell is not an instance of CommentCell.")
+        }
+        let comment = DatabaseManager.shared.comments[safe: indexPath.row - 1]
+        
+        if indexPath.row == 0 && post.caption != "" {
+            getCommenterInfo(cell: cell, userID: post.userID)
+        } else {
+            getCommenterInfo(cell: cell, userID: comment!.userID)
+        }
+        
+        cell.comment.text = (indexPath.row == 0 && post.caption != "") ? post.caption : comment!.content
+        
+        return cell
+    }
+    
+    private func getCommenterInfo(cell: CommentCell, userID: String) {
+        DatabaseManager.shared.db.collection("users").document(userID).getDocument() { document, error in
+            if let document = document, document.exists {
+                let data = document.data()
+                let profilePic = data!["profilePic"] as! String
+                let username = data!["username"] as! String
+                
+                let profilePicURL = URL(string: profilePic)
+                cell.profilePic.image = self.URLToImg(profilePicURL)
+                self.circularImg(imageView: cell.profilePic)
+                cell.username.text = username
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    func URLToImg(_ url: URL?) -> UIImage?
+    {
+        guard let imageURL = url else
+        {
+            return nil
+        }
+        let data = try? Data(contentsOf: imageURL)
+        return UIImage(data: data!)
+    }
+    
+    /// Changes the shape of each profile image into a circle.
+    func circularImg(imageView: UIImageView?)
+    {
+        imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0) / 2.0
     }
     
     /// Pause/Play video when postVideo is pressed.

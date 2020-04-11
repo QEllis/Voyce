@@ -35,6 +35,12 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         return userRow
     }
     
+    // Sets the height of each table cell
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 50.0
+    }
+    
     // Preforms an action when the user selects a given cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -57,12 +63,6 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         }
         let data = try? Data(contentsOf: imageURL)
         return UIImage(data: data!)
-    }
-    
-    // Sets the height of each table cell
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        return 50.0
     }
     
     // Remove keyboard for when the background is tapped

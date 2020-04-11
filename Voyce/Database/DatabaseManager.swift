@@ -24,12 +24,7 @@ class DatabaseManager
     var otherUsers: [User]
     var index: Int
     var myPosts: [Post]
-//    {
-//        didSet
-//        {
-//            NotificationCenter.default.post(name: .NewPosts, object: nil)
-//        }
-//    } //We might want this for notifications
+    var comments: [Comment]
     
     init()
     {
@@ -39,6 +34,7 @@ class DatabaseManager
         otherUsers = []
         index = 0
         myPosts = []
+        comments = []
         
         db.collection("posts").whereField("userID", isEqualTo: sharedUser.userID).getDocuments() { querySnapshot, error in
             if let error = error {
@@ -131,26 +127,26 @@ class DatabaseManager
     
     /* Load all comments of a specific post and populates the DatabaseManager.comments[] member */
     public func loadComments(postID: String){
-        //        db.collection("comments").whereField("postID", isEqualTo: postID).order(by: "vibes", descending: true)
-        //            .getDocuments() { (querySnapshot, err) in
-        //                if let err = err {
-        //                    print("Error getting documents: \(err)")
-        //                } else {
-        //                    self.comments = []
-        //                    for document in querySnapshot!.documents {
-        //                        let data = document.data()
-        //                        let currComment = Comment(commentID: data["commentID"] as! String,
-        //                                                  content: data["content"] as! String,
-        //                                                  userID: data["userID"] as! String,
-        //                                                  postID: data["postID"] as! String,
-        //                                                  timeStamp: data["ts"] as! TimeInterval,
-        //                                                  vibes: data["vibes"] as! Int)
-        //
-        //                        print(currComment)
-        //                        self.comments.append(currComment)
-        //                    }
-        //                }
-        //        }
+        db.collection("posts").document(postID).collection("comments").order(by: "vibes", descending: true)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    self.comments = []
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let commentID = document.documentID
+                        let userID = data["userID"] as! String
+                        let date = data["date"] as! String
+                        let content = data["content"] as! String
+                        let vibes = data["vibes"] as! Int
+                        
+                        let comment = Comment(commentID: commentID, userID: userID, date: date, content: content, vibes: vibes)
+                        
+                        self.comments.append(comment)
+                    }
+                }
+        }
     }
     
     /* Helper function that returns true if current user is owner of comment object */

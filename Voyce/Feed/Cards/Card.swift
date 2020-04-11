@@ -84,8 +84,9 @@ class Card: UIView
                         let caption = data["caption"] as! String
                             
                         let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
-                        
                         self.addPost(post: post)
+                        
+                        DatabaseManager.shared.loadComments(postID: postID)
                         
                         feed.view.insertSubview(self, at: feed.view.subviews.count - (first ? 0 : 1))
                         
