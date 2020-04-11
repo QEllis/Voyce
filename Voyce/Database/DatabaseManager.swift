@@ -22,14 +22,14 @@ class DatabaseManager
     var db: Firestore
     let storage: Storage
     var otherUsers: [User]
-    var myPosts: [Post]
-    {
-        didSet
-        {
-            NotificationCenter.default.post(name: .NewPosts, object: nil)
-        }
-    }
     var index: Int
+    var myPosts: [Post]
+//    {
+//        didSet
+//        {
+//            NotificationCenter.default.post(name: .NewPosts, object: nil)
+//        }
+//    } //We might want this for notifications
     
     init()
     {
@@ -37,8 +37,8 @@ class DatabaseManager
         db = Firestore.firestore()
         storage = Storage.storage()
         otherUsers = []
-        myPosts = []
         index = 0
+        myPosts = []
         
         db.collection("posts").whereField("userID", isEqualTo: sharedUser.userID).getDocuments() { querySnapshot, error in
             if let error = error {
@@ -85,10 +85,8 @@ class DatabaseManager
     // Adds image post to database -- Needs work
     public func addPost(post: Post) {
         let id = UUID()
-        //                let newPost = Post(pid: "0", text: text, media: "", user: sharedUser, likeCount: 0, image: image)
-        //                myPosts.insert(newPost, at: 0)
-        //                posts.insert(newPost, at: 0)
         myPosts.append(post)
+        
         db.collection("posts").document(id.uuidString).setData([
             "caption": post.caption,
             "content": post.content,
@@ -105,87 +103,6 @@ class DatabaseManager
                 print("image post successfully written to db!")
             }
         }
-    }
-    
-    public func loadFeed(view: FeedViewController, firstCard: Bool)
-    {
-        let index = self.index
-        let counter = view.counter
-        self.index += 1
-        view.counter += 1
-        
-        db.collection("posts").order(by: "vibes", descending: true).getDocuments() { querySnapshot, error in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                if let document = querySnapshot?.documents[safe: index] {
-                    let data = document.data()
-                    let postID = document.documentID
-                    let userID = data["userID"] as! String
-                    self.db.collection("postsSeen").document(postID).getDocument() { document, error in
-                        if let document = document, document.exists {
-                            let posts = document.data()!["posts"] as! [String]
-                            if (!posts.contains(userID)) {
-                                let date = data["date"] as! String
-                                let postType = data["postType"] as! String
-                                let content = data["content"] as! String
-                                let vibes = data["vibes"] as! Int
-                                let caption = data["caption"] as! String
-                                
-                                let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
-                                print(index)
-                                switch counter % 2 {
-                                case 0:
-                                    view.activeCard.addPost(post: post)
-                                    view.activeCard.isHidden = false
-                                case 1:
-                                    view.queueCard.addPost(post: post)
-                                    view.queueCard.isHidden = false
-                                default: print("Error: counter is an invalid integer.")
-                                }
-                                if firstCard { view.activeCard.playVideo() }
-                            } else {
-                                view.counter -= 1
-                                self.loadFeed(view: view, firstCard: firstCard)
-                            }
-                        } else {
-                            let date = data["date"] as! String
-                            let postType = data["postType"] as! String
-                            let content = data["content"] as! String
-                            let vibes = data["vibes"] as! Int
-                            let caption = data["caption"] as! String
-                            
-                            let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
-                            print(index)
-                            switch counter % 2 {
-                            case 0:
-                                view.activeCard.addPost(post: post)
-                                view.activeCard.isHidden = false
-                            case 1:
-                                view.queueCard.addPost(post: post)
-                                view.queueCard.isHidden = false
-                            default: print("Error: counter is an invalid integer.")
-                            }
-                            if firstCard { view.activeCard.playVideo() }
-                        }
-                    }
-                } else {
-                    switch counter % 2 {
-                    case 0:
-                        view.activeCard.isHidden = true
-                    case 1:
-                        view.queueCard.isHidden = true
-                    default: print("Error: counter is an invalid integer.")
-                    }
-                }
-            }
-        }
-    }
-    
-    public func reloadFeed(view: FeedViewController) {
-        index = 0
-        loadFeed(view: view, firstCard: true)
-        loadFeed(view: view, firstCard: false)
     }
     
     public func postSeen(postID: String, userID: String) {

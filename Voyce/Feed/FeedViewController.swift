@@ -12,26 +12,14 @@ import FirebaseFirestoreSwift
 
 class FeedViewController: UIViewController
 {
-    @IBOutlet weak var activeCard: Card!
-    @IBOutlet weak var queueCard: Card!
     @IBOutlet var adVibes: UILabel!
-    
     @IBOutlet var noMorePosts: UIStackView!
-    
-    /// Keeps track of how many cards have been swiped.
-    var counter: Int = 0
     
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-        adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes)
-        //        NotificationCenter.default.addObserver(self, selector: #selector(exitComments), name: NSNotification.Name(rawValue: "exitComments"), object: nil)
-
-        /// Load first active card.
-        DatabaseManager.shared.loadFeed(view: self, firstCard: true)
-
-        /// Load first queued card.
-        DatabaseManager.shared.loadFeed(view: self, firstCard: false)
+        adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
+        addCard(first: true) /// Add first card.
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
@@ -47,17 +35,21 @@ class FeedViewController: UIViewController
         }
     }
     
+    func addCard(first: Bool) {
+        let card = Card(frame: CGRect(x: 0, y: 0, width: view.frame.width - (first ? 20 : 40), height: view.frame.height - (first ? 210 : 230)))
+        card.center = view.center
+        card.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panCard(_:))))
+        card.loadPost(feed: self, first: first)
+    }
+    
     /// Swipable functionality for the  active card.
-    @IBAction func panCard(_ sender: UIPanGestureRecognizer)
+    @objc func panCard(_ sender: UIPanGestureRecognizer)
     {
         /// Move the card freely.
         let card = sender.view! as! Card
         let point = sender.translation(in: view)
         translateCard(card: card, point: point)
-        
-        /// Bring the queued card to the front visually with constraints.
-        changeConstraints(cardTop: false, sidesAndTop: 10, bottom: 15)
-        
+                
         /// Swipe action has ended.
         if sender.state == UIGestureRecognizer.State.ended {
             /// Remove the active card from deck.
@@ -67,30 +59,17 @@ class FeedViewController: UIViewController
                 UIView.animate(withDuration: 0.25, animations: {
                     card.center = CGPoint(x: offScreenX, y: offScreenY)
                     card.alpha = 0 })
-                DatabaseManager.shared.postSeen(postID: card.post!.postID, userID: card.post!.userID)
                 
-                /// Send the active card to the back and remove content.
-                card.removePost()
-                view.sendSubviewToBack(card)
-                view.sendSubviewToBack(noMorePosts)
+                /// Remove card and load a new one.
+                //  DatabaseManager.shared.postSeen(postID: card.post!.postID, userID: card.post!.userID)
+                card.removeFromSuperview()
+                addCard(first: false)
                 
-                /// Load the next queued card.
-                card.center = self.view.center
-                card.alpha = 1
-                card.transform = CGAffineTransform(rotationAngle: 0)
-                DatabaseManager.shared.loadFeed(view: self, firstCard: false)
-                
-                switch counter % 2 {
-                case 0:
-                        queueCard.playVideo()
-                case 1:
-                        activeCard.playVideo()
-                default: print("Error: counter is an invalid integer.")
-
+                /// Play video of top card (if exists and has postType: video).
+                let cards = view.subviews.compactMap{$0 as? Card}
+                if let newCard = cards[safe: cards.count - 1] {
+                    newCard.playVideo()
                 }
-                
-                /// Set the size of the old active card constraints to those of a queued card.
-                changeConstraints(cardTop: true, sidesAndTop: 20, bottom: 25)
             }
                 /// Reset the active card if the swipe is premature.
             else {
@@ -98,10 +77,14 @@ class FeedViewController: UIViewController
                     card.center = self.view.center
                     card.alpha = 1
                     card.transform = CGAffineTransform(rotationAngle: 0)
+                    
+                    let cards = self.view.subviews.compactMap{$0 as? Card}
+                    if let newCard = cards[safe: cards.count - 1] {
+                        newCard.center = self.view.center
+                        newCard.frame.size.width = self.view.frame.width - 20
+                        newCard.frame.size.height = self.view.frame.height - 210
+                    }
                 })
-                
-                /// Reset the queued card to its initial constraints.
-                changeConstraints(cardTop: false, sidesAndTop: 20, bottom: 25)
             }
         }
     }
@@ -118,56 +101,29 @@ class FeedViewController: UIViewController
         
         /// Angle the card with movement.
         card.transform = CGAffineTransform(rotationAngle: xFromCenter / (view.frame.width / 1.02))
+        
+        /// Bring the queued card to the front visually.
+        growCard(dist: distFromCenter)
     }
     
-    /// Adjust constraints of card.
-    private func changeConstraints(cardTop: Bool, sidesAndTop: Int, bottom: Int) {
-        switch (counter + Int(truncating: NSNumber(value: cardTop))) % 2 {
-               case 0:
-                   for constraint in view.constraints {
-                       switch constraint.identifier {
-                       case "queueTop":
-                           UIView.animate(withDuration: 5) {
-                            constraint.constant = CGFloat(sidesAndTop)
-                           }
-                       case "queueLeft", "queueRight":
-                           UIView.animate(withDuration: 5) {
-                            constraint.constant = CGFloat(sidesAndTop)
-                           }
-                       case "queueBottom":
-                           UIView.animate(withDuration: 5) {
-                            constraint.constant = CGFloat(bottom)
-                           }
-                       case .none:
-                           break
-                       case .some(_):
-                           break
-                       }
-                   }
-               case 1:
-                   for constraint in view.constraints {
-                       switch constraint.identifier {
-                       case "activeTop":
-                           UIView.animate(withDuration: 5) {
-                            constraint.constant = CGFloat(sidesAndTop)
-                           }
-                       case "activeLeft", "activeRight":
-                           UIView.animate(withDuration: 5) {
-                            constraint.constant = CGFloat(sidesAndTop)
-                           }
-                       case "activeBottom":
-                           UIView.animate(withDuration: 5) {
-                            constraint.constant = CGFloat(bottom)
-                           }
-                       case .none:
-                           break
-                       case .some(_):
-                           break
-                       }
-                   }
-               default:
-                   print("Error: counter is an invalid integer.")
-               }
+    /// Adjust size of queued card.
+    private func growCard(dist: CGFloat) {
+        let cards = view.subviews.compactMap {$0 as? Card}
+        let index = cards.count - 2
+        
+        if let card = cards[safe: index] {
+            let delta = 20 * (1 - ((dist < 250 ? dist : 250) / 250))
+            
+            card.frame.size.width = view.frame.width - (20 + delta)
+            card.frame.size.height = view.frame.height - (210 + delta)
+            card.center = view.center
+        }
+    }
+    
+    /// Reload feed upon tapping No More Posts
+       @IBAction func reloadFeed(_ sender: UITapGestureRecognizer) {
+        DatabaseManager.shared.index = 0
+        addCard(first: true)
     }
     
     /// Send the active cards data to CommentVC.
@@ -176,25 +132,20 @@ class FeedViewController: UIViewController
         if segue.destination is CommentViewController
         {
             let vc = segue.destination as? CommentViewController
-            switch counter % 2 {
-            case 0:
-                if activeCard.post?.postType == "video" {
-                    activeCard.pauseVideo()
-                }
-                vc?.post = self.activeCard.post
-            case 1:
-                if queueCard.post?.postType == "video" {
-                    queueCard.pauseVideo()
-                }
-                vc?.post = self.queueCard.post
-            default: print("Error: counter is an invalid integer.")
-            }
+//            switch counter % 2 {
+//            case 0:
+//                if activeCard.post?.postType == "video" {
+//                    activeCard.pauseVideo()
+//                }
+//                vc?.post = self.activeCard.post
+//            case 1:
+//                if queueCard.post?.postType == "video" {
+//                    queueCard.pauseVideo()
+//                }
+//                vc?.post = self.queueCard.post
+//            default: print("Error: counter is an invalid integer.")
+//            }
         }
-    }
-    
-    /// Reload feed upon tapping No More Posts
-    @IBAction func reloadFeed(_ sender: UITapGestureRecognizer) {
-        DatabaseManager.shared.reloadFeed(view: self)
     }
     
     //    /// Play video when exiting the comments.
@@ -220,3 +171,10 @@ class FeedViewController: UIViewController
     //        }
     //    }
 }
+
+//extension Array {
+//    subscript(safe index: Index) -> Element? {
+//        let isValidIndex = index >= 0 && index < count
+//        return isValidIndex ? self[index] : nil
+//    }
+//}

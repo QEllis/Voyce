@@ -56,8 +56,52 @@ class Card: UIView
         layoutIfNeeded()
     }
     
+    public func loadPost(feed: FeedViewController, first: Bool) {
+        let index = DatabaseManager.shared.index
+        DatabaseManager.shared.index += 1
+        print(index)
+        print(DatabaseManager.shared.index)
+        
+        DatabaseManager.shared.db.collection("posts").order(by: "vibes", descending: true).getDocuments() { querySnapshot, error in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                if let document = querySnapshot?.documents[safe: index] {
+                    let data = document.data()
+                    let postID = document.documentID
+                    let userID = data["userID"] as! String
+                    
+                    DatabaseManager.shared.db.collection("postsSeen").document(postID).getDocument() { document, error in
+                        if let document = document, document.exists {
+                            let posts = document.data()!["posts"] as! [String]
+                            if (posts.contains(userID)) {
+                                self.loadPost(feed: feed, first: first)
+                                    return
+                                    }
+                                }
+                        let date = data["date"] as! String
+                        let postType = data["postType"] as! String
+                        let content = data["content"] as! String
+                        let vibes = data["vibes"] as! Int
+                        let caption = data["caption"] as! String
+                            
+                        let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
+                        
+                        self.addPost(post: post)
+                        
+                        feed.view.insertSubview(self, at: feed.view.subviews.count - (first ? 0 : 1))
+                        
+                        if first {
+                            feed.addCard(first: false)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     /// Populate Card with associated information
-    func addPost(post: Post) {
+    private func addPost(post: Post) {
         self.post = post
         card.backgroundColor = UIColor(named: "Gray")
         numVibes.text = String(post.vibes)
@@ -122,36 +166,6 @@ class Card: UIView
                 print("Document does not exist")
             }
         }
-    }
-    
-    /// Remove associated information from Card.
-    func removePost() {
-        usernameLabel.text = ""
-        dateLabel.text = ""
-        numVibes.text = ""
-        
-        profileButton.setImage(nil, for: .normal)
-        
-        switch post?.postType {
-        case "text":
-            postText.isHidden = true
-            postText.text = ""
-        case "image":
-            postImage.isHidden = true
-            postImage.image = UIImage()
-        case "video":
-            postVideo.isHidden = true
-            videoPausedView.isHidden = true
-            for view in postVideo.subviews {
-                view.removeFromSuperview()
-            }
-        default:
-            print("Error: Unknown Post Type for \(String(describing: post?.postID))")
-        }
-        
-        self.post = nil
-        self.user = nil
-        self.isHidden = true
     }
     
     /// Action when vibeButton is pressed.

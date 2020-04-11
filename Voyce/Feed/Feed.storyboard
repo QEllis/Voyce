@@ -38,22 +38,6 @@
                                     <outletCollection property="gestureRecognizers" destination="YSc-hi-ADz" appends="YES" id="5fe-EE-q4e"/>
                                 </connections>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucK-1x-JgX" customClass="Card" customModule="Voyce" customModuleProvider="target">
-                                <rect key="frame" x="20" y="114" width="374" height="723"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="mX6-Mi-Qvl" appends="YES" id="aZF-du-9RB"/>
-                                    <outletCollection property="gestureRecognizers" destination="j4U-pT-uM7" appends="YES" id="pSf-d8-PYz"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vlK-yP-sy4" customClass="Card" customModule="Voyce" customModuleProvider="target">
-                                <rect key="frame" x="10" y="104" width="394" height="743"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="EJF-Os-gSZ" appends="YES" id="YaK-0P-BZL"/>
-                                    <outletCollection property="gestureRecognizers" destination="2hI-gw-bxY" appends="YES" id="7TA-Q0-2cg"/>
-                                </connections>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QT5-AN-Ht3">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
@@ -67,7 +51,7 @@
                                                     <constraint firstAttribute="width" constant="25" id="uBa-OP-JMd"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6M-iS-dKg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6M-iS-dKg">
                                                 <rect key="frame" x="50.000000000000007" y="0.0" width="69.666666666666686" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -123,29 +107,19 @@
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="vlK-yP-sy4" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="bottom" constant="10" identifier="activeTop" id="Kih-RR-U0S"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="top" secondItem="41m-Dp-SnV" secondAttribute="top" id="Qz7-hh-QtO"/>
                             <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="QT5-AN-Ht3" secondAttribute="trailing" id="Sjd-l6-Ofw"/>
-                            <constraint firstItem="vlK-yP-sy4" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" constant="10" identifier="activeLeft" id="Wk9-TR-esP"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="dNr-6h-huJ"/>
-                            <constraint firstItem="ucK-1x-JgX" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" constant="20" identifier="queueLeft" id="eTA-rV-Rvz"/>
                             <constraint firstItem="k6r-Ux-9qG" firstAttribute="centerY" secondItem="wL9-sf-3MO" secondAttribute="centerY" id="lE1-Fs-weg"/>
-                            <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="ucK-1x-JgX" secondAttribute="trailing" constant="20" identifier="queueRight" id="lFJ-y7-88U"/>
-                            <constraint firstItem="41m-Dp-SnV" firstAttribute="bottom" secondItem="vlK-yP-sy4" secondAttribute="bottom" constant="15" identifier="activeBottom" id="pNF-0Z-E2x"/>
-                            <constraint firstItem="ucK-1x-JgX" firstAttribute="top" secondItem="QT5-AN-Ht3" secondAttribute="bottom" constant="20" identifier="queueTop" id="pk4-Ta-pc8"/>
                             <constraint firstItem="k6r-Ux-9qG" firstAttribute="centerX" secondItem="wL9-sf-3MO" secondAttribute="centerX" id="srt-77-jLa"/>
-                            <constraint firstItem="41m-Dp-SnV" firstAttribute="trailing" secondItem="vlK-yP-sy4" secondAttribute="trailing" constant="10" identifier="activeRight" id="wfg-QX-GIV"/>
                             <constraint firstItem="QT5-AN-Ht3" firstAttribute="leading" secondItem="41m-Dp-SnV" secondAttribute="leading" id="z3A-eI-nBL"/>
-                            <constraint firstItem="41m-Dp-SnV" firstAttribute="bottom" secondItem="ucK-1x-JgX" secondAttribute="bottom" constant="25" identifier="queueBottom" id="zTm-yH-CsY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="41m-Dp-SnV"/>
                     </view>
                     <navigationItem key="navigationItem" id="V6C-tK-2jb"/>
                     <connections>
-                        <outlet property="activeCard" destination="vlK-yP-sy4" id="uar-O6-eo8"/>
                         <outlet property="adVibes" destination="v6M-iS-dKg" id="376-JN-jjT"/>
                         <outlet property="noMorePosts" destination="k6r-Ux-9qG" id="w5q-DI-fJF"/>
-                        <outlet property="queueCard" destination="ucK-1x-JgX" id="jhU-Jh-Elv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CZ-4Q-gJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,7 +209,7 @@
                                 <rect key="frame" x="0.0" y="404" width="414" height="404"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mVh-UQ-YvR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="mVh-UQ-YvR">
                                         <rect key="frame" x="0.0" y="28" width="414" height="50.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mVh-UQ-YvR" id="ui6-kP-Vo6">
