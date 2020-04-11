@@ -38,8 +38,9 @@ class StartUpViewController: UIViewController, FUIAuthDelegate{
     public func loadData()
     {
         let user = Auth.auth().currentUser
-        print("User Logged in: "+user!.uid);
+        print("User Logged in: " + user!.uid);
         userManager.userLogin(u: user!)
+        
         // Loads user table for FindPeopleViewController Page
         DatabaseManager.shared.loadOtherUsers()
     }

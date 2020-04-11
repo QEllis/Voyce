@@ -11,6 +11,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 private let user = DatabaseManager.shared.sharedUser
 
@@ -24,8 +25,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var goodVibesLabel: UILabel!
-    var followed:Bool = false
-
+    var followed: Bool = false
+    
     // Member Functions
     override func viewDidLoad()
     {
@@ -39,13 +40,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         usernameLabel.text = "@" + user.username
         goodVibesLabel.text = "Good Vibes: \(user.totalVibes)"
     }
-
+    
     override func viewDidAppear(_ animated: Bool)
     {
         loadTextFields()
         tableView.reloadData()
     }
-
+    
     private func loadTextFields()
     {
         print("Loaded Text Fields")
@@ -57,16 +58,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         print(goodVibesLabel.text ?? "none")
         print("users'ad vibes are \(DatabaseManager.shared.sharedUser.adVibes)")
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return tableView.frame.height
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         //return count of my posts
-//        return DatabaseManager.shared.myPosts.count
+        //        return DatabaseManager.shared.myPosts.count
         return 0
     }
     
@@ -74,20 +75,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostCell") as! MyPostTableViewCell
-//        cell.fillOut(with: DatabaseManager.shared.myPosts[indexPath.row])
+        //        cell.fillOut(with: DatabaseManager.shared.myPosts[indexPath.row])
         cell.delegate = self
         return cell
     }
-
-    func promoteButtonDidPressed(post: Post)
-    {
-        
-    }
-
+    
     @objc private func newPosts()
     {
         print("New opsts reload")
         tableView.reloadData()
+    }
+    
+    func promoteButtonDidPressed(post: Post) {
+        
     }
     
     // ---- Does not compile due to firebase functions installation that is required ----
@@ -95,6 +95,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Transfer funds to user for vibes will be implemented in the future
     @IBAction func transferButtonPressed(_ sender: Any)
     {
-
+        
+    }
+    
+    /// Logout current shared user.
+    @IBAction func logout(_ sender: UIButton) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let error as NSError {
+            print ("Error signing out: \(error)")
+        }
+        
+        /// Redirect user back to login.
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = vc
     }
 }

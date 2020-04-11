@@ -98,7 +98,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GZI-gz-PTb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6il-0s-pBM"/>
+                    <navigationItem key="navigationItem" id="6il-0s-pBM">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="MY7-mD-liG">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mje-Kp-Qnf">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" name="Red"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="nfy-co-alY" eventType="touchUpInside" id="vX9-vJ-Zkp"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="goodVibesLabel" destination="i3G-PA-Euf" id="KSe-5F-CVb"/>
                         <outlet property="nameLabel" destination="ZaE-Bc-kYb" id="8u4-mj-aRg"/>
@@ -295,6 +308,9 @@
         <image name="Wand" width="128" height="128"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Red">
+            <color red="0.66666666666666663" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text - Body">
             <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

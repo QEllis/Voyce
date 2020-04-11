@@ -16,11 +16,12 @@ private let userManager = DatabaseManager.shared
 class LoginViewController: UIViewController, FUIAuthDelegate
 {
     let authUI: FUIAuth? = FUIAuth.defaultAuthUI()
-    let currentUser=Auth.auth().currentUser
+    let currentUser = Auth.auth().currentUser
     override func viewDidLoad()
     {
         // You need to adopt a FUIAuthDelegate protocol to receive callback
         authUI?.delegate = self
+        
         //authUI?.FacebookAutoLogAppEventsEnabled = false;
         let providers: [FUIAuthProvider] = [FUIGoogleAuth()]
         authUI?.providers = providers
@@ -42,22 +43,18 @@ class LoginViewController: UIViewController, FUIAuthDelegate
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?)
     {
-      // handle user and error as necessary
-        //User init
         if Auth.auth().currentUser != nil
         {
             let user = Auth.auth().currentUser
-            print("User Logged in: "+user!.uid);
+            print("User Logged in: " + user!.uid);
             userManager.userLogin(u: user!)
-            // Loads user table for FindPeopleViewController Page
+            
+            /// Loads user table for FindPeopleViewController Page.
             DatabaseManager.shared.loadOtherUsers()
+            
+            let vc = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        else
-        {
-            print("No current user");
-        }
-        let vc = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool
@@ -67,7 +64,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate
         {
             return true
         }
-        // other URL handling goes here.
         return false
     }
     
