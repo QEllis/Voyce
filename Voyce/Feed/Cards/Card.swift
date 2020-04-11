@@ -86,13 +86,11 @@ class Card: UIView
                         let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
                         self.addPost(post: post)
                         
-                        DatabaseManager.shared.loadComments(postID: postID)
-                        
-                        feed.view.insertSubview(self, at: feed.view.subviews.count - (first ? 0 : 1))
-                        
                         if first {
+                            DatabaseManager.shared.loadComments(postID: postID)
                             feed.addCard(first: false)
                         }
+                        feed.view.insertSubview(self, at: feed.view.subviews.count - (first ? 0 : 1))
                     }
                 }
             }

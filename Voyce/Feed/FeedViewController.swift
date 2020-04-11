@@ -64,13 +64,14 @@ class FeedViewController: UIViewController
                 /// Remove card and load a new one.
                 //  DatabaseManager.shared.postSeen(postID: card.post!.postID, userID: card.post!.userID)
                 card.removeFromSuperview()
-                addCard(first: false)
                 
                 /// Play video of top card (if exists and has postType: video).
                 let cards = view.subviews.compactMap{$0 as? Card}
                 if let newCard = cards[safe: cards.count - 1] {
+                    DatabaseManager.shared.loadComments(postID: newCard.post!.postID)
                     newCard.playVideo()
                 }
+                addCard(first: false)
             }
                 /// Reset the active card if the swipe is premature.
             else {
