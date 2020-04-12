@@ -61,7 +61,9 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
         } else if toIndex != 0 {
             let cards = feed.view.subviews.compactMap{$0 as? Card}
             if let topCard = cards[safe: cards.count - 1] {
-                topCard.pauseVideo()
+                if (topCard.post?.postType == "video") {
+                    topCard.pauseVideo()
+                }
             }
         }
        
