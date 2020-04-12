@@ -13,4 +13,6 @@ class CommentCell: UITableViewCell
     @IBOutlet var profilePic: UIImageView!
     @IBOutlet var username: UILabel!
     @IBOutlet var comment: UILabel!
+    
+    var commentID: String = ""
 }

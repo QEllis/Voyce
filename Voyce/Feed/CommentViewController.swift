@@ -98,16 +98,21 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
             getCommenterInfo(cell: cell, userID: post.userID)
         } else {
             getCommenterInfo(cell: cell, userID: comment!.userID)
+            cell.commentID = comment!.commentID
         }
         
         cell.comment.text = (indexPath.row == 0 && post.caption != "") ? post.caption : comment!.content
-        
+    
         return cell
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard let cell = commentFeed.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell else {
+        fatalError("The dequeued cell is not an instance of CommentCell.")
+        }
+        
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            // delete item at indexPath
+            DatabaseManager.shared.removeComment(postID: self.post.postID, commentID: cell.commentID)
         }
 
         let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
