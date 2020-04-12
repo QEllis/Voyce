@@ -55,8 +55,14 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
         selectedIndex = to
         guard let toVC = viewControllers?[to] else { return }
         
-        if (selectedIndex == 0) {
-            (viewControllers![selectedIndex] as! FeedViewController).reloadFeed()
+        let feed = (viewControllers![0] as! FeedViewController)
+        if fromIndex == 0 && toIndex == 0 {
+            feed.reloadFeed()
+        } else if toIndex != 0 {
+            let cards = feed.view.subviews.compactMap{$0 as? Card}
+            if let topCard = cards[safe: cards.count - 1] {
+                topCard.pauseVideo()
+            }
         }
        
         delegate?.tabBarController?(self, didSelect: toVC)
