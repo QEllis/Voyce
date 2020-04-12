@@ -46,6 +46,10 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         loadContent()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        commentFeed.reloadData()
+    }
+    
     private func loadContent() {
         switch post.postType {
         case "text":
@@ -208,7 +212,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     /// Post a comment
     func postComment(comment: String) {
         if commentText.text != "" {
-            DatabaseManager.shared.addComment(content: comment, userID: post.userID, postID: post.postID)
+            DatabaseManager.shared.addComment(content: comment, userID: DatabaseManager.shared.sharedUser.userID, postID: post.postID)
             commentText.text = ""
         }
         DatabaseManager.shared.loadComments(postID: post.postID)
