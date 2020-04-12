@@ -74,18 +74,26 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
     
     private func commonInit()
     {
+        Bundle.main.loadNibNamed("VoyceTabBar", owner: self, options: nil)
+        
+        /// Load sharedUser's profile picture.
         let profilePicURL = URL(string: DatabaseManager.shared.sharedUser.profilePic)
         self.profile = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile")
-        profileSelected = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile Selected")
+        self.profileSelected = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile Selected")
+        profileButton.setImage(profile, for: UIControl.State.normal)
         
-        Bundle.main.loadNibNamed("VoyceTabBar", owner: self, options: nil)
+        /// Initialize Google AdMob rewarded ads.
+        rewardedAd = createAndLoadRewardedAd()
+        
         contentView.frame = bounds
         addSubview(contentView)
-        
-        rewardedAd = createAndLoadRewardedAd()
     }
     
     @IBAction func feedButtonPressed(_ sender: UIButton) {
+        let profilePicURL = URL(string: DatabaseManager.shared.sharedUser.profilePic)
+        self.profile = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile")
+        self.profileSelected = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile Selected")
+        
         feedButton.setImage(feedSelected, for: UIControl.State.normal)
         adButton.setImage(ad, for: UIControl.State.normal)
         addPostButton.setImage(addPost, for: UIControl.State.normal)
@@ -105,6 +113,10 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
     }
     
     @IBAction func addPostButtonPressed(_ sender: UIButton) {
+        let profilePicURL = URL(string: DatabaseManager.shared.sharedUser.profilePic)
+        self.profile = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile")
+        profileSelected = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile Selected")
+        
         feedButton.setImage(feed, for: UIControl.State.normal)
         adButton.setImage(ad, for: UIControl.State.normal)
         addPostButton.setImage(addPostSelected, for: UIControl.State.normal)
@@ -115,6 +127,10 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
         showTab(tab)
     }
     @IBAction func findPeopleButtonPressed(_ sender: UIButton) {
+        let profilePicURL = URL(string: DatabaseManager.shared.sharedUser.profilePic)
+        self.profile = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile")
+        profileSelected = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile Selected")
+        
         feedButton.setImage(feed, for: UIControl.State.normal)
         adButton.setImage(ad, for: UIControl.State.normal)
         addPostButton.setImage(addPost, for: UIControl.State.normal)
@@ -125,6 +141,10 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
         showTab(tab)
     }
     @IBAction func profileButtonPressed(_ sender: UIButton) {
+        let profilePicURL = URL(string: DatabaseManager.shared.sharedUser.profilePic)
+        self.profile = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile")
+        profileSelected = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile Selected")
+        
         feedButton.setImage(feed, for: UIControl.State.normal)
         adButton.setImage(ad, for: UIControl.State.normal)
         addPostButton.setImage(addPost, for: UIControl.State.normal)

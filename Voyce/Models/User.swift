@@ -102,6 +102,7 @@ public class User
     
     func loadUserData(document: DocumentSnapshot)
     {
+        print(self.profilePic)
         let data = document.data()
         self.userID = document.documentID
         self.name = data?["name"] as! String

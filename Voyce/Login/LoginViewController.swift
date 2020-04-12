@@ -46,13 +46,28 @@ class LoginViewController: UIViewController, FUIAuthDelegate
         if Auth.auth().currentUser != nil
         {
             let user = Auth.auth().currentUser
-            userManager.userLogin(u: user!)
+//            userManager.userLogin(u: user!)
+            
+            userManager.sharedUser = User.init(user: user!)
+            let collection = userManager.db.collection("users")
+            let userDoc = collection.document(user!.uid)
+            userDoc.getDocument { (document, error) in
+                if let document = document, document.exists
+                {
+                    userManager.sharedUser.loadUserData(document: document)
+                    
+                    let vc = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else
+                {
+                    userDoc.setData(userManager.sharedUser.dictionary)
+                    print("User does not exist yet. New user added to database.", user!.uid)
+                }
+            }
             
             /// Loads user table for FindPeopleViewController Page.
             DatabaseManager.shared.loadOtherUsers()
-            
-            let vc = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
-            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
