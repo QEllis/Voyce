@@ -386,24 +386,24 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Background"/>
+                        <color key="backgroundColor" name="Dark Red"/>
                         <constraints>
                             <constraint firstItem="E9V-XK-0mW" firstAttribute="leading" secondItem="pKY-Uu-C6O" secondAttribute="leading" id="0ev-mf-fZF"/>
                             <constraint firstItem="W4Y-3L-cNd" firstAttribute="top" secondItem="pKY-Uu-C6O" secondAttribute="top" id="2i9-ev-dwy"/>
                             <constraint firstItem="g76-56-h5U" firstAttribute="leading" secondItem="pKY-Uu-C6O" secondAttribute="leading" constant="20" id="DFj-dr-FWg"/>
                             <constraint firstItem="Woc-af-V9f" firstAttribute="leading" secondItem="pKY-Uu-C6O" secondAttribute="leading" id="HKr-K5-tZc"/>
                             <constraint firstItem="wgq-yS-rcT" firstAttribute="centerY" secondItem="W4Y-3L-cNd" secondAttribute="centerY" id="Lb3-dL-eMQ"/>
-                            <constraint firstItem="pKY-Uu-C6O" firstAttribute="bottom" secondItem="sgU-F3-Kg3" secondAttribute="bottom" id="Ls6-pb-CLn"/>
                             <constraint firstItem="g76-56-h5U" firstAttribute="centerY" secondItem="W4Y-3L-cNd" secondAttribute="centerY" id="OTs-9y-RNq"/>
-                            <constraint firstItem="pKY-Uu-C6O" firstAttribute="bottom" secondItem="E9V-XK-0mW" secondAttribute="bottom" identifier="commentViewBottom" id="Qhu-uC-G1Y"/>
                             <constraint firstItem="pKY-Uu-C6O" firstAttribute="trailing" secondItem="g76-56-h5U" secondAttribute="trailing" constant="20" id="RVC-2S-Sne"/>
                             <constraint firstItem="pKY-Uu-C6O" firstAttribute="trailing" secondItem="Woc-af-V9f" secondAttribute="trailing" id="WLy-Xo-9ct"/>
+                            <constraint firstAttribute="bottom" secondItem="sgU-F3-Kg3" secondAttribute="bottom" constant="34" id="cpH-fm-I7u"/>
                             <constraint firstItem="Woc-af-V9f" firstAttribute="centerY" secondItem="wgq-yS-rcT" secondAttribute="centerY" id="ddH-9a-e8U"/>
                             <constraint firstItem="pKY-Uu-C6O" firstAttribute="trailing" secondItem="sgU-F3-Kg3" secondAttribute="trailing" id="jvI-OV-gHV"/>
                             <constraint firstItem="E9V-XK-0mW" firstAttribute="trailing" secondItem="pKY-Uu-C6O" secondAttribute="trailing" id="n8E-Kq-Myj"/>
                             <constraint firstItem="pKY-Uu-C6O" firstAttribute="trailing" secondItem="wgq-yS-rcT" secondAttribute="trailing" id="nBq-4Z-vjR"/>
                             <constraint firstItem="sgU-F3-Kg3" firstAttribute="leading" secondItem="pKY-Uu-C6O" secondAttribute="leading" id="rqg-O4-FcF"/>
                             <constraint firstItem="sgU-F3-Kg3" firstAttribute="top" secondItem="W4Y-3L-cNd" secondAttribute="bottom" id="szp-J3-wF7"/>
+                            <constraint firstItem="E9V-XK-0mW" firstAttribute="bottom" secondItem="pKY-Uu-C6O" secondAttribute="bottom" id="tNh-Xn-ZX9"/>
                             <constraint firstItem="sgU-F3-Kg3" firstAttribute="height" secondItem="W4Y-3L-cNd" secondAttribute="height" id="xSd-qx-31v"/>
                             <constraint firstItem="W4Y-3L-cNd" firstAttribute="leading" secondItem="pKY-Uu-C6O" secondAttribute="leading" id="xpI-kr-VHD"/>
                             <constraint firstItem="wgq-yS-rcT" firstAttribute="leading" secondItem="pKY-Uu-C6O" secondAttribute="leading" id="ysz-gn-TgJ"/>
@@ -417,7 +417,6 @@
                         <outlet property="commentFeed" destination="sgU-F3-Kg3" id="PM3-TK-jVA"/>
                         <outlet property="commentText" destination="fiT-F3-886" id="hgC-X1-BWk"/>
                         <outlet property="commentView" destination="E9V-XK-0mW" id="jCy-aR-Siw"/>
-                        <outlet property="commentViewBottom" destination="Qhu-uC-G1Y" id="QSh-yo-hwy"/>
                         <outlet property="postImage" destination="W4Y-3L-cNd" id="h12-eM-706"/>
                         <outlet property="postText" destination="g76-56-h5U" id="AZP-F6-nBe"/>
                         <outlet property="postVideo" destination="wgq-yS-rcT" id="ZCu-t9-p83"/>
@@ -446,6 +445,9 @@
         <image name="Wand" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Dark Red">
+            <color red="0.31372549020000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text - Body">
             <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
