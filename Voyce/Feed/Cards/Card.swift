@@ -76,7 +76,10 @@ class Card: UIView
                                 self.loadPost(feed: feed, first: first)
                                     return
                                     }
-                                }
+                                } else if DatabaseManager.shared.sharedUser.userID == userID {
+                            self.loadPost(feed: feed, first: first)
+                            return
+                        }
                         let date = data["date"] as! String
                         let postType = data["postType"] as! String
                         let content = data["content"] as! String
