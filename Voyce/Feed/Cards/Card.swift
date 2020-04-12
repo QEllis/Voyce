@@ -108,14 +108,14 @@ class Card: UIView
         vibeButton.setImage(randomEmoji(), for: .normal)
     
         let date = Date();
-        //get post date as formatted string
+        /// Get post date as formatted string.
         let dateString = date.dateAsString(postDate: post.date)
-        //comvert original post format to time format
+        /// Cmvert original post format to time format.
         let postTime = date.convertToTimeFormat(postDate: post.date)
-        //get time since post
+        /// Get time since post.
         let timeSincePost = date.timeSincePost(timeAgo: postTime)
-        //set text
-        let dateLabelText = timeSincePost+", "+dateString
+        /// Set text.
+        let dateLabelText = timeSincePost == "" ? dateString : timeSincePost
         dateLabel.text = dateLabelText
         
         getPosterInfo(userID: post.userID)
@@ -279,21 +279,3 @@ class Card: UIView
         imageView?.layer.cornerRadius = (imageView?.frame.height ?? 50.0) / 2.0
     }
 }
-
-//extension Date {
-//    func offsetFrom(date: Date) -> String {
-//        let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
-//        let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self)
-//        
-//        let seconds = "\(difference.second ?? 0)s"
-//        let minutes = "\(difference.minute ?? 0)m" + " " + seconds
-//        let hours = "\(difference.hour ?? 0)h" + " " + minutes
-//        let days = "\(difference.day ?? 0)d" + " " + hours
-//        
-//        if let day = difference.day, day          > 0 { return days }
-//        if let hour = difference.hour, hour       > 0 { return hours }
-//        if let minute = difference.minute, minute > 0 { return minutes }
-//        if let second = difference.second, second > 0 { return seconds }
-//        return ""
-//    }
-//}
