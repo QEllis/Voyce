@@ -124,7 +124,14 @@ class FeedViewController: UIViewController
     
     /// Reload feed upon tapping No More Posts
        @IBAction func reloadFeed(_ sender: UITapGestureRecognizer) {
+        reloadFeed()
+    }
+    
+    func reloadFeed() {
         DatabaseManager.shared.index = 0
+        for case let card as Card in view.subviews {
+            card.removeFromSuperview()
+        }
         addCard(first: true)
     }
     

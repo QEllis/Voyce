@@ -54,6 +54,10 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
         guard let to = toIndex else { return }
         selectedIndex = to
         guard let toVC = viewControllers?[to] else { return }
+        
+        if (selectedIndex == 0) {
+            (viewControllers![selectedIndex] as! FeedViewController).reloadFeed()
+        }
        
         delegate?.tabBarController?(self, didSelect: toVC)
     }
