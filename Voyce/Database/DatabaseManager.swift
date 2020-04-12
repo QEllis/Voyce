@@ -63,7 +63,7 @@ class DatabaseManager
     public func userLogin(u: FirebaseAuth.User)
     {
         sharedUser = User.init(user: u)
-        let collection = db.collection("users");
+        let collection = db.collection("users")
         let userDoc = collection.document(u.uid)
         userDoc.getDocument { (document, error) in
             if let document = document, document.exists

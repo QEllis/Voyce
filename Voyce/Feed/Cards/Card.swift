@@ -103,7 +103,7 @@ class Card: UIView
     /// Populate Card with associated information
     private func addPost(post: Post) {
         self.post = post
-        card.backgroundColor = UIColor(named: "Red")
+        card.backgroundColor = UIColor(named: "Dark Red")
         numVibes.text = String(post.vibes)
         vibeButton.setImage(randomEmoji(), for: .normal)
         

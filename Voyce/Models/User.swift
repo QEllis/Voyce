@@ -7,13 +7,13 @@ import FirebaseUI
 
 public class User
 {
-    let userID: String
+    var userID: String
     var name: String
     var username: String
     var adVibes: Int
     var earnedVibes: Int
     var totalVibes: Int
-    var profilePic: URL?
+    var profilePic: String
     
     var dictionary: [String: Any] {
         return [
@@ -22,7 +22,7 @@ public class User
             "adVibes": adVibes,
             "unusedVibes": earnedVibes,
             "totalVibes": totalVibes,
-            "profilePic": profilePic?.absoluteString as Any
+            "profilePic": profilePic
         ]
     }
     
@@ -33,7 +33,7 @@ public class User
         self.adVibes = 0
         self.earnedVibes = 0
         self.totalVibes = 0
-        self.profilePic = nil
+        self.profilePic = ""
     }
     
     init(userID: String, name: String, username: String) {
@@ -43,7 +43,7 @@ public class User
         self.totalVibes = 0
         self.earnedVibes = 0
         self.adVibes = 0
-        self.profilePic = nil
+        self.profilePic = ""
     }
     
     init(userID: String, name: String, username: String, totalVibes: Int) {
@@ -53,7 +53,7 @@ public class User
         self.adVibes = 0
         self.earnedVibes = 0
         self.totalVibes = totalVibes
-        self.profilePic = nil
+        self.profilePic = ""
     }
     
     init(userID: String, name: String, username: String, adVibes: Int, earnedVibes: Int, totalVibes: Int, profilePic: String) {
@@ -63,7 +63,7 @@ public class User
         self.adVibes = adVibes
         self.earnedVibes = earnedVibes
         self.totalVibes = totalVibes
-        self.profilePic = URL(string: profilePic)
+        self.profilePic = profilePic
     }
     
     init(userID: String, name: String, username: String, totalVibes: Int, profilePic: String) {
@@ -73,7 +73,7 @@ public class User
         self.adVibes = 0
         self.earnedVibes = 0
         self.totalVibes = totalVibes
-        self.profilePic = URL(string: profilePic)
+        self.profilePic = profilePic
     }
     
     init(user: FirebaseAuth.User) {
@@ -83,7 +83,7 @@ public class User
         self.totalVibes = 0
         self.earnedVibes = 0
         self.adVibes = 0
-        self.profilePic = URL(string: "")
+        self.profilePic = ""
    
         let docRef = DatabaseManager.shared.db.collection("users").document(userID)
         
@@ -93,7 +93,7 @@ public class User
                 self.adVibes = document.get("adVibes") as! Int
                 self.earnedVibes = document.get("earnedVibes") as! Int
                 self.totalVibes = document.get("totalVibes") as! Int
-                self.profilePic = URL(string: document.get("profilePic") as! String)
+                self.profilePic = document.get("profilePic") as! String
             } else {
                 print("Document does not exist")
             }
@@ -102,10 +102,14 @@ public class User
     
     func loadUserData(document: DocumentSnapshot)
     {
-        let vibeCount: Int = document.get("totalVibes") as! Int;
-        self.totalVibes = vibeCount
-        self.username = document.get("username") as! String
-        self.profilePic = URL(string: document.get("profilePic") as! String)
+        let data = document.data()
+        self.userID = document.documentID
+        self.name = data?["name"] as! String
+        self.username = data?["username"] as! String
+        self.adVibes = data?["adVibes"] as! Int
+        self.earnedVibes = data?["earnedVibes"] as! Int
+        self.totalVibes = data?["totalVibes"] as! Int
+        self.profilePic = data?["profilePic"] as! String
     }
     
     func addVibes(adVibes: Int) {
@@ -171,7 +175,7 @@ public class User
         return false;
     }
     
-    func changeProfilePic(profilePic: URL) {
+    func changeProfilePic(profilePic: String) {
         self.profilePic = profilePic
         
         let sharedRef = DatabaseManager.shared.db.collection("users").document(userID)

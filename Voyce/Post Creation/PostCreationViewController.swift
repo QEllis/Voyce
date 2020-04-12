@@ -88,8 +88,8 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
     @IBAction func postPressed(_ sender: Any) {
         guard !textView.text.isEmpty else { return }
         guard !imageCaption.text.isEmpty else { return }
-        var post = Post()
-        DatabaseManager.shared.addPost(post: post)
+        //var post = Post()
+//        DatabaseManager.shared.addPost(post: post)
         navigationController?.popViewController(animated: true)
     }
     

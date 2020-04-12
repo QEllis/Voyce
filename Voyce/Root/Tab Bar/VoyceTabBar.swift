@@ -41,13 +41,12 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
     let feed = UIImage(named: "Feed")
     let feedSelected = UIImage(named: "Feed Selected")
     let ad = UIImage(named: "Ad Feed")
-    //    let adSelected = UIImage(named: "Ad Feed Selected")
     let addPost = UIImage(named: "Add Post")
     let addPostSelected = UIImage(named: "Add Post Selected")
     let findPeople = UIImage(named: "Find People")
     let findPeopleSelected = UIImage(named: "Find People Selected")
-    let profile = UIImage(named: "Profile")
-    let profileSelected = UIImage(named: "Profile Selected")
+    var profile = UIImage(named: "Profile")
+    var profileSelected = UIImage(named: "Profile Selected")
     
     public func showTab(_ tab: Tab)
     {
@@ -75,6 +74,10 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
     
     private func commonInit()
     {
+        let profilePicURL = URL(string: DatabaseManager.shared.sharedUser.profilePic)
+        self.profile = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile")
+        profileSelected = self.URLToImg(profilePicURL)?.roundedImage() ?? UIImage(named: "Profile Selected")
+        
         Bundle.main.loadNibNamed("VoyceTabBar", owner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
@@ -167,6 +170,16 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
     func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
         print("Rewarded ad failed to present.")
     }
+    
+    func URLToImg(_ url: URL?) -> UIImage?
+    {
+        guard let imageURL = url else
+        {
+            return nil
+        }
+        let data = try? Data(contentsOf: imageURL)
+        return UIImage(data: data!)
+    }
 }
 
 /// Allows the code to access the current UIViewController.
@@ -184,5 +197,19 @@ extension UIApplication {
             return topViewController(controller: presented)
         }
         return controller
+    }
+}
+
+extension UIImage {
+    func roundedImage() -> UIImage {
+        let imageView: UIImageView = UIImageView(image: self)
+        let layer = imageView.layer
+        layer.masksToBounds = true
+        layer.cornerRadius = imageView.frame.width / 2
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return roundedImage!
     }
 }

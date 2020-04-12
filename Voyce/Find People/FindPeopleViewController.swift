@@ -29,7 +29,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         let userRow = userTableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! UserCell
         userRow.name?.text = users[indexPath.row].name
         userRow.username?.text = users[indexPath.row].username
-        userRow.profileImage?.image = URLToImg(users[indexPath.row].profilePic)
+        userRow.profileImage?.image = URLToImg(URL(string: users[indexPath.row].profilePic))
         circularImg(imageView: userRow.profileImage.self)
         userRow.selectionStyle = UITableViewCell.SelectionStyle.none
         return userRow
