@@ -106,15 +106,17 @@ class Card: UIView
         card.backgroundColor = UIColor(named: "Dark Red")
         numVibes.text = String(post.vibes)
         vibeButton.setImage(randomEmoji(), for: .normal)
-        
-        //        let currentDate = NSDate()
-        ////        let dateFormatter = ISO8601DateFormatter()
-        //        let dateFormatter = DateFormatter()
-        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS'Z'" 2020-04-06 00:43:34 +0000
-        //        let dateString = post.date
-        //        let date = dateFormatter.date(from: dateString)
-        //        print("date is \(currentDate)")
-        //dateLabel.text = post.date
+    
+        let date = Date();
+        //get post date as formatted string
+        let dateString = date.dateAsString(postDate: post.date)
+        //comvert original post format to time format
+        let postTime = date.convertToTimeFormat(postDate: post.date)
+        //get time since post
+        let timeSincePost = date.timeSincePost(timeAgo: postTime)
+        //set text
+        let dateLabelText = timeSincePost+", "+dateString
+        dateLabel.text = dateLabelText
         
         getPosterInfo(userID: post.userID)
         
@@ -278,20 +280,20 @@ class Card: UIView
     }
 }
 
-extension Date {
-    func offsetFrom(date: Date) -> String {
-        let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
-        let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self)
-        
-        let seconds = "\(difference.second ?? 0)s"
-        let minutes = "\(difference.minute ?? 0)m" + " " + seconds
-        let hours = "\(difference.hour ?? 0)h" + " " + minutes
-        let days = "\(difference.day ?? 0)d" + " " + hours
-        
-        if let day = difference.day, day          > 0 { return days }
-        if let hour = difference.hour, hour       > 0 { return hours }
-        if let minute = difference.minute, minute > 0 { return minutes }
-        if let second = difference.second, second > 0 { return seconds }
-        return ""
-    }
-}
+//extension Date {
+//    func offsetFrom(date: Date) -> String {
+//        let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
+//        let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self)
+//        
+//        let seconds = "\(difference.second ?? 0)s"
+//        let minutes = "\(difference.minute ?? 0)m" + " " + seconds
+//        let hours = "\(difference.hour ?? 0)h" + " " + minutes
+//        let days = "\(difference.day ?? 0)d" + " " + hours
+//        
+//        if let day = difference.day, day          > 0 { return days }
+//        if let hour = difference.hour, hour       > 0 { return hours }
+//        if let minute = difference.minute, minute > 0 { return minutes }
+//        if let second = difference.second, second > 0 { return seconds }
+//        return ""
+//    }
+//}
