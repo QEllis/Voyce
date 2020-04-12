@@ -149,10 +149,10 @@ class DatabaseManager
         }
     }
     
-    /* Helper function that returns true if current user is owner of comment object */
-    
     /* If the current signed in user is the one who commented, then the comment object is removed from DB. Otherwise nothing happens */
     public func removeComment(postID: String, commentID: String) {
+        print("comment \(commentID)")
+        print("post \(postID)")
         db.collection("posts").document(postID).collection("comments").document(commentID).delete()
     }
     

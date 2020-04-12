@@ -17,7 +17,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var postImage: UIImageView!
     @IBOutlet var postVideo: UIView!
     @IBOutlet var videoPausedView: UIView!
-        
+    
     @IBOutlet var commentFeed: UITableView!
     
     @IBOutlet var commentView: UIView!
@@ -32,17 +32,17 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self,
-        selector: #selector(self.keyboardNotification(notification:)),
-        name: UIResponder.keyboardWillChangeFrameNotification,
-        object: nil)
-
+                                               selector: #selector(self.keyboardNotification(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
+                                               object: nil)
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         self.commentText.delegate = self
         
         commentFeed.delegate = self
         commentFeed.dataSource = self
-
+        
         loadContent()
     }
     
@@ -102,24 +102,26 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         cell.comment.text = (indexPath.row == 0 && post.caption != "") ? post.caption : comment!.content
-    
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        guard let cell = commentFeed.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell else {
-        fatalError("The dequeued cell is not an instance of CommentCell.")
-        }
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            DatabaseManager.shared.removeComment(postID: self.post.postID, commentID: cell.commentID)
+            let index = self.post.caption == "" ? indexPath.row : indexPath.row - 1
+            let commentID = DatabaseManager.shared.comments[index].commentID
+        
+            DatabaseManager.shared.comments.remove(at: index)
+            DatabaseManager.shared.removeComment(postID: self.post.postID, commentID: commentID)
+            self.commentFeed.reloadData()
         }
-
+        
         let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
             // share item at indexPath
         }
         share.backgroundColor = UIColor(named: "Gray")
-
+        
         return [delete, share]
     }
     
@@ -191,10 +193,10 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.commentButton.isHidden = false
             }
             UIView.animate(withDuration: duration,
-                                       delay: TimeInterval(0),
-                                       options: animationCurve,
-                                       animations: { self.view.layoutIfNeeded() },
-                                       completion: nil)
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
         }
     }
     
