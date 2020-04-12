@@ -210,8 +210,8 @@ class Card: UIView
         playVideo()
     }
     
-    // Returns a random emoji as UIImage
-    private func randomEmoji() -> UIImage!
+    /// Returns a random emoji as UIImage.
+    public func randomEmoji() -> UIImage!
     {
         var emojiArray = [String]()
         emojiArray.append("art-and-design")

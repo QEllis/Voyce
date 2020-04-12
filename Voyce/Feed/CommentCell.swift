@@ -14,5 +14,8 @@ class CommentCell: UITableViewCell
     @IBOutlet var username: UILabel!
     @IBOutlet var comment: UILabel!
     
+    @IBOutlet var vibeButton: UIButton!
+    @IBOutlet var vibeLabel: UILabel!
+    
     var commentID: String = ""
 }

@@ -102,6 +102,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         cell.comment.text = (indexPath.row == 0 && post.caption != "") ? post.caption : comment!.content
+        cell.vibeButton.setImage(randomEmoji(), for: .normal)
         
         return cell
     }
@@ -223,6 +224,75 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
             commentText.text = ""
         }
         DatabaseManager.shared.loadComments(postID: post.postID)
+        commentFeed.reloadData()
         dismissKeyboard()
+    }
+    
+    @IBAction func vibeButtonClicked(_ sender: Any) {
+        if (DatabaseManager.shared.sharedUser.adVibes > 0) {
+            let comment = (sender as! UIButton)
+//            DatabaseManager.shared.sharedUser.removeAdVibe()
+                // Update vibes in the database
+//                comment.addVibes(vibes: 1)
+//    //            user.addVibes(totalVibes: 1)
+//    //            user?.addVibes(earnedVibes: 1)
+//
+//                // Update UI
+//                vibeButton.text = String(post!.vibes)
+            comment.setImage(randomEmoji(), for: .normal)
+            }
+    }
+    
+    /// Returns a random emoji as UIImage.
+    public func randomEmoji() -> UIImage!
+    {
+        var emojiArray = [String]()
+        emojiArray.append("art-and-design")
+        emojiArray.append("avocado")
+        emojiArray.append("birthday-cake")
+        emojiArray.append("bread")
+        emojiArray.append("cake")
+        emojiArray.append("crown")
+        emojiArray.append("crowns")
+        emojiArray.append("dog")
+        emojiArray.append("eye-mask")
+        emojiArray.append("falling-star")
+        emojiArray.append("fan")
+        emojiArray.append("fireworks")
+        emojiArray.append("fort")
+        emojiArray.append("gems")
+        emojiArray.append("hat")
+        emojiArray.append("hearts")
+        emojiArray.append("ice-cream")
+        emojiArray.append("icecream")
+        emojiArray.append("idea")
+        emojiArray.append("kissing")
+        emojiArray.append("lips")
+        emojiArray.append("love-letter")
+        emojiArray.append("money-1")
+        emojiArray.append("money-2")
+        emojiArray.append("money")
+        emojiArray.append("orchid")
+        emojiArray.append("paint-palette")
+        emojiArray.append("palette")
+        emojiArray.append("party")
+        emojiArray.append("phsyics")
+        emojiArray.append("pizza")
+        emojiArray.append("plastic-cup")
+        emojiArray.append("rainbow")
+        emojiArray.append("rose-1")
+        emojiArray.append("rose-2")
+        emojiArray.append("rose")
+        emojiArray.append("shirt")
+        emojiArray.append("space")
+        emojiArray.append("spark")
+        emojiArray.append("stars")
+        emojiArray.append("strawberry")
+        emojiArray.append("sun")
+        emojiArray.append("thumbs-up")
+        emojiArray.append("venus-de-milo")
+        emojiArray.append("yin-yang")
+        let randomNumber = Int.random(in: 0..<45)
+        return UIImage(named:emojiArray[randomNumber])
     }
 }

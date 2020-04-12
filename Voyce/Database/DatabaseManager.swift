@@ -127,7 +127,7 @@ class DatabaseManager
     
     /* Load all comments of a specific post and populates the DatabaseManager.comments[] member */
     public func loadComments(postID: String){
-        db.collection("posts").document(postID).collection("comments").order(by: "vibes", descending: true)
+        db.collection("posts").document(postID).collection("comments").order(by: "vibes", descending: false)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
