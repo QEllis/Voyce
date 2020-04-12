@@ -101,6 +101,13 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            objects.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     private func getCommenterInfo(cell: CommentCell, userID: String) {
         DatabaseManager.shared.db.collection("users").document(userID).getDocument() { document, error in
             if let document = document, document.exists {
