@@ -249,17 +249,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCv-n5-4gq">
+                                                    <rect key="frame" x="20" y="59.333333333333336" width="394" height="1"/>
+                                                    <color key="backgroundColor" name="Dark Red"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="v04-fh-zp6"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qUB-Gt-95R" firstAttribute="top" secondItem="qS9-y6-AXi" secondAttribute="top" constant="10" id="07Q-H5-gH3"/>
                                                 <constraint firstItem="oQX-KB-eol" firstAttribute="top" secondItem="X7B-7Q-Ujb" secondAttribute="bottom" constant="2.5" id="0la-8c-uT1"/>
                                                 <constraint firstItem="6yK-Ju-0Qq" firstAttribute="leading" secondItem="qS9-y6-AXi" secondAttribute="leading" constant="15" id="23C-PR-qjb"/>
                                                 <constraint firstAttribute="bottom" secondItem="qUB-Gt-95R" secondAttribute="bottom" constant="10" id="Dcd-94-esh"/>
+                                                <constraint firstAttribute="trailing" secondItem="RCv-n5-4gq" secondAttribute="trailing" id="Io0-XO-uhE"/>
                                                 <constraint firstItem="qUB-Gt-95R" firstAttribute="leading" secondItem="6yK-Ju-0Qq" secondAttribute="trailing" constant="7.5" id="JFR-WT-uwQ"/>
                                                 <constraint firstItem="6yK-Ju-0Qq" firstAttribute="top" secondItem="qS9-y6-AXi" secondAttribute="top" constant="10" id="KdD-WJ-coj"/>
                                                 <constraint firstItem="X7B-7Q-Ujb" firstAttribute="leading" secondItem="qUB-Gt-95R" secondAttribute="trailing" constant="10" id="RLU-yD-L3R"/>
                                                 <constraint firstItem="X7B-7Q-Ujb" firstAttribute="top" secondItem="qS9-y6-AXi" secondAttribute="top" constant="15" id="W0t-kc-LgS"/>
                                                 <constraint firstItem="oQX-KB-eol" firstAttribute="leading" secondItem="qUB-Gt-95R" secondAttribute="trailing" constant="10" id="apV-8l-X2d"/>
+                                                <constraint firstItem="RCv-n5-4gq" firstAttribute="leading" secondItem="qS9-y6-AXi" secondAttribute="leading" constant="20" id="osT-dq-zrR"/>
+                                                <constraint firstAttribute="bottom" secondItem="RCv-n5-4gq" secondAttribute="bottom" id="pgw-cO-4Sf"/>
                                                 <constraint firstAttribute="bottom" secondItem="6yK-Ju-0Qq" secondAttribute="bottom" constant="10" id="uE3-QZ-gnM"/>
                                                 <constraint firstAttribute="trailing" secondItem="X7B-7Q-Ujb" secondAttribute="trailing" constant="20" id="wRn-xz-Ml4"/>
                                             </constraints>
