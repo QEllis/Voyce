@@ -40,26 +40,24 @@
                                     <action selector="ShowLoginView:" destination="yLt-58-9rU" eventType="touchUpInside" id="hoO-Cf-YVX"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENc-g2-gQ2">
-                                <rect key="frame" x="32" y="264" width="350" height="147.5"/>
-                                <color key="backgroundColor" name="Background"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0j-dJ-HPQ">
+                                <rect key="frame" x="32" y="264" width="350" height="81.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="pwj-oi-qhM"/>
+                                    <constraint firstAttribute="width" constant="350" id="kXC-ps-nNq"/>
                                 </constraints>
                                 <string key="text">Welcome to Voyce! The social media platform that gives back power to our content creators. Please login or create an account below to get started!</string>
-                                <color key="textColor" name="Text - Body"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="mO7-ta-3jt" firstAttribute="centerX" secondItem="vKr-Og-8yu" secondAttribute="centerX" id="GEL-gb-QFc"/>
-                            <constraint firstItem="ghZ-EZ-sqa" firstAttribute="centerY" secondItem="eTw-vH-Shr" secondAttribute="centerY" id="Kgs-0X-hfn"/>
+                            <constraint firstItem="p0j-dJ-HPQ" firstAttribute="top" secondItem="mO7-ta-3jt" secondAttribute="bottom" constant="20" id="QpY-ae-KKP"/>
                             <constraint firstItem="mO7-ta-3jt" firstAttribute="top" secondItem="vKr-Og-8yu" secondAttribute="top" constant="100" id="ZvZ-As-CXu"/>
-                            <constraint firstItem="ghZ-EZ-sqa" firstAttribute="top" secondItem="ENc-g2-gQ2" secondAttribute="bottom" constant="20" id="bFQ-PP-eOz"/>
-                            <constraint firstItem="ENc-g2-gQ2" firstAttribute="centerX" secondItem="eTw-vH-Shr" secondAttribute="centerX" id="eec-LR-atz"/>
-                            <constraint firstItem="ENc-g2-gQ2" firstAttribute="top" secondItem="mO7-ta-3jt" secondAttribute="bottom" constant="20" id="x4W-CP-dl7"/>
+                            <constraint firstItem="p0j-dJ-HPQ" firstAttribute="centerX" secondItem="eTw-vH-Shr" secondAttribute="centerX" id="e0j-xd-BtA"/>
+                            <constraint firstItem="ghZ-EZ-sqa" firstAttribute="centerY" secondItem="eTw-vH-Shr" secondAttribute="centerY" id="y6H-Ln-D61"/>
                             <constraint firstItem="ghZ-EZ-sqa" firstAttribute="centerX" secondItem="eTw-vH-Shr" secondAttribute="centerX" id="zie-tV-5Rg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vKr-Og-8yu"/>
@@ -68,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2OD-L7-KuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2265" y="-652"/>
+            <point key="canvasLocation" x="2263.768115942029" y="-652.23214285714278"/>
         </scene>
         <!--Start Up View Controller-->
         <scene sceneID="dRN-ZH-vTg">

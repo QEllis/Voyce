@@ -109,8 +109,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         /// Redirect user back to login.
         let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = vc
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
