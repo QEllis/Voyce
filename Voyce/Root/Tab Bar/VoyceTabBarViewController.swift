@@ -54,11 +54,11 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
         guard let to = toIndex else { return }
         selectedIndex = to
         guard let toVC = viewControllers?[to] else { return }
-        
+
         let feed = (viewControllers![0] as! FeedViewController)
         if fromIndex == 0 && toIndex == 0 {
             feed.reloadFeed()
-        } else if toIndex != 0 {
+        } else if toIndex != 0 || (fromIndex == 1 && toIndex == 0) {
             let cards = feed.view.subviews.compactMap{$0 as? Card}
             if let topCard = cards[safe: cards.count - 1] {
                 if (topCard.post?.postType == "video") {
@@ -66,7 +66,7 @@ class VoyceTabBarViewController: UITabBarController, VoyceTabBarDelegate
                 }
             }
         }
-       
+        
         delegate?.tabBarController?(self, didSelect: toVC)
     }
     

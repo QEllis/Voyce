@@ -21,6 +21,7 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
     public enum Tab: Int
     {
         case feed = 0
+        case ad = 1
         case addPost = 2
         case findPeople = 3
         case profile = 4
@@ -96,6 +97,8 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
         if rewardedAd?.isReady == true {
             rewardedAd?.present(fromRootViewController: UIApplication.topViewController()!, delegate: self)
         }
+        
+        delegate?.tabBar(from: sender.tag, to: selectedTab.rawValue)
     }
     
     @IBAction func addPostButtonPressed(_ sender: UIButton) {
@@ -134,7 +137,7 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
     var rewardedAd: GADRewardedAd?
     
     /// Load a new ad in the queue.
-    func createAndLoadRewardedAd() -> GADRewardedAd{
+    func createAndLoadRewardedAd() -> GADRewardedAd {
         rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
         rewardedAd?.load(GADRequest()) { error in
             if let error = error {
