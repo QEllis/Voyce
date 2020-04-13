@@ -22,7 +22,8 @@ public class User
             "adVibes": adVibes,
             "unusedVibes": earnedVibes,
             "totalVibes": totalVibes,
-            "profilePic": profilePic
+            "profilePic": profilePic,
+            "earnedVibes": earnedVibes
         ]
     }
     

@@ -63,6 +63,12 @@ class DatabaseManager
     public func userLogin(u: FirebaseAuth.User)
     {
         sharedUser = User.init(user: u)
+        
+        //avoid nil
+        if(self.sharedUser.username.isEmpty){
+            self.sharedUser.username = self.sharedUser.name;
+        }
+
         let collection = db.collection("users")
         let userDoc = collection.document(u.uid)
         userDoc.getDocument { (document, error) in
