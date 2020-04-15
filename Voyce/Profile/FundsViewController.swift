@@ -8,20 +8,17 @@
 
 import Foundation
 import UIKit
-//import Firebase
+import Firebase
 
 class FundsViewController: UIViewController
 {
-//    lazy var functions = Functions.functions()
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var accountNumber: UITextField!
     @IBOutlet weak var routingNumber: UITextField!
-    var amount: String = "21.00"
-    var fundingSource: String = "4aafc54b-4c51-4ee5-a20b-45b5edfee599"
     // Please don't remove the functions variable
-//    lazy var functions = Functions.functions()
+    lazy var functions = Functions.functions()
     
     // Pops view controller off the view controller stack
     func removeViewController()
@@ -63,29 +60,56 @@ class FundsViewController: UIViewController
     // Sends user info to Dwolla and transfers funds
     func sendData(user: DwollaUser)
     {
-        // Called when user has no fundingSource in Firebase
-//        functions.httpsCallable("addMessage").call(["text": "\(user.firstName), \(user.lastName), \(user.email), \(user.accountNumber), \(user.routingNumber), \(amount)"])
-        // Called when user has a fundingSource in Firebase
-//        functions.httpsCallable("addMessage").call(["text": "\(fundingSource), \(amount)"])
-            
-//        {(result, error) in
-//            // Handles any errors in the communication
-//            if let error = error as NSError?
-//            {
-//                if error.domain == FunctionsErrorDomain
-//                {
-//                    let code = FunctionsErrorCode(rawValue: error.code)
-//                    let message = error.localizedDescription
-//                    let details = error.userInfo[FunctionsErrorDetailsKey]
-//                }
-//            }
-//            // Handles the responses from the server
-//            if let text = (result?.data as? [String: Any])?["text"] as? String
-//            {
-//                print("This is the output " + text)
-//            }
-//        }
+        var dataString = ""
+        let amount = Money()
+        if userHasFundingSource()
+        {
+            let fundingSource = getFundingSource()
+            dataString = "\(fundingSource), \(amount.getMoney())"
+        }
+        else
+        {
+            dataString = "\(user.firstName), \(user.lastName), \(user.email), \(user.accountNumber), \(user.routingNumber), \(amount.getMoney())"
+        }
+        functions.httpsCallable("addMessage").call(["text": dataString])
+        {(result, error) in
+            // Handles any errors in the communication
+            if let error = error as NSError?
+            {
+                if error.domain == FunctionsErrorDomain
+                {
+                    let code = FunctionsErrorCode(rawValue: error.code)
+                    let message = error.localizedDescription
+                    let details = error.userInfo[FunctionsErrorDetailsKey]
+                }
+            }
+            // Handles the responses from the server
+            if let text = (result?.data as? [String: Any])?["text"] as? String
+            {
+                print("This is the output " + text)
+            }
+        }
     }
+    
+    // Returns true if the user already has a funding source
+    func userHasFundingSource() -> Bool
+    {
+        return DatabaseManager.shared.sharedUser.hasFundingSource()
+    }
+    
+    // Returns the funding source string from the user
+    func getFundingSource() -> String
+    {
+        return DatabaseManager.shared.sharedUser.fundingSource
+    }
+    
+    // Updates the funding source string of the user inside the database
+    func updateFundingSource(fundingSource: String)
+    {
+        DatabaseManager.shared.sharedUser.updateFundingSource(fundingSource: fundingSource)
+    }
+    
+    
     
     // Call the methods to transfer funds to bank account
     @IBAction func transferFunds(_ sender: UIButton)

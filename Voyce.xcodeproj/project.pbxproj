@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01357D6B2357FD860031C1D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */; };
 		0E329A8E24182F6D0020F007 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E329A8D24182F6D0020F007 /* Profile.storyboard */; };
+		0E527B2C2446E18C002DB99A /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E527B2B2446E18C002DB99A /* Money.swift */; };
 		0E6B21D52431377300804734 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D42431377300804734 /* UserCell.swift */; };
 		0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D6243193D000804734 /* FundsViewController.swift */; };
 		0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B21D824319C7900804734 /* DwollaUser.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		01357D6A2357FD850031C1D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0E329A8D24182F6D0020F007 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		0E527B2B2446E18C002DB99A /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		0E6B21D42431377300804734 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		0E6B21D6243193D000804734 /* FundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsViewController.swift; sourceTree = "<group>"; };
 		0E6B21D824319C7900804734 /* DwollaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DwollaUser.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */,
 				0E6B21D6243193D000804734 /* FundsViewController.swift */,
 				0E6B21D824319C7900804734 /* DwollaUser.swift */,
+				0E527B2B2446E18C002DB99A /* Money.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */,
 				3C2EEE972332796B009098D5 /* Color.swift in Sources */,
 				3C2EEEA423327C1A009098D5 /* FeedViewController.swift in Sources */,
+				0E527B2C2446E18C002DB99A /* Money.swift in Sources */,
 				3F81E91A236FE1F0008B3673 /* MyPostTableViewCell.swift in Sources */,
 				E18CDE132439C1D3009F579F /* ViewPlayerView.swift in Sources */,
 				3C55ECC1236890BB00B5738F /* VoyceTabBarViewController.swift in Sources */,

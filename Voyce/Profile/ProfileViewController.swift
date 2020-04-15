@@ -13,14 +13,10 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-private let user = DatabaseManager.shared.sharedUser
-
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyPostTableViewCellDelegate
 {
-    // --- Used for firebase functions below ---
-    // lazy var functions = Functions.functions()
-    
     // Member Variables
+    private let user = DatabaseManager.shared.sharedUser
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -87,14 +83,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func promoteButtonDidPressed(post: Post) {
-        
-    }
-    
-    // ---- Does not compile due to firebase functions installation that is required ----
-    // Uses Dwolla API and Firebase Functions to make API Request
-    // Transfer funds to user for vibes will be implemented in the future
-    @IBAction func transferButtonPressed(_ sender: Any)
-    {
         
     }
     

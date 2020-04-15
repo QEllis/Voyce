@@ -14,6 +14,7 @@ public class User
     var earnedVibes: Int
     var totalVibes: Int
     var profilePic: String
+    var fundingSource: String
     
     var dictionary: [String: Any] {
         return [
@@ -23,7 +24,8 @@ public class User
             "unusedVibes": earnedVibes,
             "totalVibes": totalVibes,
             "profilePic": profilePic,
-            "earnedVibes": earnedVibes
+            "earnedVibes": earnedVibes,
+            "fundingSource": fundingSource
         ]
     }
     
@@ -35,6 +37,7 @@ public class User
         self.earnedVibes = 0
         self.totalVibes = 0
         self.profilePic = ""
+        self.fundingSource = ""
     }
     
     init(userID: String, name: String, username: String) {
@@ -45,6 +48,7 @@ public class User
         self.earnedVibes = 0
         self.adVibes = 0
         self.profilePic = ""
+        self.fundingSource = ""
     }
     
     init(userID: String, name: String, username: String, totalVibes: Int) {
@@ -55,6 +59,7 @@ public class User
         self.earnedVibes = 0
         self.totalVibes = totalVibes
         self.profilePic = ""
+        self.fundingSource = ""
     }
     
     init(userID: String, name: String, username: String, adVibes: Int, earnedVibes: Int, totalVibes: Int, profilePic: String) {
@@ -65,6 +70,7 @@ public class User
         self.earnedVibes = earnedVibes
         self.totalVibes = totalVibes
         self.profilePic = profilePic
+        self.fundingSource = ""
     }
     
     init(userID: String, name: String, username: String, totalVibes: Int, profilePic: String) {
@@ -75,6 +81,7 @@ public class User
         self.earnedVibes = 0
         self.totalVibes = totalVibes
         self.profilePic = profilePic
+        self.fundingSource = ""
     }
     
     init(user: FirebaseAuth.User) {
@@ -85,6 +92,7 @@ public class User
         self.earnedVibes = 0
         self.adVibes = 0
         self.profilePic = ""
+        self.fundingSource = ""
    
         let docRef = DatabaseManager.shared.db.collection("users").document(userID)
         
@@ -95,6 +103,7 @@ public class User
                 self.earnedVibes = document.get("earnedVibes") as! Int
                 self.totalVibes = document.get("totalVibes") as! Int
                 self.profilePic = document.get("profilePic") as! String
+                self.fundingSource = document.get("fundingSource") as! String
             } else {
                 print("Document does not exist")
             }
@@ -112,6 +121,7 @@ public class User
         self.earnedVibes = data?["earnedVibes"] as! Int
         self.totalVibes = data?["totalVibes"] as! Int
         self.profilePic = data?["profilePic"] as! String
+        self.fundingSource = data?["fundingSource"] as! String
     }
     
     func addVibes(adVibes: Int) {
@@ -182,5 +192,17 @@ public class User
         
         let sharedRef = DatabaseManager.shared.db.collection("users").document(userID)
         sharedRef.updateData(["profilePic": profilePic])
+    }
+    
+    func updateFundingSource(fundingSource: String)
+    {
+        self.fundingSource = fundingSource
+        let sharedRef = DatabaseManager.shared.db.collection("users").document(userID)
+        sharedRef.updateData(["fundingSource": fundingSource])
+    }
+    
+    func hasFundingSource() -> Bool
+    {
+        return self.fundingSource != ""
     }
 }

@@ -17,12 +17,12 @@ import FirebaseFirestoreSwift
 class DatabaseManager
 {
     static let shared = DatabaseManager()
-    
     var sharedUser: User
     var db: Firestore
     let storage: Storage
     var otherUsers: [User]
     var index: Int
+    var vibeConversionRate: Double
     var myPosts: [Post]
     var comments: [Comment]
     
@@ -33,6 +33,7 @@ class DatabaseManager
         storage = Storage.storage()
         otherUsers = []
         index = 0
+        vibeConversionRate = 0.0
         myPosts = []
         comments = []
         
@@ -56,6 +57,27 @@ class DatabaseManager
                 }
             }
             
+        }
+        setVibeConversionRate()
+    }
+    
+    // Gets the vibeconversion rate from the database
+    func setVibeConversionRate()
+    {
+        db.collection("conversion").getDocuments(){ querySnapshot, error in
+            if let error = error
+            {
+                print("Error getting documents: \(error)")
+            }
+            else
+            {
+                // Should only loop once
+                for document in querySnapshot!.documents
+                {
+                    let data = document.data()
+                    self.vibeConversionRate = data["conversionRate"] as! Double
+                }
+            }
         }
     }
     
