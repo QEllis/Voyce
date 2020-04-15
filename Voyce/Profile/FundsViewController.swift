@@ -122,10 +122,10 @@ class FundsViewController: UIViewController
         removeViewController()
     }
     
-    // Calls any method when the app loads
-    override func viewDidLoad()
+    // Reloads any methods when the view appears
+    override func viewWillAppear(_ animated: Bool)
     {
-        
+        DatabaseManager.shared.setVibeConversionRate()
     }
     
 }
