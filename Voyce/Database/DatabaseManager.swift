@@ -223,6 +223,31 @@ class DatabaseManager
                 }
         }
     }
+    
+    public func uploadImage (image: UIImageView){
+        var uploadedImageURL: String?
+        if let data = image.image!.pngData(){
+                let imageName = NSUUID().uuidString
+                // Create a reference to the file you want to upload
+                let imageRef = Storage.storage().reference().child(imageName)
+                // Upload the file to the path
+                let uploadTask = imageRef.putData(data, metadata: nil) { (metadata, error) in
+                  guard let metadata = metadata else {
+                    return
+                  }
+                  // Metadata contains file metadata such as size, content-type.
+                  let size = metadata.size
+                  imageRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                      // Uh-oh, an error occurred!
+                      return
+                    }
+                    print("Image link: \(downloadURL)")
+                    uploadedImageURL = downloadURL.absoluteString
+                  }
+            }
+        }
+    }
 }
 
 extension Array {
