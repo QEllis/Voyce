@@ -244,9 +244,38 @@ class DatabaseManager
                     }
                     print("Image link: \(downloadURL)")
                     uploadedImageURL = downloadURL.absoluteString
+                    self.updateProfileImage(profileURL: uploadedImageURL ?? "")
                   }
             }
         }
+    }
+    //updates profile image of the user
+    public func updateProfileImage(profileURL: String){
+        let collection = db.collection("users");
+        let userDoc = collection.document(sharedUser.userID)
+        self.sharedUser.profilePic = profileURL
+        userDoc.getDocument { (document, error) in
+            self.sharedUser.profilePic = profileURL
+            if let document = document, document.exists{
+                //updates content
+                self.db.collection("users").document(self.sharedUser.userID).setData([
+                    "name": document.get("name"),
+                    "profilePic": profileURL,
+                    "fundingSource": document.get("fundingSource"),
+                    "totalVibes": document.get("totalVibes"),
+                    "adVibes": document.get("adVibes"),
+                    "earnedVibes": document.get("earnedVibes"),
+                    "username": document.get("username")
+                ]) { err in
+                    //error happened
+                    if let err = err {
+                        print("Error writing post to db: \(err)")
+                    }else{
+                        
+                    }
+                }
+            }
+        };
     }
 }
 
