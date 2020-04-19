@@ -102,10 +102,11 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
     }
     
     @IBAction func postPressed(_ sender: Any) {
+        
         guard !textView.text.isEmpty else { return }
         guard !imageCaption.text.isEmpty else { return }
-        guard !(videoToUpload?.absoluteString.isEmpty)! else { return }
-
+        
+        
         //var post = Post()
         //it is a text post
         if(postSegmentedControl.selectedSegmentIndex == 0){
@@ -114,7 +115,9 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         }else if(postSegmentedControl.selectedSegmentIndex == 1){ // image post
             DatabaseManager.shared.uploadImage(image: postImage, choice: 2, caption: imageCaption.text!);
         }else{ //video post
-            DatabaseManager.shared.uploadVideo(videoURL: videoToUpload!, caption: imageCaption.text!)
+            if let video = videoToUpload{
+                DatabaseManager.shared.uploadVideo(videoURL: videoToUpload!, caption: imageCaption.text!)
+            }
         }
     }
     
