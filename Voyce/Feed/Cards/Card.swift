@@ -156,7 +156,7 @@ class Card: UIView
                 let profilePic = data!["profilePic"] as! String
                 
                 self.user = User(userID: userID, name: name, username: username, adVibes: adVibes, earnedVibes: earnedVibes, totalVibes: totalVibes, profilePic: profilePic)
-                
+                print("Profile Image: \(profilePic)")
                 self.usernameLabel.text = username
                 let profilePicURL = URL(string: profilePic)
                 self.profileButton.setImage(self.URLToImg(profilePicURL) ?? UIImage(named: "Profile"), for: .normal)

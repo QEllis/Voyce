@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PostCreationViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -15,6 +16,7 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
     @IBOutlet weak var imageCaption: UITextView!
     @IBOutlet weak var postSegmentedControl: UISegmentedControl!
     
+    var videoToUpload:URL?
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -70,6 +72,11 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
             textView.isHidden = true
             imageCaption.isHidden = false
             postImage.isHidden = false
+        case 2:
+            openVideoGallery()
+            textView.isHidden = true
+            imageCaption.isHidden = false
+            postImage.isHidden = false
         default:
             textView.isHidden = false
             imageCaption.isHidden = true
@@ -78,25 +85,36 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         
     }
     
+    func openVideoGallery() {
+        let myPickerController = UIImagePickerController()
+        myPickerController.sourceType = .savedPhotosAlbum
+        myPickerController.delegate = self
+        myPickerController.mediaTypes = ["public.movie"]
+        present(myPickerController, animated: true, completion: nil)
+    }
+    
     func openImageGallery() {
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
         myPickerController.sourceType =  UIImagePickerController.SourceType.photoLibrary
+        myPickerController.allowsEditing = true
         self.present(myPickerController, animated: true, completion: nil)
     }
     
     @IBAction func postPressed(_ sender: Any) {
         guard !textView.text.isEmpty else { return }
         guard !imageCaption.text.isEmpty else { return }
+        guard !(videoToUpload?.absoluteString.isEmpty)! else { return }
+
         //var post = Post()
         //it is a text post
         if(postSegmentedControl.selectedSegmentIndex == 0){
             let caption = textView.text!
-            DatabaseManager.shared.createPost(ImageURL: "", postType: "text", caption: caption)
+            DatabaseManager.shared.createPost(contentURL: "", postType: "text", caption: caption)
         }else if(postSegmentedControl.selectedSegmentIndex == 1){ // image post
             DatabaseManager.shared.uploadImage(image: postImage, choice: 2, caption: imageCaption.text!);
         }else{ //video post
-            
+            DatabaseManager.shared.uploadVideo(videoURL: videoToUpload!, caption: imageCaption.text!)
         }
     }
     
@@ -104,6 +122,49 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         navigationController?.popViewController(animated: true)
     }
     
+    //generates thumbnail of the video
+    private func thumbnailForVideoAtURL(url: String) -> UIImage? {
+        let asset = AVAsset(url: URL(string: url)!)
+        let assetImgGenerate = AVAssetImageGenerator(asset: asset)
+        assetImgGenerate.appliesPreferredTrackTransform = true
+        //Can set this to improve performance if target size 
+        //assetImgGenerate.maximumSize = CGSize(width,height)
+        let time = CMTimeMakeWithSeconds(1.0, preferredTimescale: 600)
+        do {
+            let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+            let thumbnail = UIImage(cgImage: img)
+            return thumbnail
+        } catch {
+          print(error.localizedDescription)
+          return nil
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //if its a video
+        if let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL{
+            print("video url:", videoURL)
+            videoToUpload = videoURL
+            postImage.image = thumbnailForVideoAtURL(url: videoURL.absoluteString)
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        var newProfileImage: UIImage?
+        print("Image Upload Clicked")
+        if let editedImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
+            newProfileImage = editedImage
+        }else if let original = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage{
+            newProfileImage = original
+        }
+        if let newImage = newProfileImage{
+            postImage.image = newImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    /*
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 // Local variable inserted by Swift 4.2 migrator.
 let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
@@ -116,7 +177,8 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
            //                _ = imageData.base64EncodedString()
            self.dismiss(animated: true, completion: nil)
        }
-       
+     */
+       /*
        func uploadImage(imageURL: URL)
        {
            // Create a root reference
@@ -134,6 +196,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
                }
            }
     }
+     */
 }
         
         
