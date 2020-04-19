@@ -222,17 +222,42 @@ class DatabaseManager
         }
     }
     
-    public func createPost(ImageURL: String, postType: String, caption: String){
+    public func createPost(contentURL: String, postType: String, caption: String){
         var content = ""
         if(postType == "image"){
-            content = ImageURL;
+            content = contentURL;
         }else if(postType == "text"){
             content = caption;
+        }else{
+            content = contentURL;
         }
         let post = Post(pid: "", user: self.sharedUser, postType: postType, content: content, vibes: 0, caption:caption)
         self.addPost(post: post)
     }
-    
+    public func uploadVideo(videoURL: URL, caption: String){
+        let fileName = NSUUID().uuidString + ".mov"
+        // Data in memory
+        let data = Data()
+        // Create a reference to the file you want to upload
+        let riversRef = Storage.storage().reference().child(fileName)
+        let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
+          guard let metadata = metadata else {
+            // Uh-oh, an error occurred!
+            print("error happened")
+            return
+          }
+          // Metadata contains file metadata such as size, content-type.
+          let size = metadata.size
+          // You can also access to download URL after upload.
+          riversRef.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+              print("error happened")
+              return
+            }
+            self.createPost(contentURL: downloadURL.absoluteString, postType: "video", caption: caption)
+          }
+        }
+    }
     public func uploadImage (image: UIImageView, choice: Int, caption: String){
         var uploadedImageURL: String?
         if let data = image.image!.pngData(){
@@ -257,7 +282,7 @@ class DatabaseManager
                     if(choice == 1){
                         self.updateProfileImage(profileURL: uploadedImageURL ?? "")
                     }else if(choice == 2){ //upload image to database
-                        self.createPost(ImageURL: uploadedImageURL!, postType: "image", caption: caption)
+                        self.createPost(contentURL: uploadedImageURL!, postType: "image", caption: caption)
                     }
                   }
             }
