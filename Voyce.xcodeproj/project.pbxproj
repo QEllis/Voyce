@@ -37,6 +37,8 @@
 		3F81E91B236FE1F0008B3673 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */; };
 		40439DD6244318920002615A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40439DD5244318920002615A /* Date.swift */; };
 		4F019F000E9ECBDF76B0F044 /* Pods_Voyce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBADAFE5BC8ED6D6CCC75F46 /* Pods_Voyce.framework */; };
+		C9E8743A244C35120093F409 /* postCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E87439244C35120093F409 /* postCellCollectionViewCell.swift */; };
+		C9F7F6AC244BC206007A62DD /* FindPeopleProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7F6AB244BC206007A62DD /* FindPeopleProfileViewController.swift */; };
 		E1257CA624131557001927EB /* FindPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1257CA524131557001927EB /* FindPeople.storyboard */; };
 		E1257CA824131567001927EB /* FindPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1257CA724131567001927EB /* FindPeopleViewController.swift */; };
 		E128EC4C2439234200C5D91A /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1A5FD8C2433A98600FA911A /* Feed.storyboard */; };
@@ -83,6 +85,8 @@
 		3F81E919236FE1F0008B3673 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
 		40439DD5244318920002615A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		ABF161281AAA02296255D636 /* Pods-Voyce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voyce.debug.xcconfig"; path = "Target Support Files/Pods-Voyce/Pods-Voyce.debug.xcconfig"; sourceTree = "<group>"; };
+		C9E87439244C35120093F409 /* postCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9F7F6AB244BC206007A62DD /* FindPeopleProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPeopleProfileViewController.swift; sourceTree = "<group>"; };
 		E1257CA524131557001927EB /* FindPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPeople.storyboard; sourceTree = "<group>"; };
 		E1257CA724131567001927EB /* FindPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPeopleViewController.swift; sourceTree = "<group>"; };
 		E139CFD9243A6A590005EC36 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 				3F4AE8BE235BB1B400DD0DC6 /* ProfileViewController.swift */,
 				0E6B21D6243193D000804734 /* FundsViewController.swift */,
 				0E6B21D824319C7900804734 /* DwollaUser.swift */,
+				0E527B2B2446E18C002DB99A /* Money.swift */,
+				C9E87439244C35120093F409 /* postCellCollectionViewCell.swift */,
 				0E527B2B2446E18C002DB99A /* VibeConverter.swift */,
 			);
 			path = Profile;
@@ -273,6 +279,7 @@
 				E1257CA524131557001927EB /* FindPeople.storyboard */,
 				E1257CA724131567001927EB /* FindPeopleViewController.swift */,
 				0E6B21D42431377300804734 /* UserCell.swift */,
+				C9F7F6AB244BC206007A62DD /* FindPeopleProfileViewController.swift */,
 			);
 			path = "Find People";
 			sourceTree = "<group>";
@@ -436,6 +443,7 @@
 				E18CDE19243A47E5009F579F /* LoginViewController.swift in Sources */,
 				3F4AE8BF235BB1B400DD0DC6 /* ProfileViewController.swift in Sources */,
 				E18CDE17243A47E5009F579F /* StartUpViewController.swift in Sources */,
+				C9F7F6AC244BC206007A62DD /* FindPeopleProfileViewController.swift in Sources */,
 				40439DD6244318920002615A /* Date.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
 				0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */,
@@ -445,6 +453,7 @@
 				E1A5FD952433AA6D00FA911A /* CommentViewController.swift in Sources */,
 				0E6B21D924319C7900804734 /* DwollaUser.swift in Sources */,
 				3C2EEE972332796B009098D5 /* Color.swift in Sources */,
+				C9E8743A244C35120093F409 /* postCellCollectionViewCell.swift in Sources */,
 				3C2EEEA423327C1A009098D5 /* FeedViewController.swift in Sources */,
 				0E527B2C2446E18C002DB99A /* VibeConverter.swift in Sources */,
 				3F81E91A236FE1F0008B3673 /* MyPostTableViewCell.swift in Sources */,
