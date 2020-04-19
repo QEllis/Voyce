@@ -21,7 +21,7 @@ public class User
             "name": name,
             "username": username,
             "adVibes": adVibes,
-            "unusedVibes": earnedVibes,
+            "earnedVibes": earnedVibes,
             "totalVibes": totalVibes,
             "profilePic": profilePic,
             "earnedVibes": earnedVibes,

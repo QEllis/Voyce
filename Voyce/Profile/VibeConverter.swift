@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Money
+class VibeConverter
 {
     private let shared = DatabaseManager.shared
     var earnedVibes: Int = 0
     var conversionRate: Double = 0.0
-    var money: Double = 0.0
+    var dollarValue: Double = 0.0
     // Initializes the base variables
     init()
     {
@@ -24,13 +24,13 @@ class Money
     // Rounds the money equivalent of the goodVibes using the conversionRate to two decimal places
     func roundMoney()
     {
-        money = Double(earnedVibes) * conversionRate
+        dollarValue = Double(earnedVibes) * conversionRate
         let divisor = pow(10.0, Double(2))
-        money = (money * divisor).rounded() / divisor
+        dollarValue = (dollarValue * divisor).rounded() / divisor
     }
-    // Returns the monitary value of the goodVibes
+    // Returns the dollar value of the earned vibes
     func getMoney() -> Double
     {
-        return money
+        return dollarValue
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import Firebase
+//import Firebase
 
 class FundsViewController: UIViewController
 {
@@ -17,8 +17,10 @@ class FundsViewController: UIViewController
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var accountNumber: UITextField!
     @IBOutlet weak var routingNumber: UITextField!
+    @IBOutlet weak var infoSection: UIStackView!
+    @IBOutlet weak var errorMessage: UITextView!
     // Please don't remove the functions variable
-    lazy var functions = Functions.functions()
+//    lazy var functions = Functions.functions()
     
     // Pops view controller off the view controller stack
     func removeViewController()
@@ -28,7 +30,7 @@ class FundsViewController: UIViewController
     
     // Checks if all field have content
     // returns false if any field is empty
-    func initAccount() -> DwollaUser?
+    func getInfo() -> DwollaUser?
     {
         guard let firstName = firstName.text else
         {
@@ -58,37 +60,48 @@ class FundsViewController: UIViewController
     }
     
     // Sends user info to Dwolla and transfers funds
+    // Assumes $ currency and a minimum transfer value of $0.5
+    // Does not consider Dwolla transfer fees
     func sendData(user: DwollaUser)
     {
-        var dataString = ""
-        let amount = Money()
-        if userHasFundingSource()
-        {
-            let fundingSource = getFundingSource()
-            dataString = "\(fundingSource), \(amount.getMoney())"
-        }
-        else
-        {
-            dataString = "\(user.firstName), \(user.lastName), \(user.email), \(user.accountNumber), \(user.routingNumber), \(amount.getMoney())"
-        }
-        functions.httpsCallable("addMessage").call(["text": dataString])
-        {(result, error) in
-            // Handles any errors in the communication
-            if let error = error as NSError?
-            {
-                if error.domain == FunctionsErrorDomain
-                {
-                    let code = FunctionsErrorCode(rawValue: error.code)
-                    let message = error.localizedDescription
-                    let details = error.userInfo[FunctionsErrorDetailsKey]
-                }
-            }
-            // Handles the responses from the server
-            if let text = (result?.data as? [String: Any])?["text"] as? String
-            {
-                print("This is the output " + text)
-            }
-        }
+//        var dataString = ""
+//        let vibeConverter = VibeConverter()
+//        let dollarValue = vibeConverter.getMoney()
+        // Initializes the transfer if the value is $0.50 or more
+//        if dollarValue >= 0.5
+//        {
+//            if userHasFundingSource()
+//            {
+//                let fundingSource = getFundingSource()
+//                dataString = "\(fundingSource), \(dollarValue)"
+//            }
+//            else
+//            {
+//                dataString = "\(user.firstName), \(user.lastName), \(user.email), \(user.accountNumber), \(user.routingNumber), \(dollarValue)"
+//            }
+//            functions.httpsCallable("addMessage").call(["text": dataString])
+//            {(result, error) in
+//                // Handles any errors in the communication
+//                if let error = error as NSError?
+//                {
+//                    if error.domain == FunctionsErrorDomain
+//                    {
+//                        let code = FunctionsErrorCode(rawValue: error.code)
+//                        let message = error.localizedDescription
+//                        let details = error.userInfo[FunctionsErrorDetailsKey]
+//                    }
+//                }
+//                // Handles the responses from the server
+//                if let text = (result?.data as? [String: Any])?["text"] as? String
+//                {
+//                    print("This is the output " + text)
+//                }
+//            }
+//        }
+//        else
+//        {
+//            print("Earned vibes have insufficient dollar value to initialize transfer")
+//        }
     }
     
     // Returns true if the user already has a funding source
@@ -109,23 +122,34 @@ class FundsViewController: UIViewController
         DatabaseManager.shared.sharedUser.updateFundingSource(fundingSource: fundingSource)
     }
     
-    
-    
     // Call the methods to transfer funds to bank account
     @IBAction func transferFunds(_ sender: UIButton)
     {
-        guard let dwollaUser = initAccount() else
+        if !userHasFundingSource()
         {
-            return
+            guard let dwollaUser = getInfo() else
+            {
+                return
+            }
+            sendData(user: dwollaUser)
+            removeViewController()
         }
-        sendData(user: dwollaUser)
-        removeViewController()
+        // No info needed from user since we have funding source
+        else
+        {
+            sendData(user: DwollaUser("","","","",""))
+            removeViewController()
+        }
     }
     
     // Reloads any methods when the view appears
     override func viewWillAppear(_ animated: Bool)
     {
         DatabaseManager.shared.setVibeConversionRate()
+        if userHasFundingSource()
+        {
+            infoSection.removeFromSuperview()
+        }
+        errorMessage.isEditable = false
     }
-    
 }
