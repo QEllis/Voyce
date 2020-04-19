@@ -8,31 +8,99 @@
 
 import UIKit
 
-class FindPeopleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class FindPeopleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
+    UISearchBarDelegate
 {
     // Member Variables
     @IBOutlet weak var userTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     
     var users: [User] = []
+    var isComplete:Bool = false
+    var RowSelected:Int?
+    
+    var searching: Bool = false;
+    var searchingResult:[User] = []
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        userTableView.delegate = self
+        userTableView.dataSource = self
+        users = DatabaseManager.shared.otherUsers
+        //searchTextField.becomeFirstResponder()
+    }
     
     // Member Functions
     // Sets the number of table row cells
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return users.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
+        if(searching){
+            return searchingResult.count
+        }else{
+            return users.count
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        RowSelected = indexPath.row
+        isComplete = true
+        print(RowSelected!)
+        self.performSegue(withIdentifier: "ProfileSeg", sender: self)
     }
     
     // Sets the content within each table row cell
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let userRow = userTableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! UserCell
-        userRow.name?.text = users[indexPath.row].name
-        userRow.username?.text = users[indexPath.row].username
-        userRow.profileImage?.image = URLToImg(URL(string: users[indexPath.row].profilePic))
-        circularImg(imageView: userRow.profileImage.self)
-        userRow.selectionStyle = UITableViewCell.SelectionStyle.none
+        //if searching then retunr the results
+        if(searching){
+            userRow.name?.text = searchingResult[indexPath.row].name
+            userRow.username?.text = searchingResult[indexPath.row].username
+            userRow.profileImage?.image = URLToImg(URL(string: searchingResult[indexPath.row].profilePic))
+            circularImg(imageView: userRow.profileImage.self)
+            userRow.selectionStyle = UITableViewCell.SelectionStyle.none
+            
+        }else{
+
+            userRow.name?.text = users[indexPath.row].name
+            userRow.username?.text = users[indexPath.row].username
+            userRow.profileImage?.image = URLToImg(URL(string: users[indexPath.row].profilePic))
+            circularImg(imageView: userRow.profileImage.self)
+            userRow.selectionStyle = UITableViewCell.SelectionStyle.none
+        }
         return userRow
+    }
+    
+    //search bar filters based on input
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //if searching for @username or name
+        if(searchText.count == 0){
+            searching = false
+            userTableView.reloadData()
+            return
+        }
+        var searchR = searchText
+        if(searchText[searchText.startIndex] == "@" && searchText.count > 1){
+            searchR.removeFirst()
+            if(searchR.count == 0){
+                searchR = ""
+            }
+            searchingResult = users.filter({$0.username.lowercased().contains( searchR.lowercased()) })
+        }else{
+                    searchingResult = users.filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        }
+    
+        searching = true
+        userTableView.reloadData()
+    }
+    
+    //if cancel then reload data to everything
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        userTableView.reloadData()
     }
     
     // Sets the height of each table cell
@@ -40,14 +108,14 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     {
         return 50.0
     }
-    
+    /*
     // Preforms an action when the user selects a given cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         searchTextField.resignFirstResponder()
         userTableView.deselectRow(at: indexPath, animated: true)
     }
-    
+    */
     // Changes the shape of each profile image into a circle
     func circularImg(imageView: UIImageView?)
     {
@@ -76,12 +144,27 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         super.touchesBegan(touches, with: event)
     }
     
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        userTableView.delegate = self
-        userTableView.dataSource = self
-        users = DatabaseManager.shared.otherUsers
-        searchTextField.becomeFirstResponder()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "ProfileSeg"){
+            isComplete = false
+            if let nextViewController = segue.destination as? FindPeopleProfileViewController {
+                if(searching){
+                    nextViewController.user = searchingResult[RowSelected!]
+                }else{
+                    nextViewController.user = users[RowSelected!]
+                }
+            }
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if(identifier == "ProfileSeg"){
+            return isComplete
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
     }
 }
