@@ -106,16 +106,14 @@ class DatabaseManager
         }
     }
     
-    // Adds image post to database -- Needs work
+    // Adds image post to database
     public func addPost(post: Post) {
         let id = UUID()
         myPosts.append(post)
-        
         db.collection("posts").document(id.uuidString).setData([
             "caption": post.caption,
             "content": post.content,
             "date": post.date,
-            "postID": id,
             "postType": post.postType,
             "userID": post.userID,
             "vibes": post.vibes,
@@ -224,7 +222,18 @@ class DatabaseManager
         }
     }
     
-    public func uploadImage (image: UIImageView){
+    public func createPost(ImageURL: String, postType: String, caption: String){
+        var content = ""
+        if(postType == "image"){
+            content = ImageURL;
+        }else if(postType == "text"){
+            content = caption;
+        }
+        let post = Post(pid: "", user: self.sharedUser, postType: postType, content: content, vibes: 0, caption:caption)
+        self.addPost(post: post)
+    }
+    
+    public func uploadImage (image: UIImageView, choice: Int){
         var uploadedImageURL: String?
         if let data = image.image!.pngData(){
                 let imageName = NSUUID().uuidString
@@ -244,7 +253,10 @@ class DatabaseManager
                     }
                     print("Image link: \(downloadURL)")
                     uploadedImageURL = downloadURL.absoluteString
-                    self.updateProfileImage(profileURL: uploadedImageURL ?? "")
+                    //used to check if uploading to database as post or updating image
+                    if(choice == 1){
+                        self.updateProfileImage(profileURL: uploadedImageURL ?? "")
+                    }
                   }
             }
         }
