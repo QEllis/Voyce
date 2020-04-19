@@ -89,8 +89,15 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         guard !textView.text.isEmpty else { return }
         guard !imageCaption.text.isEmpty else { return }
         //var post = Post()
-//        DatabaseManager.shared.addPost(post: post)
-        navigationController?.popViewController(animated: true)
+        //it is a text post
+        if(postSegmentedControl.selectedSegmentIndex == 0){
+            let caption = textView.text!
+            DatabaseManager.shared.createPost(ImageURL: "", postType: "text", caption: caption)
+        }else if(postSegmentedControl.selectedSegmentIndex == 1){ // image post
+            //DatabaseManager.shared.uploadPost(image: postImage);
+        }else{ //video post
+            
+        }
     }
     
     @IBAction func backPressed(_ sender: Any) {
