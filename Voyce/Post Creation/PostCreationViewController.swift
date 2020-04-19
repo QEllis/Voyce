@@ -94,7 +94,7 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
             let caption = textView.text!
             DatabaseManager.shared.createPost(ImageURL: "", postType: "text", caption: caption)
         }else if(postSegmentedControl.selectedSegmentIndex == 1){ // image post
-            //DatabaseManager.shared.uploadPost(image: postImage);
+            DatabaseManager.shared.uploadImage(image: postImage, choice: 2, caption: imageCaption.text!);
         }else{ //video post
             
         }

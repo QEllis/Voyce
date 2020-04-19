@@ -233,7 +233,7 @@ class DatabaseManager
         self.addPost(post: post)
     }
     
-    public func uploadImage (image: UIImageView, choice: Int){
+    public func uploadImage (image: UIImageView, choice: Int, caption: String){
         var uploadedImageURL: String?
         if let data = image.image!.pngData(){
                 let imageName = NSUUID().uuidString
@@ -256,6 +256,8 @@ class DatabaseManager
                     //used to check if uploading to database as post or updating image
                     if(choice == 1){
                         self.updateProfileImage(profileURL: uploadedImageURL ?? "")
+                    }else if(choice == 2){ //upload image to database
+                        self.createPost(ImageURL: uploadedImageURL!, postType: "image", caption: caption)
                     }
                   }
             }

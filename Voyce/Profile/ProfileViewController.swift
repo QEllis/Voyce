@@ -133,7 +133,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let newImage = newProfileImage{
             profileImage.image = newImage
         }
-        DatabaseManager.shared.uploadImage(image: profileImage, choice: 1)
+        DatabaseManager.shared.uploadImage(image: profileImage, choice: 1, caption:"")
         dismiss(animated: true, completion: nil)
     }
     private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -148,7 +148,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             profileImage.image = newImage
         }
 
-        DatabaseManager.shared.uploadImage(image: profileImage, choice: 1)
+        DatabaseManager.shared.uploadImage(image: profileImage, choice: 1, caption: "")
         dismiss(animated: true, completion: nil)
     }
     //if we exit picker
