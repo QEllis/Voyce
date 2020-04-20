@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//import Firebase
+import Firebase
 
 class FundsViewController: UIViewController
 {
@@ -20,7 +20,7 @@ class FundsViewController: UIViewController
     @IBOutlet weak var infoSection: UIStackView!
     @IBOutlet weak var errorMessage: UITextView!
     // Please don't remove the functions variable
-//    lazy var functions = Functions.functions()
+    lazy var functions = Functions.functions()
     
     // Pops view controller off the view controller stack
     func removeViewController()
@@ -64,44 +64,44 @@ class FundsViewController: UIViewController
     // Does not consider Dwolla transfer fees
     func sendData(user: DwollaUser)
     {
-//        var dataString = ""
-//        let vibeConverter = VibeConverter()
-//        let dollarValue = vibeConverter.getMoney()
+        var dataString = ""
+        let vibeConverter = VibeConverter()
+        let dollarValue = vibeConverter.getMoney()
         // Initializes the transfer if the value is $0.50 or more
-//        if dollarValue >= 0.5
-//        {
-//            if userHasFundingSource()
-//            {
-//                let fundingSource = getFundingSource()
-//                dataString = "\(fundingSource), \(dollarValue)"
-//            }
-//            else
-//            {
-//                dataString = "\(user.firstName), \(user.lastName), \(user.email), \(user.accountNumber), \(user.routingNumber), \(dollarValue)"
-//            }
-//            functions.httpsCallable("addMessage").call(["text": dataString])
-//            {(result, error) in
-//                // Handles any errors in the communication
-//                if let error = error as NSError?
-//                {
-//                    if error.domain == FunctionsErrorDomain
-//                    {
-//                        let code = FunctionsErrorCode(rawValue: error.code)
-//                        let message = error.localizedDescription
-//                        let details = error.userInfo[FunctionsErrorDetailsKey]
-//                    }
-//                }
-//                // Handles the responses from the server
-//                if let text = (result?.data as? [String: Any])?["text"] as? String
-//                {
-//                    print("This is the output " + text)
-//                }
-//            }
-//        }
-//        else
-//        {
-//            print("Earned vibes have insufficient dollar value to initialize transfer")
-//        }
+        if dollarValue >= 0.5
+        {
+            if userHasFundingSource()
+            {
+                let fundingSource = getFundingSource()
+                dataString = "\(fundingSource), \(dollarValue)"
+            }
+            else
+            {
+                dataString = "\(user.firstName), \(user.lastName), \(user.email), \(user.accountNumber), \(user.routingNumber), \(dollarValue)"
+            }
+            functions.httpsCallable("initTransfer").call(["text": dataString])
+            {(result, error) in
+                // Handles any errors in the communication
+                if let error = error as NSError?
+                {
+                    if error.domain == FunctionsErrorDomain
+                    {
+                        let code = FunctionsErrorCode(rawValue: error.code)
+                        let message = error.localizedDescription
+                        let details = error.userInfo[FunctionsErrorDetailsKey]
+                    }
+                }
+                // Handles the responses from the server
+                if let text = (result?.data as? [String: Any])?["text"] as? String
+                {
+                    print("This is the output " + text)
+                }
+            }
+        }
+        else
+        {
+            print("Earned vibes have insufficient dollar value to initialize transfer")
+        }
     }
     
     // Returns true if the user already has a funding source
@@ -114,12 +114,6 @@ class FundsViewController: UIViewController
     func getFundingSource() -> String
     {
         return DatabaseManager.shared.sharedUser.fundingSource
-    }
-    
-    // Updates the funding source string of the user inside the database
-    func updateFundingSource(fundingSource: String)
-    {
-        DatabaseManager.shared.sharedUser.updateFundingSource(fundingSource: fundingSource)
     }
     
     // Call the methods to transfer funds to bank account

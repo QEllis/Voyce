@@ -37,14 +37,14 @@
                                 <color key="textColor" name="Text - Body"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good vibes: %%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3G-PA-Euf">
-                                <rect key="frame" x="145" y="408" width="124" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total vibes: %%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3G-PA-Euf">
+                                <rect key="frame" x="147.66666666666666" y="408" width="118.99999999999997" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="Text - Body"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="I89-KD-Xag">
-                                <rect key="frame" x="101" y="400.66666666666669" width="36" height="36"/>
+                                <rect key="frame" x="103.66666666666667" y="400.66666666666669" width="36.000000000000014" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="AnK-nU-l11"/>
                                     <constraint firstAttribute="height" constant="36" id="nSd-DI-s2d"/>
@@ -52,11 +52,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9n-Yc-avD">
-                                <rect key="frame" x="86.666666666666686" y="464" width="241" height="32"/>
+                                <rect key="frame" x="80" y="464" width="254" height="32"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" title="Transfer Good Vibes to Bank">
+                                <state key="normal" title="Transfer Earned Vibes to Bank">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -127,7 +127,6 @@
         <!--Funds View Controller-->
         <scene sceneID="4ZT-ZM-RaJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1aI-yC-Avo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="gCl-5A-Eb5" customClass="FundsViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ph1-5k-olS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -310,6 +309,7 @@
                         <outlet property="routingNumber" destination="kBf-uL-DEu" id="UeS-4i-SWj"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1aI-yC-Avo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="913.04347826086962" y="-76.339285714285708"/>
         </scene>

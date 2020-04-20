@@ -18,9 +18,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Member Variables
     private let user = DatabaseManager.shared.sharedUser
     @IBOutlet var tableView: UITableView!
-
-    
-
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var vibesLabel: UILabel!
@@ -39,7 +36,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.username
-        vibesLabel.text = "Good Vibes: \(user.totalVibes)"
+        vibesLabel.text = "Total Vibes: \(user.totalVibes)"
         
         profileImage.image = URLToImg(URL(string: user.profilePic))
         profileImage.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +60,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("\(DatabaseManager.shared.sharedUser.totalVibes)")
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.username
-        vibesLabel.text = "Good Vibes: \(user.totalVibes)"
+        vibesLabel.text = "Total Vibes: \(user.totalVibes)"
         print(usernameLabel.text ?? "none")
         print(vibesLabel.text ?? "none")
         print("users'ad vibes are \(DatabaseManager.shared.sharedUser.adVibes)")

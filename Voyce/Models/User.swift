@@ -194,13 +194,22 @@ public class User
         sharedRef.updateData(["profilePic": profilePic])
     }
     
-    func updateFundingSource(fundingSource: String)
+    // Returns updates the funding source inside the user class
+    func updateFundingSource()
     {
-        self.fundingSource = fundingSource
-        let sharedRef = DatabaseManager.shared.db.collection("users").document(userID)
-        sharedRef.updateData(["fundingSource": fundingSource])
+        let docRef = DatabaseManager.shared.db.collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists
+            {
+                self.fundingSource = document.get("fundingSource") as! String
+                print("Funding: \(self.fundingSource)")
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
+    // Ruturns true if the user class contains a funding source
     func hasFundingSource() -> Bool
     {
         return self.fundingSource != ""

@@ -14,7 +14,7 @@ class FindPeopleProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var goodvibesLabel: UILabel!
+    @IBOutlet weak var totalVibesLabel: UILabel!
     
     var user: User?
     override func viewDidLoad() {
@@ -23,8 +23,7 @@ class FindPeopleProfileViewController: UIViewController {
         profileImage.image = URLToImg(URL(string: user!.profilePic))
         nameLabel.text = user?.name
         usernameLabel.text = "@\(user!.username)"
-        goodvibesLabel.text = "Goodvibes total: \(user!.totalVibes)"
-
+        totalVibesLabel.text = "Total Vibes: \(user!.totalVibes)"
     }
     
     func URLToImg(_ url: URL?) -> UIImage?{

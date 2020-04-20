@@ -213,7 +213,6 @@ class DatabaseManager
                             let earnedVibes = document.get("earnedVibes") as! Int
                             let totalVibes = document.get("totalVibes") as! Int
                             let profilePic = document.get("profilePic") as! String
-                            
                             let user = User(userID: uid, name: name, username: username, adVibes: adVibes, earnedVibes: earnedVibes, totalVibes: totalVibes, profilePic: profilePic)
                             self.otherUsers.append(user)
                         }
