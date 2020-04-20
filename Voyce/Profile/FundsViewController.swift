@@ -111,7 +111,7 @@ class FundsViewController: UIViewController
         }
         else
         {
-            self.messageTextField.text = "Earned vibes have insufficient dollar value to initialize transfer"
+            self.messageTextField.text = "Earned vibes have insufficient dollar value to initialize transfer."
             self.messageTextField.setNeedsDisplay()
         }
     }
