@@ -18,7 +18,8 @@ class FundsViewController: UIViewController
     @IBOutlet weak var accountNumber: UITextField!
     @IBOutlet weak var routingNumber: UITextField!
     @IBOutlet weak var infoSection: UIStackView!
-    @IBOutlet weak var errorMessage: UITextView!
+    @IBOutlet weak var messageTextField: UITextView!
+    
     // Please don't remove the functions variable
     lazy var functions = Functions.functions()
     
@@ -54,6 +55,8 @@ class FundsViewController: UIViewController
         }
         if firstName.isEmpty || lastName.isEmpty || email.isEmpty || accountNumber.isEmpty || routingNumber.isEmpty
         {
+            messageTextField.text = "Please enter valid information in all text fields."
+            self.messageTextField.setNeedsDisplay()
             return nil
         }
         return DwollaUser(firstName, lastName, email, accountNumber, routingNumber)
@@ -89,18 +92,27 @@ class FundsViewController: UIViewController
                         let code = FunctionsErrorCode(rawValue: error.code)
                         let message = error.localizedDescription
                         let details = error.userInfo[FunctionsErrorDetailsKey]
+                        self.messageTextField.text = message
+                        self.messageTextField.setNeedsDisplay()
                     }
                 }
                 // Handles the responses from the server
                 if let text = (result?.data as? [String: Any])?["text"] as? String
                 {
-                    print("This is the output " + text)
+                    self.messageTextField.text = text
+                    self.messageTextField.setNeedsDisplay()
+                    self.updateFundingSource()
+                    let seconds = 4.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                         self.removeViewController()
+                    }
                 }
             }
         }
         else
         {
-            print("Earned vibes have insufficient dollar value to initialize transfer")
+            self.messageTextField.text = "Earned vibes have insufficient dollar value to initialize transfer"
+            self.messageTextField.setNeedsDisplay()
         }
     }
     
@@ -116,6 +128,12 @@ class FundsViewController: UIViewController
         return DatabaseManager.shared.sharedUser.fundingSource
     }
     
+    // Updates the funding source in the user class
+    func updateFundingSource()
+    {
+        DatabaseManager.shared.sharedUser.updateFundingSource()
+    }
+    
     // Call the methods to transfer funds to bank account
     @IBAction func transferFunds(_ sender: UIButton)
     {
@@ -126,13 +144,11 @@ class FundsViewController: UIViewController
                 return
             }
             sendData(user: dwollaUser)
-            removeViewController()
         }
         // No info needed from user since we have funding source
         else
         {
             sendData(user: DwollaUser("","","","",""))
-            removeViewController()
         }
     }
     
@@ -144,6 +160,6 @@ class FundsViewController: UIViewController
         {
             infoSection.removeFromSuperview()
         }
-        errorMessage.isEditable = false
+        messageTextField.isEditable = false
     }
 }

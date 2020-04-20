@@ -272,14 +272,14 @@
                                     <action selector="transferFunds:" destination="gCl-5A-Eb5" eventType="touchUpInside" id="6A3-zj-0tD"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ioR-wx-PXk" userLabel="Error Message">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioR-wx-PXk" userLabel="Message">
                                 <rect key="frame" x="15" y="530.66666666666663" width="384" height="220.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="V8P-Rj-EUZ"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -302,10 +302,10 @@
                     <connections>
                         <outlet property="accountNumber" destination="TQZ-Tg-SC2" id="ZgH-Jq-624"/>
                         <outlet property="email" destination="Iaq-DA-hru" id="oqq-pi-gV8"/>
-                        <outlet property="errorMessage" destination="ioR-wx-PXk" id="mqo-wu-xta"/>
                         <outlet property="firstName" destination="5Rs-Z5-dkf" id="LRG-Wy-672"/>
                         <outlet property="infoSection" destination="JrU-v0-hbW" id="UwC-Y3-4mr"/>
                         <outlet property="lastName" destination="Tla-BX-Vi8" id="njr-Ez-3CX"/>
+                        <outlet property="messageTextField" destination="ioR-wx-PXk" id="voM-ma-gXM"/>
                         <outlet property="routingNumber" destination="kBf-uL-DEu" id="UeS-4i-SWj"/>
                     </connections>
                 </viewController>
