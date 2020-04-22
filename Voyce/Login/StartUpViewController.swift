@@ -22,8 +22,8 @@ class StartUpViewController: UIViewController, FUIAuthDelegate {
         /// If user is signed in, navigate them to the feed.
         if isUserSignedIn()
         {
+            // Loads data and navigates to feed
             loadData()
-//            navigateToFeed()
         }
         else
         {

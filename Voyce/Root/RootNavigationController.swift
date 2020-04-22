@@ -25,5 +25,6 @@ class RootNavigationController: UINavigationController
         guard let loginNav = UIStoryboard(name: "Login", bundle: nil)
             .instantiateInitialViewController() as? StartUpViewController else { return }
         viewControllers = [loginNav]
+        self.navigationController?.pushViewController(loginNav, animated: true)
     }
 }

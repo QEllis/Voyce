@@ -108,7 +108,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         /// Redirect user back to login.
         let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
-        self.navigationController?.pushViewController(vc, animated: true)
+        view.window?.rootViewController = vc
     }
     
     //handles loading images into profile UIView
