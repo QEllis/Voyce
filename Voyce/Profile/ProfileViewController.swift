@@ -106,9 +106,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             print ("Error signing out: \(error)")
         }
         
-        /// Redirect user back to login.
-        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
-        view.window?.rootViewController = vc
+        /// Redirect user back to the root view controller
+        let rootVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "RootVC")
+        view.window?.rootViewController = rootVC
     }
     
     //handles loading images into profile UIView
