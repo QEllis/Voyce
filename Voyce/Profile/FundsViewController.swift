@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class FundsViewController: UIViewController
+class FundsViewController: UIViewController, UITextFieldDelegate
 {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -151,6 +151,58 @@ class FundsViewController: UIViewController
             sendData(user: DwollaUser("","","","",""))
         }
     }
+    
+    override func viewDidLoad() {
+        firstName.becomeFirstResponder()
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        switch textField{
+        case firstName:
+            firstName.resignFirstResponder()
+            lastName.becomeFirstResponder()
+        case lastName:
+            lastName.resignFirstResponder()
+            email.becomeFirstResponder()
+        case email:
+            email.resignFirstResponder()
+            accountNumber.becomeFirstResponder()
+        case accountNumber:
+            accountNumber.resignFirstResponder()
+            routingNumber.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
+    @IBAction func removeKeyboard(_ sender: UIButton)
+    {
+        if firstName.isFirstResponder
+        {
+            firstName.resignFirstResponder()
+        }
+        else if lastName.isFirstResponder
+        {
+            lastName.resignFirstResponder()
+        }
+        else if email.isFirstResponder
+        {
+            email.resignFirstResponder()
+        }
+        else if accountNumber.isFirstResponder
+        {
+            accountNumber.resignFirstResponder()
+        }
+        else
+        {
+            routingNumber.resignFirstResponder()
+        }
+    }
+    
     
     // Reloads any methods when the view appears
     override func viewWillAppear(_ animated: Bool)
