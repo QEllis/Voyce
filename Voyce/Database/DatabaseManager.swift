@@ -233,6 +233,7 @@ class DatabaseManager
         let post = Post(pid: "", user: self.sharedUser, postType: postType, content: content, vibes: 0, caption:caption)
         self.addPost(post: post)
     }
+    
     public func uploadVideo(videoURL: URL, caption: String){
         let fileName = NSUUID().uuidString + ".mov"
         // Data in memory
@@ -257,6 +258,7 @@ class DatabaseManager
           }
         }
     }
+    
     public func uploadImage (image: UIImageView, choice: Int, caption: String){
         var uploadedImageURL: String?
         if let data = image.image!.pngData(){

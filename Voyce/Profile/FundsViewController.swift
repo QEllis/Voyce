@@ -156,6 +156,7 @@ class FundsViewController: UIViewController
     override func viewWillAppear(_ animated: Bool)
     {
         DatabaseManager.shared.setVibeConversionRate()
+        DatabaseManager.shared.sharedUser.updateEarnedVibes()
         if userHasFundingSource()
         {
             infoSection.removeFromSuperview()
