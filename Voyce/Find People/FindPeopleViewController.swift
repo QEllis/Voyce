@@ -13,7 +13,6 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
 {
     // Member Variables
     @IBOutlet weak var userTableView: UITableView!
-    @IBOutlet weak var searchTextField: UITextField!
     
     var users: [User] = []
     var isComplete:Bool = false
@@ -29,7 +28,16 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         userTableView.delegate = self
         userTableView.dataSource = self
         users = DatabaseManager.shared.otherUsers
-        //searchTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // Member Functions
@@ -48,6 +56,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         RowSelected = indexPath.row
         isComplete = true
         print(RowSelected!)
+        searchBar.resignFirstResponder()
         self.performSegue(withIdentifier: "ProfileSeg", sender: self)
     }
     
@@ -108,14 +117,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     {
         return 50.0
     }
-    /*
-    // Preforms an action when the user selects a given cell
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        searchTextField.resignFirstResponder()
-        userTableView.deselectRow(at: indexPath, animated: true)
-    }
-    */
+    
     // Changes the shape of each profile image into a circle
     func circularImg(imageView: UIImageView?)
     {
@@ -137,9 +139,9 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         let touch = touches.first
-        if searchTextField.isFirstResponder && touch?.view != searchTextField
+        if searchBar.isFirstResponder && touch?.view != searchBar
         {
-           searchTextField.resignFirstResponder()
+           searchBar.resignFirstResponder()
         }
         super.touchesBegan(touches, with: event)
     }
@@ -164,7 +166,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.resignFirstResponder()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
