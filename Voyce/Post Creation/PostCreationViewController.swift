@@ -168,12 +168,12 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         
         var newProfileImage: UIImage?
         print("Image Upload Clicked")
-        if let editedImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
+        if let editedImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             newProfileImage = editedImage
-        } else if let original = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage{
+        } else if let original = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             newProfileImage = original
         }
-        if let newImage = newProfileImage{
+        if let newImage = newProfileImage {
             postImage.image = newImage
         }
         dismiss(animated: true, completion: nil)
