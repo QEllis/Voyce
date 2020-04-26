@@ -11,6 +11,7 @@ import AVFoundation
 
 class PostCreationViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet var card: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var imageCaption: UITextView!
@@ -33,6 +34,12 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         textView.isHidden = false
         textView.delegate = self
         imageCaption.delegate = self
+        
+        // Set border color and size of Card
+        card.layer.borderWidth = 1
+        card.layer.borderColor = UIColor.init(red: 170/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+        card.layer.cornerRadius = 50
+        postImage.layer.cornerRadius = 50
     }
     
     // Removes text field when the background is touched
@@ -109,13 +116,13 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         
         //var post = Post()
         //it is a text post
-        if(postSegmentedControl.selectedSegmentIndex == 0){
+        if (postSegmentedControl.selectedSegmentIndex == 0) {
             let caption = textView.text!
             DatabaseManager.shared.createPost(contentURL: "", postType: "text", caption: caption)
-        }else if(postSegmentedControl.selectedSegmentIndex == 1){ // image post
+        } else if (postSegmentedControl.selectedSegmentIndex == 1) { // image post
             DatabaseManager.shared.uploadImage(image: postImage, choice: 2, caption: imageCaption.text!);
-        }else{ //video post
-            if let video = videoToUpload{
+        } else { //video post
+            if let video = videoToUpload {
                 DatabaseManager.shared.uploadVideo(videoURL: videoToUpload!, caption: imageCaption.text!)
             }
         }
