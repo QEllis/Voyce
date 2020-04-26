@@ -68,15 +68,14 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let userRow = userTableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! UserCell
         //if searching then retunr the results
-        if(searching){
+        if (searching) {
             userRow.name?.text = searchingResult[indexPath.row].name
             userRow.username?.text = searchingResult[indexPath.row].username
             userRow.profileImage?.image = URLToImg(URL(string: searchingResult[indexPath.row].profilePic))
             circularImg(imageView: userRow.profileImage.self)
             userRow.selectionStyle = UITableViewCell.SelectionStyle.none
             
-        }else{
-
+        } else {
             userRow.name?.text = users[indexPath.row].name
             userRow.username?.text = users[indexPath.row].username
             userRow.profileImage?.image = URLToImg(URL(string: users[indexPath.row].profilePic))
@@ -101,7 +100,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
                 searchR = ""
             }
             searchingResult = users.filter({$0.username.lowercased().contains( searchR.lowercased()) })
-        }else{
+        } else {
                     searchingResult = users.filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
         }
     

@@ -91,6 +91,7 @@ class Card: UIView
                         
                         if first {
                             DatabaseManager.shared.loadComments(postID: postID)
+                            self.playVideo()
                             feed.addCard(first: false)
                         }
                         feed.view.insertSubview(self, at: feed.view.subviews.count - (first ? 0 : 1))
