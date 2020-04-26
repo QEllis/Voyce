@@ -51,8 +51,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         profileImage?.layer.cornerRadius = (profileImage?.frame.height ?? 40.0)/2.0
         
         transferVibes.layer.borderWidth = 1
-        transferVibes.layer.borderColor = UIColor(named: "Text - Body")?.cgColor
         transferVibes.layer.cornerRadius = 15
+        transferVibes.layer.borderColor = UIColor(named: "Text - Body")?.cgColor
         
         adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
     }

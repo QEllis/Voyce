@@ -103,7 +103,7 @@
                                         <rect key="frame" x="119.66666666666669" y="0.0" width="175" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="DEZ-rN-ooX">
-                                                <rect key="frame" x="-253.66666666666669" y="0.0" width="682" height="50"/>
+                                                <rect key="frame" x="-424.66666666666669" y="0.0" width="1024" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="AU5-Da-nO0"/>
                                                 </constraints>
@@ -196,7 +196,7 @@
             </objects>
             <point key="canvasLocation" x="-17.39130434782609" y="-76.339285714285708"/>
         </scene>
-        <!--Funds View Controller-->
+        <!--Transfer Earned Vibes-->
         <scene sceneID="4ZT-ZM-RaJ">
             <objects>
                 <viewController id="gCl-5A-Eb5" customClass="FundsViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
@@ -367,11 +367,11 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioR-wx-PXk" userLabel="Message">
                                 <rect key="frame" x="15" y="442.66666666666657" width="384" height="220.33333333333331"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="V8P-Rj-EUZ"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" name="Red"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -395,7 +395,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B9I-2d-syF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kyT-Nh-svZ"/>
+                    <navigationItem key="navigationItem" title="Transfer Earned Vibes" id="kyT-Nh-svZ"/>
                     <connections>
                         <outlet property="accountNumber" destination="TQZ-Tg-SC2" id="ZgH-Jq-624"/>
                         <outlet property="email" destination="Iaq-DA-hru" id="oqq-pi-gV8"/>
