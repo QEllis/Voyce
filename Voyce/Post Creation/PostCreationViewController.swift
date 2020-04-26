@@ -34,7 +34,7 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         imageCaption.layer.borderColor = UIColor.white.cgColor
         imageCaption.textColor = UIColor.lightGray
         postImage.isHidden = true
-        imageCaption.isHidden = true
+//        imageCaption.isHidden = true
         textView.isHidden = false
         textView.delegate = self
         imageCaption.delegate = self

@@ -10,7 +10,6 @@ import UIKit
 
 class FindPeopleProfileViewController: UIViewController {
 
-
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -19,14 +18,16 @@ class FindPeopleProfileViewController: UIViewController {
     var user: User?
     override func viewDidLoad() {
         super.viewDidLoad()
-        //load the info of the user
+        
+        /// Load the info of the user.
         profileImage.image = URLToImg(URL(string: user!.profilePic))
         nameLabel.text = user?.name
         usernameLabel.text = "@\(user!.username)"
+        self.navigationItem.title = user?.name
         totalVibesLabel.text = "Total Vibes: \(user!.totalVibes)"
     }
     
-    func URLToImg(_ url: URL?) -> UIImage?{
+    func URLToImg(_ url: URL?) -> UIImage? {
         guard let imageURL = url else{
             return nil
         }

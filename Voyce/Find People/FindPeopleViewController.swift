@@ -22,12 +22,16 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     var searchingResult:[User] = []
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet var adVibes: UILabel!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         userTableView.delegate = self
         userTableView.dataSource = self
         users = DatabaseManager.shared.otherUsers
+        
+        adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
     }
     
     override func viewWillAppear(_ animated: Bool) {

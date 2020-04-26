@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r1c-IF-tLO">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r1c-IF-tLO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,10 +13,18 @@
         <scene sceneID="0Bx-fC-L1Y">
             <objects>
                 <navigationController storyboardIdentifier="FindPeopleVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r1c-IF-tLO" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uXq-aS-Zij">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="uXq-aS-Zij">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="Background"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="Background"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="Text - Body"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="Background"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="cO6-jo-RAB" kind="relationship" relationship="rootViewController" id="VoS-2U-lU8"/>
@@ -31,11 +39,11 @@
             <objects>
                 <viewController id="cO6-jo-RAB" customClass="FindPeopleViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UQR-QB-GVG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sLw-pJ-rzb">
-                                <rect key="frame" x="10" y="204" width="394" height="638"/>
+                                <rect key="frame" x="10" y="116" width="394" height="638"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="50" id="B1M-R3-kXO" customClass="UserCell" customModule="Voyce" customModuleProvider="target">
@@ -97,38 +105,98 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="sa4-PX-A5c">
-                                <rect key="frame" x="-49" y="88" width="512" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="QU7-mT-fRA"/>
-                                </constraints>
-                            </imageView>
-                            <searchBar contentMode="redraw" placeholder="Search for users..." translatesAutoresizingMaskIntoConstraints="NO" id="wzX-NB-fsQ">
-                                <rect key="frame" x="0.0" y="138" width="414" height="56"/>
+                            <searchBar contentMode="redraw" placeholder="Search for users..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzX-NB-fsQ">
+                                <rect key="frame" x="0.0" y="50" width="414" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" name="Background"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="cO6-jo-RAB" id="2tm-rF-00z"/>
                                 </connections>
                             </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-nI-wFp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbg-mL-pII">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="7Kt-cD-w3L">
+                                                <rect key="frame" x="15" y="12.5" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="LwD-fF-Ioa"/>
+                                                    <constraint firstAttribute="width" constant="25" id="XnD-9r-Hss"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa4-Uv-gdT">
+                                                <rect key="frame" x="50" y="0.0" width="69.5" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Fa4-Uv-gdT" secondAttribute="bottom" id="BSV-Tj-a8S"/>
+                                            <constraint firstItem="Fa4-Uv-gdT" firstAttribute="leading" secondItem="7Kt-cD-w3L" secondAttribute="trailing" constant="10" id="Mk5-e6-ikG"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fa4-Uv-gdT" secondAttribute="trailing" id="PV1-JJ-M8Q"/>
+                                            <constraint firstItem="7Kt-cD-w3L" firstAttribute="leading" secondItem="Bbg-mL-pII" secondAttribute="leading" constant="15" id="cyi-eC-8nk"/>
+                                            <constraint firstItem="7Kt-cD-w3L" firstAttribute="centerY" secondItem="Bbg-mL-pII" secondAttribute="centerY" id="gOA-0a-Ac5"/>
+                                            <constraint firstItem="Fa4-Uv-gdT" firstAttribute="top" secondItem="Bbg-mL-pII" secondAttribute="top" id="xFo-q7-10d"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJ0-OO-JIy">
+                                        <rect key="frame" x="119.5" y="0.0" width="175" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="sa4-PX-A5c">
+                                                <rect key="frame" x="-424.5" y="0.0" width="1024" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="sbW-kj-A8E"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="sa4-PX-A5c" firstAttribute="centerX" secondItem="nJ0-OO-JIy" secondAttribute="centerX" id="QAa-S8-7VL"/>
+                                            <constraint firstAttribute="width" constant="175" id="VID-kC-Hgc"/>
+                                            <constraint firstItem="sa4-PX-A5c" firstAttribute="centerY" secondItem="nJ0-OO-JIy" secondAttribute="centerY" id="h0b-IH-kR6"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3c-Vz-jl6">
+                                        <rect key="frame" x="294.5" y="0.0" width="119.5" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Bbg-mL-pII" firstAttribute="width" secondItem="c3c-Vz-jl6" secondAttribute="width" id="Jtr-PX-b1g"/>
+                                    <constraint firstAttribute="height" constant="50" id="wEM-t1-gS2"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="sLw-pJ-rzb" firstAttribute="leading" secondItem="8HT-0z-UzK" secondAttribute="leading" constant="10" id="4bA-Yn-bhm"/>
+                            <constraint firstItem="wzX-NB-fsQ" firstAttribute="top" secondItem="MDy-nI-wFp" secondAttribute="bottom" id="8GZ-1V-oDU"/>
                             <constraint firstItem="sLw-pJ-rzb" firstAttribute="centerX" secondItem="UQR-QB-GVG" secondAttribute="centerX" id="919-rK-FyL"/>
+                            <constraint firstItem="MDy-nI-wFp" firstAttribute="top" secondItem="8HT-0z-UzK" secondAttribute="top" id="Cjg-AW-WFv"/>
                             <constraint firstItem="wzX-NB-fsQ" firstAttribute="trailing" secondItem="8HT-0z-UzK" secondAttribute="trailing" id="Cjq-X6-Gnh"/>
                             <constraint firstItem="sLw-pJ-rzb" firstAttribute="top" secondItem="wzX-NB-fsQ" secondAttribute="bottom" constant="10" id="FqD-j9-lv5"/>
-                            <constraint firstItem="sLw-pJ-rzb" firstAttribute="top" secondItem="wzX-NB-fsQ" secondAttribute="bottom" constant="10" id="Rvn-ZI-yUI"/>
+                            <constraint firstItem="8HT-0z-UzK" firstAttribute="trailing" secondItem="MDy-nI-wFp" secondAttribute="trailing" id="IAq-mV-PL3"/>
+                            <constraint firstItem="MDy-nI-wFp" firstAttribute="leading" secondItem="8HT-0z-UzK" secondAttribute="leading" id="SaV-Y7-cfn"/>
                             <constraint firstItem="8HT-0z-UzK" firstAttribute="trailing" secondItem="sLw-pJ-rzb" secondAttribute="trailing" constant="10" id="aM0-rh-ctA"/>
                             <constraint firstItem="wzX-NB-fsQ" firstAttribute="leading" secondItem="8HT-0z-UzK" secondAttribute="leading" id="dfQ-AR-Rvb"/>
-                            <constraint firstItem="wzX-NB-fsQ" firstAttribute="top" secondItem="sa4-PX-A5c" secondAttribute="bottom" id="jRb-0D-CXh"/>
-                            <constraint firstItem="sa4-PX-A5c" firstAttribute="centerX" secondItem="UQR-QB-GVG" secondAttribute="centerX" id="lDX-w9-aOB"/>
-                            <constraint firstItem="sa4-PX-A5c" firstAttribute="top" secondItem="8HT-0z-UzK" secondAttribute="top" id="ttz-Ic-y5N"/>
                             <constraint firstItem="8HT-0z-UzK" firstAttribute="bottom" secondItem="sLw-pJ-rzb" secondAttribute="bottom" constant="20" id="uMm-Br-lMQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8HT-0z-UzK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Woi-7a-a32"/>
+                    <navigationItem key="navigationItem" id="Woi-7a-a32">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ujA-U0-mHt">
+                            <color key="tintColor" name="Text - Body"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="adVibes" destination="Fa4-Uv-gdT" id="chZ-y0-tp7"/>
                         <outlet property="searchBar" destination="wzX-NB-fsQ" id="6VQ-3C-MP0"/>
                         <outlet property="userTableView" destination="sLw-pJ-rzb" id="HCT-kq-dGL"/>
                     </connections>
@@ -142,11 +210,11 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileVC" id="Zyj-vY-GU3" userLabel="ProfileVC" customClass="FindPeopleProfileViewController" customModule="Voyce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="doz-EY-iOG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="3vD-Oh-lI8" customClass="ProfileViewController">
-                                <rect key="frame" x="107" y="108" width="200" height="200"/>
+                                <rect key="frame" x="107" y="20" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="8lU-aY-eqO"/>
                                     <constraint firstAttribute="height" constant="200" id="TXC-wf-99U"/>
@@ -154,25 +222,25 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Last" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDV-W9-uAH">
-                                <rect key="frame" x="157.5" y="333" width="99" height="30"/>
+                                <rect key="frame" x="157.5" y="245" width="99" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" name="Text - Body"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdY-HD-0a3">
-                                <rect key="frame" x="161" y="371" width="92" height="21"/>
+                                <rect key="frame" x="161" y="283" width="92" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="Text - Body"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total vibes: %%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ej-ed-Q6b" userLabel="Total Vibes Label">
-                                <rect key="frame" x="147.5" y="408" width="119" height="21"/>
+                                <rect key="frame" x="147.5" y="320" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="Text - Body"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="FBc-4s-u5q">
-                                <rect key="frame" x="103.5" y="400.5" width="36" height="36"/>
+                                <rect key="frame" x="103.5" y="312.5" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="BHf-ih-LaR"/>
                                     <constraint firstAttribute="width" secondItem="FBc-4s-u5q" secondAttribute="height" multiplier="1:1" id="HxT-bR-Xaf"/>
@@ -196,11 +264,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mbg-xk-yrL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7rU-UT-Nq2">
-                        <barButtonItem key="backBarButtonItem" title="Back" image="backArrow" landscapeImage="backArrow" largeContentSizeImage="backArrow" id="dqq-b9-rW5">
-                            <color key="tintColor" name="Text - Body"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="7rU-UT-Nq2"/>
                     <connections>
                         <outlet property="nameLabel" destination="fDV-W9-uAH" id="Oxd-5g-oFJ"/>
                         <outlet property="profileImage" destination="3vD-Oh-lI8" id="xBe-Jc-leG"/>
@@ -217,9 +281,14 @@
         <image name="Logo" width="512" height="128"/>
         <image name="Profile" width="128" height="128"/>
         <image name="Wand" width="128" height="128"/>
-        <image name="backArrow" width="12" height="19"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text - Body">
+            <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text - Body">
             <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

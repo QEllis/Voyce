@@ -23,6 +23,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var vibesLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet var adVibes: UILabel!
+    @IBOutlet var transferVibes: UIButton!
+    
     var followed: Bool = false
     
     // Member Functions
@@ -46,12 +49,28 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         //profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         //profileImage.clipsToBounds = true
         profileImage?.layer.cornerRadius = (profileImage?.frame.height ?? 40.0)/2.0
+        
+        transferVibes.layer.borderWidth = 1
+        transferVibes.layer.borderColor = UIColor(named: "Text - Body")?.cgColor
+        transferVibes.layer.cornerRadius = 15
+        
+        adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         loadTextFields()
         tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func loadTextFields()
@@ -112,7 +131,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     //handles loading images into profile UIView
-    @objc func handleImageClick(){
+    @objc func handleImageClick() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
