@@ -16,10 +16,10 @@ import FirebaseFirestoreSwift
 
 class DatabaseManager
 {
-    static let shared = DatabaseManager()
+    static var shared = DatabaseManager()
     var sharedUser: User
     var db: Firestore
-    let storage: Storage
+    var storage: Storage
     var otherUsers: [User]
     var index: Int
     var vibeConversionRate: Double

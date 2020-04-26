@@ -21,6 +21,7 @@ class FindPeopleProfileViewController: UIViewController {
         
         /// Load the info of the user.
         profileImage.image = URLToImg(URL(string: user!.profilePic))
+        profileImage.layer.cornerRadius = (profileImage?.frame.height ?? 40.0)/2.0
         nameLabel.text = user?.name
         usernameLabel.text = "@\(user!.username)"
         self.navigationItem.title = user?.name

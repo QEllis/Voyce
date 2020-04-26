@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-private let userManager = DatabaseManager.shared
+
 @available(iOS 13.0, *)
 class RootNavigationController: UINavigationController
 {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        resetData()
         routeUser()
     }
     
@@ -26,5 +27,11 @@ class RootNavigationController: UINavigationController
             .instantiateInitialViewController() as? StartUpViewController else { return }
         viewControllers = [loginNav]
         self.navigationController?.pushViewController(loginNav, animated: true)
+    }
+    
+    // Resets the singleton object when the user signs out of the app and signs in again
+    private func resetData()
+    {
+        DatabaseManager.shared = DatabaseManager()
     }
 }
