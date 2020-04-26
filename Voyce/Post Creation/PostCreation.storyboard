@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -91,7 +91,30 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueV-wV-Hyq">
                                         <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wand" translatesAutoresizingMaskIntoConstraints="NO" id="iyi-iD-Db6">
+                                                <rect key="frame" x="15" y="12.666666666666664" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="S5j-2b-5vb"/>
+                                                    <constraint firstAttribute="width" constant="25" id="XGx-fm-uDb"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkF-ez-jeY">
+                                                <rect key="frame" x="50.000000000000007" y="0.0" width="69.666666666666686" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="NkF-ez-jeY" firstAttribute="leading" secondItem="iyi-iD-Db6" secondAttribute="trailing" constant="10" id="3jR-3W-yot"/>
+                                            <constraint firstItem="iyi-iD-Db6" firstAttribute="centerY" secondItem="ueV-wV-Hyq" secondAttribute="centerY" id="8EX-Tu-j7I"/>
+                                            <constraint firstAttribute="bottom" secondItem="NkF-ez-jeY" secondAttribute="bottom" id="B4O-BO-79n"/>
+                                            <constraint firstItem="iyi-iD-Db6" firstAttribute="leading" secondItem="ueV-wV-Hyq" secondAttribute="leading" constant="15" id="U7J-l3-J15"/>
+                                            <constraint firstItem="NkF-ez-jeY" firstAttribute="top" secondItem="ueV-wV-Hyq" secondAttribute="top" id="dmk-aN-MhI"/>
+                                            <constraint firstAttribute="trailing" secondItem="NkF-ez-jeY" secondAttribute="trailing" id="xjG-uu-XKS"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMs-vm-5TS">
                                         <rect key="frame" x="119.66666666666669" y="0.0" width="175" height="50"/>
@@ -135,6 +158,7 @@
                         <viewLayoutGuide key="safeArea" id="Mb8-zs-1zU"/>
                     </view>
                     <connections>
+                        <outlet property="adVibes" destination="NkF-ez-jeY" id="tah-aJ-2xD"/>
                         <outlet property="card" destination="ygM-30-qSH" id="KaU-Mz-O3q"/>
                         <outlet property="imageCaption" destination="gYL-lD-qYy" id="jdb-gC-421"/>
                         <outlet property="postImage" destination="RF1-cg-ARJ" id="hI8-XV-ep3"/>
@@ -149,6 +173,7 @@
     </scenes>
     <resources>
         <image name="Logo" width="341.33334350585938" height="85.333335876464844"/>
+        <image name="Wand" width="170.66667175292969" height="170.66667175292969"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

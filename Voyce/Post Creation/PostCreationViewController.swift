@@ -11,16 +11,20 @@ import AVFoundation
 
 class PostCreationViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet var adVibes: UILabel!
     @IBOutlet var card: UIView!
+    
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var imageCaption: UITextView!
     @IBOutlet weak var postSegmentedControl: UISegmentedControl!
     
-    var videoToUpload:URL?
+    var videoToUpload: URL?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         textView.layer.cornerRadius = 5
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.white.cgColor
@@ -40,6 +44,8 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         card.layer.borderColor = UIColor.init(red: 170/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
         card.layer.cornerRadius = 50
         postImage.layer.cornerRadius = 50
+        
+        adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
     }
     
     // Removes text field when the background is touched
