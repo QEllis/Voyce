@@ -126,11 +126,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         /// Redirect user back to the root view controller
-//        DatabaseManager.shared.resetInfo()
-        print("myPosts: \(DatabaseManager.shared.myPosts)")
-        print("OtherUsers: \(DatabaseManager.shared.otherUsers)")
-        
-        
         let rootVC = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "RootVC")
         view.window?.rootViewController = rootVC
     }
