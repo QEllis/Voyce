@@ -24,14 +24,15 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghZ-EZ-sqa">
-                                <rect key="frame" x="112" y="431.5" width="190" height="33"/>
-                                <color key="backgroundColor" name="Text - Body"/>
+                                <rect key="frame" x="107" y="428" width="200" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="X68-Hy-cnp"/>
+                                    <constraint firstAttribute="width" constant="200" id="7Rb-4M-5XR"/>
+                                    <constraint firstAttribute="height" constant="40" id="cbG-wG-Av9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Login/Create Account">
-                                    <color key="titleColor" name="Text - Post"/>
+                                    <color key="titleColor" name="Text - Body"/>
                                 </state>
                                 <state key="disabled">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,6 +64,9 @@
                         <viewLayoutGuide key="safeArea" id="vKr-Og-8yu"/>
                     </view>
                     <navigationItem key="navigationItem" id="t5n-Mb-mku"/>
+                    <connections>
+                        <outlet property="signInButton" destination="ghZ-EZ-sqa" id="wGQ-uy-hSC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2OD-L7-KuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,9 +107,6 @@
         </namedColor>
         <namedColor name="Text - Body">
             <color red="0.10999999940395355" green="0.10999999940395355" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Text - Post">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

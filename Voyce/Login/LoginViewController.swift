@@ -13,10 +13,12 @@ import FirebaseUI
 
 private let userManager = DatabaseManager.shared
 
-class LoginViewController: UIViewController, FUIAuthDelegate
-{
+class LoginViewController: UIViewController, FUIAuthDelegate {
     let authUI: FUIAuth? = FUIAuth.defaultAuthUI()
     let currentUser = Auth.auth().currentUser
+    
+    @IBOutlet var signInButton: UIButton!
+
     override func viewDidLoad()
     {
         // You need to adopt a FUIAuthDelegate protocol to receive callback
@@ -25,6 +27,10 @@ class LoginViewController: UIViewController, FUIAuthDelegate
         //authUI?.FacebookAutoLogAppEventsEnabled = false;
         let providers: [FUIAuthProvider] = [FUIGoogleAuth()]
         authUI?.providers = providers
+        
+        signInButton.layer.borderWidth = 1
+        signInButton.layer.cornerRadius = 15
+        signInButton.layer.borderColor = UIColor(named: "Text - Body")?.cgColor
     }
     
     override func viewDidAppear(_ animated: Bool)

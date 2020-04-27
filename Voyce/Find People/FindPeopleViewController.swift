@@ -15,11 +15,11 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var userTableView: UITableView!
     
     var users: [User] = []
-    var isComplete:Bool = false
-    var RowSelected:Int?
+    var isComplete: Bool = false
+    var RowSelected: Int?
     
-    var searching: Bool = false;
-    var searchingResult:[User] = []
+    var searching: Bool = false
+    var searchingResult: [User] = []
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet var adVibes: UILabel!
@@ -46,20 +46,17 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     
     // Member Functions
     // Sets the number of table row cells
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
-        if(searching){
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(searching) {
             return searchingResult.count
-        }else{
+        } else {
             return users.count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         RowSelected = indexPath.row
         isComplete = true
-        print(RowSelected!)
         searchBar.resignFirstResponder()
         self.performSegue(withIdentifier: "ProfileSeg", sender: self)
     }
@@ -67,7 +64,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     // Sets the content within each table row cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let userRow = userTableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! UserCell
-        //if searching then retunr the results
+        /// If searching then return the results.
         if (searching) {
             userRow.name?.text = searchingResult[indexPath.row].name
             userRow.username?.text = searchingResult[indexPath.row].username
@@ -88,15 +85,15 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     //search bar filters based on input
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //if searching for @username or name
-        if(searchText.count == 0){
+        if(searchText.count == 0) {
             searching = false
             userTableView.reloadData()
             return
         }
         var searchR = searchText
-        if(searchText[searchText.startIndex] == "@" && searchText.count > 1){
+        if(searchText[searchText.startIndex] == "@" && searchText.count > 1) {
             searchR.removeFirst()
-            if(searchR.count == 0){
+            if(searchR.count == 0) {
                 searchR = ""
             }
             searchingResult = users.filter({$0.username.lowercased().contains( searchR.lowercased()) })
@@ -116,15 +113,14 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     // Sets the height of each table cell
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
     }
     
     // Changes the shape of each profile image into a circle
     func circularImg(imageView: UIImageView?)
     {
-        imageView?.layer.cornerRadius = (imageView?.frame.height ?? 40.0)/2.0
+        imageView?.layer.cornerRadius = (imageView?.frame.height ?? 40.0) / 2.0
     }
     
     // Converts a URL to an image
@@ -150,12 +146,12 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "ProfileSeg"){
+        if(segue.identifier == "ProfileSeg") {
             isComplete = false
             if let nextViewController = segue.destination as? FindPeopleProfileViewController {
-                if(searching){
+                if(searching) {
                     nextViewController.user = searchingResult[RowSelected!]
-                }else{
+                } else {
                     nextViewController.user = users[RowSelected!]
                 }
             }
@@ -163,7 +159,7 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if(identifier == "ProfileSeg"){
+        if (identifier == "ProfileSeg") {
             return isComplete
         }
         return true
