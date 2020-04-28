@@ -172,6 +172,18 @@ class VoyceTabBar: UIView, GADRewardedAdDelegate
         return rewardedAd!
     }
     
+    
+    public func goToFeed(){
+        feedButton.setImage(feedSelected, for: UIControl.State.normal)
+        adButton.setImage(ad, for: UIControl.State.normal)
+        addPostButton.setImage(addPost, for: UIControl.State.normal)
+        findPeopleButton.setImage(findPeople, for: UIControl.State.normal)
+        profileButton.setImage(profile, for: UIControl.State.normal)
+        guard let tab = Tab(rawValue: 0) else { return }
+        showTab(tab)
+    }
+    
+    
     /// Tells the delegate that the user earned a reward.
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
         print("Reward received with currency: \(reward.type), amount \(reward.amount).")
