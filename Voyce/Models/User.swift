@@ -86,7 +86,7 @@ public class User
     init(user: FirebaseAuth.User) {
         self.userID = user.uid
         self.name = user.displayName!
-        self.username = ""
+        self.username = user.displayName!.lowercased().removeWhitespace()
         self.totalVibes = 0
         self.earnedVibes = 0
         self.adVibes = 0
@@ -236,4 +236,14 @@ public class User
     {
         return self.fundingSource != ""
     }
+}
+
+extension String {
+  func replace(string:String, replacement:String) -> String {
+      return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
+  }
+
+  func removeWhitespace() -> String {
+      return self.replace(string: " ", replacement: "")
+  }
 }
