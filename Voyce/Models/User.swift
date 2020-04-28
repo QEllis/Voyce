@@ -24,7 +24,6 @@ public class User
             "earnedVibes": earnedVibes,
             "totalVibes": totalVibes,
             "profilePic": profilePic,
-            "earnedVibes": earnedVibes,
             "fundingSource": fundingSource
         ]
     }

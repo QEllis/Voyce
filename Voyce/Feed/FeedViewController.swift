@@ -62,7 +62,7 @@ class FeedViewController: UIViewController
                     card.alpha = 0 })
                 
                 /// Remove card and load a new one.
-                DatabaseManager.shared.postSeen(postID: card.post!.postID, userID: card.post!.userID)
+//                DatabaseManager.shared.postSeen(postID: card.post!.postID, userID: card.post!.userID)
                 card.removeFromSuperview()
                 
                 /// Play video of top card (if exists and has postType: video).

@@ -38,11 +38,11 @@ class StartUpViewController: UIViewController, FUIAuthDelegate {
         authUI?.providers = providers
     }
     
-    //loads user data
+    /// Loads user data.
     public func loadData()
     {
         let user = Auth.auth().currentUser
-        
+
         userManager.sharedUser = User.init(user: user!)
         let collection = userManager.db.collection("users")
         let userDoc = collection.document(user!.uid)
@@ -50,16 +50,15 @@ class StartUpViewController: UIViewController, FUIAuthDelegate {
             if let document = document, document.exists
             {
                 userManager.sharedUser.loadUserData(document: document)
-                
                 self.navigateToFeed()
             }
             else
             {
                 userDoc.setData(userManager.sharedUser.dictionary)
                 print("User does not exist yet. New user added to database.", user!.uid)
+                self.loadData()
             }
         }
-//        userManager.userLogin(u: user!)
 
         // Loads user table for FindPeopleViewController Page
         DatabaseManager.shared.loadOtherUsers()
