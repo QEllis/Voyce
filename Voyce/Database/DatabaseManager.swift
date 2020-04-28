@@ -234,16 +234,18 @@ class DatabaseManager
         self.addPost(post: post)
     }
     
-    public func uploadVideo(videoURL: URL, caption: String){
-        let fileName = NSUUID().uuidString + ".mov"
-        // Data in memory
+    public func uploadVideo(videoURL: String, caption: String){
         let data = Data()
-        // Create a reference to the file you want to upload
+
+        let loc = URL(string: videoURL)!
+        //let loc = URL(string: "file:///Users/Matt/Library/Developer/CoreSimulator/Devices/DBB95A2E-B5CF-4CB5-92CD-C28291F5C827/data/Containers/Data/PluginKitPlugin/3C5C04F8-98B4-471E-A9E0-02491DC88FC9/tmp/trim.3F44E645-8D06-47FC-A272-909C8ED98E3F.MOV")!;
+        let fileName = NSUUID().uuidString + ".mp4"
         let riversRef = Storage.storage().reference().child(fileName)
-        let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
+        
+        
+        let uploadTask = riversRef.putFile(from: loc, metadata: nil) { metadata, error in
           guard let metadata = metadata else {
-            // Uh-oh, an error occurred!
-            print("error happened")
+            print("error occured")
             return
           }
           // Metadata contains file metadata such as size, content-type.
@@ -251,7 +253,7 @@ class DatabaseManager
           // You can also access to download URL after upload.
           riversRef.downloadURL { (url, error) in
             guard let downloadURL = url else {
-              print("error happened")
+              // Uh-oh, an error occurred!
               return
             }
             self.createPost(contentURL: downloadURL.absoluteString, postType: "video", caption: caption)

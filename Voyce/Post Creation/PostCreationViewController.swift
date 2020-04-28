@@ -123,15 +123,19 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         //var post = Post()
         //it is a text post
         if (postSegmentedControl.selectedSegmentIndex == 0) {
-            let caption = textView.text!
-            DatabaseManager.shared.createPost(contentURL: "", postType: "text", caption: caption)
+            let text = textView.text!
+            let caption = imageCaption.text!
+            DatabaseManager.shared.createPost(contentURL: text, postType: "text", caption: caption)
         } else if (postSegmentedControl.selectedSegmentIndex == 1) { // image post
             DatabaseManager.shared.uploadImage(image: postImage, choice: 2, caption: imageCaption.text!);
         } else { //video post
             if let video = videoToUpload {
-                DatabaseManager.shared.uploadVideo(videoURL: videoToUpload!, caption: imageCaption.text!)
+                DatabaseManager.shared.uploadVideo(videoURL: videoToUpload!.absoluteString, caption: imageCaption.text!)
             }
         }
+        let feedSelected = UIImage(named: "Feed Selected")
+        let tabBar = (self.tabBarController as? VoyceTabBarViewController)!.voyceTabBar as? VoyceTabBar
+        tabBar?.goToFeed()
     }
     
     @IBAction func backPressed(_ sender: Any) {
