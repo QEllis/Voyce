@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         usernameLabel.text = "@" + user.username
         vibesLabel.text = "Total Vibes: \(user.totalVibes)"
         
-        profileImage.image = URLToImg(URL(string: user.profilePic))
+        profileImage.image = user.profilePic == "" ? UIImage(named: "Profile") : URLToImg(URL(string: user.profilePic))
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageClick)))
         profileImage.isUserInteractionEnabled = true
