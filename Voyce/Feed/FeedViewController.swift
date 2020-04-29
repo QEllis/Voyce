@@ -16,16 +16,18 @@ class FeedViewController: UIViewController
     @IBOutlet var noMorePosts: UIStackView!
     
     /// Called after the controller's view is loaded into memory.
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
         addCard(first: true) /// Add first card.
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(animated)
-        
+        print("User ID in Feed \(DatabaseManager.shared.sharedUser.userID)")
         DatabaseManager.shared.db.collection("users").document(DatabaseManager.shared.sharedUser.userID).addSnapshotListener() { documentSnapshot, error in
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")

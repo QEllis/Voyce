@@ -58,8 +58,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     /// Loads user data.
     public func loadData()
     {
+        userManager.resetData()
         let user = Auth.auth().currentUser
-
         userManager.sharedUser = User.init(user: user!)
         let collection = userManager.db.collection("users")
         let userDoc = collection.document(user!.uid)

@@ -16,7 +16,7 @@ import FirebaseFirestoreSwift
 
 class DatabaseManager
 {
-    static var shared = DatabaseManager()
+    static let shared = DatabaseManager()
     var sharedUser: User
     var db: Firestore
     var storage: Storage
@@ -25,7 +25,6 @@ class DatabaseManager
     var vibeConversionRate: Double
     var myPosts: [Post]
     var comments: [Comment]
-    
     init()
     {
         sharedUser = User.init()
@@ -57,6 +56,16 @@ class DatabaseManager
             
         }
         setVibeConversionRate()
+    }
+    
+    // Resets data inside the database manager when another user in
+    func resetData()
+    {
+        self.otherUsers = []
+        self.index = 0
+        self.vibeConversionRate = 0.0
+        self.myPosts = []
+        self.comments = []
     }
     
     // Gets the vibeconversion rate from the database
@@ -204,7 +213,8 @@ class DatabaseManager
                     for document in querySnapshot!.documents
                     {
                         let uid = document.documentID
-                        if uid != self.sharedUser.userID {
+                        if uid != self.sharedUser.userID
+                        {
                             let name = document.get("name") as! String
                             let username = document.get("username") as! String
                             let adVibes = document.get("adVibes") as! Int
