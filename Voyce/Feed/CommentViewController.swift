@@ -133,8 +133,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
                 let profilePic = data!["profilePic"] as! String
                 let username = data!["username"] as! String
                 
-                let profilePicURL = URL(string: profilePic)
-                cell.profilePic.image = self.URLToImg(profilePicURL)
+                cell.profilePic.image = profilePic == "" ? UIImage(named: "Profile") : self.URLToImg(URL(string: profilePic))
                 self.circularImg(imageView: cell.profilePic)
                 cell.username.text = username
             } else {
