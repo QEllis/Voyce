@@ -36,7 +36,6 @@ class DatabaseManager
         vibeConversionRate = 0.0
         myPosts = []
         comments = []
-        
         db.collection("posts").whereField("userID", isEqualTo: sharedUser.userID).getDocuments() { querySnapshot, error in
             if let error = error {
                 print("Error getting documents: \(error)")
@@ -51,7 +50,6 @@ class DatabaseManager
                     let content = data["content"] as! String
                     let vibes = data["vibes"] as! Int
                     let caption = data["caption"] as! String
-                    
                     let post = Post(pid: postID, userID: userID, date: date, postType: postType, content: content, vibes: vibes, caption: caption)
                     self.myPosts.append(post)
                 }

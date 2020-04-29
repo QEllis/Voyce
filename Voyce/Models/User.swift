@@ -86,7 +86,7 @@ public class User
     init(user: FirebaseAuth.User) {
         self.userID = user.uid
         self.name = user.displayName!
-        self.username = ""
+        self.username = getUserName(name: self.name)
         self.totalVibes = 0
         self.earnedVibes = 0
         self.adVibes = 0
@@ -236,4 +236,27 @@ public class User
     {
         return self.fundingSource != ""
     }
+}
+
+// Returns a default username based on the user's name
+// external method because it is called before the object is initialized
+func getUserName(name: String) -> String
+{
+   var userName = ""
+   let names = name.split(separator: " ")
+   if names.count == 0
+   {
+       userName = "Nil"
+   }
+   else if names.count == 1
+   {
+       userName = name
+   }
+   else
+   {
+       let firstName = names[0]
+       let firstChar = firstName[firstName.startIndex]
+       userName = String(firstChar) + names[1]
+   }
+   return userName
 }
