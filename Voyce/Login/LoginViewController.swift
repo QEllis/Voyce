@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
             if let document = document, document.exists
             {
                 userManager.sharedUser.loadUserData(document: document)
-
+                DatabaseManager.shared.loadOtherUsers()
                 let vc = UIStoryboard(name: "Root", bundle: nil).instantiateViewController(withIdentifier: "VoyceTabBarVC")
                 self.navigationController?.pushViewController(vc, animated: true)
             }
@@ -78,9 +78,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 self.loadData()
             }
         }
-
-        // Loads user table for FindPeopleViewController Page
-        DatabaseManager.shared.loadOtherUsers()
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool

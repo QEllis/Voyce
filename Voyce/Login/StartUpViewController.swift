@@ -50,6 +50,7 @@ class StartUpViewController: UIViewController, FUIAuthDelegate {
             if let document = document, document.exists
             {
                 userManager.sharedUser.loadUserData(document: document)
+                DatabaseManager.shared.loadOtherUsers()
                 self.navigateToFeed()
             }
             else
@@ -59,9 +60,6 @@ class StartUpViewController: UIViewController, FUIAuthDelegate {
                 self.loadData()
             }
         }
-
-        // Loads user table for FindPeopleViewController Page
-        DatabaseManager.shared.loadOtherUsers()
     }
     
     //navigate user to feed if user is signed in
