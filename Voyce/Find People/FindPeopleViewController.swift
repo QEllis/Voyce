@@ -68,14 +68,14 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
         if (searching) {
             userRow.name?.text = searchingResult[indexPath.row].name
             userRow.username?.text = searchingResult[indexPath.row].username
-            userRow.profileImage?.image = URLToImg(URL(string: searchingResult[indexPath.row].profilePic))
+            userRow.profileImage?.image = searchingResult[indexPath.row].profilePic == "" ? UIImage(named: "Profile") : URLToImg(URL(string: searchingResult[indexPath.row].profilePic))
             circularImg(imageView: userRow.profileImage.self)
             userRow.selectionStyle = UITableViewCell.SelectionStyle.none
             
         } else {
             userRow.name?.text = users[indexPath.row].name
             userRow.username?.text = users[indexPath.row].username
-            userRow.profileImage?.image = URLToImg(URL(string: users[indexPath.row].profilePic))
+            userRow.profileImage?.image = users[indexPath.row].profilePic == "" ? UIImage(named: "Profile") : URLToImg(URL(string: users[indexPath.row].profilePic))
             circularImg(imageView: userRow.profileImage.self)
             userRow.selectionStyle = UITableViewCell.SelectionStyle.none
         }
