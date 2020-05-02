@@ -32,6 +32,7 @@ extension Date {
     
     /// Returns time since a date.
     /// Adapted this code from a user on stackoverflow (https://stackoverflow.com/questions/44086555/swift-display-time-ago-from-date-nsdate)
+    
     /// Can change the output if wanted.
     func timeSincePost(timeAgo: String) -> String {
         let df = DateFormatter()
@@ -41,24 +42,18 @@ extension Date {
         
         let interval = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateWithTime!, to: Date())
         
-        //              if let year = interval.year, year > 0 {
-        //                  return year == 1 ? "\(year)" + " " + "year ago" : "\(year)" + " " + "years ago"
-        //              } else if let month = interval.month, month > 0 {
-        //                  return month == 1 ? "\(month)" + " " + "month ago" : "\(month)" + " " + "months ago"
-        //              } else
-        if interval.day ?? 0 <= 7 {
-            if let day = interval.day, day > 0 {
-                return day >= 1 ? "\(day)" + " " + "days ago" : "\(day)" + " " + "day ago"
-            } else if let hour = interval.hour, hour > 0 {
-                return hour == 1 ? "\(hour)" + " " + "hours ago" : "\(hour)" + " " + "hour ago"
-            } else if let minute = interval.minute, minute > 0 {
-                return minute == 1 ? "\(minute)" + " " + "minutes ago" : "\(minute)" + " " + "minute ago"
-            } else if let second = interval.second, second > 0 {
-                return second == 1 ? "\(second)" + " " + "seconds ago" : "\(second)" + " " + "second ago"
-            } else {
-                return "a moment ago"
-            }
+        if let day = interval.day, day > 7 {
+            return ""//return month == 1 ? "\(month)" + " " + "month ago" : "\(month)" + " " + "months ago"
+        } else if let day = interval.day, day > 0 {
+            return day >= 1 ? "\(day)" + " " + "days ago" : "\(day)" + " " + "day ago"
+        } else if let hour = interval.hour, hour > 0 {
+            return hour == 1 ? "\(hour)" + " " + "hours ago" : "\(hour)" + " " + "hour ago"
+        } else if let minute = interval.minute, minute > 0 {
+            return minute == 1 ? "\(minute)" + " " + "minutes ago" : "\(minute)" + " " + "minute ago"
+        } else if let second = interval.second, second > 0 {
+            return second == 1 ? "\(second)" + " " + "seconds ago" : "\(second)" + " " + "second ago"
+        } else {
+            return "a moment ago"
         }
-        return ""
     }
 }
