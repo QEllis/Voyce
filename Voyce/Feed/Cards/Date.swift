@@ -31,9 +31,6 @@ extension Date {
     }
     
     /// Returns time since a date.
-    /// Adapted this code from a user on stackoverflow (https://stackoverflow.com/questions/44086555/swift-display-time-ago-from-date-nsdate)
-    
-    /// Can change the output if wanted.
     func timeSincePost(timeAgo: String) -> String {
         let df = DateFormatter()
         
