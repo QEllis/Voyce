@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,6 +19,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygM-30-qSH">
                                 <rect key="frame" x="10" y="105" width="394" height="686"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RF1-cg-ARJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="465"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap to add text!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-9u-AkT">
                                         <rect key="frame" x="20" y="50" width="354" height="385"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,16 +65,13 @@
                                             <action selector="postPressed:" destination="CA0-EX-7NZ" eventType="touchUpInside" id="aZH-nC-koi"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RF1-cg-ARJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="686"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="Dark Red"/>
                                 <constraints>
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="leading" secondItem="ygM-30-qSH" secondAttribute="leading" constant="20" id="1io-QG-Fwu"/>
                                     <constraint firstItem="gYL-lD-qYy" firstAttribute="top" secondItem="VMi-9u-AkT" secondAttribute="bottom" constant="50" id="3MQ-N2-otr"/>
                                     <constraint firstItem="VMi-9u-AkT" firstAttribute="leading" secondItem="ygM-30-qSH" secondAttribute="leading" constant="20" id="51h-k9-GFI"/>
+                                    <constraint firstItem="gYL-lD-qYy" firstAttribute="top" secondItem="RF1-cg-ARJ" secondAttribute="bottom" constant="20" id="AMk-Kf-gZZ"/>
                                     <constraint firstAttribute="trailing" secondItem="VMi-9u-AkT" secondAttribute="trailing" constant="20" id="GMc-Nx-S5H"/>
                                     <constraint firstAttribute="trailing" secondItem="9VQ-nP-WIx" secondAttribute="trailing" constant="20" id="J6s-cS-Hew"/>
                                     <constraint firstItem="RF1-cg-ARJ" firstAttribute="top" secondItem="ygM-30-qSH" secondAttribute="top" id="KEL-kD-ajG"/>
@@ -81,7 +81,6 @@
                                     <constraint firstItem="F7m-19-BTT" firstAttribute="centerX" secondItem="ygM-30-qSH" secondAttribute="centerX" id="ejt-Bq-EOS"/>
                                     <constraint firstItem="RF1-cg-ARJ" firstAttribute="leading" secondItem="ygM-30-qSH" secondAttribute="leading" id="jTy-Dz-ktu"/>
                                     <constraint firstAttribute="bottom" secondItem="9VQ-nP-WIx" secondAttribute="bottom" constant="20" id="lbw-eU-Eqp"/>
-                                    <constraint firstAttribute="bottom" secondItem="RF1-cg-ARJ" secondAttribute="bottom" id="oa4-d4-uma"/>
                                     <constraint firstItem="F7m-19-BTT" firstAttribute="top" secondItem="gYL-lD-qYy" secondAttribute="bottom" constant="50" id="rvc-qZ-Yzf"/>
                                     <constraint firstAttribute="trailing" secondItem="gYL-lD-qYy" secondAttribute="trailing" constant="20" id="vfT-zs-3EU"/>
                                 </constraints>
@@ -120,7 +119,7 @@
                                         <rect key="frame" x="119.66666666666669" y="0.0" width="175" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Fjx-VT-YJ4">
-                                                <rect key="frame" x="-253.66666666666669" y="0.0" width="682" height="50"/>
+                                                <rect key="frame" x="-83.333333333333343" y="0.0" width="341.33333333333337" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="udp-Sd-W8c"/>
                                                 </constraints>

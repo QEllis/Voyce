@@ -13,6 +13,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
+
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyPostTableViewCellDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate
 {
     // Member Variables
@@ -37,30 +38,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MyPostTableViewCell", bundle: nil), forCellReuseIdentifier: "MyPostCell")
         NotificationCenter.default.addObserver(self, selector: #selector(newPosts), name: .NewPosts, object: nil)
-        nameLabel.text = user.name
-        usernameLabel.text = "@" + user.username
-        vibesLabel.text = "Total Vibes: \(user.totalVibes)"
+        loadData()
         
-        profileImage.image = user.profilePic == "" ? UIImage(named: "Profile") : URLToImg(URL(string: user.profilePic))
-        profileImage.translatesAutoresizingMaskIntoConstraints = false
-        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageClick)))
-        profileImage.isUserInteractionEnabled = true
-        profileImage.contentMode = .scaleAspectFit
-        //profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
-        //profileImage.clipsToBounds = true
-        profileImage?.layer.cornerRadius = (profileImage?.frame.height ?? 40.0)/2.0
-        
-        transferVibes.layer.borderWidth = 1
-        transferVibes.layer.cornerRadius = 15
-        transferVibes.layer.borderColor = UIColor(named: "Text - Body")?.cgColor
-        
-        adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
     }
     
-    override func viewDidAppear(_ animated: Bool)
-    {
-        loadTextFields()
+    override func viewDidAppear(_ animated: Bool){
         tableView.reloadData()
+        
+        user.updateTotalVibes(){
+            self.vibesLabel.text = "Total Vibes: \(self.user.totalVibes)"
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,16 +61,30 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    private func loadTextFields()
-    {
-        print("Loaded Text Fields")
-        print("\(DatabaseManager.shared.sharedUser.totalVibes)")
+    private func loadData(){
+        
+
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.username
-        vibesLabel.text = "Total Vibes: \(user.totalVibes)"
-        print(usernameLabel.text ?? "none")
-        print(vibesLabel.text ?? "none")
-        print("users'ad vibes are \(DatabaseManager.shared.sharedUser.adVibes)")
+
+        
+        profileImage.image = user.profilePic == "" ? UIImage(named: "Profile") : URLToImg(URL(string: user.profilePic))
+        
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageClick)))
+        profileImage.isUserInteractionEnabled = true
+        profileImage.contentMode = .scaleAspectFit
+        //profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        //profileImage.clipsToBounds = true
+        profileImage?.layer.cornerRadius = (profileImage?.frame.height ?? 40.0)/2.0
+        
+        transferVibes.layer.borderWidth = 1
+        transferVibes.layer.cornerRadius = 15
+        transferVibes.layer.borderColor = UIColor(named: "Text - Body")?.cgColor
+        adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
+        
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
