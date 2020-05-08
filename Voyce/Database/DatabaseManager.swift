@@ -88,9 +88,24 @@ class DatabaseManager
         }
     }
     
+    public func loadUser(){
+        let collection = db.collection("users")
+        let userDoc = collection.document(sharedUser.userID)
+        userDoc.getDocument { (document, error) in
+            if let document = document, document.exists
+            {
+                self.sharedUser.loadUserData(document: document)
+            }
+            else
+            {
+                userDoc.setData(self.sharedUser.dictionary)
+                print("User does not exist yet. New user added to database.",self.sharedUser.userID)
+            }
+        }
+    }
+    
     /// Called when the user logs in.
-    public func userLogin(u: FirebaseAuth.User)
-    {
+    public func userLogin(u: FirebaseAuth.User){
         sharedUser = User.init(user: u)
         
         //avoid nil

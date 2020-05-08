@@ -185,6 +185,23 @@ public class User
        }
     }
     
+    func updateTotalVibes(onSuccess: @escaping () -> Void)
+    {
+        let docRef = DatabaseManager.shared.db.collection("users").document(userID)
+        docRef.getDocument
+           { (document, error) in
+           if let document = document, document.exists{
+                print(self.totalVibes)
+                self.totalVibes = document.get("totalVibes") as! Int
+                print(self.totalVibes)
+                onSuccess()
+            
+           }else{
+               print("Document does not exist")
+           }
+       }
+    }
+    
     // Note: Can't replace inner code with updateEarnedVibes() since it will check
     // self.earnedVibes before function has completed. Async Functions need to be updated
     // by returning future/promise or callback function.

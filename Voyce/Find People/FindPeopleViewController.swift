@@ -91,17 +91,6 @@ class FindPeopleViewController: UIViewController, UITableViewDataSource, UITable
             return
         }
         var searchR = searchText
-        /*
-        if(searchText[searchText.startIndex] == "@" && searchText.count > 1) {
-            searchR.removeFirst()
-            if(searchR.count == 0) {
-                searchR = ""
-            }
-            searchingResult = users.filter({$0.username.lowercased().contains( searchR.lowercased()) })
-        } else {
-                    searchingResult = users.filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        }
-         */
     searchingResult = users.filter({$0.username.lowercased().contains( searchR.lowercased())  || $0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         userTableView.reloadData()
