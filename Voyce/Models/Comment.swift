@@ -73,5 +73,9 @@ public class Comment
         
         let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID).collection("comments").document(commentID)
         sharedRef.updateData(["vibes": FieldValue.increment(Int64(vibes))])
+        
+        let userRef = DatabaseManager.shared.db.collection("users").document(userID)
+        userRef.updateData(["totalVibes": FieldValue.increment(Int64(vibes))])
+        userRef.updateData(["earnedVibes": FieldValue.increment(Int64(vibes))])
     }
 }

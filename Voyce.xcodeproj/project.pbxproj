@@ -49,6 +49,7 @@
 		E18CDE19243A47E5009F579F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CDE16243A47E5009F579F /* LoginViewController.swift */; };
 		E1A5FD952433AA6D00FA911A /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5FD942433AA6D00FA911A /* CommentViewController.swift */; };
 		E1A99ACC24426150000F6D8F /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A99ACB24426150000F6D8F /* CommentCell.swift */; };
+		E1EEB7092466026C0015457A /* CommentVibe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EEB7082466026C0015457A /* CommentVibe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		E1A5FD8C2433A98600FA911A /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		E1A5FD942433AA6D00FA911A /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		E1A99ACB24426150000F6D8F /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		E1EEB7082466026C0015457A /* CommentVibe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVibe.swift; sourceTree = "<group>"; };
 		FBADAFE5BC8ED6D6CCC75F46 /* Pods_Voyce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voyce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 		3C2EEEA023327BD6009098D5 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				E1EEB7082466026C0015457A /* CommentVibe.swift */,
 				3C62D8DF2333CFF800627FFB /* Cards */,
 				3C2EEEA323327C1A009098D5 /* FeedViewController.swift */,
 				E1A5FD8C2433A98600FA911A /* Feed.storyboard */,
@@ -445,6 +448,7 @@
 				C9F7F6AC244BC206007A62DD /* FindPeopleProfileViewController.swift in Sources */,
 				40439DD6244318920002615A /* Date.swift in Sources */,
 				3C2EEE8223327702009098D5 /* AppDelegate.swift in Sources */,
+				E1EEB7092466026C0015457A /* CommentVibe.swift in Sources */,
 				0E6B21D7243193D000804734 /* FundsViewController.swift in Sources */,
 				3C55ECBE23688D9400B5738F /* VoyceTabBar.swift in Sources */,
 				3CF41A542344E0060082B6F7 /* PostCreationViewController.swift in Sources */,

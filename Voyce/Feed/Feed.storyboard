@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -73,7 +72,7 @@
                                         <rect key="frame" x="119.66666666666669" y="0.0" width="175" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-0i-QWe">
-                                                <rect key="frame" x="-253.66666666666669" y="0.0" width="682.33333333333337" height="50"/>
+                                                <rect key="frame" x="-424.66666666666669" y="0.0" width="1024.3333333333333" height="50"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="il6-dJ-waV"/>
@@ -229,7 +228,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="nuy-0a-0Jd" secondAttribute="trailing" id="qvu-qt-qVS"/>
                                                     </constraints>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7B-7Q-Ujb">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7B-7Q-Ujb" customClass="CommentVibe" customModule="Voyce" customModuleProvider="target">
                                                     <rect key="frame" x="374" y="15" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="OEh-rG-yxP"/>
@@ -239,12 +238,9 @@
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="vibeButtonClicked:" destination="M7E-08-8EG" eventType="touchUpInside" id="sUE-sF-Mws"/>
-                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQX-KB-eol">
-                                                    <rect key="frame" x="374" y="37.666666666666664" width="0.0" height="0.0"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQX-KB-eol">
+                                                    <rect key="frame" x="374" y="37.666666666666664" width="20" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -263,8 +259,10 @@
                                                 <constraint firstItem="6yK-Ju-0Qq" firstAttribute="leading" secondItem="qS9-y6-AXi" secondAttribute="leading" constant="15" id="23C-PR-qjb"/>
                                                 <constraint firstAttribute="bottom" secondItem="qUB-Gt-95R" secondAttribute="bottom" constant="10" id="Dcd-94-esh"/>
                                                 <constraint firstAttribute="trailing" secondItem="RCv-n5-4gq" secondAttribute="trailing" id="Io0-XO-uhE"/>
+                                                <constraint firstAttribute="trailing" secondItem="oQX-KB-eol" secondAttribute="trailing" constant="20" id="Iqf-q6-zQM"/>
                                                 <constraint firstItem="qUB-Gt-95R" firstAttribute="leading" secondItem="6yK-Ju-0Qq" secondAttribute="trailing" constant="7.5" id="JFR-WT-uwQ"/>
                                                 <constraint firstItem="6yK-Ju-0Qq" firstAttribute="top" secondItem="qS9-y6-AXi" secondAttribute="top" constant="10" id="KdD-WJ-coj"/>
+                                                <constraint firstItem="oQX-KB-eol" firstAttribute="centerX" secondItem="X7B-7Q-Ujb" secondAttribute="centerX" id="PTJ-rb-nHB"/>
                                                 <constraint firstItem="X7B-7Q-Ujb" firstAttribute="leading" secondItem="qUB-Gt-95R" secondAttribute="trailing" constant="10" id="RLU-yD-L3R"/>
                                                 <constraint firstItem="X7B-7Q-Ujb" firstAttribute="top" secondItem="qS9-y6-AXi" secondAttribute="top" constant="15" id="W0t-kc-LgS"/>
                                                 <constraint firstItem="oQX-KB-eol" firstAttribute="leading" secondItem="qUB-Gt-95R" secondAttribute="trailing" constant="10" id="apV-8l-X2d"/>
@@ -321,7 +319,7 @@
                                                         <constraint firstItem="RHk-sg-E3Z" firstAttribute="top" secondItem="GYG-Bj-pPo" secondAttribute="top" id="s4K-Dh-3H5"/>
                                                     </constraints>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o37-8c-HsV">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o37-8c-HsV" customClass="CommentVibe" customModule="Voyce" customModuleProvider="target">
                                                     <rect key="frame" x="374" y="15" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="YFx-kH-Pw4"/>
@@ -332,11 +330,11 @@
                                                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="vibeButtonClicked:" destination="M7E-08-8EG" eventType="touchUpInside" id="dYF-ur-goF"/>
+                                                        <action selector="vibeButtonClicked:" destination="M7E-08-8EG" eventType="touchUpInside" id="FVH-nR-lLt"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrm-uU-uLO">
-                                                    <rect key="frame" x="374" y="37.666666666666664" width="0.0" height="0.0"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrm-uU-uLO">
+                                                    <rect key="frame" x="374" y="37.666666666666664" width="20" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -344,6 +342,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="GYG-Bj-pPo" secondAttribute="bottom" constant="10" id="0ZU-Az-Mh6"/>
+                                                <constraint firstAttribute="trailing" secondItem="Xrm-uU-uLO" secondAttribute="trailing" constant="20" id="2GK-Ab-WEs"/>
                                                 <constraint firstAttribute="bottom" secondItem="wKX-cU-ndx" secondAttribute="bottom" constant="10" id="4ev-Gu-Nof"/>
                                                 <constraint firstItem="GYG-Bj-pPo" firstAttribute="top" secondItem="ui6-kP-Vo6" secondAttribute="top" constant="10" id="6b8-CH-yBc"/>
                                                 <constraint firstItem="o37-8c-HsV" firstAttribute="top" secondItem="ui6-kP-Vo6" secondAttribute="top" constant="15" id="D2F-Oa-BzT"/>
@@ -351,6 +350,7 @@
                                                 <constraint firstItem="GYG-Bj-pPo" firstAttribute="leading" secondItem="wKX-cU-ndx" secondAttribute="trailing" constant="7.5" id="TQR-mR-Nef"/>
                                                 <constraint firstItem="wKX-cU-ndx" firstAttribute="top" secondItem="ui6-kP-Vo6" secondAttribute="top" constant="10" id="VjW-q2-dSc"/>
                                                 <constraint firstAttribute="trailing" secondItem="o37-8c-HsV" secondAttribute="trailing" constant="20" id="aPh-fP-tFu"/>
+                                                <constraint firstItem="Xrm-uU-uLO" firstAttribute="centerX" secondItem="o37-8c-HsV" secondAttribute="centerX" id="cUX-OS-1Ra"/>
                                                 <constraint firstItem="o37-8c-HsV" firstAttribute="leading" secondItem="GYG-Bj-pPo" secondAttribute="trailing" constant="10" id="rIa-hZ-d14"/>
                                                 <constraint firstItem="Xrm-uU-uLO" firstAttribute="top" secondItem="o37-8c-HsV" secondAttribute="bottom" constant="2.5" id="xK5-Bc-P9x"/>
                                                 <constraint firstItem="wKX-cU-ndx" firstAttribute="leading" secondItem="ui6-kP-Vo6" secondAttribute="leading" constant="15" id="ypW-oZ-hzd"/>

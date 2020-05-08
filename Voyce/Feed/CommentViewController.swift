@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import AVKit
 import FirebaseFirestoreSwift
+import Firebase
+import FirebaseAuth
+import FirebaseUI
 
 class CommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate
 {
@@ -96,13 +99,20 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.row == 0 && post.caption != "" {
             getCommenterInfo(cell: cell, userID: post.userID)
+            cell.vibeButton.postID = post.postID
+            cell.vibeButton.userID = post.userID
         } else {
             getCommenterInfo(cell: cell, userID: comment!.userID)
             cell.commentID = comment!.commentID
+            
+            cell.vibeButton.postID = post.postID
+            cell.vibeButton.commentID = comment!.commentID
+            cell.vibeButton.userID = comment!.userID
         }
         
         cell.comment.text = (indexPath.row == 0 && post.caption != "") ? post.caption : comment!.content
         cell.vibeButton.setImage(randomEmoji(), for: .normal)
+        cell.vibeLabel.text = (indexPath.row == 0 && post.caption != "") ? String(post.vibes) : String(comment!.vibes)
         
         return cell
     }
@@ -112,7 +122,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             let index = self.post.caption == "" ? indexPath.row : indexPath.row - 1
             let commentID = DatabaseManager.shared.comments[index].commentID
-        
+            
             DatabaseManager.shared.comments.remove(at: index)
             DatabaseManager.shared.removeComment(postID: self.post.postID, commentID: commentID)
             self.commentFeed.reloadData()
@@ -229,17 +239,32 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func vibeButtonClicked(_ sender: Any) {
         if (DatabaseManager.shared.sharedUser.adVibes > 0) {
-            let comment = (sender as! UIButton)
-//            DatabaseManager.shared.sharedUser.removeAdVibe()
-                // Update vibes in the database
-//                comment.addVibes(vibes: 1)
-//    //            user.addVibes(totalVibes: 1)
-//    //            user?.addVibes(earnedVibes: 1)
-//
-//                // Update UI
-//                vibeButton.text = String(post!.vibes)
-            comment.setImage(randomEmoji(), for: .normal)
+            let comment = (sender as! CommentVibe)
+            let postID = comment.postID
+            let commentID = comment.commentID
+            let userID = comment.userID
+            
+            DatabaseManager.shared.sharedUser.removeAdVibe()
+            
+            if (!commentID.isEmpty || commentID != "") {
+                let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID).collection("comments").document(commentID)
+                sharedRef.updateData(["vibes": FieldValue.increment(Int64(1))])
+                
+            } else {
+                let sharedRef = DatabaseManager.shared.db.collection("posts").document(postID)
+                sharedRef.updateData(["vibes": FieldValue.increment(Int64(1))])
             }
+            
+            
+            let userRef = DatabaseManager.shared.db.collection("users").document(userID)
+            userRef.updateData(["totalVibes": FieldValue.increment(Int64(1))])
+            userRef.updateData(["earnedVibes": FieldValue.increment(Int64(1))])
+            
+            // Update UI
+//            comment.text = String(post!.vibes)
+            comment.setImage(randomEmoji(), for: .normal)
+            commentFeed.reloadData()
+        }
     }
     
     /// Returns a random emoji as UIImage.
