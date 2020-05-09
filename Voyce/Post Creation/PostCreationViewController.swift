@@ -48,6 +48,20 @@ class PostCreationViewController: UIViewController, UITextViewDelegate, UIImageP
         adVibes.text = String(DatabaseManager.shared.sharedUser.adVibes) /// Display current adVibes.
     }
     
+    /// Notifies the view controller that its view is about to be added to a view hierarchy.
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        print("User ID in Feed \(DatabaseManager.shared.sharedUser.userID)")
+        DatabaseManager.shared.db.collection("users").document(DatabaseManager.shared.sharedUser.userID).addSnapshotListener() { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            self.adVibes.text = String(document.data()?["adVibes"] as! Int)
+        }
+    }
+    
     // Removes text field when the background is touched
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
